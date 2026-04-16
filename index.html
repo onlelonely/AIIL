@@ -276,11 +276,25 @@
 
     .hero-title {
       font-family: var(--font-serif);
-      font-size: clamp(2.6rem, 5vw, 4.8rem);
-      line-height: 1.02;
-      letter-spacing: -0.035em;
+      line-height: 1.04;
+      letter-spacing: -0.03em;
       color: var(--color-primary);
-      max-width: 10.5ch;
+      max-width: none;
+      text-wrap: balance;
+    }
+
+    .hero-title .title-line {
+      display: block;
+    }
+
+    html[lang="zh-Hant"] .hero-title {
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      max-width: 7.5em;
+    }
+
+    html[lang="en"] .hero-title {
+      font-size: clamp(2.35rem, 4.25vw, 3.95rem);
+      max-width: 13.25ch;
     }
 
     .hero-lede {
@@ -399,30 +413,16 @@
       font-size: 0.95rem;
     }
 
-    .panel-facts {
-      display: grid;
-      gap: 0.85rem;
+    .panel-invite {
       border-top: 1px solid var(--color-border);
       padding-top: 1rem;
     }
 
-    .panel-fact {
-      display: grid;
-      gap: 0.2rem;
-    }
-
-    .panel-fact-label {
-      font-size: 0.76rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-text-tertiary);
-      font-weight: 700;
-    }
-
-    .panel-fact-value {
-      font-size: 0.96rem;
+    .panel-invite-text {
+      font-family: var(--font-serif);
+      font-size: 1.28rem;
+      line-height: 1.2;
       color: var(--color-primary);
-      font-weight: 600;
     }
 
     .focus-grid,
@@ -673,7 +673,10 @@
     }
 
     .contact-value {
-      font-size: 0.98rem;
+      font-size: 1.08rem;
+      font-weight: 600;
+      line-height: 1.45;
+      word-break: break-word;
       color: var(--color-primary);
     }
 
@@ -735,8 +738,12 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-title {
-        max-width: 14ch;
+      html[lang="zh-Hant"] .hero-title {
+        max-width: 7.2em;
+      }
+
+      html[lang="en"] .hero-title {
+        max-width: 12.6ch;
       }
     }
 
@@ -788,9 +795,14 @@
         width: min(calc(100% - 1.2rem), var(--max-width));
       }
 
-      .hero-title {
-        font-size: clamp(2.15rem, 12vw, 3rem);
-        max-width: 11ch;
+      html[lang="zh-Hant"] .hero-title {
+        font-size: clamp(2.15rem, 12vw, 3.2rem);
+        max-width: 6.8em;
+      }
+
+      html[lang="en"] .hero-title {
+        font-size: clamp(1.9rem, 9.8vw, 2.6rem);
+        max-width: 11.8ch;
       }
 
       .hero-lede {
@@ -836,7 +848,7 @@
         <div class="brand-mark">AIIL</div>
         <div class="brand-text">
           <div class="brand-name">AI-Assisted Immunoinformatics Lab</div>
-          <div class="brand-subtitle" data-i18n="brand.subtitle">NPUST · A new lab in progress</div>
+          <div class="brand-subtitle" data-i18n="brand.subtitle">NPUST · 動物疫苗科技研究所</div>
         </div>
       </a>
 
@@ -867,10 +879,10 @@
   <header class="hero" id="top">
     <div class="section-inner hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow" data-i18n="hero.eyebrow" data-hero>正在建立中的研究室</p>
-        <h1 class="hero-title" data-i18n="hero.title" data-hero>以計算生物學連結獸醫轉譯研究與精準醫療</h1>
-        <p class="hero-lede" data-i18n="hero.lede" data-hero>AI-Assisted Immunoinformatics Lab 是位於國立屏東科技大學、由新進 PI 正在建立中的研究室。</p>
-        <p class="hero-support" data-i18n="hero.support" data-hero>目前的重點不是誇大的規模敘事，而是踏實地把教學、新進計畫與可重複使用的研究流程建立起來，逐步形成可供學生加入與合作開展的研究基礎。</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow" data-hero>用計算生物學</p>
+        <h1 class="hero-title" data-i18n="hero.title" data-hero><span class="title-line">把人類醫學資料</span><span class="title-line">帶進獸醫研究</span></h1>
+        <p class="hero-lede" data-i18n="hero.lede" data-hero>我們以資料驅動的方式找尋獸醫藥物再利用的可能。</p>
+        <p class="hero-support" data-i18n="hero.support" data-hero>成立於 2025 年，目前著重在建立基礎運算設施以及教學，目標是使用人類基因體與轉錄體的研究方法解決獸醫問題。</p>
 
         <div class="hero-actions" data-hero>
           <a href="#focus" class="button button--primary" data-i18n="hero.primary">查看目前重點</a>
@@ -879,16 +891,16 @@
 
         <div class="hero-proof" data-hero>
           <div class="proof-item">
-            <div class="proof-label" data-i18n="hero.proof1.label">目前階段</div>
-            <div class="proof-value" data-i18n="hero.proof1.value">新進 PI / Lab building</div>
+            <div class="proof-label" data-i18n="hero.proof1.label">NSTC</div>
+            <div class="proof-value" data-i18n="hero.proof1.value">第一個計畫啟動</div>
           </div>
           <div class="proof-item">
-            <div class="proof-label" data-i18n="hero.proof2.label">計畫</div>
-            <div class="proof-value" data-i18n="hero.proof2.value">國科會新進計畫</div>
+            <div class="proof-label" data-i18n="hero.proof2.label">Research</div>
+            <div class="proof-value" data-i18n="hero.proof2.value">11 項研究計畫</div>
           </div>
           <div class="proof-item">
-            <div class="proof-label" data-i18n="hero.proof3.label">合作</div>
-            <div class="proof-value" data-i18n="hero.proof3.value">歡迎學生與跨域合作</div>
+            <div class="proof-label" data-i18n="hero.proof3.label">Approach</div>
+            <div class="proof-value" data-i18n="hero.proof3.value">以計算為主</div>
           </div>
         </div>
       </div>
@@ -897,22 +909,11 @@
         <img src="profile.jpg" alt="Li-Hsin Chang">
         <div>
           <div class="panel-title" data-i18n="profile.name">Li-Hsin Chang 張立鑫</div>
-          <div class="panel-role" data-i18n="profile.role">Assistant Professor · Animal Vaccine Technology Research Institute</div>
+          <div class="panel-role" data-i18n="profile.role">Assistant Professor · Graduate Institute of Animal Vaccine Technology</div>
         </div>
-        <p class="panel-note" data-i18n="profile.note">計算生物學、免疫資訊學與轉譯研究的交會點，是這個研究室正在建立的核心。</p>
-        <div class="panel-facts">
-          <div class="panel-fact">
-            <div class="panel-fact-label" data-i18n="profile.fact1.label">Location</div>
-            <div class="panel-fact-value" data-i18n="profile.fact1.value">National Pingtung University of Science and Technology</div>
-          </div>
-          <div class="panel-fact">
-            <div class="panel-fact-label" data-i18n="profile.fact2.label">Current emphasis</div>
-            <div class="panel-fact-value" data-i18n="profile.fact2.value">Teaching, new grant, reproducible workflows</div>
-          </div>
-          <div class="panel-fact">
-            <div class="panel-fact-label" data-i18n="profile.fact3.label">Open to</div>
-            <div class="panel-fact-value" data-i18n="profile.fact3.value">Graduate students and interdisciplinary collaboration</div>
-          </div>
+        <p class="panel-note" data-i18n="profile.note">研究主題從模型跨物種遷移、疫苗資訊學與藥物再利用開始，同時建立一個學生可以循序漸進學習的實驗室。</p>
+        <div class="panel-invite">
+          <p class="panel-invite-text" data-i18n="profile.invite">歡迎碩士生加入，也歡迎跨領域合作。</p>
         </div>
       </aside>
     </div>
@@ -923,26 +924,26 @@
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="focus.label">Current Focus</p>
         <h2 class="section-title" data-i18n="focus.title">研究室第一年的重點</h2>
-        <p class="section-intro" data-i18n="focus.intro">首頁先呈現目前真正投入最多的工作，而不是假裝所有系統都已經成熟。</p>
+        <p class="section-intro" data-i18n="focus.intro">第一年最直接的工作有三塊：教學、第一個 NSTC 計畫，還有支撐其他研究題目的計算基礎設施。</p>
       </div>
 
       <div class="focus-grid">
         <article class="card reveal">
           <div class="card-subtitle" data-i18n="focus.card1.kicker">Teaching</div>
-          <h3 class="card-title" data-i18n="focus.card1.title">備課與教學方法建立</h3>
-          <p class="card-desc" data-i18n="focus.card1.desc">目前投入最多的日常工作是備課與課程設計，持續調整如何把計算生物學與資料分析講得更清楚，也更讓不同背景的學生能進入。</p>
+          <h3 class="card-title" data-i18n="focus.card1.title">教學</h3>
+          <p class="card-desc" data-i18n="focus.card1.desc">現在每天最大一塊時間花在教學。課程從大學部的運算思維，一路延伸到研究所的生物資訊與疫苗研究法，希望把計算與生物資訊實作帶進獸醫相關課程，讓學生有用資料做研究的底子。</p>
         </article>
 
         <article class="card reveal">
           <div class="card-subtitle" data-i18n="focus.card2.kicker">Grant</div>
-          <h3 class="card-title" data-i18n="focus.card2.title">國科會新進計畫</h3>
-          <p class="card-desc" data-i18n="focus.card2.desc">研究室目前最明確的研究主軸來自新獲得的國科會計畫，聚焦以人類 transcriptomic perturbation data 支援伴侶動物疾病的藥物再利用研究。</p>
+          <h3 class="card-title" data-i18n="focus.card2.title">NSTC 一年期計畫</h3>
+          <p class="card-desc" data-i18n="focus.card2.desc">主持一年期國科會計畫（2026.08–2027.07）。以人類藥物基因體學的轉錄體特徵為起點，用同源基因對應與遷移學習，把藥物再利用的策略延伸到伴侶動物疾病，第一個目標是貓瘟病毒（FPV）。</p>
         </article>
 
         <article class="card reveal">
           <div class="card-subtitle" data-i18n="focus.card3.kicker">Workflow</div>
-          <h3 class="card-title" data-i18n="focus.card3.title">研究 workflow 與方法建立</h3>
-          <p class="card-desc" data-i18n="focus.card3.desc">也在建立可重複使用的研究流程，包括文獻整理、資料分析與 AI 輔助的內部研究運作方式，先作為自用 infrastructure，而不是過度包裝為成果。</p>
+          <h3 class="card-title" data-i18n="focus.card3.title">計算基礎設施</h3>
+          <p class="card-desc" data-i18n="focus.card3.desc">以 GPU 工作站為主搭起分析環境，再加上版本控制、資料追蹤（DVC）、實驗紀錄（MLflow），讓分析可重現、可追溯。同時嘗試引入 Agent Harnessx 來與 AI 配合加速研究流程。</p>
         </article>
       </div>
     </div>
@@ -953,51 +954,55 @@
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="research.label">Research Areas</p>
         <h2 class="section-title" data-i18n="research.title">研究方向</h2>
-        <p class="section-intro" data-i18n="research.intro">四個方向延續既有背景與合作基礎，但目前仍以建立清楚可做、可教、可累積的研究主軸為優先。</p>
+        <p class="section-intro" data-i18n="research.intro">研究方向分成四條主軸。短期內先挑能用計算方法推進。</p>
       </div>
 
       <div class="research-grid">
         <article class="card reveal">
           <svg class="card-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2"/><rect x="28" y="28" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2"/><path d="M20 12H28C30.2091 12 32 13.7909 32 16V28" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/><path d="M28 36H20C17.7909 36 16 34.2091 16 32V20" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/></svg>
-          <h3 class="card-title" data-i18n="research.card1.title">跨物種遷移學習</h3>
-          <p class="card-desc" data-i18n="research.card1.desc">把人類免疫學與蛋白質工程中的模型帶到資料稀少的獸醫情境，聚焦跨物種遷移、抗體可開發性與翻譯效率建模。</p>
+          <h3 class="card-title" data-i18n="research.card1.title">跨物種模型遷移與藥物再利用</h3>
+          <p class="card-desc" data-i18n="research.card1.desc">以人類轉錄體與藥物基因體學資料訓練模型，再透過同源基因對應與跨物種遷移，把藥物再利用策略延伸到伴侶動物疾病模型。</p>
           <div class="tag-list">
             <span class="tag">Transfer Learning</span>
-            <span class="tag">Cross-Species</span>
-            <span class="tag">Developability</span>
+            <span class="tag">Drug Repurposing</span>
+            <span class="tag">Ortholog Mapping</span>
+            <span class="tag">Transcriptomics</span>
           </div>
         </article>
 
         <article class="card reveal">
           <svg class="card-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 4V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M24 18V44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="18" r="6" stroke="currentColor" stroke-width="2"/><path d="M18 28H30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 34H30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 40H28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <h3 class="card-title" data-i18n="research.card2.title">疫苗資訊學與蛋白質設計</h3>
-          <p class="card-desc" data-i18n="research.card2.desc">以結構生物學與機器學習支援次世代動物疫苗設計，包含 5'UTR 優化與 AI 輔助的免疫原或蛋白質設計。</p>
+          <h3 class="card-title" data-i18n="research.card2.title">獸醫應用的 De Novo 蛋白質設計</h3>
+          <p class="card-desc" data-i18n="research.card2.desc">用 RFdiffusion、BindCraft 這類 AI 蛋白質設計工具，嘗試做獸醫診斷與治療用的新結合子，目前還在概念驗證階段。</p>
           <div class="tag-list">
-            <span class="tag">Vaccine Informatics</span>
-            <span class="tag">5'UTR</span>
-            <span class="tag">Protein Design</span>
+            <span class="tag">De Novo Protein Design</span>
+            <span class="tag">Binder Design</span>
+            <span class="tag">Computational Biology</span>
+            <span class="tag">Veterinary Diagnostics</span>
           </div>
         </article>
 
         <article class="card reveal">
           <svg class="card-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="8" stroke="currentColor" stroke-width="2"/><circle cx="34" cy="14" r="8" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="34" r="8" stroke="currentColor" stroke-width="2"/><path d="M20 18V28" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"/><path d="M28 18V28" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"/><path d="M22 12H26" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"/></svg>
-          <h3 class="card-title" data-i18n="research.card3.title">數據驅動藥物再利用</h3>
-          <p class="card-desc" data-i18n="research.card3.desc">從人類藥物擾動轉錄體資料出發，結合 cross-species mapping 與 ADMET 篩選，探索伴侶動物疾病的藥物再利用。</p>
+          <h3 class="card-title" data-i18n="research.card3.title">總體基因體學分析方法建立</h3>
+          <p class="card-desc" data-i18n="research.card3.desc">嘗試客製化分析方式，克服田野樣本中常見的檢體純度不足、宿主細胞干擾與訊號稀薄等問題，讓 metagenomics 資料在實際樣本中更可用。</p>
           <div class="tag-list">
-            <span class="tag">Connectivity Map</span>
-            <span class="tag">Transcriptomics</span>
-            <span class="tag">ADMET</span>
+            <span class="tag">Metagenomics</span>
+            <span class="tag">Field Samples</span>
+            <span class="tag">Host Contamination</span>
+            <span class="tag">Custom Pipelines</span>
           </div>
         </article>
 
         <article class="card reveal">
           <svg class="card-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="8" width="36" height="32" rx="3" stroke="currentColor" stroke-width="2"/><path d="M6 16H42" stroke="currentColor" stroke-width="2"/><path d="M14 24H34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 30H28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 36H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="38" cy="34" r="6" stroke="currentColor" stroke-width="2"/><path d="M36 34L38 36L41 32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3 class="card-title" data-i18n="research.card4.title">人類資料合作與精準醫療</h3>
-          <p class="card-desc" data-i18n="research.card4.desc">延續與醫學中心的人類資料合作，涵蓋生物庫、癌症轉錄體與 precision medicine 問題，作為跨物種轉譯研究的比較與方法來源。</p>
+          <h3 class="card-title" data-i18n="research.card4.title">人類數據合作與精準醫學</h3>
+          <p class="card-desc" data-i18n="research.card4.desc">目前使用台灣人體生物資料庫（TWB）、國家級人體生物資料庫整合平台（NBCT）與健保資料庫，並與北榮、國衛院、高醫及業界合作，進行癌症風險預測、罕見遺傳疾病辨識與 NGS 資料庫建置等研究。</p>
           <div class="tag-list">
-            <span class="tag">Biobank</span>
-            <span class="tag">Transcriptomics</span>
             <span class="tag">Precision Medicine</span>
+            <span class="tag">Polygenic Risk Scores</span>
+            <span class="tag">Cancer Genomics</span>
+            <span class="tag">Real-World Data</span>
           </div>
         </article>
       </div>
@@ -1008,46 +1013,51 @@
     <div class="section-inner">
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="work.label">Selected Work & New Grant</p>
-        <h2 class="section-title" data-i18n="work.title">計畫與代表成果</h2>
-        <p class="section-intro" data-i18n="work.intro">這一區把「正在建立的研究主軸」與「先前已累積的證據」分開呈現，避免把不同階段的成果混成同一種敘事。</p>
+        <h2 class="section-title" data-i18n="work.title">目前的計畫與延續中的成果</h2>
+        <p class="section-intro" data-i18n="work.intro">這一區整理目前實驗室正在推進的工作，以及持續中的合作與成果。</p>
       </div>
 
       <div class="work-grid">
         <div class="panel reveal">
-          <h3 class="panel-heading" data-i18n="work.panel1.title">目前建立中的主軸</h3>
-          <p class="panel-copy" data-i18n="work.panel1.copy">第一年的重點是把新計畫與研究室運作的基本盤建立起來，讓教學、研究與學生訓練能夠互相支撐。</p>
+          <h3 class="panel-heading" data-i18n="work.panel1.title">實驗室目前的產出</h3>
+          <p class="panel-copy" data-i18n="work.panel1.copy">現在的主要產出有三項：NSTC 計畫、抗體 developability 預測，以及支撐多個題目的計算研究基礎設施。</p>
           <div class="panel-list">
             <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel1.item1.meta">2026 · PI</div>
-              <div class="item-title" data-i18n="work.panel1.item1.title">國科會新進計畫</div>
-              <p class="item-desc" data-i18n="work.panel1.item1.desc">從人類 transcriptomic perturbation data 出發，建立可用於伴侶動物抗病毒研究的跨物種藥物再利用框架。</p>
+              <div class="item-meta" data-i18n="work.panel1.item1.meta">2026.08–2027.07 · NSTC-funded · Phase 0</div>
+              <div class="item-title" data-i18n="work.panel1.item1.title">跨物種藥物轉錄體學模型遷移與伴侶動物藥物再利用</div>
+              <p class="item-desc" data-i18n="work.panel1.item1.desc">從人類藥物擾動轉錄體資料庫出發，用同源基因對應與通路活性特徵搭出跨物種保守性矩陣，第一個目標是貓瘟病毒（FPV）。</p>
             </article>
             <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel1.item2.meta">Current buildout</div>
-              <div class="item-title" data-i18n="work.panel1.item2.title">研究室第一年的建立重點</div>
-              <p class="item-desc" data-i18n="work.panel1.item2.desc">把教學、文獻整理、資料分析與可重複使用的 computational workflow 整合成可讓學生逐步加入的研究基礎。</p>
+              <div class="item-meta" data-i18n="work.panel1.item2.meta">Higher Education Sprout Project · 論文撰寫中</div>
+              <div class="item-title" data-i18n="work.panel1.item2.title">H2M-ValiPred：跨物種抗體可開發性預測</div>
+              <p class="item-desc" data-i18n="work.panel1.item2.desc">用 ESM-2 蛋白質語言模型的嵌入加上物理化學特徵，預測抗體可開發性指標；資料集有 881 個抗體與 13 項分析。</p>
+            </article>
+            <article class="list-item">
+              <div class="item-meta" data-i18n="work.panel1.item3.meta">Internal infrastructure</div>
+              <div class="item-title" data-i18n="work.panel1.item3.title">GPU 工作站、DVC 與 MLflow</div>
+              <p class="item-desc" data-i18n="work.panel1.item3.desc">建好版本控制、資料追蹤與實驗紀錄的流程，讓多個研究題目都有可重現的分析底盤。</p>
             </article>
           </div>
         </div>
 
         <div class="panel reveal">
-          <h3 class="panel-heading" data-i18n="work.panel2.title">代表成果與先前合作</h3>
-          <p class="panel-copy" data-i18n="work.panel2.copy">這些成果多數來自加入 NPUST 前後延續的研究背景與合作脈絡，是目前研究室方向的重要基礎，而不是被誤認為大量的新 lab 產出。</p>
+          <h3 class="panel-heading" data-i18n="work.panel2.title">延續中的合作與代表成果</h3>
+          <p class="panel-copy" data-i18n="work.panel2.copy">多數是跨機構合作，或是在進 NPUST 前後延續下來的題目，也是目前實驗室方法與合作方向的基礎。</p>
           <div class="panel-list">
             <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel2.item1.meta">Neurology · Accepted · Doctoral extension</div>
+              <div class="item-meta" data-i18n="work.panel2.item1.meta">Neurology · Accepted · 未正式刊出</div>
               <div class="item-title" data-i18n="work.panel2.item1.title">Identification of Novel Genetic Risk Variants Associated with Early-Onset Ischemic Stroke in Taiwan</div>
-              <p class="item-desc" data-i18n="work.panel2.item1.desc">已接受刊登，屬於博士研究延伸內容，作為早發性缺血性中風遺傳風險研究的代表性成果。</p>
+              <p class="item-desc" data-i18n="work.panel2.item1.desc">多中心合作研究，用台灣人群的基因資料找出跟早發性缺血性腦中風有關的新風險變異，已被 Neurology 接受。</p>
             </article>
             <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel2.item2.meta">Int J Epidemiol. 2025 · Collaboration</div>
-              <div class="item-title" data-i18n="work.panel2.item2.title">Harmonized Electronic Health Records from the National Biobank Consortium of Taiwan (NBCT)</div>
-              <p class="item-desc" data-i18n="work.panel2.item2.desc">參與台灣生物資料庫電子病歷資源整合研究，延續人類資料與臨床合作經驗。</p>
+              <div class="item-meta" data-i18n="work.panel2.item2.meta">Submitted to RPTH · Computational study</div>
+              <div class="item-title" data-i18n="work.panel2.item2.title">F2 p.F382L disrupts the thrombin exosite I cation-π interaction</div>
+              <p class="item-desc" data-i18n="work.panel2.item2.desc">用蛋白質語言模型、致病性預測工具與 AlphaFold 3 多聚體模擬，分析一個在台灣家族性腦靜脈竇血栓家族中找到的新凝血酶原變異。</p>
             </article>
             <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel2.item3.meta">Selected prior work</div>
-              <div class="item-title" data-i18n="work.panel2.item3.title">Stroke genomics, cancer transcriptomics, and real-world data analysis</div>
-              <p class="item-desc" data-i18n="work.panel2.item3.desc">先前研究涵蓋中風基因體學、癌症轉錄體與真實世界數據分析，構成目前轉譯研究與跨物種方法發展的背景。</p>
+              <div class="item-meta" data-i18n="work.panel2.item3.meta">Industry collaboration · Active analysis</div>
+              <div class="item-title" data-i18n="work.panel2.item3.title">NBCT 資料分析</div>
+              <p class="item-desc" data-i18n="work.panel2.item3.desc">使用國家級人體生物資料庫整合平台（NBCT）資料，分析特定基因變異在台灣癌症病人中的盛行率與臨床意義，目前分析進行中。</p>
             </article>
           </div>
         </div>
@@ -1060,45 +1070,44 @@
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="teaching.label">Teaching & Academic Engagement</p>
         <h2 class="section-title" data-i18n="teaching.title">教學與學術交流</h2>
-        <p class="section-intro" data-i18n="teaching.intro">教學目前不是附屬工作，而是研究室建立過程中最核心的日常投入之一，因此首頁會誠實地把它放在重要位置。</p>
+        <p class="section-intro" data-i18n="teaching.intro">目前花最多時間調整的一塊，是教學。</p>
       </div>
 
       <div class="teaching-grid">
         <div class="panel reveal">
           <h3 class="panel-heading" data-i18n="teaching.panel1.title">Teaching</h3>
-          <p class="panel-copy" data-i18n="teaching.panel1.copy1">目前投入最多的日常工作是備課與教學調整。目標不是把內容講得很炫，而是讓來自生命科學、獸醫與資訊背景的學生都能逐步進入計算研究。</p>
-          <p class="panel-copy" data-i18n="teaching.panel1.copy2">首頁先作為教學方向的 teaser，未來可再擴充為獨立課程頁面與教材整理。</p>
+          <p class="panel-copy" data-i18n="teaching.panel1.copy1">我相信計算思維是現代生醫研究者的基本能力。教學不會停在工具層面，而是讓學生練習提出對的問題、把問題拆開，再用資料跟程式去回答。</p>
+          <p class="panel-copy" data-i18n="teaching.panel1.copy2">現在同時在帶大學部必修、研究所必修，還有幾門選修，不同層級之間的節奏還在調整：大學部需要更多手把手的練習，研究所則偏向開放式題目跟文獻討論。</p>
           <div class="theme-list">
             <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel1.item1.title">從研究問題回推方法</div>
-              <div class="theme-desc" data-i18n="teaching.panel1.item1.desc">不只介紹工具，而是先說清楚為什麼要用這個方法回答這個問題。</div>
+              <div class="theme-title" data-i18n="teaching.panel1.item1.title">運算思維與資訊科技應用</div>
+              <div class="theme-desc" data-i18n="teaching.panel1.item1.desc">大學部校定必修，用 Python 與 AI 應用當切入點，訓練學生把真實問題拆開、用邏輯整理解法，再寫成程式。</div>
             </div>
             <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel1.item2.title">降低進入門檻</div>
-              <div class="theme-desc" data-i18n="teaching.panel1.item2.desc">讓對程式、資料分析與生醫研究熟悉程度不同的學生都能找到起點。</div>
+              <div class="theme-title" data-i18n="teaching.panel1.item2.title">動物疫苗研究法 / Vaccine Research Methods</div>
+              <div class="theme-desc" data-i18n="teaching.panel1.item2.desc">研究所必修，中英文並行，內容包含疫苗研究設計、文獻閱讀與方法討論。</div>
             </div>
             <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel1.item3.title">持續迭代教材</div>
-              <div class="theme-desc" data-i18n="teaching.panel1.item3.desc">依學生背景、學期節奏與課堂回饋，不斷調整講法、例子與作業設計。</div>
+              <div class="theme-title" data-i18n="teaching.panel1.item3.title">生物資訊、統計與免疫科技選修</div>
+              <div class="theme-desc" data-i18n="teaching.panel1.item3.desc">內容包含生物統計、基礎與進階生物資訊、免疫科技與產業應用、基因調控，還有免疫原結構與表達方法。</div>
             </div>
           </div>
         </div>
 
         <div class="panel reveal">
           <h3 class="panel-heading" data-i18n="teaching.panel2.title">Academic Engagement</h3>
-          <p class="panel-copy" data-i18n="teaching.panel2.copy">目前以可對外發展的 seminar themes 為主，先整理成可分享的主題，而不是把數量不多的學術交流經驗包裝成大量既有演講紀錄。</p>
           <div class="theme-list">
             <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel2.item1.title">Cross-species transfer learning for veterinary research</div>
-              <div class="theme-desc" data-i18n="teaching.panel2.item1.desc">如何把人類資料與模型轉譯到資料量較少的獸醫研究場景。</div>
+              <div class="theme-title" data-i18n="teaching.panel2.item1.title">2025.10.03 · GHD 年會</div>
+              <div class="theme-desc" data-i18n="teaching.panel2.item1.desc">演講題目：可信任研究環境下的真實世界資料分析。</div>
             </div>
             <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel2.item2.title">Drug repurposing from human perturbation data</div>
-              <div class="theme-desc" data-i18n="teaching.panel2.item2.desc">以 transcriptomic perturbation data 與 cross-species mapping 支援伴侶動物疾病研究。</div>
+              <div class="theme-title" data-i18n="teaching.panel2.item2.title">交流主題：真實世界數據分析</div>
+              <div class="theme-desc" data-i18n="teaching.panel2.item2.desc">從台灣健康資料與多機構合作的經驗切入，談資料整合、方法選擇跟研究可信度。</div>
             </div>
             <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel2.item3.title">Practical workflows for a small computational lab</div>
-              <div class="theme-desc" data-i18n="teaching.panel2.item3.desc">把文獻整理、資料分析與 AI 輔助研究流程整理成可持續維護的內部方法。</div>
+              <div class="theme-title" data-i18n="teaching.panel2.item3.title">交流主題：小型計算研究室的工作流</div>
+              <div class="theme-desc" data-i18n="teaching.panel2.item3.desc">圍繞可重現分析、AI 輔助的研究流程，以及跨領域學生的訓練。</div>
             </div>
           </div>
         </div>
@@ -1111,7 +1120,6 @@
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="about.label">PI Snapshot</p>
         <h2 class="section-title" data-i18n="about.title">關於 PI</h2>
-        <p class="section-intro" data-i18n="about.intro">這裡保留個人研究背景，但語氣重點放在正在建立中的研究室與可合作的方向，而不是冗長個人履歷。</p>
       </div>
 
       <div class="about-grid">
@@ -1119,13 +1127,12 @@
           <img src="profile.jpg" alt="Li-Hsin Chang portrait">
           <div class="about-name" data-i18n="about.name">張立鑫 Li-Hsin Chang</div>
           <div class="about-role" data-i18n="about.role">助理教授 ｜ 動物疫苗科技研究所</div>
-          <div class="about-meta" data-i18n="about.meta">國立屏東科技大學 · 獸醫學院</div>
         </div>
 
         <div class="about-text reveal">
-          <p class="about-copy" data-i18n="about.copy1">我的研究背景從缺血性中風基因體學出發，延伸到癌症轉錄體、真實世界數據與現在的獸醫轉譯研究。加入 NPUST 後，正逐步把這些經驗整理成一個可以教學、可以帶學生、也可以與外部合作的研究方向。</p>
-          <p class="about-copy" data-i18n="about.copy2">目前特別關注如何把人類資料分析中成熟的方法，轉換成對動物健康與 precision veterinary medicine 有用的工具，同時把這個過程變成學生能夠逐步進入的訓練路徑。</p>
-          <p class="about-copy" data-i18n="about.copy3">歡迎對資料分析、計算生物學、獸醫轉譯研究或臨床資料合作有興趣的學生與合作方來信交流。</p>
+          <p class="about-copy" data-i18n="about.copy1">進屏科大之前，我做過腦中風基因體學、神經發炎、國家級健康 NGS 資料，還有癌症轉錄體分析。這些經驗是現在計算方法學與跨物種轉譯研究的底子。</p>
+          <p class="about-copy" data-i18n="about.copy2">進屏科大之後，我想做的是把人類基因體與轉錄體研究中已經成熟的方法，變成對動物健康與精準獸醫實際有用的工具，同時把這個過程整理成學生可以一步步參與的訓練路徑。</p>
+          <p class="about-copy" data-i18n="about.copy3">研究室還在建立階段，不過已經累積了 NSTC 計畫、抗體 developability 預測、跨機構合作這幾塊工作。對資料分析、計算生物學或獸醫轉譯研究有興趣的話，歡迎聯絡。</p>
           <a class="about-link" href="https://orcid.org/0000-0002-1126-7697" target="_blank" rel="noopener" data-i18n="about.link">ORCID: 0000-0002-1126-7697</a>
           <div class="tag-list">
             <span class="tag">Computational Biology</span>
@@ -1144,7 +1151,7 @@
       <div class="section-head reveal">
         <p class="eyebrow" data-i18n="contact.label">Contact / Join the Lab</p>
         <h2 class="section-title" data-i18n="contact.title">聯絡與加入研究室</h2>
-        <p class="section-intro" data-i18n="contact.intro">這個研究室還在建立中，因此更適合希望一起把基礎打穩、願意跨領域學習的學生與合作方。</p>
+        <p class="section-intro" data-i18n="contact.intro">目前主要招收對計算生物學有興趣的碩士生，教學與研究合作也歡迎聯絡。</p>
       </div>
 
       <div class="contact-grid">
@@ -1181,15 +1188,15 @@
         </div>
 
         <aside class="contact-card reveal">
-          <h3 class="panel-heading" data-i18n="contact.card.title">Join the lab</h3>
-          <p data-i18n="contact.card.copy1">目前特別歡迎對計算研究有耐心、願意跨領域學習的學生。背景可以來自生命科學、獸醫、資訊工程或資料分析。</p>
-          <p data-i18n="contact.card.copy2">如果你在尋找一個會一起把基礎打穩、一步一步建立研究能力的環境，歡迎來信討論。</p>
+          <h3 class="panel-heading" data-i18n="contact.card.title">加入研究室</h3>
+          <p data-i18n="contact.card.copy1">適合的背景有獸醫、生物、植物醫學、農業相關科系；對生物醫學問題有興趣的資訊管理或統計背景學生也可以。</p>
+          <p data-i18n="contact.card.copy2">不要求入門前就會寫程式。研究會從文獻閱讀、資料整理與分析開始，題目也會依學生背景與進度逐步展開。</p>
           <ul>
-            <li data-i18n="contact.card.item1">重視好奇心、耐心與持續學習</li>
-            <li data-i18n="contact.card.item2">歡迎生命科學、獸醫、資訊工程與資料分析背景</li>
-            <li data-i18n="contact.card.item3">也歡迎臨床資料與跨領域合作交流</li>
+            <li data-i18n="contact.card.item1">多數題目以計算分析為主，並依研究需要搭配功能驗證</li>
+            <li data-i18n="contact.card.item2">會一起建立文獻閱讀、資料整理、分析與寫作能力</li>
+            <li data-i18n="contact.card.item3">適合願意穩定學習、希望循序完成研究的學生</li>
           </ul>
-          <a href="mailto:lhchang@mail.npust.edu.tw" class="button button--primary" data-i18n="contact.card.button">寄信聯絡</a>
+          <a href="mailto:lhchang@mail.npust.edu.tw" class="button button--primary" data-i18n="contact.card.button">來信討論加入</a>
         </aside>
       </div>
     </div>
@@ -1204,238 +1211,228 @@
   <script>
     const i18n = {
       zh: {
-        'brand.subtitle': 'NPUST · 正在建立中的研究室',
+        'brand.subtitle': 'NPUST · 動物疫苗科技研究所',
         'nav.focus': '目前重點',
         'nav.research': '研究方向',
         'nav.work': '計畫與成果',
         'nav.teaching': '教學',
         'nav.about': '關於 PI',
         'nav.contact': '聯絡',
-        'hero.eyebrow': '正在建立中的研究室',
-        'hero.title': '以計算生物學連結獸醫轉譯研究與精準醫療',
-        'hero.lede': 'AI-Assisted Immunoinformatics Lab 是位於國立屏東科技大學、由新進 PI 正在建立中的研究室。',
-        'hero.support': '目前的重點不是誇大的規模敘事，而是踏實地把教學、新進計畫與可重複使用的研究流程建立起來，逐步形成可供學生加入與合作開展的研究基礎。',
+        'hero.eyebrow': '用計算生物學',
+        'hero.title': '<span class="title-line">把人類醫學資料</span><span class="title-line">帶進獸醫研究</span>',
+        'hero.lede': '我們以資料驅動的方式找尋獸醫藥物再利用的可能。',
+        'hero.support': '成立於 2025 年，目前著重在建立基礎運算設施以及教學，目標是使用人類基因體與轉錄體的研究方法解決獸醫問題。',
         'hero.primary': '查看目前重點',
         'hero.secondary': '聯絡研究室',
-        'hero.proof1.label': '目前階段',
-        'hero.proof1.value': '新進 PI / Lab building',
-        'hero.proof2.label': '計畫',
-        'hero.proof2.value': '國科會新進計畫',
-        'hero.proof3.label': '合作',
-        'hero.proof3.value': '歡迎學生與跨域合作',
+        'hero.proof1.label': 'NSTC',
+        'hero.proof1.value': '第一個計畫啟動',
+        'hero.proof2.label': 'Research',
+        'hero.proof2.value': '11 項研究計畫',
+        'hero.proof3.label': 'Approach',
+        'hero.proof3.value': '以計算為主',
         'profile.name': '張立鑫 Li-Hsin Chang',
         'profile.role': '助理教授 · 動物疫苗科技研究所',
-        'profile.note': '計算生物學、免疫資訊學與轉譯研究的交會點，是這個研究室正在建立的核心。',
-        'profile.fact1.label': '位置',
-        'profile.fact1.value': '國立屏東科技大學',
-        'profile.fact2.label': '目前重點',
-        'profile.fact2.value': '教學、新進計畫、可重複使用的 workflow',
-        'profile.fact3.label': '開放對象',
-        'profile.fact3.value': '碩博士生與跨領域合作',
+        'profile.note': '研究主題從模型跨物種遷移、疫苗資訊學與藥物再利用開始，同時建立一個學生可以循序漸進學習的實驗室。',
+        'profile.invite': '歡迎碩士生加入，也歡迎跨領域合作。',
         'focus.label': 'Current Focus',
         'focus.title': '研究室第一年的重點',
-        'focus.intro': '首頁先呈現目前真正投入最多的工作，而不是假裝所有系統都已經成熟。',
+        'focus.intro': '第一年最直接的工作有三塊：教學、第一個 NSTC 計畫，還有支撐其他研究題目的計算基礎設施。',
         'focus.card1.kicker': 'Teaching',
-        'focus.card1.title': '備課與教學方法建立',
-        'focus.card1.desc': '目前投入最多的日常工作是備課與課程設計，持續調整如何把計算生物學與資料分析講得更清楚，也更讓不同背景的學生能進入。',
+        'focus.card1.title': '教學',
+        'focus.card1.desc': '現在每天最大一塊時間花在教學。課程從大學部的運算思維，一路延伸到研究所的生物資訊與疫苗研究法，希望把計算與生物資訊實作帶進獸醫相關課程，讓學生有用資料做研究的底子。',
         'focus.card2.kicker': 'Grant',
-        'focus.card2.title': '國科會新進計畫',
-        'focus.card2.desc': '研究室目前最明確的研究主軸來自新獲得的國科會計畫，聚焦以人類 transcriptomic perturbation data 支援伴侶動物疾病的藥物再利用研究。',
+        'focus.card2.title': 'NSTC 一年期計畫',
+        'focus.card2.desc': '主持一年期國科會計畫（2026.08–2027.07）。以人類藥物基因體學的轉錄體特徵為起點，用同源基因對應與遷移學習，把藥物再利用的策略延伸到伴侶動物疾病，第一個目標是貓瘟病毒（FPV）。',
         'focus.card3.kicker': 'Workflow',
-        'focus.card3.title': '研究 workflow 與方法建立',
-        'focus.card3.desc': '也在建立可重複使用的研究流程，包括文獻整理、資料分析與 AI 輔助的內部研究運作方式，先作為自用 infrastructure，而不是過度包裝為成果。',
+        'focus.card3.title': '計算基礎設施',
+        'focus.card3.desc': '以 GPU 工作站為主搭起分析環境，再加上版本控制、資料追蹤（DVC）、實驗紀錄（MLflow），讓分析可重現、可追溯。同時嘗試引入 Agent Harnessx 來與 AI 配合加速研究流程。',
         'research.label': 'Research Areas',
         'research.title': '研究方向',
-        'research.intro': '四個方向延續既有背景與合作基礎，但目前仍以建立清楚可做、可教、可累積的研究主軸為優先。',
-        'research.card1.title': '跨物種遷移學習',
-        'research.card1.desc': '把人類免疫學與蛋白質工程中的模型帶到資料稀少的獸醫情境，聚焦跨物種遷移、抗體可開發性與翻譯效率建模。',
-        'research.card2.title': '疫苗資訊學與蛋白質設計',
-        'research.card2.desc': '以結構生物學與機器學習支援次世代動物疫苗設計，包含 5\'UTR 優化與 AI 輔助的免疫原或蛋白質設計。',
-        'research.card3.title': '數據驅動藥物再利用',
-        'research.card3.desc': '從人類藥物擾動轉錄體資料出發，結合 cross-species mapping 與 ADMET 篩選，探索伴侶動物疾病的藥物再利用。',
-        'research.card4.title': '人類資料合作與精準醫療',
-        'research.card4.desc': '延續與醫學中心的人類資料合作，涵蓋生物庫、癌症轉錄體與 precision medicine 問題，作為跨物種轉譯研究的比較與方法來源。',
+        'research.intro': '研究方向分成四條主軸。短期內先挑能用計算方法推進。',
+        'research.card1.title': '跨物種模型遷移與藥物再利用',
+        'research.card1.desc': '以人類轉錄體與藥物基因體學資料訓練模型，再透過同源基因對應與跨物種遷移，把藥物再利用策略延伸到伴侶動物疾病模型。',
+        'research.card2.title': '獸醫應用的 De Novo 蛋白質設計',
+        'research.card2.desc': '用 RFdiffusion、BindCraft 這類 AI 蛋白質設計工具，嘗試做獸醫診斷與治療用的新結合子，目前還在概念驗證階段。',
+        'research.card3.title': '總體基因體學分析方法建立',
+        'research.card3.desc': '嘗試客製化分析方式，克服田野樣本中常見的檢體純度不足、宿主細胞干擾與訊號稀薄等問題，讓 metagenomics 資料在實際樣本中更可用。',
+        'research.card4.title': '人類數據合作與精準醫學',
+        'research.card4.desc': '目前使用台灣人體生物資料庫（TWB）、國家級人體生物資料庫整合平台（NBCT）與健保資料庫，並與北榮、國衛院、高醫及業界合作，進行癌症風險預測、罕見遺傳疾病辨識與 NGS 資料庫建置等研究。',
         'work.label': 'Selected Work & New Grant',
-        'work.title': '計畫與代表成果',
-        'work.intro': '這一區把「正在建立的研究主軸」與「先前已累積的證據」分開呈現，避免把不同階段的成果混成同一種敘事。',
-        'work.panel1.title': '目前建立中的主軸',
-        'work.panel1.copy': '第一年的重點是把新計畫與研究室運作的基本盤建立起來，讓教學、研究與學生訓練能夠互相支撐。',
-        'work.panel1.item1.meta': '2026 · 主持人',
-        'work.panel1.item1.title': '國科會新進計畫',
-        'work.panel1.item1.desc': '從人類 transcriptomic perturbation data 出發，建立可用於伴侶動物抗病毒研究的跨物種藥物再利用框架。',
-        'work.panel1.item2.meta': 'Current buildout',
-        'work.panel1.item2.title': '研究室第一年的建立重點',
-        'work.panel1.item2.desc': '把教學、文獻整理、資料分析與可重複使用的 computational workflow 整合成可讓學生逐步加入的研究基礎。',
-        'work.panel2.title': '代表成果與先前合作',
-        'work.panel2.copy': '這些成果多數來自加入 NPUST 前後延續的研究背景與合作脈絡，是目前研究室方向的重要基礎，而不是被誤認為大量的新 lab 產出。',
-        'work.panel2.item1.meta': 'Neurology · Accepted · 博士論文延伸',
+        'work.title': '目前的計畫與延續中的成果',
+        'work.intro': '這一區整理目前實驗室正在推進的工作，以及持續中的合作與成果。',
+        'work.panel1.title': '實驗室目前的產出',
+        'work.panel1.copy': '現在的主要產出有三項：NSTC 計畫、抗體 developability 預測，以及支撐多個題目的計算研究基礎設施。',
+        'work.panel1.item1.meta': '2026.08–2027.07 · NSTC-funded · Phase 0',
+        'work.panel1.item1.title': '跨物種藥物轉錄體學模型遷移與伴侶動物藥物再利用',
+        'work.panel1.item1.desc': '從人類藥物擾動轉錄體資料庫出發，用同源基因對應與通路活性特徵搭出跨物種保守性矩陣，第一個目標是貓瘟病毒（FPV）。',
+        'work.panel1.item2.meta': 'Higher Education Sprout Project · 論文撰寫中',
+        'work.panel1.item2.title': 'H2M-ValiPred：跨物種抗體可開發性預測',
+        'work.panel1.item2.desc': '用 ESM-2 蛋白質語言模型的嵌入加上物理化學特徵，預測抗體可開發性指標；資料集有 881 個抗體與 13 項分析。',
+        'work.panel1.item3.meta': 'Internal infrastructure',
+        'work.panel1.item3.title': 'GPU 工作站、DVC 與 MLflow',
+        'work.panel1.item3.desc': '建好版本控制、資料追蹤與實驗紀錄的流程，讓多個研究題目都有可重現的分析底盤。',
+        'work.panel2.title': '延續中的合作與代表成果',
+        'work.panel2.copy': '多數是跨機構合作，或是在進 NPUST 前後延續下來的題目，也是目前實驗室方法與合作方向的基礎。',
+        'work.panel2.item1.meta': 'Neurology · Accepted · 未正式刊出',
         'work.panel2.item1.title': 'Identification of Novel Genetic Risk Variants Associated with Early-Onset Ischemic Stroke in Taiwan',
-        'work.panel2.item1.desc': '已接受刊登，屬於博士研究延伸內容，作為早發性缺血性中風遺傳風險研究的代表性成果。',
-        'work.panel2.item2.meta': 'Int J Epidemiol. 2025 · Collaboration',
-        'work.panel2.item2.title': 'Harmonized Electronic Health Records from the National Biobank Consortium of Taiwan (NBCT)',
-        'work.panel2.item2.desc': '參與台灣生物資料庫電子病歷資源整合研究，延續人類資料與臨床合作經驗。',
-        'work.panel2.item3.meta': 'Selected prior work',
-        'work.panel2.item3.title': 'Stroke genomics, cancer transcriptomics, and real-world data analysis',
-        'work.panel2.item3.desc': '先前研究涵蓋中風基因體學、癌症轉錄體與真實世界數據分析，構成目前轉譯研究與跨物種方法發展的背景。',
+        'work.panel2.item1.desc': '多中心合作研究，用台灣人群的基因資料找出跟早發性缺血性腦中風有關的新風險變異，已被 Neurology 接受。',
+        'work.panel2.item2.meta': 'Submitted to RPTH · Computational study',
+        'work.panel2.item2.title': 'F2 p.F382L disrupts the thrombin exosite I cation-π interaction',
+        'work.panel2.item2.desc': '用蛋白質語言模型、致病性預測工具與 AlphaFold 3 多聚體模擬，分析一個在台灣家族性腦靜脈竇血栓家族中找到的新凝血酶原變異。',
+        'work.panel2.item3.meta': 'Industry collaboration · Active analysis',
+        'work.panel2.item3.title': 'NBCT 資料分析',
+        'work.panel2.item3.desc': '使用國家級人體生物資料庫整合平台（NBCT）資料，分析特定基因變異在台灣癌症病人中的盛行率與臨床意義，目前分析進行中。',
         'teaching.label': 'Teaching & Academic Engagement',
         'teaching.title': '教學與學術交流',
-        'teaching.intro': '教學目前不是附屬工作，而是研究室建立過程中最核心的日常投入之一，因此首頁會誠實地把它放在重要位置。',
+        'teaching.intro': '目前花最多時間調整的一塊，是教學。',
         'teaching.panel1.title': 'Teaching',
-        'teaching.panel1.copy1': '目前投入最多的日常工作是備課與教學調整。目標不是把內容講得很炫，而是讓來自生命科學、獸醫與資訊背景的學生都能逐步進入計算研究。',
-        'teaching.panel1.copy2': '首頁先作為教學方向的 teaser，未來可再擴充為獨立課程頁面與教材整理。',
-        'teaching.panel1.item1.title': '從研究問題回推方法',
-        'teaching.panel1.item1.desc': '不只介紹工具，而是先說清楚為什麼要用這個方法回答這個問題。',
-        'teaching.panel1.item2.title': '降低進入門檻',
-        'teaching.panel1.item2.desc': '讓對程式、資料分析與生醫研究熟悉程度不同的學生都能找到起點。',
-        'teaching.panel1.item3.title': '持續迭代教材',
-        'teaching.panel1.item3.desc': '依學生背景、學期節奏與課堂回饋，不斷調整講法、例子與作業設計。',
+        'teaching.panel1.copy1': '我相信計算思維是現代生醫研究者的基本能力。教學不會停在工具層面，而是讓學生練習提出對的問題、把問題拆開，再用資料跟程式去回答。',
+        'teaching.panel1.copy2': '現在同時在帶大學部必修、研究所必修，還有幾門選修，不同層級之間的節奏還在調整：大學部需要更多手把手的練習，研究所則偏向開放式題目跟文獻討論。',
+        'teaching.panel1.item1.title': '運算思維與資訊科技應用',
+        'teaching.panel1.item1.desc': '大學部校定必修，用 Python 與 AI 應用當切入點，訓練學生把真實問題拆開、用邏輯整理解法，再寫成程式。',
+        'teaching.panel1.item2.title': '動物疫苗研究法 / Vaccine Research Methods',
+        'teaching.panel1.item2.desc': '研究所必修，中英文並行，內容包含疫苗研究設計、文獻閱讀與方法討論。',
+        'teaching.panel1.item3.title': '生物資訊、統計與免疫科技選修',
+        'teaching.panel1.item3.desc': '內容包含生物統計、基礎與進階生物資訊、免疫科技與產業應用、基因調控，還有免疫原結構與表達方法。',
         'teaching.panel2.title': 'Academic Engagement',
-        'teaching.panel2.copy': '目前以可對外發展的 seminar themes 為主，先整理成可分享的主題，而不是把數量不多的學術交流經驗包裝成大量既有演講紀錄。',
-        'teaching.panel2.item1.title': 'Cross-species transfer learning for veterinary research',
-        'teaching.panel2.item1.desc': '如何把人類資料與模型轉譯到資料量較少的獸醫研究場景。',
-        'teaching.panel2.item2.title': 'Drug repurposing from human perturbation data',
-        'teaching.panel2.item2.desc': '以 transcriptomic perturbation data 與 cross-species mapping 支援伴侶動物疾病研究。',
-        'teaching.panel2.item3.title': 'Practical workflows for a small computational lab',
-        'teaching.panel2.item3.desc': '把文獻整理、資料分析與 AI 輔助研究流程整理成可持續維護的內部方法。',
+        'teaching.panel2.item1.title': '2025.10.03 · GHD 年會',
+        'teaching.panel2.item1.desc': '演講題目：可信任研究環境下的真實世界資料分析。',
+        'teaching.panel2.item2.title': '交流主題：真實世界數據分析',
+        'teaching.panel2.item2.desc': '從台灣健康資料與多機構合作的經驗切入，談資料整合、方法選擇跟研究可信度。',
+        'teaching.panel2.item3.title': '交流主題：小型計算研究室的工作流',
+        'teaching.panel2.item3.desc': '圍繞可重現分析、AI 輔助的研究流程，以及跨領域學生的訓練。',
         'about.label': 'PI Snapshot',
         'about.title': '關於 PI',
-        'about.intro': '這裡保留個人研究背景，但語氣重點放在正在建立中的研究室與可合作的方向，而不是冗長個人履歷。',
         'about.name': '張立鑫 Li-Hsin Chang',
         'about.role': '助理教授 ｜ 動物疫苗科技研究所',
-        'about.meta': '國立屏東科技大學 · 獸醫學院',
-        'about.copy1': '我的研究背景從缺血性中風基因體學出發，延伸到癌症轉錄體、真實世界數據與現在的獸醫轉譯研究。加入 NPUST 後，正逐步把這些經驗整理成一個可以教學、可以帶學生、也可以與外部合作的研究方向。',
-        'about.copy2': '目前特別關注如何把人類資料分析中成熟的方法，轉換成對動物健康與 precision veterinary medicine 有用的工具，同時把這個過程變成學生能夠逐步進入的訓練路徑。',
-        'about.copy3': '歡迎對資料分析、計算生物學、獸醫轉譯研究或臨床資料合作有興趣的學生與合作方來信交流。',
+        'about.copy1': '進屏科大之前，我做過腦中風基因體學、神經發炎、國家級健康 NGS 資料，還有癌症轉錄體分析。這些經驗是現在計算方法學與跨物種轉譯研究的底子。',
+        'about.copy2': '進屏科大之後，我想做的是把人類基因體與轉錄體研究中已經成熟的方法，變成對動物健康與精準獸醫實際有用的工具，同時把這個過程整理成學生可以一步步參與的訓練路徑。',
+        'about.copy3': '研究室還在建立階段，不過已經累積了 NSTC 計畫、抗體 developability 預測、跨機構合作這幾塊工作。對資料分析、計算生物學或獸醫轉譯研究有興趣的話，歡迎聯絡。',
         'about.link': 'ORCID: 0000-0002-1126-7697',
         'contact.label': 'Contact / Join the Lab',
         'contact.title': '聯絡與加入研究室',
-        'contact.intro': '這個研究室還在建立中，因此更適合希望一起把基礎打穩、願意跨領域學習的學生與合作方。',
+        'contact.intro': '目前主要招收對計算生物學有興趣的碩士生，教學與研究合作也歡迎聯絡。',
         'contact.addressLabel': '地址',
         'contact.address': '屏東縣內埔鄉學府路1號<br>國立屏東科技大學 獸醫學院',
-        'contact.card.title': 'Join the lab',
-        'contact.card.copy1': '目前特別歡迎對計算研究有耐心、願意跨領域學習的學生。背景可以來自生命科學、獸醫、資訊工程或資料分析。',
-        'contact.card.copy2': '如果你在尋找一個會一起把基礎打穩、一步一步建立研究能力的環境，歡迎來信討論。',
-        'contact.card.item1': '重視好奇心、耐心與持續學習',
-        'contact.card.item2': '歡迎生命科學、獸醫、資訊工程與資料分析背景',
-        'contact.card.item3': '也歡迎臨床資料與跨領域合作交流',
-        'contact.card.button': '寄信聯絡'
+        'contact.card.title': '加入研究室',
+        'contact.card.copy1': '適合的背景有獸醫、生物、植物醫學、農業相關科系；對生物醫學問題有興趣的資訊管理或統計背景學生也可以。',
+        'contact.card.copy2': '不要求入門前就會寫程式。研究會從文獻閱讀、資料整理與分析開始，題目也會依學生背景與進度逐步展開。',
+        'contact.card.item1': '多數題目以計算分析為主，並依研究需要搭配功能驗證',
+        'contact.card.item2': '會一起建立文獻閱讀、資料整理、分析與寫作能力',
+        'contact.card.item3': '適合願意穩定學習、希望循序完成研究的學生',
+        'contact.card.button': '來信討論加入'
       },
       en: {
-        'brand.subtitle': 'NPUST · A new lab in progress',
+        'brand.subtitle': 'NPUST · Graduate Institute of Animal Vaccine Technology',
         'nav.focus': 'Current Focus',
         'nav.research': 'Research',
         'nav.work': 'Work',
         'nav.teaching': 'Teaching',
         'nav.about': 'About',
         'nav.contact': 'Contact',
-        'hero.eyebrow': 'A new lab in progress',
-        'hero.title': 'Computational biology for veterinary translation and precision medicine',
-        'hero.lede': 'AI-Assisted Immunoinformatics Lab is a new research group being built at National Pingtung University of Science and Technology by a first-year PI.',
-        'hero.support': 'At this stage, the goal is not to perform scale or certainty. It is to build a careful foundation through teaching, a new NSTC project, and reusable research workflows that students and collaborators can grow with.',
+        'hero.eyebrow': 'Using computational biology',
+        'hero.title': '<span class="title-line">Bringing human medical data</span><span class="title-line">into veterinary research</span>',
+        'hero.lede': 'We use data-driven methods to explore veterinary drug repurposing opportunities.',
+        'hero.support': 'Founded in 2025, the lab is currently focused on building core computational infrastructure and teaching, with the goal of using methods from human genomics and transcriptomics to solve veterinary problems.',
         'hero.primary': 'View Current Focus',
         'hero.secondary': 'Contact the Lab',
-        'hero.proof1.label': 'Stage',
-        'hero.proof1.value': 'New PI / Lab building',
-        'hero.proof2.label': 'Grant',
-        'hero.proof2.value': 'NSTC early-career project',
-        'hero.proof3.label': 'Open to',
-        'hero.proof3.value': 'Students and interdisciplinary collaboration',
+        'hero.proof1.label': 'NSTC',
+        'hero.proof1.value': 'First project underway',
+        'hero.proof2.label': 'Research',
+        'hero.proof2.value': '11 active threads',
+        'hero.proof3.label': 'Approach',
+        'hero.proof3.value': 'Computation-first',
         'profile.name': 'Li-Hsin Chang 張立鑫',
-        'profile.role': 'Assistant Professor · Animal Vaccine Technology Research Institute',
-        'profile.note': 'The lab is being built around the intersection of computational biology, immunoinformatics, and translational research.',
-        'profile.fact1.label': 'Location',
-        'profile.fact1.value': 'National Pingtung University of Science and Technology',
-        'profile.fact2.label': 'Current emphasis',
-        'profile.fact2.value': 'Teaching, new grant, reusable workflows',
-        'profile.fact3.label': 'Open to',
-        'profile.fact3.value': 'Graduate students and interdisciplinary collaboration',
+        'profile.role': 'Assistant Professor · Graduate Institute of Animal Vaccine Technology',
+        'profile.note': 'The research starts from cross-species model transfer, vaccine informatics, and drug repurposing, while building a lab where students can learn step by step.',
+        'profile.invite': 'Welcoming master\'s students and interdisciplinary collaboration.',
         'focus.label': 'Current Focus',
-        'focus.title': 'What the lab is focusing on now',
-        'focus.intro': 'The homepage starts from what is actually receiving the most attention right now, instead of pretending every system is already mature.',
+        'focus.title': 'What the lab is working on in its first year',
+        'focus.intro': 'The most direct work falls into three pieces: teaching, the first NSTC project, and the computational infrastructure that supports the other research threads.',
         'focus.card1.kicker': 'Teaching',
-        'focus.card1.title': 'Course preparation and teaching methods',
-        'focus.card1.desc': 'The largest share of day-to-day effort currently goes into course preparation and classroom design, with ongoing adjustments to make computational biology and data analysis more accessible to students from different backgrounds.',
+        'focus.card1.title': 'Teaching',
+        'focus.card1.desc': 'The biggest chunk of my day right now goes into teaching. Courses run from undergraduate computational thinking to graduate bioinformatics and vaccine research methods, with the aim of bringing computational and bioinformatics practice into veterinary-related classes so students have a base for data-driven research.',
         'focus.card2.kicker': 'Grant',
-        'focus.card2.title': 'NSTC early-career project',
-        'focus.card2.desc': 'The clearest current research axis is the newly funded NSTC project, which uses human transcriptomic perturbation data to support drug repurposing research for companion animal diseases.',
+        'focus.card2.title': 'NSTC one-year project',
+        'focus.card2.desc': 'Leading a one-year NSTC project (2026.08–2027.07). Starting from transcriptome signatures in human pharmacogenomics, using ortholog mapping and transfer learning to extend drug repurposing into companion animal diseases. Feline panleukopenia virus (FPV) is the first target.',
         'focus.card3.kicker': 'Workflow',
-        'focus.card3.title': 'Research workflow building',
-        'focus.card3.desc': 'The lab is also building reusable workflows for literature review, data analysis, and AI-assisted internal research operations, primarily as internal infrastructure rather than overpackaged outputs.',
+        'focus.card3.title': 'Computational infrastructure',
+        'focus.card3.desc': 'Built around GPU workstations, plus version control, data tracking (DVC), and experiment logging (MLflow), so analyses stay reproducible and traceable. At the same time, the lab is trying to introduce Agent Harnessx to work with AI and speed up the research workflow.',
         'research.label': 'Research Areas',
         'research.title': 'Research Areas',
-        'research.intro': 'These four directions grow out of existing background and collaborations, but the present priority is to build research lines that are clear, teachable, and sustainable.',
-        'research.card1.title': 'Cross-species transfer learning',
-        'research.card1.desc': 'Adapting models from human immunology and protein engineering to data-scarce veterinary settings, with emphasis on transfer learning, antibody developability, and translation efficiency modeling.',
-        'research.card2.title': 'Vaccine informatics and protein design',
-        'research.card2.desc': 'Using structural biology and machine learning to support next-generation veterinary vaccine design, including 5\'UTR optimization and AI-assisted immunogen or protein design.',
-        'research.card3.title': 'Data-driven drug repurposing',
-        'research.card3.desc': 'Starting from human transcriptomic perturbation data, combined with cross-species mapping and ADMET filtering, to explore drug repurposing opportunities for companion animal diseases.',
-        'research.card4.title': 'Human data collaborations and precision medicine',
-        'research.card4.desc': 'Continuing collaborations around biobanks, cancer transcriptomics, and precision medicine as a comparative and methodological base for translational work across species.',
+        'research.intro': 'Research is organized into four main threads. In the near term, I focus on directions that can move forward with computational methods.',
+        'research.card1.title': 'Cross-species model transfer and drug repurposing',
+        'research.card1.desc': 'Using human transcriptomic and pharmacogenomic data to train models, then extending drug repurposing strategies to companion animal disease models through ortholog mapping and cross-species transfer.',
+        'research.card2.title': 'De novo protein design for veterinary applications',
+        'research.card2.desc': 'Using AI protein design tools such as RFdiffusion and BindCraft to try building new binders for veterinary diagnostics and therapeutics. Still at the proof-of-concept stage.',
+        'research.card3.title': 'Metagenomics analysis method development',
+        'research.card3.desc': 'Trying customized analysis strategies to handle common field-sample problems such as low sample purity, host-cell interference, and weak signals, so metagenomics data can be more usable in real samples.',
+        'research.card4.title': 'Human-data collaborations and precision medicine',
+        'research.card4.desc': 'Currently using Taiwan Biobank (TWB), the National Biobank Consortium of Taiwan (NBCT), and national health insurance databases, in collaboration with Taipei Veterans General Hospital, NHRI, Kaohsiung Medical University, and industry partners for cancer risk prediction, rare genetic disease identification, and NGS database development.',
         'work.label': 'Selected Work & New Grant',
-        'work.title': 'New Grant and Selected Work',
-        'work.intro': 'This section separates what the lab is actively building now from evidence accumulated through prior work, so the site does not flatten different career stages into the same story.',
-        'work.panel1.title': 'What is being built now',
-        'work.panel1.copy': 'The first-year priority is to establish the lab’s operating base so that teaching, research, and student training can reinforce each other.',
-        'work.panel1.item1.meta': '2026 · PI',
-        'work.panel1.item1.title': 'NSTC early-career project',
-        'work.panel1.item1.desc': 'Building a cross-species drug repurposing framework for companion animal antiviral research starting from human transcriptomic perturbation data.',
-        'work.panel1.item2.meta': 'Current buildout',
-        'work.panel1.item2.title': 'First-year lab infrastructure',
-        'work.panel1.item2.desc': 'Bringing teaching, literature synthesis, data analysis, and reusable computational workflows into one foundation that students can gradually join and learn from.',
-        'work.panel2.title': 'Selected prior and ongoing work',
-        'work.panel2.copy': 'Most items here reflect research background and collaborations extended across the transition into NPUST. They are important evidence for direction, but not framed as a large volume of new-lab output.',
-        'work.panel2.item1.meta': 'Neurology · Accepted · Doctoral extension',
+        'work.title': 'Current projects and continuing results',
+        'work.intro': 'This section outlines what the lab is currently pushing forward, together with continuing collaborations and selected results.',
+        'work.panel1.title': 'The lab\'s current output',
+        'work.panel1.copy': 'There are three main outputs right now: the NSTC project, antibody developability prediction, and the computational research infrastructure that supports multiple topics.',
+        'work.panel1.item1.meta': '2026.08–2027.07 · NSTC-funded · Phase 0',
+        'work.panel1.item1.title': 'Cross-Species Drug Repurposing via Transcriptomic Transfer Learning for Companion Animals',
+        'work.panel1.item1.desc': 'Starting from human drug perturbation transcriptome resources, using ortholog mapping and pathway activity features to build cross-species conservation matrices. Feline panleukopenia virus (FPV) is the first target.',
+        'work.panel1.item2.meta': 'Higher Education Sprout Project · Manuscript in preparation',
+        'work.panel1.item2.title': 'H2M-ValiPred: cross-species antibody developability prediction',
+        'work.panel1.item2.desc': 'Using ESM-2 protein language model embeddings together with physicochemical features to predict antibody developability metrics. The dataset covers 881 antibodies across 13 assays.',
+        'work.panel1.item3.meta': 'Internal infrastructure',
+        'work.panel1.item3.title': 'GPU workstation, DVC, and MLflow',
+        'work.panel1.item3.desc': 'Version control, data tracking, and experiment logging are in place as a reproducible analytical base for multiple research threads.',
+        'work.panel2.title': 'Continuing collaborations and selected results',
+        'work.panel2.copy': 'Most of these are multi-institution collaborations, or research lines carried over from before and after joining NPUST. They underpin the lab\'s current methods and collaboration directions.',
+        'work.panel2.item1.meta': 'Neurology · Accepted · Not yet in print',
         'work.panel2.item1.title': 'Identification of Novel Genetic Risk Variants Associated with Early-Onset Ischemic Stroke in Taiwan',
-        'work.panel2.item1.desc': 'Accepted for publication as an extension of doctoral work, representing a key contribution in early-onset ischemic stroke genetics.',
-        'work.panel2.item2.meta': 'Int J Epidemiol. 2025 · Collaboration',
-        'work.panel2.item2.title': 'Harmonized Electronic Health Records from the National Biobank Consortium of Taiwan (NBCT)',
-        'work.panel2.item2.desc': 'A collaboration on large-scale EHR integration for the Taiwan biobank ecosystem, continuing experience in human data and clinical partnership work.',
-        'work.panel2.item3.meta': 'Selected prior work',
-        'work.panel2.item3.title': 'Stroke genomics, cancer transcriptomics, and real-world data analysis',
-        'work.panel2.item3.desc': 'Earlier work across stroke genomics, cancer transcriptomics, and real-world data analysis forms the background for current translational and cross-species method development.',
+        'work.panel2.item1.desc': 'A multi-center collaborative study using Taiwanese genetic data to identify novel risk variants linked to early-onset ischemic stroke. Accepted at Neurology, not yet published.',
+        'work.panel2.item2.meta': 'Submitted to RPTH · Computational study',
+        'work.panel2.item2.title': 'F2 p.F382L disrupts the thrombin exosite I cation-pi interaction',
+        'work.panel2.item2.desc': 'Using protein language models, pathogenicity predictors, and AlphaFold 3 multimer modeling to analyze a novel prothrombin variant found in a Taiwanese family with familial cerebral venous thrombosis.',
+        'work.panel2.item3.meta': 'Industry collaboration · Active analysis',
+        'work.panel2.item3.title': 'NBCT data analysis',
+        'work.panel2.item3.desc': 'Using data from the National Biobank Consortium Taiwan (NBCT) platform to analyze the prevalence and clinical significance of specific gene variants in Taiwanese cancer patients. Analysis is ongoing.',
         'teaching.label': 'Teaching & Academic Engagement',
         'teaching.title': 'Teaching and academic engagement',
-        'teaching.intro': 'Teaching is not treated as an accessory here. It is one of the central daily commitments in building the lab, and the homepage reflects that directly.',
+        'teaching.intro': 'Teaching is one of the areas I am spending the most time refining right now.',
         'teaching.panel1.title': 'Teaching',
-        'teaching.panel1.copy1': 'The largest share of current day-to-day work goes into course preparation and teaching adjustment. The aim is not to sound flashy, but to help students from life science, veterinary, and computing backgrounds enter computational research step by step.',
-        'teaching.panel1.copy2': 'For now, the homepage presents this as a teaser. It can later expand into a dedicated teaching and course page.',
-        'teaching.panel1.item1.title': 'Start from the research question',
-        'teaching.panel1.item1.desc': 'Methods are taught by first clarifying what problem they are trying to answer, not by listing tools in isolation.',
-        'teaching.panel1.item2.title': 'Lower the entry barrier',
-        'teaching.panel1.item2.desc': 'Students with different levels of comfort in programming, data analysis, and biomedicine should all be able to find a starting point.',
-        'teaching.panel1.item3.title': 'Iterate the material',
-        'teaching.panel1.item3.desc': 'Lecture flow, examples, and assignments are continually adjusted based on student background, semester timing, and classroom feedback.',
+        'teaching.panel1.copy1': 'I believe computational thinking is a basic skill for modern biomedical researchers. Teaching doesn\'t stop at the tools; it\'s about letting students practice asking the right questions, breaking them down, and then answering with data and code.',
+        'teaching.panel1.copy2': 'I\'m currently teaching an undergraduate core course, a required graduate course, and several electives, and I\'m still adjusting the pacing across levels: undergraduates need more hands-on practice, while graduate courses lean toward open-ended problems and literature discussion.',
+        'teaching.panel1.item1.title': 'Computational Thinking and IT Applications',
+        'teaching.panel1.item1.desc': 'A university-wide undergraduate core course that uses Python and AI applications as an entry point, training students to break real problems apart, organize solutions with logic, and write them in code.',
+        'teaching.panel1.item2.title': 'Vaccine Research Methods',
+        'teaching.panel1.item2.desc': 'A required graduate course taught in both Chinese and English, covering vaccine study design, literature reading, and method discussion.',
+        'teaching.panel1.item3.title': 'Bioinformatics, statistics, and immunotechnology electives',
+        'teaching.panel1.item3.desc': 'Covering biostatistics, basic and advanced bioinformatics, immunotechnology and industrial applications, gene regulation, and immunogen structure and expression methods.',
         'teaching.panel2.title': 'Academic Engagement',
-        'teaching.panel2.copy': 'Rather than overstating a large talk record, this section frames the seminar themes and academic topics that are currently being shaped for wider sharing.',
-        'teaching.panel2.item1.title': 'Cross-species transfer learning for veterinary research',
-        'teaching.panel2.item1.desc': 'How models and data from human research can be translated into veterinary settings with limited data.',
-        'teaching.panel2.item2.title': 'Drug repurposing from human perturbation data',
-        'teaching.panel2.item2.desc': 'Using transcriptomic perturbation data and cross-species mapping to support companion animal disease research.',
-        'teaching.panel2.item3.title': 'Practical workflows for a small computational lab',
-        'teaching.panel2.item3.desc': 'Organizing literature review, data analysis, and AI-assisted workflows into maintainable internal methods for a growing lab.',
+        'teaching.panel2.item1.title': '2025.10.03 · GHD Annual Meeting',
+        'teaching.panel2.item1.desc': 'Talk: Real-world data analysis in trusted research environments.',
+        'teaching.panel2.item2.title': 'Engagement theme: real-world data analysis',
+        'teaching.panel2.item2.desc': 'Drawing on Taiwan health data and multi-institution collaboration experience to talk about data integration, method choice, and research trustworthiness.',
+        'teaching.panel2.item3.title': 'Engagement theme: workflows for a small computational lab',
+        'teaching.panel2.item3.desc': 'Around reproducible analysis, AI-assisted research workflows, and training for interdisciplinary students.',
         'about.label': 'PI Snapshot',
         'about.title': 'About the PI',
-        'about.intro': 'This section keeps the research background visible, but shifts the emphasis toward the lab that is being built now and the collaborations it hopes to support.',
         'about.name': 'Li-Hsin Chang 張立鑫',
-        'about.role': 'Assistant Professor ｜ Animal Vaccine Technology Research Institute',
-        'about.meta': 'National Pingtung University of Science and Technology · College of Veterinary Medicine',
-        'about.copy1': 'My background began in ischemic stroke genomics and later expanded into cancer transcriptomics, real-world data analysis, and now veterinary translational research. Since joining NPUST, I have been working to turn those experiences into a research direction that can be taught, shared with students, and extended through collaboration.',
-        'about.copy2': 'A current priority is translating mature methods from human data analysis into tools that are useful for animal health and precision veterinary medicine, while also making that process a trainable path for students entering the field.',
-        'about.copy3': 'Students and collaborators interested in data analysis, computational biology, veterinary translation, or clinical data partnerships are very welcome to get in touch.',
+        'about.role': 'Assistant Professor ｜ Graduate Institute of Animal Vaccine Technology',
+        'about.copy1': 'Before joining NPUST, I worked on stroke genomics, neuroinflammation, national-scale health NGS data, and cancer transcriptomics. Those experiences are the base for the current computational and cross-species translational work.',
+        'about.copy2': 'Since arriving at NPUST, what I want to do is turn methods that are already mature in human genomic and transcriptomic research into tools that are actually useful for animal health and precision veterinary medicine, and turn that process into a training path students can join step by step.',
+        'about.copy3': 'The lab is still in the building phase, but work is already accumulating across the NSTC project, antibody developability prediction, and cross-institution collaborations. If data analysis, computational biology, or veterinary translational research interests you, feel free to get in touch.',
         'about.link': 'ORCID: 0000-0002-1126-7697',
         'contact.label': 'Contact / Join the Lab',
         'contact.title': 'Contact and joining the lab',
-        'contact.intro': 'Because the lab is still being built, it is especially well suited to students and collaborators who want to help establish a careful interdisciplinary foundation.',
+        'contact.intro': 'I\'m mainly recruiting master\'s students interested in computational biology. Teaching and research collaborations are also welcome to reach out.',
         'contact.addressLabel': 'Address',
         'contact.address': 'No. 1, Shuefu Rd., Neipu, Pingtung 912<br>College of Veterinary Medicine, NPUST, Taiwan',
-        'contact.card.title': 'Join the lab',
-        'contact.card.copy1': 'The lab is especially open to students who are patient with computational work and willing to learn across disciplinary boundaries. Relevant backgrounds include life sciences, veterinary medicine, computer science, and data analysis.',
-        'contact.card.copy2': 'If you are looking for an environment where research skills are built carefully and step by step, please feel free to reach out.',
-        'contact.card.item1': 'Curiosity, patience, and sustained learning matter most',
-        'contact.card.item2': 'Life science, veterinary, computer science, and data analysis backgrounds are all welcome',
-        'contact.card.item3': 'Clinical data and interdisciplinary collaborations are also welcome',
-        'contact.card.button': 'Email the lab'
+        'contact.card.title': 'Join the Lab',
+        'contact.card.copy1': 'A good fit includes backgrounds in veterinary medicine, biology, plant medicine, and agriculture-related fields. Students from information management or statistics who are drawn to biomedical problems also work.',
+        'contact.card.copy2': 'Prior programming experience is not required. Projects usually begin with literature reading, data organization, and analysis, and are developed step by step according to each student\'s background and progress.',
+        'contact.card.item1': 'Most projects are analysis-first, with functional validation added when needed',
+        'contact.card.item2': 'Training covers literature reading, data handling, analysis, and scientific writing',
+        'contact.card.item3': 'A good fit for students who prefer structured, step-by-step research progress',
+        'contact.card.button': 'Email about joining'
       }
     };
 
