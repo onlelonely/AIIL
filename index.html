@@ -491,6 +491,61 @@ html[lang="en"] .v1-trajectory-intro { font-family: var(--sans); font-weight: 30
   overflow: visible;
 }
 
+.v1-traj-mobile {
+  display: none;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--paper-edge);
+}
+
+.v1-traj-step {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--paper-edge);
+}
+
+.v1-traj-step-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+
+.v1-traj-step-year,
+.v1-traj-step-sub,
+.v1-traj-step-carry {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+}
+
+.v1-traj-step-year {
+  color: var(--cinnabar);
+  text-transform: uppercase;
+}
+
+.v1-traj-step-sub {
+  color: var(--ink-faint);
+}
+
+.v1-traj-step-title {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+html[lang="en"] .v1-traj-step-title {
+  font-family: var(--sans);
+  font-weight: 500;
+}
+
+.v1-traj-step-carry {
+  margin-top: 0.55rem;
+  color: var(--ink-faint);
+}
+
 /* --- Research map (four threads + connections) --------------------- */
 .v1-research {
   padding: 4rem 0 3rem;
@@ -520,6 +575,105 @@ html[lang="en"] .v1-research-intro { font-family: var(--sans); font-weight: 400;
   width: 100%;
   height: auto;
   display: block;
+}
+
+.v1-research-map-mobile {
+  display: none;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--paper-edge);
+  background: color-mix(in srgb, var(--paper) 88%, var(--paper-deep));
+}
+
+.v1-research-mobile-note {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cinnabar);
+  margin-bottom: 0.8rem;
+}
+
+.v1-research-mobile-hub {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--paper-edge);
+  background: var(--paper);
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.v1-research-mobile-hub::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cinnabar);
+  flex: 0 0 auto;
+}
+
+html[lang="en"] .v1-research-mobile-hub {
+  font-family: var(--sans);
+  font-weight: 500;
+}
+
+.v1-research-mobile-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.v1-research-mobile-item {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--paper-edge);
+}
+
+.v1-research-mobile-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.v1-research-mobile-num {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--cinnabar);
+}
+
+.v1-research-mobile-item h3 {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+html[lang="en"] .v1-research-mobile-item h3 {
+  font-family: var(--sans);
+  font-weight: 500;
+}
+
+.v1-research-mobile-item p {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.v1-research-mobile-edge {
+  margin-top: 0.35rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
 }
 
 .v1-research-threads {
@@ -837,6 +991,57 @@ html[lang="en"] .v1-contact-body { font-family: var(--sans); font-weight: 400; }
   overflow-x: auto;
 }
 
+.v2-map-mobile {
+  display: none;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--paper-edge);
+}
+
+.v2-map-mobile-center {
+  padding: 0.8rem 0.9rem;
+  border: 1px solid var(--ink);
+  margin-bottom: 0.9rem;
+  text-align: center;
+}
+
+.v2-map-mobile-center .title {
+  display: block;
+  color: var(--ink);
+}
+
+.v2-map-mobile-center .sub {
+  display: block;
+  color: var(--ink-faint);
+  margin-top: 0.2rem;
+}
+
+.v2-map-mobile-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.v2-map-mobile-item {
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--paper-edge);
+}
+
+.v2-map-mobile-item .title {
+  color: var(--cinnabar);
+  font-weight: 600;
+}
+
+.v2-map-mobile-item .line {
+  display: block;
+  color: var(--ink);
+}
+
+.v2-map-mobile-item .meta {
+  display: block;
+  color: var(--ink-faint);
+}
+
 .v2-footer {
   margin-top: 4rem;
   padding-top: 1.5rem;
@@ -1132,6 +1337,20 @@ html[lang="en"] .v3-pullquote {
   .v3-masthead-right { text-align: center; }
 }
 
+@media (max-width: 700px) {
+  .v1-traj-svg,
+  .v1-research-map svg,
+  .v2-asciibox {
+    display: none;
+  }
+
+  .v1-traj-mobile,
+  .v1-research-map-mobile,
+  .v2-map-mobile {
+    display: block;
+  }
+}
+
 @media (max-width: 560px) {
   body { font-size: 16px; }
   .v1 { padding: 2rem var(--gutter) 4rem; }
@@ -1139,6 +1358,9 @@ html[lang="en"] .v3-pullquote {
   .v3-contact { grid-template-columns: 1fr; }
   .topbar-inner { padding: 10px var(--gutter); }
   .version-switch button { padding: 6px 8px; font-size: 10px; }
+  .v1-research-map-mobile { padding: 0.85rem; }
+  .v1-research-mobile-hub { width: 100%; justify-content: center; }
+  .v2-map-mobile { padding: 0.85rem; }
 }
 
 /* ========================================================================
@@ -1453,6 +1675,61 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
         <text x="1000" y="215" data-i18n="v1.traj.carry5">+ cross-species transfer</text>
       </g>
     </svg>
+
+    <div class="v1-traj-mobile" aria-label="career timeline">
+      <article class="v1-traj-step">
+        <div class="v1-traj-step-head">
+          <span class="v1-traj-step-year" data-i18n="v1.traj.stage1.year">UNDERGRAD</span>
+          <span class="v1-traj-step-sub" data-i18n="v1.traj.stage1.sub">dual major</span>
+        </div>
+        <div class="v1-traj-step-title" data-i18n="v1.traj.stage1.title">生科 + 資訊</div>
+        <div class="v1-traj-step-carry" data-i18n="v1.traj.carry1">+ programming</div>
+      </article>
+
+      <article class="v1-traj-step">
+        <div class="v1-traj-step-head">
+          <span class="v1-traj-step-year" data-i18n="v1.traj.stage2.year">MS / PhD</span>
+          <span class="v1-traj-step-sub" data-i18n="v1.traj.stage2.sub">wet-lab + dry-lab</span>
+        </div>
+        <div class="v1-traj-step-title" data-i18n="v1.traj.stage2.title">小鼠機制 → 罕病 NGS</div>
+        <div class="v1-traj-step-carry" data-i18n="v1.traj.carry2">+ variant analysis</div>
+      </article>
+
+      <article class="v1-traj-step">
+        <div class="v1-traj-step-head">
+          <span class="v1-traj-step-year" data-i18n="v1.traj.stage3.year">POSTDOC I</span>
+          <span class="v1-traj-step-sub" data-i18n="v1.traj.stage3.sub">KMU</span>
+        </div>
+        <div class="v1-traj-step-title" data-i18n="v1.traj.stage3.title">癌症 RNA-seq biomarker</div>
+        <div class="v1-traj-step-carry" data-i18n="v1.traj.carry3">+ transcriptomics</div>
+      </article>
+
+      <article class="v1-traj-step">
+        <div class="v1-traj-step-head">
+          <span class="v1-traj-step-year" data-i18n="v1.traj.stage4.year">POSTDOC II</span>
+          <span class="v1-traj-step-sub" data-i18n="v1.traj.stage4.sub">NHRI</span>
+        </div>
+        <div class="v1-traj-step-title" data-i18n="v1.traj.stage4.title">健康大數據 TRE</div>
+        <div class="v1-traj-step-carry" data-i18n="v1.traj.carry4">+ data platform</div>
+      </article>
+
+      <article class="v1-traj-step">
+        <div class="v1-traj-step-head">
+          <span class="v1-traj-step-year" data-i18n="v1.traj.stage5.year">NOW · NPUST</span>
+          <span class="v1-traj-step-sub" data-i18n="v1.traj.stage5.sub">transfer learning</span>
+        </div>
+        <div class="v1-traj-step-title" data-i18n="v1.traj.stage5.title">獸醫學院・計算實驗室</div>
+        <div class="v1-traj-step-carry" data-i18n="v1.traj.carry5">+ cross-species transfer</div>
+      </article>
+
+      <article class="v1-traj-step">
+        <div class="v1-traj-step-head">
+          <span class="v1-traj-step-year" data-i18n="v1.traj.stage6.year">→ VET MED</span>
+          <span class="v1-traj-step-sub" data-i18n="v1.traj.stage6.sub">applied</span>
+        </div>
+        <div class="v1-traj-step-title" data-i18n="v1.traj.stage6.title">伴侶動物臨床</div>
+      </article>
+    </div>
   </section>
 
   <!-- Research threads (with relation map) ------------------------------- -->
@@ -1547,6 +1824,49 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
           <text x="420" y="52" fill="#8d6a94" data-i18n="v1.research.edge5">cross-domain priors</text>
         </g>
       </svg>
+
+      <div class="v1-research-map-mobile" aria-label="thread map summary">
+        <div class="v1-research-mobile-note" data-i18n="v1.research.edge5">cross-domain priors</div>
+        <div class="v1-research-mobile-hub" data-i18n="v1.research.hub">方法學底盤</div>
+
+        <div class="v1-research-mobile-list">
+          <article class="v1-research-mobile-item">
+            <div class="v1-research-mobile-num">01</div>
+            <div>
+              <h3 data-i18n="v1.research.n1.title">跨物種模型遷移</h3>
+              <p data-i18n="v1.research.n1.sub">human → companion animals</p>
+              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge1">ortholog + transfer</div>
+            </div>
+          </article>
+
+          <article class="v1-research-mobile-item">
+            <div class="v1-research-mobile-num">02</div>
+            <div>
+              <h3 data-i18n="v1.research.n2.title">蛋白質設計</h3>
+              <p data-i18n="v1.research.n2.sub">diagnostic / therapeutic binders</p>
+              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge2">structure priors</div>
+            </div>
+          </article>
+
+          <article class="v1-research-mobile-item">
+            <div class="v1-research-mobile-num">03</div>
+            <div>
+              <h3 data-i18n="v1.research.n3.title">總體基因體方法</h3>
+              <p data-i18n="v1.research.n3.sub">noisy field samples</p>
+              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge3">noisy-sample pipelines</div>
+            </div>
+          </article>
+
+          <article class="v1-research-mobile-item">
+            <div class="v1-research-mobile-num">04</div>
+            <div>
+              <h3 data-i18n="v1.research.n4.title">精準醫學合作</h3>
+              <p data-i18n="v1.research.n4.sub">TWB · NBCT · NHI</p>
+              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge4">real-world validation</div>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
 
     <div class="v1-research-threads">
@@ -1740,6 +2060,37 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
                          │  intl. labs · code  │
                          └─────────────────────┘
 </pre></div>
+
+<div class="v2-map-mobile" aria-label="collaboration network summary">
+  <div class="v2-map-mobile-center">
+    <span class="title" data-i18n="v2col.map.mobile.center.title">aiil @ NPUST</span>
+    <span class="sub" data-i18n="v2col.map.mobile.center.sub">(lhchang)</span>
+  </div>
+
+  <div class="v2-map-mobile-list">
+    <div class="v2-map-mobile-item">
+      <span class="title" data-i18n="v2col.map.mobile.human.title">HUMAN GENOMICS</span>
+      <span class="line" data-i18n="v2col.map.mobile.human.line1">TVGH · NHRI · KMU</span>
+      <span class="meta" data-i18n="v2col.map.mobile.human.line2">stroke variants · F2 · cohort NGS</span>
+    </div>
+    <div class="v2-map-mobile-item">
+      <span class="title" data-i18n="v2col.map.mobile.vet.title">VET &amp; ANIMAL</span>
+      <span class="line" data-i18n="v2col.map.mobile.vet.line1">NPUST vet med</span>
+      <span class="meta" data-i18n="v2col.map.mobile.vet.line2">clinics · shelters</span>
+    </div>
+    <div class="v2-map-mobile-item">
+      <span class="title" data-i18n="v2col.map.mobile.ind.title">INDUSTRY / TOOLS</span>
+      <span class="line" data-i18n="v2col.map.mobile.ind.line1">antibody · CRO</span>
+      <span class="meta" data-i18n="v2col.map.mobile.ind.line2">agent frameworks</span>
+    </div>
+    <div class="v2-map-mobile-item">
+      <span class="title" data-i18n="v2col.map.mobile.methods.title">METHODS &amp; DATA</span>
+      <span class="line" data-i18n="v2col.map.mobile.methods.line1">TWB · NBCT · NHI</span>
+      <span class="meta" data-i18n="v2col.map.mobile.methods.line2">compute · data · shared IRB</span>
+      <span class="meta" data-i18n="v2col.map.mobile.methods.line3">intl. labs · code</span>
+    </div>
+  </div>
+</div>
 
 <p class="comment" data-i18n="v2col.map.note"># 中心是實驗室本身，四個方向是持續往來的合作面。每條邊上寫的是目前實際的交集。</p>
 </section>
@@ -2142,6 +2493,21 @@ const I18N = {
     'v2col.map.head': 'network ──────── 5 clusters',
     'v2col.map.ascii': '                         ┌─────────────────────┐\n                         │  HUMAN GENOMICS     │\n                         │  TVGH · NHRI · KMU  │\n                         └──────────┬──────────┘\n                                    │\n                                    │  stroke variants · F2 · cohort NGS\n                                    │\n   ┌─────────────────────┐   ┌──────┴──────────┐   ┌─────────────────────┐\n   │  VET & ANIMAL       │───┤                 ├───│  INDUSTRY / TOOLS   │\n   │  NPUST vet med      │   │   aiil @ NPUST  │   │  antibody · CRO     │\n   │  clinics · shelters │   │   (lhchang)     │   │  agent frameworks   │\n   └─────────────────────┘   └──────┬──────────┘   └─────────────────────┘\n                                    │\n                                    │  compute · data · shared IRB\n                                    │\n                         ┌──────────┴──────────┐\n                         │  METHODS & DATA     │\n                         │  TWB · NBCT · NHI   │\n                         │  intl. labs · code  │\n                         └─────────────────────┘\n',
     'v2col.map.note': '# 中心是實驗室本身，四個方向是持續往來的合作面。每條邊上寫的是目前實際的交集。',
+    'v2col.map.mobile.center.title': 'aiil @ NPUST',
+    'v2col.map.mobile.center.sub': '(lhchang)',
+    'v2col.map.mobile.human.title': 'HUMAN GENOMICS',
+    'v2col.map.mobile.human.line1': 'TVGH · NHRI · KMU',
+    'v2col.map.mobile.human.line2': 'stroke variants · F2 · cohort NGS',
+    'v2col.map.mobile.vet.title': 'VET & ANIMAL',
+    'v2col.map.mobile.vet.line1': 'NPUST vet med',
+    'v2col.map.mobile.vet.line2': 'clinics · shelters',
+    'v2col.map.mobile.ind.title': 'INDUSTRY / TOOLS',
+    'v2col.map.mobile.ind.line1': 'antibody · CRO',
+    'v2col.map.mobile.ind.line2': 'agent frameworks',
+    'v2col.map.mobile.methods.title': 'METHODS & DATA',
+    'v2col.map.mobile.methods.line1': 'TWB · NBCT · NHI',
+    'v2col.map.mobile.methods.line2': 'compute · data · shared IRB',
+    'v2col.map.mobile.methods.line3': 'intl. labs · code',
     'v2col.hg.head': 'human genomics ── clinical collaborators',
     'v2col.hg.tvgh': '臺北榮民總醫院 · 神經內科 &nbsp;·&nbsp; <span class="comment">早發性腦中風 cohort、家族性腦靜脈竇血栓 F2 p.F382L、臨床表型與遺傳判讀、罕見疾病 variant interpretation、family-based NGS 分析</span>',
     'v2col.hg.nhri': '國家衛生研究院 &nbsp;·&nbsp; <span class="comment">國家級 NGS 資料平台、精準醫學工作流程</span>',
@@ -2329,6 +2695,21 @@ const I18N = {
     'v2col.map.head': 'network ──────── 5 clusters',
     'v2col.map.ascii': '                         ┌─────────────────────┐\n                         │  HUMAN GENOMICS     │\n                         │  TVGH · NHRI · KMU  │\n                         └──────────┬──────────┘\n                                    │\n                                    │  stroke variants · F2 · cohort NGS\n                                    │\n   ┌─────────────────────┐   ┌──────┴──────────┐   ┌─────────────────────┐\n   │  VET & ANIMAL       │───┤                 ├───│  INDUSTRY / TOOLS   │\n   │  NPUST vet med      │   │   aiil @ NPUST  │   │  antibody · CRO     │\n   │  clinics · shelters │   │   (lhchang)     │   │  agent frameworks   │\n   └─────────────────────┘   └──────┬──────────┘   └─────────────────────┘\n                                    │\n                                    │  compute · data · shared IRB\n                                    │\n                         ┌──────────┴──────────┐\n                         │  METHODS & DATA     │\n                         │  TWB · NBCT · NHI   │\n                         │  intl. labs · code  │\n                         └─────────────────────┘\n',
     'v2col.map.note': '# the lab sits at the center, with four directions of ongoing collaboration. each edge label is the actual intersection today.',
+    'v2col.map.mobile.center.title': 'aiil @ NPUST',
+    'v2col.map.mobile.center.sub': '(lhchang)',
+    'v2col.map.mobile.human.title': 'HUMAN GENOMICS',
+    'v2col.map.mobile.human.line1': 'TVGH · NHRI · KMU',
+    'v2col.map.mobile.human.line2': 'stroke variants · F2 · cohort NGS',
+    'v2col.map.mobile.vet.title': 'VET & ANIMAL',
+    'v2col.map.mobile.vet.line1': 'NPUST vet med',
+    'v2col.map.mobile.vet.line2': 'clinics · shelters',
+    'v2col.map.mobile.ind.title': 'INDUSTRY / TOOLS',
+    'v2col.map.mobile.ind.line1': 'antibody · CRO',
+    'v2col.map.mobile.ind.line2': 'agent frameworks',
+    'v2col.map.mobile.methods.title': 'METHODS & DATA',
+    'v2col.map.mobile.methods.line1': 'TWB · NBCT · NHI',
+    'v2col.map.mobile.methods.line2': 'compute · data · shared IRB',
+    'v2col.map.mobile.methods.line3': 'intl. labs · code',
     'v2col.hg.head': 'human genomics ── clinical collaborators',
     'v2col.hg.tvgh': 'Taipei Veterans General Hospital (TVGH) · Neurology &nbsp;·&nbsp; <span class="comment">early-onset stroke cohort, familial cerebral venous thrombosis (F2 p.F382L), clinical phenotyping &amp; variant interpretation, rare-disease variant interpretation, family-based NGS analyses</span>',
     'v2col.hg.nhri': 'National Health Research Institutes (NHRI) &nbsp;·&nbsp; <span class="comment">national NGS data platform, precision-medicine workflows</span>',
