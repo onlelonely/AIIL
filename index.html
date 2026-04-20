@@ -1,1512 +1,2529 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI-Assisted Immunoinformatics Lab | NPUST</title>
-  <meta name="description" content="A bilingual academic lab homepage for a new PI at NPUST, focused on computational biology, veterinary translation, and precision medicine.">
-  <script>document.documentElement.classList.add('js');</script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Source+Serif+4:wght@600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --color-bg: #fcfbf8;
-      --color-surface: #ffffff;
-      --color-surface-muted: #f4f7f8;
-      --color-text: #102a43;
-      --color-text-secondary: #52606d;
-      --color-text-tertiary: #7b8794;
-      --color-primary: #102a43;
-      --color-secondary: #2a6f7b;
-      --color-button: #0f4c81;
-      --color-accent: #c96e3a;
-      --color-border: #d9dee5;
-      --color-border-strong: #b8c3cf;
-      --shadow-soft: 0 10px 30px rgba(16, 42, 67, 0.06);
-      --shadow-card: 0 8px 24px rgba(16, 42, 67, 0.05);
-      --font-body: 'DM Sans', 'Noto Sans TC', sans-serif;
-      --font-serif: 'Source Serif 4', 'Noto Serif TC', serif;
-      --max-width: 1160px;
-      --radius-sm: 10px;
-      --radius-md: 18px;
-      --radius-lg: 24px;
-      --space-2xs: 0.35rem;
-      --space-xs: 0.75rem;
-      --space-sm: 1rem;
-      --space-md: 1.5rem;
-      --space-lg: 2.5rem;
-      --space-xl: 4rem;
-      --space-2xl: 6rem;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--color-text);
-      background: var(--color-bg);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    section[id] {
-      scroll-margin-top: 6.25rem;
-    }
-
-    .section-inner {
-      width: min(calc(100% - 2rem), var(--max-width));
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--color-secondary);
-    }
-
-    .section {
-      padding: var(--space-2xl) 0;
-    }
-
-    .section--muted {
-      background: var(--color-surface-muted);
-      border-top: 1px solid rgba(217, 222, 229, 0.7);
-      border-bottom: 1px solid rgba(217, 222, 229, 0.7);
-    }
-
-    .section-head {
-      display: grid;
-      gap: 0.75rem;
-      margin-bottom: var(--space-lg);
-      max-width: 720px;
-    }
-
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 3vw, 2.85rem);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: var(--color-primary);
-    }
-
-    .section-intro {
-      font-size: 1rem;
-      color: var(--color-text-secondary);
-    }
-
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(252, 251, 248, 0.96);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .nav.scrolled {
-      border-bottom-color: rgba(217, 222, 229, 0.9);
-      box-shadow: 0 6px 24px rgba(16, 42, 67, 0.05);
-    }
-
-    .nav-inner {
-      width: min(calc(100% - 2rem), var(--max-width));
-      margin: 0 auto;
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-md);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      min-width: 0;
-    }
-
-    .brand-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--color-border);
-      display: grid;
-      place-items: center;
-      font-family: var(--font-serif);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      background: var(--color-surface);
-    }
-
-    .brand-text {
-      min-width: 0;
-    }
-
-    .brand-name {
-      font-size: 0.96rem;
-      font-weight: 700;
-      color: var(--color-primary);
-    }
-
-    .brand-subtitle {
-      font-size: 0.8rem;
-      color: var(--color-text-secondary);
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: var(--space-md);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 0.92rem;
-      color: var(--color-text-secondary);
-      padding-bottom: 0.15rem;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--color-primary);
-      border-bottom-color: var(--color-button);
-    }
-
-    .lang-toggle {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.2rem;
-      border: 1px solid var(--color-border);
-      border-radius: 999px;
-      background: var(--color-surface);
-    }
-
-    .lang-btn {
-      min-width: 42px;
-      border: 0;
-      background: transparent;
-      color: var(--color-text-secondary);
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    .lang-btn.active {
-      background: var(--color-button);
-      color: #fff;
-    }
-
-    .nav-toggle {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--color-border);
-      border-radius: 50%;
-      background: var(--color-surface);
-      color: var(--color-primary);
-      cursor: pointer;
-    }
-
-    .nav-toggle span {
-      display: block;
-      width: 18px;
-      height: 2px;
-      background: currentColor;
-      margin: 3px auto;
-      border-radius: 999px;
-    }
-
-    .hero {
-      padding: calc(var(--space-2xl) + 1rem) 0 var(--space-xl);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.82fr);
-      gap: var(--space-xl);
-      align-items: start;
-    }
-
-    .hero-copy {
-      display: grid;
-      gap: 1.1rem;
-    }
-
-    .hero-title {
-      font-family: var(--font-serif);
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-      color: var(--color-primary);
-      max-width: none;
-      text-wrap: balance;
-    }
-
-    .hero-title .title-line {
-      display: block;
-    }
-
-    html[lang="zh-Hant"] .hero-title {
-      font-size: clamp(2.6rem, 5vw, 4.8rem);
-      max-width: 7.5em;
-    }
-
-    html[lang="en"] .hero-title {
-      font-size: clamp(2.35rem, 4.25vw, 3.95rem);
-      max-width: 13.25ch;
-    }
-
-    .hero-lede {
-      font-size: 1.18rem;
-      color: var(--color-text);
-      max-width: 62ch;
-    }
-
-    .hero-support {
-      font-size: 1rem;
-      color: var(--color-text-secondary);
-      max-width: 64ch;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      padding-top: 0.2rem;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      padding: 0.82rem 1.25rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 0.92rem;
-      font-weight: 700;
-      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .button--primary {
-      background: var(--color-button);
-      color: #fff;
-    }
-
-    .button--primary:hover {
-      background: #0b426f;
-    }
-
-    .button--secondary {
-      background: transparent;
-      border-color: var(--color-border-strong);
-      color: var(--color-primary);
-    }
-
-    .button--secondary:hover {
-      border-color: var(--color-button);
-      color: var(--color-button);
-    }
-
-    .hero-proof {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.9rem;
-      padding-top: 0.6rem;
-    }
-
-    .proof-item {
-      padding: 1rem;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      background: var(--color-surface);
-    }
-
-    .proof-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-text-tertiary);
-      margin-bottom: 0.4rem;
-    }
-
-    .proof-value {
-      font-size: 0.96rem;
-      font-weight: 600;
-      color: var(--color-primary);
-    }
-
-    .hero-panel {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 1.15rem;
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      gap: 1rem;
-    }
-
-    .hero-panel img {
-      width: 100%;
-      aspect-ratio: 4 / 4.5;
-      object-fit: cover;
-      border-radius: var(--radius-md);
-    }
-
-    .panel-title {
-      font-family: var(--font-serif);
-      font-size: 1.55rem;
-      line-height: 1.1;
-      color: var(--color-primary);
-    }
-
-    .panel-role {
-      color: var(--color-secondary);
-      font-weight: 600;
-      font-size: 0.96rem;
-    }
-
-    .panel-note {
-      color: var(--color-text-secondary);
-      font-size: 0.95rem;
-    }
-
-    .panel-invite {
-      border-top: 1px solid var(--color-border);
-      padding-top: 1rem;
-    }
-
-    .panel-invite-text {
-      font-family: var(--font-serif);
-      font-size: 1.28rem;
-      line-height: 1.2;
-      color: var(--color-primary);
-    }
-
-    .focus-grid,
-    .research-grid,
-    .work-grid,
-    .teaching-grid,
-    .contact-grid {
-      display: grid;
-      gap: var(--space-md);
-    }
-
-    .focus-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .research-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .work-grid,
-    .teaching-grid,
-    .contact-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .card,
-    .panel,
-    .contact-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: 1.3rem;
-      box-shadow: var(--shadow-card);
-    }
-
-    .card:hover,
-    .panel:hover,
-    .contact-card:hover {
-      border-color: var(--color-border-strong);
-    }
-
-    .card-icon {
-      width: 42px;
-      height: 42px;
-      margin-bottom: 1rem;
-      color: var(--color-secondary);
-    }
-
-    .card-title,
-    .panel-heading {
-      font-family: var(--font-serif);
-      font-size: 1.45rem;
-      line-height: 1.15;
-      color: var(--color-primary);
-      margin-bottom: 0.65rem;
-    }
-
-    .card-subtitle {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--color-text-tertiary);
-      font-weight: 700;
-      margin-bottom: 0.55rem;
-    }
-
-    .card-desc,
-    .panel-copy,
-    .contact-card p,
-    .about-copy {
-      color: var(--color-text-secondary);
-      font-size: 0.98rem;
-    }
-
-    .tag-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 1rem;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.34rem 0.72rem;
-      border-radius: 999px;
-      border: 1px solid var(--color-border);
-      color: var(--color-text-secondary);
-      font-size: 0.82rem;
-      background: transparent;
-    }
-
-    .panel-list {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .list-item {
-      padding-top: 1rem;
-      border-top: 1px solid rgba(217, 222, 229, 0.85);
-    }
-
-    .list-item:first-child {
-      padding-top: 0;
-      border-top: 0;
-    }
-
-    .item-meta {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--color-text-tertiary);
-      margin-bottom: 0.35rem;
-    }
-
-    .item-title {
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      margin-bottom: 0.3rem;
-    }
-
-    .item-desc {
-      font-size: 0.96rem;
-      color: var(--color-text-secondary);
-    }
-
-    .theme-list {
-      display: grid;
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-
-    .theme-item {
-      padding: 0.95rem 1rem;
-      background: var(--color-surface-muted);
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(217, 222, 229, 0.7);
-    }
-
-    .theme-title {
-      font-weight: 700;
-      color: var(--color-primary);
-      margin-bottom: 0.25rem;
-      font-size: 0.98rem;
-    }
-
-    .theme-desc {
-      font-size: 0.92rem;
-      color: var(--color-text-secondary);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(260px, 0.76fr) minmax(0, 1.24fr);
-      gap: var(--space-xl);
-      align-items: start;
-    }
-
-    .about-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      padding: 1rem;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .about-card img {
-      width: 100%;
-      border-radius: var(--radius-md);
-      aspect-ratio: 4 / 4.5;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-
-    .about-name {
-      font-family: var(--font-serif);
-      font-size: 1.7rem;
-      color: var(--color-primary);
-      line-height: 1.1;
-      margin-bottom: 0.35rem;
-    }
-
-    .about-role {
-      color: var(--color-secondary);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
-
-    .about-meta {
-      font-size: 0.92rem;
-      color: var(--color-text-secondary);
-    }
-
-    .about-text {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .about-link {
-      width: fit-content;
-      color: var(--color-button);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .about-link:hover {
-      border-bottom-color: currentColor;
-    }
-
-    .contact-info {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .contact-row {
-      display: flex;
-      gap: 0.9rem;
-      align-items: flex-start;
-    }
-
-    .contact-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--color-border);
-      display: grid;
-      place-items: center;
-      color: var(--color-secondary);
-      flex-shrink: 0;
-      background: var(--color-surface);
-    }
-
-    .contact-icon svg {
-      width: 18px;
-      height: 18px;
-    }
-
-    .contact-label {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--color-text-tertiary);
-      font-weight: 700;
-      margin-bottom: 0.15rem;
-    }
-
-    .contact-value {
-      font-size: 1.08rem;
-      font-weight: 600;
-      line-height: 1.45;
-      word-break: break-word;
-      color: var(--color-primary);
-    }
-
-    .contact-card {
-      display: grid;
-      gap: 1rem;
-      align-content: start;
-    }
-
-    .contact-card ul {
-      list-style: none;
-      display: grid;
-      gap: 0.5rem;
-      color: var(--color-text-secondary);
-      font-size: 0.95rem;
-    }
-
-    .contact-card li::before {
-      content: '•';
-      color: var(--color-accent);
-      display: inline-block;
-      width: 1rem;
-    }
-
-    .footer {
-      padding: 2rem 0 2.5rem;
-      border-top: 1px solid rgba(217, 222, 229, 0.8);
-      color: var(--color-text-tertiary);
-      font-size: 0.88rem;
-      text-align: center;
-    }
-
-    .js .has-motion [data-hero] {
-      opacity: 0;
-      transform: translateY(18px);
-    }
-
-    .js .has-motion [data-hero].is-visible {
-      opacity: 1;
-      transform: translateY(0);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .about-grid,
-      .work-grid,
-      .teaching-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .focus-grid,
-      .research-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-proof {
-        grid-template-columns: 1fr;
-      }
-
-      html[lang="zh-Hant"] .hero-title {
-        max-width: 7.2em;
-      }
-
-      html[lang="en"] .hero-title {
-        max-width: 12.6ch;
-      }
-    }
-
-    @media (max-width: 860px) {
-      .nav-inner {
-        min-height: 72px;
-      }
-
-      .nav-toggle {
-        display: inline-block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: calc(100% + 1px);
-        left: 1rem;
-        right: 1rem;
-        padding: 1rem;
-        background: var(--color-surface);
-        border: 1px solid var(--color-border);
-        border-radius: var(--radius-md);
-        box-shadow: var(--shadow-soft);
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.9rem;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .brand-subtitle {
-        display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .section {
-        padding: 4rem 0;
-      }
-
-      .hero {
-        padding: 4.5rem 0 3rem;
-      }
-
-      .section-inner,
-      .nav-inner {
-        width: min(calc(100% - 1.2rem), var(--max-width));
-      }
-
-      html[lang="zh-Hant"] .hero-title {
-        font-size: clamp(2.15rem, 12vw, 3.2rem);
-        max-width: 6.8em;
-      }
-
-      html[lang="en"] .hero-title {
-        font-size: clamp(1.9rem, 9.8vw, 2.6rem);
-        max-width: 11.8ch;
-      }
-
-      .hero-lede {
-        font-size: 1.04rem;
-      }
-
-      .hero-support,
-      .section-intro,
-      .card-desc,
-      .item-desc,
-      .panel-copy,
-      .about-copy,
-      .contact-card p {
-        font-size: 0.94rem;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .hero-panel,
-      .card,
-      .panel,
-      .contact-card,
-      .about-card {
-        padding: 1.05rem;
-      }
-
-      .section-title {
-        font-size: clamp(1.7rem, 8vw, 2.3rem);
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Li-Hsin Chang · 張立鑫 — AIIL</title>
+<meta name="description" content="Li-Hsin Chang (張立鑫) — Assistant Professor, NPUST. A computational biology lab translating human genomic methods into veterinary research." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ========================================================================
+   DESIGN TOKENS  —  paper + ink + cinnabar
+   ======================================================================== */
+:root {
+  /* palette: sailor 「月夜の水面 夜桜」 — paper + ink + muted sakura ink */
+  --paper:      #f3efe5;          /* warm off-white, feels like uncoated stock */
+  --paper-deep: #ece6d6;          /* darker paper for inset panels */
+  --paper-edge: #d6cdba;          /* rule lines on paper */
+  --ink:        #1b1a17;          /* near-black with warm bias */
+  --ink-soft:   #47453f;          /* body text second tier */
+  --ink-faint:  #7a756c;          /* captions, meta */
+  --cinnabar:       #8d6a94;      /* primary ink (accent) */
+  --cinnabar-soft:  #a58caa;      /* lighter wash */
+  --cinnabar-deep:  #5e4466;      /* saturated stroke core */
+  --ink-secondary:  #5e4466;      /* pairs with accent for two-ink flourishes */
+
+  /* type */
+  --sans: 'Inter Tight', 'Noto Sans TC', system-ui, sans-serif;
+  --serif: 'Noto Serif TC', 'Iowan Old Style', 'Charter', Georgia, serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* rhythm */
+  --measure: 62ch;
+  --gutter: clamp(1rem, 4vw, 3rem);
+}
+
+/* ========================================================================
+   RESET + BASE
+   ======================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11", "calt";
+}
+
+/* paper texture — extremely subtle, two overlaid noise layers */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(120,100,60,0.05) 0, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(80,60,40,0.05) 0, transparent 45%);
+}
+/* paper fibres - very faint crosshatch */
+body::after {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.06;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(27,26,23,0.5) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(-45deg, rgba(27,26,23,0.3) 0 1px, transparent 1px 4px);
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+::selection { background: var(--cinnabar); color: var(--paper); }
+
+/* html[lang] gets appropriate primary family */
+html[lang="zh-Hant"] body { font-family: var(--serif); }
+html[lang="en"] body { font-family: var(--sans); }
+
+/* ========================================================================
+   VERSION SWITCHER (top bar)
+   ======================================================================== */
+.shell {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--paper-edge);
+}
+
+.topbar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.seal-mark {
+  width: 44px; height: 30px;
+  display: inline-block;
+  color: var(--cinnabar);
+}
+.seal-mark svg { width: 100%; height: 100%; display: block; overflow: visible; }
+
+.version-switch {
+  display: inline-flex;
+  border: 1px solid var(--paper-edge);
+  background: var(--paper);
+  padding: 3px;
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+.version-switch button {
+  padding: 7px 12px;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 1px;
+  transition: color .15s;
+}
+.version-switch button.active {
+  background: var(--ink);
+  color: var(--paper);
+}
+.version-switch button:hover:not(.active) { color: var(--ink); }
+
+.topbar-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lang-switch {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+.lang-switch button {
+  color: var(--ink-faint);
+  padding: 2px 4px;
+  border-bottom: 1px solid transparent;
+}
+.lang-switch button.active {
+  color: var(--ink);
+  border-bottom-color: var(--cinnabar);
+}
+.lang-switch .sep { opacity: 0.4; }
+
+/* ========================================================================
+   VERSION FRAMES — only one visible
+   ======================================================================== */
+.version { display: none; }
+.version.active { display: block; }
+
+/* ========================================================================
+   SHARED TYPE STYLES
+   ======================================================================== */
+.serif { font-family: var(--serif); }
+.sans  { font-family: var(--sans); }
+.mono  { font-family: var(--mono); }
+
+.cinnabar { color: var(--cinnabar); }
+
+.meta-line {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.rule {
+  height: 1px;
+  background: var(--paper-edge);
+  border: 0;
+  margin: 0;
+}
+
+.rule-thick {
+  height: 1px;
+  background: var(--ink);
+  border: 0;
+}
+
+/* =========================================================================
+   ╔═══════════════════════════════════════════════════════════════════════╗
+   ║  V1 — RESEARCHER'S NOTEBOOK                                          ║
+   ║  single-column reading + marginalia                                  ║
+   ╚═══════════════════════════════════════════════════════════════════════╝
+   ========================================================================= */
+
+.v1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5rem var(--gutter) 6rem;
+}
+
+/* --- Masthead ------------------------------------------------------- */
+.v1-masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--paper-edge);
+}
+
+.v1-masthead-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.v1-sitename {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.v1-sitename strong { color: var(--ink); font-weight: 500; }
+
+.v1-dateline {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: 0.08em;
+}
+
+.v1-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 3rem;
+  align-items: start;
+  padding-top: 1.5rem;
+}
+
+.v1-hero-text h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  text-wrap: balance;
+  margin-bottom: 1.5rem;
+}
+
+html[lang="en"] .v1-hero-text h1 {
+  font-family: var(--sans);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+.v1-hero-text h1 em {
+  font-style: italic;
+  color: var(--cinnabar);
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+}
+/* hand-drawn wave under the hero emphasis (pen flourish) */
+.v1-hero-text h1 em::after {
+  content: "";
+  position: absolute;
+  left: -0.1em; right: -0.1em;
+  bottom: -0.22em;
+  height: 0.42em;
+  background-image: var(--pen-wave, none);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: var(--ink-alpha, 0.75);
+  pointer-events: none;
+}
+/* runtime-built wave url (set by JS so it picks up current palette) */
+
+.v1-hero-lede {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+html[lang="en"] .v1-hero-lede {
+  font-family: var(--sans);
+  font-weight: 300;
+}
+
+.v1-portrait {
+  position: relative;
+}
+.v1-portrait img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  filter: grayscale(0.35) contrast(1.05);
+  border: 1px solid var(--paper-edge);
+}
+.v1-portrait-caption {
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  line-height: 1.6;
+}
+.v1-portrait-caption::before {
+  content: "↑ ";
+  color: var(--cinnabar);
+}
+
+/* --- Now section (replaces "Current Focus") ----------------------- */
+.v1-now {
+  padding: 3rem 0 2rem;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 3rem;
+  border-bottom: 1px solid var(--paper-edge);
+}
+
+.v1-section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: 0.4rem;
+}
+.v1-section-label::before {
+  content: "§ ";
+  color: var(--cinnabar);
+}
+/* hand-drawn underline beneath section labels */
+.v1-section-label {
+  position: relative;
+  padding-bottom: 0.55rem;
+}
+.v1-section-label::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 20%;
+  bottom: 0;
+  height: 6px;
+  background-image: var(--pen-underline, none);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: calc(var(--ink-alpha, 0.75) * 0.85);
+  pointer-events: none;
+}
+
+/* H2 hand-drawn underline (trajectory heading etc) */
+.v1-trajectory h2,
+.v1 h2:not(.v1-thread h2) {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+.v1-trajectory h2::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  bottom: -0.1rem;
+  height: 8px;
+  background-image: var(--pen-underline-h, none);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: var(--ink-alpha, 0.75);
+  pointer-events: none;
+}
+
+.v1-now-body {
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: var(--ink);
+  max-width: 58ch;
+}
+
+html[lang="en"] .v1-now-body {
+  font-family: var(--sans);
+  font-weight: 400;
+}
+
+.v1-now-body p + p { margin-top: 1rem; }
+.v1-now-body mark {
+  background: transparent;
+  color: var(--cinnabar);
+  font-weight: 600;
+  border-bottom: 1px dotted var(--cinnabar);
+  padding: 0 1px;
+}
+
+.v1-now-list {
+  margin-top: 1.75rem;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--paper-edge);
+}
+.v1-now-item {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--paper-edge);
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+}
+.v1-now-item-tag {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cinnabar);
+  padding-top: 2px;
+}
+.v1-now-item-body {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+html[lang="en"] .v1-now-item-body { font-family: var(--sans); }
+.v1-now-item-body strong { color: var(--ink); font-weight: 600; }
+
+/* --- Trajectory (the "breadth" map) -------------------------------- */
+.v1-trajectory {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--paper-edge);
+}
+
+.v1-trajectory h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+}
+html[lang="en"] .v1-trajectory h2 { font-family: var(--sans); font-weight: 500; }
+
+.v1-trajectory-intro {
+  font-family: var(--serif);
+  color: var(--ink-soft);
+  max-width: 48ch;
+  margin-bottom: 2.5rem;
+  line-height: 1.75;
+}
+html[lang="en"] .v1-trajectory-intro { font-family: var(--sans); font-weight: 300; }
+
+.v1-traj-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* --- Research map (four threads + connections) --------------------- */
+.v1-research {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--paper-edge);
+}
+.v1-research-head {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+.v1-research-intro {
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: var(--ink);
+  max-width: 54ch;
+}
+html[lang="en"] .v1-research-intro { font-family: var(--sans); font-weight: 400; }
+
+.v1-research-map {
+  position: relative;
+  padding: 1rem 0;
+}
+
+.v1-research-map svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.v1-research-threads {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+.v1-threads-list {
+  display: grid;
+  gap: 0;
+  counter-reset: thread;
+}
+.v1-thread {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--paper-edge);
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: baseline;
+  counter-increment: thread;
+}
+.v1-thread:last-child { border-bottom: 1px solid var(--paper-edge); }
+.v1-thread-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--cinnabar);
+  letter-spacing: 0.08em;
+}
+.v1-thread-num::before {
+  content: counter(thread, decimal-leading-zero);
+}
+.v1-thread h3 {
+  font-family: var(--serif);
+  font-size: 1.22rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+}
+html[lang="en"] .v1-thread h3 { font-family: var(--sans); font-weight: 500; }
+.v1-thread p {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 56ch;
+}
+html[lang="en"] .v1-thread p { font-family: var(--sans); font-weight: 300; }
+.v1-thread-keys {
+  margin-top: 0.65rem;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+.v1-thread-keys span:not(:last-child)::after {
+  content: " · ";
+  color: var(--paper-edge);
+}
+
+/* --- Teaching (letter from the teacher) ---------------------------- */
+.v1-teach {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--paper-edge);
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 3rem;
+}
+
+.v1-teach-body {
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  line-height: 1.85;
+  color: var(--ink);
+  max-width: 56ch;
+}
+html[lang="en"] .v1-teach-body { font-family: var(--sans); font-weight: 400; font-size: 1.1rem; }
+
+.v1-teach-body p + p { margin-top: 1.1rem; }
+
+.v1-teach-body .drop {
+  float: left;
+  position: relative;
+  font-family: var(--serif);
+  font-size: 3.8rem;
+  line-height: 0.9;
+  padding: 0.3rem 0.6rem 0 0.1rem;
+  color: var(--cinnabar-deep);
+  font-weight: 700;
+  z-index: 0;
+}
+/* ink halo behind the drop cap — spreading wash */
+.v1-teach-body .drop::before {
+  content: "";
+  position: absolute;
+  left: -0.08em; top: 0.15em;
+  width: 1.15em; height: 0.95em;
+  background:
+    radial-gradient(ellipse 55% 60% at 42% 55%, color-mix(in oklab, var(--cinnabar) 40%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 50% at 60% 40%, color-mix(in oklab, var(--ink-secondary) 25%, transparent) 0%, transparent 70%);
+  filter: blur(2px);
+  z-index: -1;
+  opacity: calc(var(--ink-alpha, 0.75) * 0.9);
+  transform: rotate(-2deg);
+}
+/* a small pen-lift dot above the cap */
+.v1-teach-body .drop::after {
+  content: "";
+  position: absolute;
+  top: -0.1em; right: 0.25em;
+  width: 0.18em; height: 0.18em;
+  border-radius: 50%;
+  background: var(--ink-secondary);
+  opacity: calc(var(--ink-alpha, 0.75) * 0.7);
+}
+
+.v1-teach-courses {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--paper-edge);
+}
+.v1-teach-courses-label {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1rem;
+}
+.v1-course {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--paper-edge);
+  align-items: baseline;
+}
+.v1-course-num {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-faint);
+}
+.v1-course-name {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 500;
+}
+html[lang="en"] .v1-course-name { font-family: var(--sans); }
+.v1-course-level {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--cinnabar);
+  letter-spacing: 0.06em;
+}
+
+/* --- Contact ------------------------------------------------------- */
+.v1-contact {
+  padding: 4rem 0 1rem;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 3rem;
+}
+
+.v1-contact-body {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--ink);
+  max-width: 52ch;
+}
+html[lang="en"] .v1-contact-body { font-family: var(--sans); font-weight: 400; }
+
+.v1-contact-list {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0;
+}
+.v1-contact-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--paper-edge);
+  gap: 1rem;
+  align-items: baseline;
+}
+.v1-contact-row:last-child { border-bottom: 1px solid var(--paper-edge); }
+.v1-contact-key {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.v1-contact-val {
+  font-family: var(--mono);
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+.v1-contact-val a {
+  border-bottom: 1px solid var(--cinnabar);
+}
+
+/* --- Colophon footer ----------------------------------------------- */
+.v1-colophon {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+.v1-colophon .seal-mark {
+  width: 22px; height: 22px; font-size: 11px;
+}
+
+
+/* =========================================================================
+   V2 — LAB NOTEBOOK (monospace / ASCII terminal)
+   ========================================================================= */
+.v2 {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem var(--gutter) 5rem;
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.v2 .prose {
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.75;
+}
+.v2 pre, .v2 .ascii {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre;
+  overflow-x: auto;
+  color: var(--ink);
+}
+
+.v2-header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px dashed var(--ink-faint);
+  margin-bottom: 2rem;
+}
+.v2-header .line1 { color: var(--ink-faint); }
+.v2-header h1 {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0.5rem 0;
+  color: var(--ink);
+}
+.v2-header h1 .red { color: var(--cinnabar); }
+
+.v2-section {
+  margin: 3rem 0;
+}
+.v2-section-head {
+  color: var(--cinnabar);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+.v2-section-head::before {
+  content: "## ";
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+.v2 p { max-width: 80ch; margin-bottom: 1rem; }
+.v2 .comment { color: var(--ink-faint); }
+.v2 .kw { color: var(--cinnabar); }
+.v2 a { border-bottom: 1px solid var(--cinnabar); padding-bottom: 1px; }
+
+.v2-kv {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px 20px;
+  margin: 1rem 0;
+}
+.v2-kv dt { color: var(--ink-faint); }
+.v2-kv dd { color: var(--ink); }
+
+.v2-list {
+  list-style: none;
+  margin: 0.5rem 0 1rem 0;
+}
+.v2-list li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 0.4rem;
+  max-width: 78ch;
+}
+.v2-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--cinnabar);
+}
+
+.v2-asciibox {
+  padding: 1.25rem;
+  background: var(--paper-deep);
+  border: 1px solid var(--paper-edge);
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.v2-footer {
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--ink-faint);
+  color: var(--ink-faint);
+  font-size: 12px;
+}
+
+
+/* =========================================================================
+   V3 — EDITORIAL SPREAD (magazine-like two-column)
+   ========================================================================= */
+.v3 {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem var(--gutter) 5rem;
+}
+
+.v3-masthead {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 2rem;
+  align-items: end;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 3rem;
+}
+.v3-masthead-left,
+.v3-masthead-right {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  line-height: 1.8;
+}
+.v3-masthead-right { text-align: right; }
+
+.v3-masthead-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-align: center;
+  color: var(--ink);
+}
+html[lang="en"] .v3-masthead-title {
+  font-family: var(--sans);
+  font-weight: 700;
+}
+.v3-masthead-title .red { color: var(--cinnabar); }
+
+.v3-hero {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--paper-edge);
+}
+
+.v3-hero-lead {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  line-height: 1.45;
+  color: var(--ink);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+html[lang="en"] .v3-hero-lead {
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+.v3-hero-lead em {
+  color: var(--cinnabar);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.v3-hero-right {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 1.25rem;
+}
+.v3-hero-right img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  filter: grayscale(0.5) contrast(1.08);
+}
+.v3-hero-caption {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  line-height: 1.7;
+  padding-left: 12px;
+  border-left: 1px solid var(--cinnabar);
+}
+
+.v3-body {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.v3-col-main { min-width: 0; }
+.v3-col-side { min-width: 0; }
+
+/* essay-style narrative */
+.v3-essay h2 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 2.5rem 0 0.75rem;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+html[lang="en"] .v3-essay h2 {
+  font-family: var(--sans);
+  font-weight: 600;
+}
+.v3-essay h2:first-child { margin-top: 0; }
+
+.v3-essay h2::before {
+  content: "§ ";
+  color: var(--cinnabar);
+  font-weight: 400;
+}
+
+.v3-essay p {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--ink);
+  margin-bottom: 1.1rem;
+  max-width: 54ch;
+}
+html[lang="en"] .v3-essay p {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+.v3-essay p .lift {
+  color: var(--cinnabar);
+  font-weight: 500;
+}
+
+.v3-essay .drop::first-letter {
+  float: left;
+  font-family: var(--serif);
+  font-size: 4.2rem;
+  line-height: 0.85;
+  padding: 0.3rem 0.55rem 0 0;
+  color: var(--cinnabar);
+  font-weight: 700;
+}
+
+.v3-pullquote {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: var(--ink);
+  font-style: italic;
+  padding: 1.5rem 0 1.5rem 2rem;
+  border-left: 2px solid var(--cinnabar);
+  margin: 2rem 0;
+  max-width: 44ch;
+}
+html[lang="en"] .v3-pullquote {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* sidebar: index of facts */
+.v3-sidebar-block {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--ink);
+}
+.v3-sidebar-block:first-child { border-top: 2px solid var(--ink); }
+.v3-sidebar-block:last-child  { border-bottom: 1px solid var(--paper-edge); }
+
+.v3-sidebar-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.v3-sidebar-label .num {
+  color: var(--cinnabar);
+}
+
+.v3-sidebar-block ul {
+  list-style: none;
+}
+
+.v3-sidebar-item {
+  padding: 0.75rem 0;
+  border-top: 1px dotted var(--paper-edge);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.v3-sidebar-item:first-child { border-top: 0; padding-top: 0;}
+.v3-sidebar-item strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.v3-sidebar-item .meta {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--cinnabar);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.v3-map {
+  margin: 3rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid var(--paper-edge);
+  border-bottom: 1px solid var(--paper-edge);
+}
+.v3-map svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.v3-map-caption {
+  margin-top: 1rem;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+.v3-contact {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--ink);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  font-size: 0.92rem;
+}
+.v3-contact-row .key {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 4px;
+}
+.v3-contact-row .val {
+  font-family: var(--mono);
+  color: var(--ink);
+  word-break: break-word;
+}
+.v3-contact-row .val a {
+  border-bottom: 1px solid var(--cinnabar);
+}
+
+
+/* ========================================================================
+   RESPONSIVE
+   ======================================================================== */
+@media (max-width: 900px) {
+  .v1-hero { grid-template-columns: 1fr; }
+  .v1-portrait { max-width: 220px; }
+  .v1-now, .v1-research-head, .v1-research-threads, .v1-teach, .v1-contact {
+    grid-template-columns: 1fr; gap: 1.5rem;
+  }
+  .v3-body, .v3-hero { grid-template-columns: 1fr; }
+  .v3-contact { grid-template-columns: repeat(2, 1fr); }
+  .v3-masthead { grid-template-columns: 1fr; text-align: center; }
+  .v3-masthead-right { text-align: center; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .v1 { padding: 2rem var(--gutter) 4rem; }
+  .v2 { font-size: 13px; }
+  .v3-contact { grid-template-columns: 1fr; }
+  .topbar-inner { padding: 10px var(--gutter); }
+  .version-switch button { padding: 6px 8px; font-size: 10px; }
+}
+
+/* ========================================================================
+   TWEAKS PANEL
+   ======================================================================== */
+#tweaks {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  width: 260px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink);
+  box-shadow: 4px 4px 0 rgba(27,26,23,0.12);
+  display: none;
+}
+#tweaks.open { display: block; }
+#tweaks h4 {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: var(--cinnabar);
+}
+#tweaks .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+  gap: 8px;
+}
+#tweaks label {
+  color: var(--ink-soft);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+#tweaks select {
+  font-family: var(--mono);
+  font-size: 11px;
+  border: 1px solid var(--paper-edge);
+  background: var(--paper);
+  color: var(--ink);
+  padding: 3px 6px;
+  border-radius: 0;
+}
+
+/* low-cinnabar mode: replace accent with ink */
+body.no-cinnabar {
+  --cinnabar: var(--ink);
+  --cinnabar-soft: var(--ink-soft);
+  --cinnabar-deep: var(--ink);
+  --ink-secondary: var(--ink);
+}
+
+/* ============================================================
+   INK PALETTES — two-ink pen-stroke variants, toggled via Tweaks
+   each sets primary accent + secondary ink for flourishes
+   ============================================================ */
+body[data-ink="sakura"]   { --cinnabar:#8d6a94; --cinnabar-soft:#a58caa; --cinnabar-deep:#5e4466; --ink-secondary:#5e4466; }
+body[data-ink="indigo"]   { --cinnabar:#2b4a5c; --cinnabar-soft:#5b7a8c; --cinnabar-deep:#16303e; --ink-secondary:#5d2f1f; }
+body[data-ink="forest"]   { --cinnabar:#1f4f3a; --cinnabar-soft:#4f7a66; --cinnabar-deep:#0f2e22; --ink-secondary:#3a3f2e; }
+body[data-ink="cinnabar"] { --cinnabar:#8a1f1a; --cinnabar-soft:#b85a50; --cinnabar-deep:#5a100d; --ink-secondary:#1d1d1b; }
+body[data-ink="earth"]    { --cinnabar:#4a3f2b; --cinnabar-soft:#8a7a5c; --cinnabar-deep:#2e2618; --ink-secondary:#7a5c3a; }
+
+/* intensity scaling for ink flourishes (1..5) */
+body { --ink-intensity: 3; }
+body[data-ink-intensity="1"] { --ink-intensity: 1; --ink-alpha: 0.35; --ink-width: 0.9; }
+body[data-ink-intensity="2"] { --ink-intensity: 2; --ink-alpha: 0.55; --ink-width: 1.1; }
+body[data-ink-intensity="3"] { --ink-intensity: 3; --ink-alpha: 0.75; --ink-width: 1.4; }
+body[data-ink-intensity="4"] { --ink-intensity: 4; --ink-alpha: 0.9;  --ink-width: 1.8; }
+body[data-ink-intensity="5"] { --ink-intensity: 5; --ink-alpha: 1;    --ink-width: 2.4; }
+body { --ink-alpha: 0.75; --ink-width: 1.4; }
+
+/* ink-stroke underline utility (wavy pen flourish) */
+.pen-underline {
+  position: relative;
+  display: inline-block;
+}
+.pen-underline::after {
+  content: "";
+  position: absolute;
+  left: -2%; right: -2%;
+  bottom: -0.15em;
+  height: 0.32em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 12' preserveAspectRatio='none'><path d='M2 8 C 30 2, 60 11, 90 6 S 150 2, 180 9 S 230 4, 238 7' fill='none' stroke='%238d6a94' stroke-width='1.6' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  pointer-events: none;
+}
+
+/* density-compact */
+body.compact .v1 { padding-top: 3rem; padding-bottom: 4rem; }
+body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.compact .v1-trajectory { padding: 2.5rem 0 2rem; }
+
+</style>
 </head>
+
 <body>
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="#top" class="brand" aria-label="AIIL home">
-        <div class="brand-mark">AIIL</div>
-        <div class="brand-text">
-          <div class="brand-name">AI-Assisted Immunoinformatics Lab</div>
-          <div class="brand-subtitle" data-i18n="brand.subtitle">NPUST · 動物疫苗科技研究所</div>
-        </div>
-      </a>
+<div class="shell">
 
-      <div class="nav-right">
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#focus" data-i18n="nav.focus">目前重點</a></li>
-          <li><a href="#research" data-i18n="nav.research">研究方向</a></li>
-          <li><a href="#work" data-i18n="nav.work">計畫與成果</a></li>
-          <li><a href="#teaching" data-i18n="nav.teaching">教學</a></li>
-          <li><a href="#about" data-i18n="nav.about">關於 PI</a></li>
-          <li><a href="#contact" data-i18n="nav.contact">聯絡</a></li>
-        </ul>
+<!-- ========================================================================
+     TOPBAR : version + lang switch
+     ======================================================================== -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#" class="seal" aria-label="AIIL home">
+      <span class="seal-mark" aria-hidden="true">
+        <svg viewBox="0 0 80 36">
+          <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <!-- stylised handwritten "lh" monogram -->
+            <path d="M6 6 C 6 18, 6 24, 10 30"/>
+            <path d="M4 16 C 10 14, 14 14, 18 16"/>
+            <path d="M22 6 C 22 18, 22 24, 26 30"/>
+            <path d="M22 18 C 26 14, 32 14, 36 18 C 36 22, 36 26, 40 30"/>
+            <!-- small dot / pen lift -->
+            <circle cx="48" cy="28" r="1.3" fill="currentColor" stroke="none"/>
+          </g>
+        </svg>
+      </span>
+      <span><strong style="color:var(--ink);font-weight:500">L.-H. CHANG</strong> · AIIL · NPUST</span>
+    </a>
+    </a>
 
-        <div class="lang-toggle">
-          <button class="lang-btn active" data-lang="zh" id="langZh">中</button>
-          <button class="lang-btn" data-lang="en" id="langEn">EN</button>
-        </div>
+    <div class="version-switch" role="tablist" aria-label="Layout version">
+      <button data-version="v1" class="active">01 · Notebook</button>
+      <button data-version="v2">02 · Logbook</button>
+      <button data-version="v3">03 · Editorial</button>
+    </div>
 
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+    <div class="topbar-right">
+      <div class="lang-switch">
+        <button data-lang="zh" class="active">中</button>
+        <span class="sep">/</span>
+        <button data-lang="en">EN</button>
       </div>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <header class="hero" id="top">
-    <div class="section-inner hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow" data-i18n="hero.eyebrow" data-hero>用計算生物學</p>
-        <h1 class="hero-title" data-i18n="hero.title" data-hero><span class="title-line">把人類醫學資料</span><span class="title-line">帶進獸醫研究</span></h1>
-        <p class="hero-lede" data-i18n="hero.lede" data-hero>我們以資料驅動的方式找尋獸醫藥物再利用的可能。</p>
-        <p class="hero-support" data-i18n="hero.support" data-hero>成立於 2025 年，目前著重在建立基礎運算設施以及教學，目標是使用人類基因體與轉錄體的研究方法解決獸醫問題。</p>
+<main>
 
-        <div class="hero-actions" data-hero>
-          <a href="#focus" class="button button--primary" data-i18n="hero.primary">查看目前重點</a>
-          <a href="#contact" class="button button--secondary" data-i18n="hero.secondary">聯絡研究室</a>
-        </div>
+<!-- ========================================================================
+     V1 — RESEARCHER'S NOTEBOOK
+     ======================================================================== -->
+<section class="version v1 active" id="v1">
 
-        <div class="hero-proof" data-hero>
-          <div class="proof-item">
-            <div class="proof-label" data-i18n="hero.proof1.label">NSTC</div>
-            <div class="proof-value" data-i18n="hero.proof1.value">第一個計畫啟動</div>
-          </div>
-          <div class="proof-item">
-            <div class="proof-label" data-i18n="hero.proof2.label">Research</div>
-            <div class="proof-value" data-i18n="hero.proof2.value">11 項研究計畫</div>
-          </div>
-          <div class="proof-item">
-            <div class="proof-label" data-i18n="hero.proof3.label">Approach</div>
-            <div class="proof-value" data-i18n="hero.proof3.value">以計算為主</div>
-          </div>
-        </div>
+  <!-- masthead ---------------------------------------------------------- -->
+  <div class="v1-masthead">
+    <div class="v1-masthead-top">
+      <div class="v1-sitename">
+        <strong>AI-Assisted Immunoinformatics Lab</strong>
+        &nbsp;—&nbsp;<span data-i18n="masthead.sub">屏東科技大學・動物疫苗科技研究所</span>
       </div>
-
-      <aside class="hero-panel" data-hero>
-        <img src="profile.jpg" alt="Li-Hsin Chang">
-        <div>
-          <div class="panel-title" data-i18n="profile.name">Li-Hsin Chang 張立鑫</div>
-          <div class="panel-role" data-i18n="profile.role">Assistant Professor · Graduate Institute of Animal Vaccine Technology</div>
-        </div>
-        <p class="panel-note" data-i18n="profile.note">研究主題從模型跨物種遷移、疫苗資訊學與藥物再利用開始，同時建立一個學生可以循序漸進學習的實驗室。</p>
-        <div class="panel-invite">
-          <p class="panel-invite-text" data-i18n="profile.invite">歡迎碩士生加入，也歡迎跨領域合作。</p>
-        </div>
-      </aside>
+      <div class="v1-dateline" data-i18n="masthead.est">EST. 2025 — PINGTUNG, TW</div>
     </div>
-  </header>
 
-  <section class="section section--muted" id="focus">
-    <div class="section-inner">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="focus.label">Current Focus</p>
-        <h2 class="section-title" data-i18n="focus.title">研究室第一年的重點</h2>
-        <p class="section-intro" data-i18n="focus.intro">第一年最直接的工作有三塊：教學、第一個 NSTC 計畫，還有支撐其他研究題目的計算基礎設施。</p>
+    <div class="v1-hero">
+      <div class="v1-hero-text">
+        <h1 data-i18n="v1.hero.title">
+          <span data-i18n-nested>一個剛起步的計算生物學實驗室</span><em data-i18n-nested>試著把人的研究方法，用到動物身上</em>
+        </h1>
+        <p class="v1-hero-lede" data-i18n="v1.hero.lede">
+          我訓練出來就是個什麼都做一點的人，大學學生命科學與資訊，碩博在小鼠分子機制和 NGS 罕病診斷之間來回，博後做癌症 RNA-seq biomarker，現在在獸醫學院嘗試把人類基因體學的方法，轉到伴侶動物的疾病。廣度是我的底牌，深度還在長。
+        </p>
       </div>
 
-      <div class="focus-grid">
-        <article class="card reveal">
-          <div class="card-subtitle" data-i18n="focus.card1.kicker">Teaching</div>
-          <h3 class="card-title" data-i18n="focus.card1.title">教學</h3>
-          <p class="card-desc" data-i18n="focus.card1.desc">現在每天最大一塊時間花在教學。課程從大學部的運算思維，一路延伸到研究所的生物資訊與疫苗研究法，希望把計算與生物資訊實作帶進獸醫相關課程，讓學生有用資料做研究的底子。</p>
-        </article>
-
-        <article class="card reveal">
-          <div class="card-subtitle" data-i18n="focus.card2.kicker">Grant</div>
-          <h3 class="card-title" data-i18n="focus.card2.title">NSTC 一年期計畫</h3>
-          <p class="card-desc" data-i18n="focus.card2.desc">主持一年期國科會計畫（2026.08–2027.07）。以人類藥物基因體學的轉錄體特徵為起點，用同源基因對應與遷移學習，把藥物再利用的策略延伸到伴侶動物疾病，第一個目標是貓瘟病毒（FPV）。</p>
-        </article>
-
-        <article class="card reveal">
-          <div class="card-subtitle" data-i18n="focus.card3.kicker">Workflow</div>
-          <h3 class="card-title" data-i18n="focus.card3.title">計算基礎設施</h3>
-          <p class="card-desc" data-i18n="focus.card3.desc">以 GPU 工作站為主搭起分析環境，再加上版本控制、資料追蹤（DVC）、實驗紀錄（MLflow），讓分析可重現、可追溯。同時嘗試引入 Agent Harnessx 來與 AI 配合加速研究流程。</p>
-        </article>
-      </div>
+      <figure class="v1-portrait">
+        <img src="profile.jpg" alt="Li-Hsin Chang 張立鑫" />
+        <figcaption class="v1-portrait-caption" data-i18n="v1.portrait">
+          張立鑫 Li-Hsin Chang<br/>
+          Asst. Prof., NPUST<br/>
+          ORCID 0000-0002-1126-7697
+        </figcaption>
+      </figure>
     </div>
-  </section>
+  </div>
 
-  <section class="section" id="research">
-    <div class="section-inner">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="research.label">Research Areas</p>
-        <h2 class="section-title" data-i18n="research.title">研究方向</h2>
-        <p class="section-intro" data-i18n="research.intro">研究方向分成四條主軸。短期內先挑能用計算方法推進。</p>
+  <!-- Now --------------------------------------------------------------- -->
+  <section class="v1-now">
+    <div class="v1-section-label" data-i18n="v1.now.label">NOW / 2026 春</div>
+    <div>
+      <div class="v1-now-body">
+        <p data-i18n="v1.now.p1">
+          研究室成立第一年，時間分三塊：<mark>教學</mark>、<mark>第一個國科會計畫</mark>、還有把分析環境搭起來。學生還在招，所以現在大多數工作是我自己做的筆記與雛形。
+        </p>
+        <p data-i18n="v1.now.p2">
+          這個頁面會持續更新。如果你是碩士生、合作者、或只是看到「把人類資料轉到動物」這句話想聊聊，寄封信給我。
+        </p>
       </div>
 
-      <div class="research-grid">
-        <article class="card reveal">
-          <svg class="card-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2"/><rect x="28" y="28" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2"/><path d="M20 12H28C30.2091 12 32 13.7909 32 16V28" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/><path d="M28 36H20C17.7909 36 16 34.2091 16 32V20" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/></svg>
-          <h3 class="card-title" data-i18n="research.card1.title">跨物種模型遷移與藥物再利用</h3>
-          <p class="card-desc" data-i18n="research.card1.desc">以人類轉錄體與藥物基因體學資料訓練模型，再透過同源基因對應與跨物種遷移，把藥物再利用策略延伸到伴侶動物疾病模型。</p>
-          <div class="tag-list">
-            <span class="tag">Transfer Learning</span>
-            <span class="tag">Drug Repurposing</span>
-            <span class="tag">Ortholog Mapping</span>
-            <span class="tag">Transcriptomics</span>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <svg class="card-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 4V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M24 18V44" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="18" r="6" stroke="currentColor" stroke-width="2"/><path d="M18 28H30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 34H30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M20 40H28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          <h3 class="card-title" data-i18n="research.card2.title">獸醫應用的 De Novo 蛋白質設計</h3>
-          <p class="card-desc" data-i18n="research.card2.desc">用 RFdiffusion、BindCraft 這類 AI 蛋白質設計工具，嘗試做獸醫診斷與治療用的新結合子，目前還在概念驗證階段。</p>
-          <div class="tag-list">
-            <span class="tag">De Novo Protein Design</span>
-            <span class="tag">Binder Design</span>
-            <span class="tag">Computational Biology</span>
-            <span class="tag">Veterinary Diagnostics</span>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <svg class="card-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="8" stroke="currentColor" stroke-width="2"/><circle cx="34" cy="14" r="8" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="34" r="8" stroke="currentColor" stroke-width="2"/><path d="M20 18V28" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"/><path d="M28 18V28" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"/><path d="M22 12H26" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"/></svg>
-          <h3 class="card-title" data-i18n="research.card3.title">總體基因體學分析方法建立</h3>
-          <p class="card-desc" data-i18n="research.card3.desc">嘗試客製化分析方式，克服田野樣本中常見的檢體純度不足、宿主細胞干擾與訊號稀薄等問題，讓 metagenomics 資料在實際樣本中更可用。</p>
-          <div class="tag-list">
-            <span class="tag">Metagenomics</span>
-            <span class="tag">Field Samples</span>
-            <span class="tag">Host Contamination</span>
-            <span class="tag">Custom Pipelines</span>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <svg class="card-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="8" width="36" height="32" rx="3" stroke="currentColor" stroke-width="2"/><path d="M6 16H42" stroke="currentColor" stroke-width="2"/><path d="M14 24H34" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 30H28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 36H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="38" cy="34" r="6" stroke="currentColor" stroke-width="2"/><path d="M36 34L38 36L41 32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3 class="card-title" data-i18n="research.card4.title">人類數據合作與精準醫學</h3>
-          <p class="card-desc" data-i18n="research.card4.desc">目前使用台灣人體生物資料庫（TWB）、國家級人體生物資料庫整合平台（NBCT）與健保資料庫，並與北榮、國衛院、高醫及業界合作，進行癌症風險預測、罕見遺傳疾病辨識與 NGS 資料庫建置等研究。</p>
-          <div class="tag-list">
-            <span class="tag">Precision Medicine</span>
-            <span class="tag">Polygenic Risk Scores</span>
-            <span class="tag">Cancer Genomics</span>
-            <span class="tag">Real-World Data</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--muted" id="work">
-    <div class="section-inner">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="work.label">Selected Work & New Grant</p>
-        <h2 class="section-title" data-i18n="work.title">目前的計畫與延續中的成果</h2>
-        <p class="section-intro" data-i18n="work.intro">這一區整理目前實驗室正在推進的工作，以及持續中的合作與成果。</p>
-      </div>
-
-      <div class="work-grid">
-        <div class="panel reveal">
-          <h3 class="panel-heading" data-i18n="work.panel1.title">實驗室目前的產出</h3>
-          <p class="panel-copy" data-i18n="work.panel1.copy">現在的主要產出有三項：NSTC 計畫、抗體 developability 預測，以及支撐多個題目的計算研究基礎設施。</p>
-          <div class="panel-list">
-            <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel1.item1.meta">2026.08–2027.07 · NSTC-funded · Phase 0</div>
-              <div class="item-title" data-i18n="work.panel1.item1.title">跨物種藥物轉錄體學模型遷移與伴侶動物藥物再利用</div>
-              <p class="item-desc" data-i18n="work.panel1.item1.desc">從人類藥物擾動轉錄體資料庫出發，用同源基因對應與通路活性特徵搭出跨物種保守性矩陣，第一個目標是貓瘟病毒（FPV）。</p>
-            </article>
-            <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel1.item2.meta">Higher Education Sprout Project · 論文撰寫中</div>
-              <div class="item-title" data-i18n="work.panel1.item2.title">H2M-ValiPred：跨物種抗體可開發性預測</div>
-              <p class="item-desc" data-i18n="work.panel1.item2.desc">用 ESM-2 蛋白質語言模型的嵌入加上物理化學特徵，預測抗體可開發性指標；資料集有 881 個抗體與 13 項分析。</p>
-            </article>
-            <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel1.item3.meta">Internal infrastructure</div>
-              <div class="item-title" data-i18n="work.panel1.item3.title">GPU 工作站、DVC 與 MLflow</div>
-              <p class="item-desc" data-i18n="work.panel1.item3.desc">建好版本控制、資料追蹤與實驗紀錄的流程，讓多個研究題目都有可重現的分析底盤。</p>
-            </article>
-          </div>
+      <div class="v1-now-list">
+        <div class="v1-now-item">
+          <div class="v1-now-item-tag">GRANT</div>
+          <div class="v1-now-item-body" data-i18n="v1.now.g1"><strong>NSTC 一年期（2026.08–2027.07）</strong>　以人類藥物擾動轉錄體為起點，用同源基因對應把藥物再利用延伸到伴侶動物；第一個目標是貓瘟病毒（FPV）。</div>
         </div>
-
-        <div class="panel reveal">
-          <h3 class="panel-heading" data-i18n="work.panel2.title">延續中的合作與代表成果</h3>
-          <p class="panel-copy" data-i18n="work.panel2.copy">多數是跨機構合作，或是在進 NPUST 前後延續下來的題目，也是目前實驗室方法與合作方向的基礎。</p>
-          <div class="panel-list">
-            <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel2.item1.meta">Neurology · Accepted · 未正式刊出</div>
-              <div class="item-title" data-i18n="work.panel2.item1.title">Identification of Novel Genetic Risk Variants Associated with Early-Onset Ischemic Stroke in Taiwan</div>
-              <p class="item-desc" data-i18n="work.panel2.item1.desc">多中心合作研究，用台灣人群的基因資料找出跟早發性缺血性腦中風有關的新風險變異，已被 Neurology 接受。</p>
-            </article>
-            <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel2.item2.meta">Submitted to RPTH · Computational study</div>
-              <div class="item-title" data-i18n="work.panel2.item2.title">F2 p.F382L disrupts the thrombin exosite I cation-π interaction</div>
-              <p class="item-desc" data-i18n="work.panel2.item2.desc">用蛋白質語言模型、致病性預測工具與 AlphaFold 3 多聚體模擬，分析一個在台灣家族性腦靜脈竇血栓家族中找到的新凝血酶原變異。</p>
-            </article>
-            <article class="list-item">
-              <div class="item-meta" data-i18n="work.panel2.item3.meta">Industry collaboration · Active analysis</div>
-              <div class="item-title" data-i18n="work.panel2.item3.title">NBCT 資料分析</div>
-              <p class="item-desc" data-i18n="work.panel2.item3.desc">使用國家級人體生物資料庫整合平台（NBCT）資料，分析特定基因變異在台灣癌症病人中的盛行率與臨床意義，目前分析進行中。</p>
-            </article>
-          </div>
+        <div class="v1-now-item">
+          <div class="v1-now-item-tag">WRITING</div>
+          <div class="v1-now-item-body" data-i18n="v1.now.g2"><strong>H2M-ValiPred 論文撰寫中</strong>　用 ESM-2 embedding ＋ 物化特徵預測抗體 developability；881 個抗體、13 項分析。</div>
+        </div>
+        <div class="v1-now-item">
+          <div class="v1-now-item-tag">TEACHING</div>
+          <div class="v1-now-item-body" data-i18n="v1.now.g3"><strong>四門課同時在開</strong>　從大學部運算思維到研究所疫苗研究法；大學部手把手，研究所放手做。</div>
+        </div>
+        <div class="v1-now-item">
+          <div class="v1-now-item-tag">SETUP</div>
+          <div class="v1-now-item-body" data-i18n="v1.now.g4"><strong>GPU 工作站 + DVC + MLflow</strong>　先把可重現分析的底盤打好，之後進來的學生可以直接站上去。</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="teaching">
-    <div class="section-inner">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="teaching.label">Teaching & Academic Engagement</p>
-        <h2 class="section-title" data-i18n="teaching.title">教學與學術交流</h2>
-        <p class="section-intro" data-i18n="teaching.intro">目前花最多時間調整的一塊，是教學。</p>
+  <!-- Trajectory --------------------------------------------------------- -->
+  <section class="v1-trajectory">
+    <h2 data-i18n="v1.traj.title">我怎麼走到這裡</h2>
+    <p class="v1-trajectory-intro" data-i18n="v1.traj.intro">
+      廣度可能是我這種訓練背景最誠實的形容。每跨一步，我都把前一步的工具帶過來，這張圖也是我現在能做「人類→動物」遷移學習的底氣。
+    </p>
+
+    <!-- SVG: horizontal career path -->
+    <svg class="v1-traj-svg" viewBox="0 0 1200 240" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#8d6a94"/>
+        </marker>
+      </defs>
+
+      <!-- baseline timeline -->
+      <line x1="60" y1="120" x2="1140" y2="120" stroke="#1b1a17" stroke-width="1"/>
+
+      <!-- ticks + labels under -->
+      <g font-family="JetBrains Mono, monospace" font-size="14" fill="#7a756c">
+        <g transform="translate(120,120)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#1b1a17"/>
+          <text y="20" text-anchor="middle" data-i18n="v1.traj.stage1.year">UNDERGRAD</text>
+        </g>
+        <g transform="translate(320,120)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#1b1a17"/>
+          <text y="20" text-anchor="middle" data-i18n="v1.traj.stage2.year">MS / PhD</text>
+        </g>
+        <g transform="translate(560,120)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#1b1a17"/>
+          <text y="20" text-anchor="middle" data-i18n="v1.traj.stage3.year">POSTDOC</text>
+        </g>
+        <g transform="translate(800,120)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#1b1a17"/>
+          <text y="20" text-anchor="middle" data-i18n="v1.traj.stage4.year">NOW · NPUST</text>
+        </g>
+        <g transform="translate(1060,120)">
+          <line x1="0" y1="0" x2="0" y2="6" stroke="#1b1a17"/>
+          <text y="20" text-anchor="middle" data-i18n="v1.traj.stage5.year">→ VET MED</text>
+        </g>
+      </g>
+
+      <!-- stage bubbles above timeline -->
+      <g>
+        <g transform="translate(120,80)">
+          <circle r="5" fill="#1b1a17"/>
+          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage1.title">生科 + 資訊</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage1.sub">dual major</text>
+        </g>
+        <g transform="translate(320,80)">
+          <circle r="5" fill="#1b1a17"/>
+          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage2.title">小鼠機制 → 罕病 NGS</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage2.sub">wet-lab + dry-lab</text>
+        </g>
+        <g transform="translate(560,80)">
+          <circle r="5" fill="#1b1a17"/>
+          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage3.title">癌症 RNA-seq biomarker</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage3.sub">national NGS platform</text>
+        </g>
+        <g transform="translate(800,80)">
+          <circle r="7" fill="#8d6a94"/>
+          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#8d6a94" font-weight="700" data-i18n="v1.traj.stage4.title">獸醫學院・計算實驗室</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage4.sub">transfer learning</text>
+        </g>
+        <g transform="translate(1060,80)">
+          <circle r="5" fill="#1b1a17" fill-opacity="0" stroke="#1b1a17" stroke-dasharray="2 2"/>
+          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage5.title">伴侶動物臨床</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage5.sub">applied</text>
+        </g>
+      </g>
+
+      <!-- tool carry-over arrows below timeline -->
+      <g fill="none" stroke="#8d6a94" stroke-width="1" stroke-dasharray="3 3" opacity="0.85">
+        <path d="M 120 160 C 200 200, 240 200, 320 160" marker-end="url(#arr)"/>
+        <path d="M 320 160 C 420 200, 460 200, 560 160" marker-end="url(#arr)"/>
+        <path d="M 560 160 C 660 200, 700 200, 800 160" marker-end="url(#arr)"/>
+        <path d="M 800 160 C 900 200, 960 200, 1060 160" marker-end="url(#arr)"/>
+      </g>
+
+      <g font-family="JetBrains Mono, monospace" font-size="13" fill="#7a756c" text-anchor="middle">
+        <text x="220" y="215" data-i18n="v1.traj.carry1">+ programming</text>
+        <text x="440" y="215" data-i18n="v1.traj.carry2">+ variant analysis</text>
+        <text x="680" y="215" data-i18n="v1.traj.carry3">+ transcriptomics</text>
+        <text x="930" y="215" data-i18n="v1.traj.carry4">+ cross-species transfer</text>
+      </g>
+    </svg>
+  </section>
+
+  <!-- Research threads (with relation map) ------------------------------- -->
+  <section class="v1-research">
+    <div class="v1-research-head">
+      <div class="v1-section-label" data-i18n="v1.research.label">四條主軸</div>
+      <p class="v1-research-intro" data-i18n="v1.research.intro">
+        研究方向分成四條，但底層共用一套方法學：把在人類做成熟的計算流程，換上對應到動物的資料與目標。以下這張圖標出了四條軸之間真實的依賴關係，不是排列裝飾，是我每天在想的事。
+      </p>
+    </div>
+
+    <div class="v1-research-map">
+      <!-- SVG: 4-node relation diagram with hand-drawn feel -->
+      <svg viewBox="0 0 1000 460" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#47453f"/>
+          </marker>
+          <filter id="rough">
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
+            <feDisplacementMap in="SourceGraphic" scale="1.2"/>
+          </filter>
+        </defs>
+
+        <!-- four threads arranged like a diamond -->
+        <g>
+          <!-- A: transfer learning / drug reposition -->
+          <g transform="translate(200,80)">
+            <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
+            <text text-anchor="middle" y="-18" font-family="JetBrains Mono, monospace" font-size="13" fill="#8d6a94" letter-spacing="1">01 · TRANSFER</text>
+            <text text-anchor="middle" y="8" font-family="Noto Serif TC, serif" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n1.title">跨物種模型遷移</text>
+            <text text-anchor="middle" y="32" font-family="Noto Serif TC, serif" font-size="15" fill="#47453f" data-i18n="v1.research.n1.sub">human → companion animals</text>
+          </g>
+
+          <!-- B: de novo protein -->
+          <g transform="translate(800,80)">
+            <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
+            <text text-anchor="middle" y="-18" font-family="JetBrains Mono, monospace" font-size="13" fill="#8d6a94" letter-spacing="1">02 · DE NOVO</text>
+            <text text-anchor="middle" y="8" font-family="Noto Serif TC, serif" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n2.title">蛋白質設計</text>
+            <text text-anchor="middle" y="32" font-family="Noto Serif TC, serif" font-size="15" fill="#47453f" data-i18n="v1.research.n2.sub">diagnostic / therapeutic binders</text>
+          </g>
+
+          <!-- C: metagenomics -->
+          <g transform="translate(200,380)">
+            <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
+            <text text-anchor="middle" y="-18" font-family="JetBrains Mono, monospace" font-size="13" fill="#8d6a94" letter-spacing="1">03 · METAGENOMICS</text>
+            <text text-anchor="middle" y="8" font-family="Noto Serif TC, serif" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n3.title">總體基因體方法</text>
+            <text text-anchor="middle" y="32" font-family="Noto Serif TC, serif" font-size="15" fill="#47453f" data-i18n="v1.research.n3.sub">noisy field samples</text>
+          </g>
+
+          <!-- D: precision medicine -->
+          <g transform="translate(800,380)">
+            <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
+            <text text-anchor="middle" y="-18" font-family="JetBrains Mono, monospace" font-size="13" fill="#8d6a94" letter-spacing="1">04 · HUMAN DATA</text>
+            <text text-anchor="middle" y="8" font-family="Noto Serif TC, serif" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n4.title">精準醫學合作</text>
+            <text text-anchor="middle" y="32" font-family="Noto Serif TC, serif" font-size="15" fill="#47453f" data-i18n="v1.research.n4.sub">TWB · NBCT · NHI</text>
+          </g>
+
+          <!-- central hub: methods -->
+          <g transform="translate(500,230)">
+            <circle r="76" fill="#8d6a94" opacity="0.08"/>
+            <circle r="58" fill="none" stroke="#8d6a94" stroke-width="1" stroke-dasharray="3 3"/>
+            <text text-anchor="middle" y="-6" font-family="JetBrains Mono, monospace" font-size="13" fill="#8d6a94" letter-spacing="2">SHARED</text>
+            <text text-anchor="middle" y="16" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.research.hub">方法學底盤</text>
+          </g>
+        </g>
+
+        <!-- arrows: methods flow -->
+        <g fill="none" stroke="#47453f" stroke-width="1" filter="url(#rough)">
+          <!-- A -> hub -->
+          <path d="M 260 120 C 350 150, 430 180, 452 212" marker-end="url(#arr2)"/>
+          <!-- hub -> A (back flow, different style) -->
+          <!-- D -> hub -->
+          <path d="M 740 340 C 650 310, 570 270, 548 248" marker-end="url(#arr2)"/>
+          <!-- hub -> B -->
+          <path d="M 548 212 C 620 180, 700 150, 740 120" marker-end="url(#arr2)"/>
+          <!-- hub -> C -->
+          <path d="M 452 248 C 400 280, 320 330, 260 340" marker-end="url(#arr2)"/>
+        </g>
+
+        <!-- dotted: direct B<->C link for binder + metagenomics overlap -->
+        <g fill="none" stroke="#8d6a94" stroke-width="1" stroke-dasharray="2 4" opacity="0.8">
+          <path d="M 660 120 C 500 60, 340 60, 340 340"/>
+        </g>
+
+        <!-- edge labels -->
+        <g font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c">
+          <text x="360" y="175" data-i18n="v1.research.edge1">ortholog + transfer</text>
+          <text x="580" y="175" data-i18n="v1.research.edge2">structure priors</text>
+          <text x="360" y="295" data-i18n="v1.research.edge3">noisy-sample pipelines</text>
+          <text x="580" y="295" data-i18n="v1.research.edge4">real-world validation</text>
+          <text x="420" y="52" fill="#8d6a94" data-i18n="v1.research.edge5">cross-domain priors</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="v1-research-threads">
+      <div class="v1-section-label" data-i18n="v1.research.tlabel">展開</div>
+      <div class="v1-threads-list">
+        <article class="v1-thread">
+          <div class="v1-thread-num"></div>
+          <div>
+            <h3 data-i18n="v1.research.t1.h">跨物種模型遷移與藥物再利用</h3>
+            <p data-i18n="v1.research.t1.p">用人類轉錄體與藥物基因體學資料把模型訓好，再透過同源基因對應與遷移學習，把藥物再利用策略套到伴侶動物的疾病模型。第一個目標是貓瘟病毒。</p>
+            <div class="v1-thread-keys">
+              <span>transfer learning</span><span>drug repurposing</span><span>ortholog mapping</span><span>transcriptomics</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="v1-thread">
+          <div class="v1-thread-num"></div>
+          <div>
+            <h3 data-i18n="v1.research.t2.h">獸醫應用的 De novo 蛋白質設計</h3>
+            <p data-i18n="v1.research.t2.p">用 RFdiffusion、BindCraft 這類 AI 蛋白質設計工具，嘗試做獸醫診斷與治療用的新結合子。目前還在 proof-of-concept。</p>
+            <div class="v1-thread-keys">
+              <span>de novo design</span><span>binder design</span><span>veterinary diagnostics</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="v1-thread">
+          <div class="v1-thread-num"></div>
+          <div>
+            <h3 data-i18n="v1.research.t3.h">總體基因體學分析方法</h3>
+            <p data-i18n="v1.research.t3.p">田野樣本常見的檢體純度不足、宿主細胞干擾、訊號稀薄，這一條線就是想辦法讓這些「髒資料」還是有用。</p>
+            <div class="v1-thread-keys">
+              <span>metagenomics</span><span>field samples</span><span>host contamination</span><span>custom pipelines</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="v1-thread">
+          <div class="v1-thread-num"></div>
+          <div>
+            <h3 data-i18n="v1.research.t4.h">人類資料合作與精準醫學</h3>
+            <p data-i18n="v1.research.t4.p">使用 TWB、NBCT、健保資料庫，與北榮、國衛院、高醫及業界合作，做癌症風險預測、罕病辨識、NGS 資料庫建置。這條線也是我訓練的延續。</p>
+            <div class="v1-thread-keys">
+              <span>precision medicine</span><span>polygenic risk</span><span>cancer genomics</span><span>real-world data</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching ----------------------------------------------------------- -->
+  <section class="v1-teach">
+    <div class="v1-section-label" data-i18n="v1.teach.label">給學生</div>
+
+    <div>
+      <div class="v1-teach-body">
+        <p data-i18n="v1.teach.p1">
+          <span class="drop">教</span>學是我現在每天最大一塊時間。我自己一路走下來學的是「換語言」的能力，從濕 lab 換到乾 lab、從 Perl 換到 Python、從小鼠換到人換到貓。我相信計算思維是現代生醫研究者的基本能力，所以課程不會停在工具層面：我想讓學生練習把問題拆開，再用資料跟程式去回答。
+        </p>
+        <p data-i18n="v1.teach.p2">
+          如果你是大學部的學生，別怕寫程式，我們會從頭開始。如果你是碩士生，我們會從文獻閱讀與一個小資料集開始，題目會依你的背景跟進度展開。沒有統一的起跑線。
+        </p>
       </div>
 
-      <div class="teaching-grid">
-        <div class="panel reveal">
-          <h3 class="panel-heading" data-i18n="teaching.panel1.title">Teaching</h3>
-          <p class="panel-copy" data-i18n="teaching.panel1.copy1">我相信計算思維是現代生醫研究者的基本能力。教學不會停在工具層面，而是讓學生練習提出對的問題、把問題拆開，再用資料跟程式去回答。</p>
-          <p class="panel-copy" data-i18n="teaching.panel1.copy2">現在同時在帶大學部必修、研究所必修，還有幾門選修，不同層級之間的節奏還在調整：大學部需要更多手把手的練習，研究所則偏向開放式題目跟文獻討論。</p>
-          <div class="theme-list">
-            <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel1.item1.title">運算思維與資訊科技應用</div>
-              <div class="theme-desc" data-i18n="teaching.panel1.item1.desc">大學部校定必修，用 Python 與 AI 應用當切入點，訓練學生把真實問題拆開、用邏輯整理解法，再寫成程式。</div>
-            </div>
-            <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel1.item2.title">動物疫苗研究法 / Vaccine Research Methods</div>
-              <div class="theme-desc" data-i18n="teaching.panel1.item2.desc">研究所必修，中英文並行，內容包含疫苗研究設計、文獻閱讀與方法討論。</div>
-            </div>
-            <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel1.item3.title">生物資訊、統計與免疫科技選修</div>
-              <div class="theme-desc" data-i18n="teaching.panel1.item3.desc">內容包含生物統計、基礎與進階生物資訊、免疫科技與產業應用、基因調控，還有免疫原結構與表達方法。</div>
-            </div>
-          </div>
+      <div class="v1-teach-courses">
+        <div class="v1-teach-courses-label" data-i18n="v1.teach.courses">開設課程</div>
+        <div class="v1-course">
+          <div class="v1-course-num">01</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c1.name">運算思維與資訊科技應用</div>
+          <div class="v1-course-level" data-i18n="v1.teach.c1.lvl">UG · REQUIRED</div>
         </div>
-
-        <div class="panel reveal">
-          <h3 class="panel-heading" data-i18n="teaching.panel2.title">Academic Engagement</h3>
-          <div class="theme-list">
-            <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel2.item1.title">2025.10.03 · GHD 年會</div>
-              <div class="theme-desc" data-i18n="teaching.panel2.item1.desc">演講題目：可信任研究環境下的真實世界資料分析。</div>
-            </div>
-            <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel2.item2.title">交流主題：真實世界數據分析</div>
-              <div class="theme-desc" data-i18n="teaching.panel2.item2.desc">從台灣健康資料與多機構合作的經驗切入，談資料整合、方法選擇跟研究可信度。</div>
-            </div>
-            <div class="theme-item">
-              <div class="theme-title" data-i18n="teaching.panel2.item3.title">交流主題：小型計算研究室的工作流</div>
-              <div class="theme-desc" data-i18n="teaching.panel2.item3.desc">圍繞可重現分析、AI 輔助的研究流程，以及跨領域學生的訓練。</div>
-            </div>
-          </div>
+        <div class="v1-course">
+          <div class="v1-course-num">02</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c2.name">動物疫苗研究法</div>
+          <div class="v1-course-level" data-i18n="v1.teach.c2.lvl">GRAD · REQUIRED</div>
+        </div>
+        <div class="v1-course">
+          <div class="v1-course-num">03</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c3.name">生物資訊、統計與免疫科技</div>
+          <div class="v1-course-level" data-i18n="v1.teach.c3.lvl">GRAD · ELECTIVE</div>
+        </div>
+        <div class="v1-course">
+          <div class="v1-course-num">04</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c4.name">免疫原結構與表達方法</div>
+          <div class="v1-course-level" data-i18n="v1.teach.c4.lvl">GRAD · ELECTIVE</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--muted" id="about">
-    <div class="section-inner">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="about.label">PI Snapshot</p>
-        <h2 class="section-title" data-i18n="about.title">關於 PI</h2>
+  <!-- Contact ------------------------------------------------------------ -->
+  <section class="v1-contact">
+    <div class="v1-section-label" data-i18n="v1.contact.label">聯絡</div>
+    <div>
+      <div class="v1-contact-body" data-i18n="v1.contact.body">
+        正在招收對計算生物學有興趣的碩士生。獸醫、生物、植物醫學、農業、資管、統計，只要你對生醫問題有好奇，都適合。不要求入門前就會寫程式。
       </div>
 
-      <div class="about-grid">
-        <div class="about-card reveal">
-          <img src="profile.jpg" alt="Li-Hsin Chang portrait">
-          <div class="about-name" data-i18n="about.name">張立鑫 Li-Hsin Chang</div>
-          <div class="about-role" data-i18n="about.role">助理教授 ｜ 動物疫苗科技研究所</div>
+      <div class="v1-contact-list">
+        <div class="v1-contact-row">
+          <div class="v1-contact-key">EMAIL</div>
+          <div class="v1-contact-val"><a href="/cdn-cgi/l/email-protection#bdd1d5ded5dcd3dafdd0dcd4d193d3cdc8cec993d8d9c893c9ca"><span class="__cf_email__" data-cfemail="8ae6e2e9e2ebe4edcae7ebe3e6a4e4fafff9fea4efeeffa4fefd">[email&#160;protected]</span></a></div>
         </div>
-
-        <div class="about-text reveal">
-          <p class="about-copy" data-i18n="about.copy1">進屏科大之前，我做過腦中風基因體學、神經發炎、國家級健康 NGS 資料，還有癌症轉錄體分析。這些經驗是現在計算方法學與跨物種轉譯研究的底子。</p>
-          <p class="about-copy" data-i18n="about.copy2">進屏科大之後，我想做的是把人類基因體與轉錄體研究中已經成熟的方法，變成對動物健康與精準獸醫實際有用的工具，同時把這個過程整理成學生可以一步步參與的訓練路徑。</p>
-          <p class="about-copy" data-i18n="about.copy3">研究室還在建立階段，不過已經累積了 NSTC 計畫、抗體 developability 預測、跨機構合作這幾塊工作。對資料分析、計算生物學或獸醫轉譯研究有興趣的話，歡迎聯絡。</p>
-          <a class="about-link" href="https://orcid.org/0000-0002-1126-7697" target="_blank" rel="noopener" data-i18n="about.link">ORCID: 0000-0002-1126-7697</a>
-          <div class="tag-list">
-            <span class="tag">Computational Biology</span>
-            <span class="tag">Immunoinformatics</span>
-            <span class="tag">Drug Repurposing</span>
-            <span class="tag">Translational Research</span>
-            <span class="tag">Precision Medicine</span>
-          </div>
+        <div class="v1-contact-row">
+          <div class="v1-contact-key">PHONE</div>
+          <div class="v1-contact-val">+886-8-770-3202 ext. 5406</div>
+        </div>
+        <div class="v1-contact-row">
+          <div class="v1-contact-key" data-i18n="v1.contact.addr">ADDRESS</div>
+          <div class="v1-contact-val" data-i18n="v1.contact.addrv">No.1 Shuefu Rd., Neipu, Pingtung 912 · College of Veterinary Medicine, NPUST</div>
+        </div>
+        <div class="v1-contact-row">
+          <div class="v1-contact-key">ORCID</div>
+          <div class="v1-contact-val"><a href="https://orcid.org/0000-0002-1126-7697" target="_blank" rel="noopener">0000-0002-1126-7697</a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="contact">
-    <div class="section-inner">
-      <div class="section-head reveal">
-        <p class="eyebrow" data-i18n="contact.label">Contact / Join the Lab</p>
-        <h2 class="section-title" data-i18n="contact.title">聯絡與加入研究室</h2>
-        <p class="section-intro" data-i18n="contact.intro">目前主要招收對計算生物學有興趣的碩士生，教學與研究合作也歡迎聯絡。</p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <div class="contact-row">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13L2 4"/></svg>
-            </div>
-            <div>
-              <div class="contact-label">Email</div>
-              <div class="contact-value">lhchang@mail.npust.edu.tw</div>
-            </div>
-          </div>
-
-          <div class="contact-row">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div>
-              <div class="contact-label" data-i18n="contact.addressLabel">Address</div>
-              <div class="contact-value" data-i18n="contact.address">屏東縣內埔鄉學府路1號<br>國立屏東科技大學 獸醫學院</div>
-            </div>
-          </div>
-
-          <div class="contact-row">
-            <div class="contact-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            </div>
-            <div>
-              <div class="contact-label">Phone</div>
-              <div class="contact-value">+886-8-770-3202 ext. 5406</div>
-            </div>
-          </div>
-        </div>
-
-        <aside class="contact-card reveal">
-          <h3 class="panel-heading" data-i18n="contact.card.title">加入研究室</h3>
-          <p data-i18n="contact.card.copy1">適合的背景有獸醫、生物、植物醫學、農業相關科系；對生物醫學問題有興趣的資訊管理或統計背景學生也可以。</p>
-          <p data-i18n="contact.card.copy2">不要求入門前就會寫程式。研究會從文獻閱讀、資料整理與分析開始，題目也會依學生背景與進度逐步展開。</p>
-          <ul>
-            <li data-i18n="contact.card.item1">多數題目以計算分析為主，並依研究需要搭配功能驗證</li>
-            <li data-i18n="contact.card.item2">會一起建立文獻閱讀、資料整理、分析與寫作能力</li>
-            <li data-i18n="contact.card.item3">適合願意穩定學習、希望循序完成研究的學生</li>
-          </ul>
-          <a href="mailto:lhchang@mail.npust.edu.tw" class="button button--primary" data-i18n="contact.card.button">來信討論加入</a>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="section-inner">
-      <p>&copy; 2025–2026 AI-Assisted Immunoinformatics Lab · National Pingtung University of Science and Technology</p>
-    </div>
+  <!-- Colophon ----------------------------------------------------------- -->
+  <footer class="v1-colophon">
+    <div>© 2025–2026 AIIL · NPUST</div>
+    <div data-i18n="v1.colo.set">SET IN NOTO SERIF TC &amp; INTER TIGHT · HAND-SET IN PINGTUNG</div>
   </footer>
 
-  <script>
-    const i18n = {
-      zh: {
-        'brand.subtitle': 'NPUST · 動物疫苗科技研究所',
-        'nav.focus': '目前重點',
-        'nav.research': '研究方向',
-        'nav.work': '計畫與成果',
-        'nav.teaching': '教學',
-        'nav.about': '關於 PI',
-        'nav.contact': '聯絡',
-        'hero.eyebrow': '用計算生物學',
-        'hero.title': '<span class="title-line">把人類醫學資料</span><span class="title-line">帶進獸醫研究</span>',
-        'hero.lede': '我們以資料驅動的方式找尋獸醫藥物再利用的可能。',
-        'hero.support': '成立於 2025 年，目前著重在建立基礎運算設施以及教學，目標是使用人類基因體與轉錄體的研究方法解決獸醫問題。',
-        'hero.primary': '查看目前重點',
-        'hero.secondary': '聯絡研究室',
-        'hero.proof1.label': 'NSTC',
-        'hero.proof1.value': '第一個計畫啟動',
-        'hero.proof2.label': 'Research',
-        'hero.proof2.value': '11 項研究計畫',
-        'hero.proof3.label': 'Approach',
-        'hero.proof3.value': '以計算為主',
-        'profile.name': '張立鑫 Li-Hsin Chang',
-        'profile.role': '助理教授 · 動物疫苗科技研究所',
-        'profile.note': '研究主題從模型跨物種遷移、疫苗資訊學與藥物再利用開始，同時建立一個學生可以循序漸進學習的實驗室。',
-        'profile.invite': '歡迎碩士生加入，也歡迎跨領域合作。',
-        'focus.label': 'Current Focus',
-        'focus.title': '研究室第一年的重點',
-        'focus.intro': '第一年最直接的工作有三塊：教學、第一個 NSTC 計畫，還有支撐其他研究題目的計算基礎設施。',
-        'focus.card1.kicker': 'Teaching',
-        'focus.card1.title': '教學',
-        'focus.card1.desc': '現在每天最大一塊時間花在教學。課程從大學部的運算思維，一路延伸到研究所的生物資訊與疫苗研究法，希望把計算與生物資訊實作帶進獸醫相關課程，讓學生有用資料做研究的底子。',
-        'focus.card2.kicker': 'Grant',
-        'focus.card2.title': 'NSTC 一年期計畫',
-        'focus.card2.desc': '主持一年期國科會計畫（2026.08–2027.07）。以人類藥物基因體學的轉錄體特徵為起點，用同源基因對應與遷移學習，把藥物再利用的策略延伸到伴侶動物疾病，第一個目標是貓瘟病毒（FPV）。',
-        'focus.card3.kicker': 'Workflow',
-        'focus.card3.title': '計算基礎設施',
-        'focus.card3.desc': '以 GPU 工作站為主搭起分析環境，再加上版本控制、資料追蹤（DVC）、實驗紀錄（MLflow），讓分析可重現、可追溯。同時嘗試引入 Agent Harnessx 來與 AI 配合加速研究流程。',
-        'research.label': 'Research Areas',
-        'research.title': '研究方向',
-        'research.intro': '研究方向分成四條主軸。短期內先挑能用計算方法推進。',
-        'research.card1.title': '跨物種模型遷移與藥物再利用',
-        'research.card1.desc': '以人類轉錄體與藥物基因體學資料訓練模型，再透過同源基因對應與跨物種遷移，把藥物再利用策略延伸到伴侶動物疾病模型。',
-        'research.card2.title': '獸醫應用的 De Novo 蛋白質設計',
-        'research.card2.desc': '用 RFdiffusion、BindCraft 這類 AI 蛋白質設計工具，嘗試做獸醫診斷與治療用的新結合子，目前還在概念驗證階段。',
-        'research.card3.title': '總體基因體學分析方法建立',
-        'research.card3.desc': '嘗試客製化分析方式，克服田野樣本中常見的檢體純度不足、宿主細胞干擾與訊號稀薄等問題，讓 metagenomics 資料在實際樣本中更可用。',
-        'research.card4.title': '人類數據合作與精準醫學',
-        'research.card4.desc': '目前使用台灣人體生物資料庫（TWB）、國家級人體生物資料庫整合平台（NBCT）與健保資料庫，並與北榮、國衛院、高醫及業界合作，進行癌症風險預測、罕見遺傳疾病辨識與 NGS 資料庫建置等研究。',
-        'work.label': 'Selected Work & New Grant',
-        'work.title': '目前的計畫與延續中的成果',
-        'work.intro': '這一區整理目前實驗室正在推進的工作，以及持續中的合作與成果。',
-        'work.panel1.title': '實驗室目前的產出',
-        'work.panel1.copy': '現在的主要產出有三項：NSTC 計畫、抗體 developability 預測，以及支撐多個題目的計算研究基礎設施。',
-        'work.panel1.item1.meta': '2026.08–2027.07 · NSTC-funded · Phase 0',
-        'work.panel1.item1.title': '跨物種藥物轉錄體學模型遷移與伴侶動物藥物再利用',
-        'work.panel1.item1.desc': '從人類藥物擾動轉錄體資料庫出發，用同源基因對應與通路活性特徵搭出跨物種保守性矩陣，第一個目標是貓瘟病毒（FPV）。',
-        'work.panel1.item2.meta': 'Higher Education Sprout Project · 論文撰寫中',
-        'work.panel1.item2.title': 'H2M-ValiPred：跨物種抗體可開發性預測',
-        'work.panel1.item2.desc': '用 ESM-2 蛋白質語言模型的嵌入加上物理化學特徵，預測抗體可開發性指標；資料集有 881 個抗體與 13 項分析。',
-        'work.panel1.item3.meta': 'Internal infrastructure',
-        'work.panel1.item3.title': 'GPU 工作站、DVC 與 MLflow',
-        'work.panel1.item3.desc': '建好版本控制、資料追蹤與實驗紀錄的流程，讓多個研究題目都有可重現的分析底盤。',
-        'work.panel2.title': '延續中的合作與代表成果',
-        'work.panel2.copy': '多數是跨機構合作，或是在進 NPUST 前後延續下來的題目，也是目前實驗室方法與合作方向的基礎。',
-        'work.panel2.item1.meta': 'Neurology · Accepted · 未正式刊出',
-        'work.panel2.item1.title': 'Identification of Novel Genetic Risk Variants Associated with Early-Onset Ischemic Stroke in Taiwan',
-        'work.panel2.item1.desc': '多中心合作研究，用台灣人群的基因資料找出跟早發性缺血性腦中風有關的新風險變異，已被 Neurology 接受。',
-        'work.panel2.item2.meta': 'Submitted to RPTH · Computational study',
-        'work.panel2.item2.title': 'F2 p.F382L disrupts the thrombin exosite I cation-π interaction',
-        'work.panel2.item2.desc': '用蛋白質語言模型、致病性預測工具與 AlphaFold 3 多聚體模擬，分析一個在台灣家族性腦靜脈竇血栓家族中找到的新凝血酶原變異。',
-        'work.panel2.item3.meta': 'Industry collaboration · Active analysis',
-        'work.panel2.item3.title': 'NBCT 資料分析',
-        'work.panel2.item3.desc': '使用國家級人體生物資料庫整合平台（NBCT）資料，分析特定基因變異在台灣癌症病人中的盛行率與臨床意義，目前分析進行中。',
-        'teaching.label': 'Teaching & Academic Engagement',
-        'teaching.title': '教學與學術交流',
-        'teaching.intro': '目前花最多時間調整的一塊，是教學。',
-        'teaching.panel1.title': 'Teaching',
-        'teaching.panel1.copy1': '我相信計算思維是現代生醫研究者的基本能力。教學不會停在工具層面，而是讓學生練習提出對的問題、把問題拆開，再用資料跟程式去回答。',
-        'teaching.panel1.copy2': '現在同時在帶大學部必修、研究所必修，還有幾門選修，不同層級之間的節奏還在調整：大學部需要更多手把手的練習，研究所則偏向開放式題目跟文獻討論。',
-        'teaching.panel1.item1.title': '運算思維與資訊科技應用',
-        'teaching.panel1.item1.desc': '大學部校定必修，用 Python 與 AI 應用當切入點，訓練學生把真實問題拆開、用邏輯整理解法，再寫成程式。',
-        'teaching.panel1.item2.title': '動物疫苗研究法 / Vaccine Research Methods',
-        'teaching.panel1.item2.desc': '研究所必修，中英文並行，內容包含疫苗研究設計、文獻閱讀與方法討論。',
-        'teaching.panel1.item3.title': '生物資訊、統計與免疫科技選修',
-        'teaching.panel1.item3.desc': '內容包含生物統計、基礎與進階生物資訊、免疫科技與產業應用、基因調控，還有免疫原結構與表達方法。',
-        'teaching.panel2.title': 'Academic Engagement',
-        'teaching.panel2.item1.title': '2025.10.03 · GHD 年會',
-        'teaching.panel2.item1.desc': '演講題目：可信任研究環境下的真實世界資料分析。',
-        'teaching.panel2.item2.title': '交流主題：真實世界數據分析',
-        'teaching.panel2.item2.desc': '從台灣健康資料與多機構合作的經驗切入，談資料整合、方法選擇跟研究可信度。',
-        'teaching.panel2.item3.title': '交流主題：小型計算研究室的工作流',
-        'teaching.panel2.item3.desc': '圍繞可重現分析、AI 輔助的研究流程，以及跨領域學生的訓練。',
-        'about.label': 'PI Snapshot',
-        'about.title': '關於 PI',
-        'about.name': '張立鑫 Li-Hsin Chang',
-        'about.role': '助理教授 ｜ 動物疫苗科技研究所',
-        'about.copy1': '進屏科大之前，我做過腦中風基因體學、神經發炎、國家級健康 NGS 資料，還有癌症轉錄體分析。這些經驗是現在計算方法學與跨物種轉譯研究的底子。',
-        'about.copy2': '進屏科大之後，我想做的是把人類基因體與轉錄體研究中已經成熟的方法，變成對動物健康與精準獸醫實際有用的工具，同時把這個過程整理成學生可以一步步參與的訓練路徑。',
-        'about.copy3': '研究室還在建立階段，不過已經累積了 NSTC 計畫、抗體 developability 預測、跨機構合作這幾塊工作。對資料分析、計算生物學或獸醫轉譯研究有興趣的話，歡迎聯絡。',
-        'about.link': 'ORCID: 0000-0002-1126-7697',
-        'contact.label': 'Contact / Join the Lab',
-        'contact.title': '聯絡與加入研究室',
-        'contact.intro': '目前主要招收對計算生物學有興趣的碩士生，教學與研究合作也歡迎聯絡。',
-        'contact.addressLabel': '地址',
-        'contact.address': '屏東縣內埔鄉學府路1號<br>國立屏東科技大學 獸醫學院',
-        'contact.card.title': '加入研究室',
-        'contact.card.copy1': '適合的背景有獸醫、生物、植物醫學、農業相關科系；對生物醫學問題有興趣的資訊管理或統計背景學生也可以。',
-        'contact.card.copy2': '不要求入門前就會寫程式。研究會從文獻閱讀、資料整理與分析開始，題目也會依學生背景與進度逐步展開。',
-        'contact.card.item1': '多數題目以計算分析為主，並依研究需要搭配功能驗證',
-        'contact.card.item2': '會一起建立文獻閱讀、資料整理、分析與寫作能力',
-        'contact.card.item3': '適合願意穩定學習、希望循序完成研究的學生',
-        'contact.card.button': '來信討論加入'
-      },
-      en: {
-        'brand.subtitle': 'NPUST · Graduate Institute of Animal Vaccine Technology',
-        'nav.focus': 'Current Focus',
-        'nav.research': 'Research',
-        'nav.work': 'Work',
-        'nav.teaching': 'Teaching',
-        'nav.about': 'About',
-        'nav.contact': 'Contact',
-        'hero.eyebrow': 'Using computational biology',
-        'hero.title': '<span class="title-line">Bringing human medical data</span><span class="title-line">into veterinary research</span>',
-        'hero.lede': 'We use data-driven methods to explore veterinary drug repurposing opportunities.',
-        'hero.support': 'Founded in 2025, the lab is currently focused on building core computational infrastructure and teaching, with the goal of using methods from human genomics and transcriptomics to solve veterinary problems.',
-        'hero.primary': 'View Current Focus',
-        'hero.secondary': 'Contact the Lab',
-        'hero.proof1.label': 'NSTC',
-        'hero.proof1.value': 'First project underway',
-        'hero.proof2.label': 'Research',
-        'hero.proof2.value': '11 active threads',
-        'hero.proof3.label': 'Approach',
-        'hero.proof3.value': 'Computation-first',
-        'profile.name': 'Li-Hsin Chang 張立鑫',
-        'profile.role': 'Assistant Professor · Graduate Institute of Animal Vaccine Technology',
-        'profile.note': 'The research starts from cross-species model transfer, vaccine informatics, and drug repurposing, while building a lab where students can learn step by step.',
-        'profile.invite': 'Welcoming master\'s students and interdisciplinary collaboration.',
-        'focus.label': 'Current Focus',
-        'focus.title': 'What the lab is working on in its first year',
-        'focus.intro': 'The most direct work falls into three pieces: teaching, the first NSTC project, and the computational infrastructure that supports the other research threads.',
-        'focus.card1.kicker': 'Teaching',
-        'focus.card1.title': 'Teaching',
-        'focus.card1.desc': 'The biggest chunk of my day right now goes into teaching. Courses run from undergraduate computational thinking to graduate bioinformatics and vaccine research methods, with the aim of bringing computational and bioinformatics practice into veterinary-related classes so students have a base for data-driven research.',
-        'focus.card2.kicker': 'Grant',
-        'focus.card2.title': 'NSTC one-year project',
-        'focus.card2.desc': 'Leading a one-year NSTC project (2026.08–2027.07). Starting from transcriptome signatures in human pharmacogenomics, using ortholog mapping and transfer learning to extend drug repurposing into companion animal diseases. Feline panleukopenia virus (FPV) is the first target.',
-        'focus.card3.kicker': 'Workflow',
-        'focus.card3.title': 'Computational infrastructure',
-        'focus.card3.desc': 'Built around GPU workstations, plus version control, data tracking (DVC), and experiment logging (MLflow), so analyses stay reproducible and traceable. At the same time, the lab is trying to introduce Agent Harnessx to work with AI and speed up the research workflow.',
-        'research.label': 'Research Areas',
-        'research.title': 'Research Areas',
-        'research.intro': 'Research is organized into four main threads. In the near term, I focus on directions that can move forward with computational methods.',
-        'research.card1.title': 'Cross-species model transfer and drug repurposing',
-        'research.card1.desc': 'Using human transcriptomic and pharmacogenomic data to train models, then extending drug repurposing strategies to companion animal disease models through ortholog mapping and cross-species transfer.',
-        'research.card2.title': 'De novo protein design for veterinary applications',
-        'research.card2.desc': 'Using AI protein design tools such as RFdiffusion and BindCraft to try building new binders for veterinary diagnostics and therapeutics. Still at the proof-of-concept stage.',
-        'research.card3.title': 'Metagenomics analysis method development',
-        'research.card3.desc': 'Trying customized analysis strategies to handle common field-sample problems such as low sample purity, host-cell interference, and weak signals, so metagenomics data can be more usable in real samples.',
-        'research.card4.title': 'Human-data collaborations and precision medicine',
-        'research.card4.desc': 'Currently using Taiwan Biobank (TWB), the National Biobank Consortium of Taiwan (NBCT), and national health insurance databases, in collaboration with Taipei Veterans General Hospital, NHRI, Kaohsiung Medical University, and industry partners for cancer risk prediction, rare genetic disease identification, and NGS database development.',
-        'work.label': 'Selected Work & New Grant',
-        'work.title': 'Current projects and continuing results',
-        'work.intro': 'This section outlines what the lab is currently pushing forward, together with continuing collaborations and selected results.',
-        'work.panel1.title': 'The lab\'s current output',
-        'work.panel1.copy': 'There are three main outputs right now: the NSTC project, antibody developability prediction, and the computational research infrastructure that supports multiple topics.',
-        'work.panel1.item1.meta': '2026.08–2027.07 · NSTC-funded · Phase 0',
-        'work.panel1.item1.title': 'Cross-Species Drug Repurposing via Transcriptomic Transfer Learning for Companion Animals',
-        'work.panel1.item1.desc': 'Starting from human drug perturbation transcriptome resources, using ortholog mapping and pathway activity features to build cross-species conservation matrices. Feline panleukopenia virus (FPV) is the first target.',
-        'work.panel1.item2.meta': 'Higher Education Sprout Project · Manuscript in preparation',
-        'work.panel1.item2.title': 'H2M-ValiPred: cross-species antibody developability prediction',
-        'work.panel1.item2.desc': 'Using ESM-2 protein language model embeddings together with physicochemical features to predict antibody developability metrics. The dataset covers 881 antibodies across 13 assays.',
-        'work.panel1.item3.meta': 'Internal infrastructure',
-        'work.panel1.item3.title': 'GPU workstation, DVC, and MLflow',
-        'work.panel1.item3.desc': 'Version control, data tracking, and experiment logging are in place as a reproducible analytical base for multiple research threads.',
-        'work.panel2.title': 'Continuing collaborations and selected results',
-        'work.panel2.copy': 'Most of these are multi-institution collaborations, or research lines carried over from before and after joining NPUST. They underpin the lab\'s current methods and collaboration directions.',
-        'work.panel2.item1.meta': 'Neurology · Accepted · Not yet in print',
-        'work.panel2.item1.title': 'Identification of Novel Genetic Risk Variants Associated with Early-Onset Ischemic Stroke in Taiwan',
-        'work.panel2.item1.desc': 'A multi-center collaborative study using Taiwanese genetic data to identify novel risk variants linked to early-onset ischemic stroke. Accepted at Neurology, not yet published.',
-        'work.panel2.item2.meta': 'Submitted to RPTH · Computational study',
-        'work.panel2.item2.title': 'F2 p.F382L disrupts the thrombin exosite I cation-pi interaction',
-        'work.panel2.item2.desc': 'Using protein language models, pathogenicity predictors, and AlphaFold 3 multimer modeling to analyze a novel prothrombin variant found in a Taiwanese family with familial cerebral venous thrombosis.',
-        'work.panel2.item3.meta': 'Industry collaboration · Active analysis',
-        'work.panel2.item3.title': 'NBCT data analysis',
-        'work.panel2.item3.desc': 'Using data from the National Biobank Consortium Taiwan (NBCT) platform to analyze the prevalence and clinical significance of specific gene variants in Taiwanese cancer patients. Analysis is ongoing.',
-        'teaching.label': 'Teaching & Academic Engagement',
-        'teaching.title': 'Teaching and academic engagement',
-        'teaching.intro': 'Teaching is one of the areas I am spending the most time refining right now.',
-        'teaching.panel1.title': 'Teaching',
-        'teaching.panel1.copy1': 'I believe computational thinking is a basic skill for modern biomedical researchers. Teaching doesn\'t stop at the tools; it\'s about letting students practice asking the right questions, breaking them down, and then answering with data and code.',
-        'teaching.panel1.copy2': 'I\'m currently teaching an undergraduate core course, a required graduate course, and several electives, and I\'m still adjusting the pacing across levels: undergraduates need more hands-on practice, while graduate courses lean toward open-ended problems and literature discussion.',
-        'teaching.panel1.item1.title': 'Computational Thinking and IT Applications',
-        'teaching.panel1.item1.desc': 'A university-wide undergraduate core course that uses Python and AI applications as an entry point, training students to break real problems apart, organize solutions with logic, and write them in code.',
-        'teaching.panel1.item2.title': 'Vaccine Research Methods',
-        'teaching.panel1.item2.desc': 'A required graduate course taught in both Chinese and English, covering vaccine study design, literature reading, and method discussion.',
-        'teaching.panel1.item3.title': 'Bioinformatics, statistics, and immunotechnology electives',
-        'teaching.panel1.item3.desc': 'Covering biostatistics, basic and advanced bioinformatics, immunotechnology and industrial applications, gene regulation, and immunogen structure and expression methods.',
-        'teaching.panel2.title': 'Academic Engagement',
-        'teaching.panel2.item1.title': '2025.10.03 · GHD Annual Meeting',
-        'teaching.panel2.item1.desc': 'Talk: Real-world data analysis in trusted research environments.',
-        'teaching.panel2.item2.title': 'Engagement theme: real-world data analysis',
-        'teaching.panel2.item2.desc': 'Drawing on Taiwan health data and multi-institution collaboration experience to talk about data integration, method choice, and research trustworthiness.',
-        'teaching.panel2.item3.title': 'Engagement theme: workflows for a small computational lab',
-        'teaching.panel2.item3.desc': 'Around reproducible analysis, AI-assisted research workflows, and training for interdisciplinary students.',
-        'about.label': 'PI Snapshot',
-        'about.title': 'About the PI',
-        'about.name': 'Li-Hsin Chang 張立鑫',
-        'about.role': 'Assistant Professor ｜ Graduate Institute of Animal Vaccine Technology',
-        'about.copy1': 'Before joining NPUST, I worked on stroke genomics, neuroinflammation, national-scale health NGS data, and cancer transcriptomics. Those experiences are the base for the current computational and cross-species translational work.',
-        'about.copy2': 'Since arriving at NPUST, what I want to do is turn methods that are already mature in human genomic and transcriptomic research into tools that are actually useful for animal health and precision veterinary medicine, and turn that process into a training path students can join step by step.',
-        'about.copy3': 'The lab is still in the building phase, but work is already accumulating across the NSTC project, antibody developability prediction, and cross-institution collaborations. If data analysis, computational biology, or veterinary translational research interests you, feel free to get in touch.',
-        'about.link': 'ORCID: 0000-0002-1126-7697',
-        'contact.label': 'Contact / Join the Lab',
-        'contact.title': 'Contact and joining the lab',
-        'contact.intro': 'I\'m mainly recruiting master\'s students interested in computational biology. Teaching and research collaborations are also welcome to reach out.',
-        'contact.addressLabel': 'Address',
-        'contact.address': 'No. 1, Shuefu Rd., Neipu, Pingtung 912<br>College of Veterinary Medicine, NPUST, Taiwan',
-        'contact.card.title': 'Join the Lab',
-        'contact.card.copy1': 'A good fit includes backgrounds in veterinary medicine, biology, plant medicine, and agriculture-related fields. Students from information management or statistics who are drawn to biomedical problems also work.',
-        'contact.card.copy2': 'Prior programming experience is not required. Projects usually begin with literature reading, data organization, and analysis, and are developed step by step according to each student\'s background and progress.',
-        'contact.card.item1': 'Most projects are analysis-first, with functional validation added when needed',
-        'contact.card.item2': 'Training covers literature reading, data handling, analysis, and scientific writing',
-        'contact.card.item3': 'A good fit for students who prefer structured, step-by-step research progress',
-        'contact.card.button': 'Email about joining'
-      }
-    };
+</section>
 
-    let currentLang = 'zh';
 
-    function setLanguage(lang) {
-      currentLang = lang;
-      document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
-      document.querySelectorAll('[data-i18n]').forEach((el) => {
-        const key = el.getAttribute('data-i18n');
-        if (i18n[lang] && i18n[lang][key]) {
-          el.innerHTML = i18n[lang][key];
-        }
-      });
-      document.getElementById('langZh').classList.toggle('active', lang === 'zh');
-      document.getElementById('langEn').classList.toggle('active', lang === 'en');
-      try {
-        localStorage.setItem('aiil_lang', lang);
-      } catch (err) {}
-    }
+<!-- ========================================================================
+     V2 — LAB NOTEBOOK (ASCII)
+     ======================================================================== -->
+<section class="version v2" id="v2">
 
-    function detectLanguage() {
-      try {
-        const stored = localStorage.getItem('aiil_lang');
-        if (stored === 'zh' || stored === 'en') return stored;
-      } catch (err) {}
-      const browserLang = (navigator.language || '').toLowerCase();
-      return browserLang.startsWith('zh') ? 'zh' : 'en';
-    }
+<div class="v2-header">
+<div class="line1 comment"># ~/lab/aiil ── last updated: 2026-04-20</div>
+<h1>$ whoami <span class="red" data-i18n="v2.whoami">· 張立鑫 Li-Hsin Chang</span></h1>
+<div class="comment" data-i18n="v2.subtitle"># assistant prof · npust · graduate institute of animal vaccine technology</div>
+</div>
 
-    const nav = document.getElementById('nav');
-    const navToggle = document.getElementById('navToggle');
-    const navLinks = document.getElementById('navLinks');
+<section class="v2-section">
+<div class="v2-section-head" data-i18n="v2.about.head">about</div>
 
-    navToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
+<p data-i18n="v2.about.p1">
+<span class="comment">/*</span> 我訓練出來就是個什麼都做一點的人。大學學生命科學與資訊，
+碩博在小鼠分子機制和 NGS 罕病診斷之間來回，博後做癌症 RNA-seq
+biomarker 跟國家級資料庫，現在在獸醫學院嘗試把人類基因體學的方法
+轉到伴侶動物的疾病。廣度是我的底牌，深度還在長。<span class="comment">*/</span>
+</p>
 
-    navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => navLinks.classList.remove('open'));
-    });
+<dl class="v2-kv">
+<dt>role</dt><dd data-i18n="v2.role">assistant professor, NPUST</dd>
+<dt>institute</dt><dd data-i18n="v2.inst">graduate institute of animal vaccine technology</dd>
+<dt>started</dt><dd>2025</dd>
+<dt>location</dt><dd>pingtung, taiwan</dd>
+<dt>orcid</dt><dd><a href="https://orcid.org/0000-0002-1126-7697">0000-0002-1126-7697</a></dd>
+<dt>email</dt><dd><a href="/cdn-cgi/l/email-protection#7b171318131a151c3b161a121755150b0e080f551e1f0e550f0c"><span class="__cf_email__" data-cfemail="cda1a5aea5aca3aa8da0aca4a1e3a3bdb8beb9e3a8a9b8e3b9ba">[email&#160;protected]</span></a></dd>
+</dl>
+</section>
 
-    document.getElementById('langZh').addEventListener('click', () => setLanguage('zh'));
-    document.getElementById('langEn').addEventListener('click', () => setLanguage('en'));
+<section class="v2-section">
+<div class="v2-section-head" data-i18n="v2.now.head">now</div>
 
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 8);
-    });
+<ul class="v2-list">
+<li data-i18n="v2.now.l1"><span class="kw">[grant]</span> NSTC 2026.08–2027.07 — human→feline drug repurposing via transcriptomic transfer</li>
+<li data-i18n="v2.now.l2"><span class="kw">[writing]</span> H2M-ValiPred — cross-species antibody developability prediction (ESM-2)</li>
+<li data-i18n="v2.now.l3"><span class="kw">[teaching]</span> 4 courses running · UG computational thinking → grad vaccine research methods</li>
+<li data-i18n="v2.now.l4"><span class="kw">[infra]</span> GPU workstation · DVC · MLflow · agent harness wired up</li>
+</ul>
+</section>
 
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', function (event) {
-        const href = this.getAttribute('href');
-        if (!href || href === '#') return;
-        const target = document.querySelector(href);
-        if (!target) return;
-        event.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
+<section class="v2-section">
+<div class="v2-section-head" data-i18n="v2.traj.head">trajectory</div>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      setLanguage(detectLanguage());
+<div class="v2-asciibox"><pre data-i18n="v2.traj.ascii">
+ undergrad   ┐
+ life sci +  │   ─▶  rodent + NGS   ┐
+ cs dual     │       rare disease   │   ─▶  cancer RNA-seq  ┐
+             │       wet + dry      │       biomarkers      │   ─▶  ★ NPUST vet med
+             │                      │       nat'l NGS       │        transfer learning
+             │                      │                       │        → companion animals
+             └──────────────────────┴───────────────────────┘
+   breadth carried forward: programming · variant calling · transcriptomics · cross-species priors
+</pre></div>
 
-      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (reduceMotion) return;
+<p class="comment" data-i18n="v2.traj.note"># 每一階段我都把工具往下帶。現在的主力是：把人類成熟的流程，降落到動物的髒資料上。</p>
+</section>
 
-      document.body.classList.add('has-motion');
+<section class="v2-section">
+<div class="v2-section-head" data-i18n="v2.research.head">research ──────── 4 threads</div>
 
-      const heroItems = document.querySelectorAll('[data-hero]');
-      heroItems.forEach((item, index) => {
-        setTimeout(() => item.classList.add('is-visible'), 90 * (index + 1));
-      });
+<div class="v2-asciibox"><pre data-i18n="v2.research.ascii">
+              ┌─────────────────────┐              ┌─────────────────────┐
+              │  01 TRANSFER        │─────────────▶│  02 DE NOVO DESIGN  │
+              │  human → animal     │  structure   │  RFdiffusion        │
+              │  drug repurposing   │  priors      │  BindCraft          │
+              └──────────┬──────────┘              └──────────┬──────────┘
+                         │                                    │
+                         │ shared methods · ortholog · ESM    │
+                         │                                    │
+              ┌──────────┴──────────┐              ┌──────────┴──────────┐
+              │  03 METAGENOMICS    │◀────────────▶│  04 HUMAN DATA      │
+              │  field samples      │  real-world  │  TWB · NBCT · NHI   │
+              │  custom pipelines   │  validation  │  precision medicine │
+              └─────────────────────┘              └─────────────────────┘
+</pre></div>
 
-    });
-  </script>
+<ul class="v2-list">
+<li data-i18n="v2.research.l1"><span class="kw">01</span> transfer learning + drug repurposing &nbsp;·&nbsp; <span class="comment">feline panleukopenia virus as first target</span></li>
+<li data-i18n="v2.research.l2"><span class="kw">02</span> de novo protein design &nbsp;·&nbsp; <span class="comment">diagnostic / therapeutic binders, proof-of-concept stage</span></li>
+<li data-i18n="v2.research.l3"><span class="kw">03</span> metagenomics for noisy field samples &nbsp;·&nbsp; <span class="comment">host contamination, weak signals, custom pipelines</span></li>
+<li data-i18n="v2.research.l4"><span class="kw">04</span> human-data collaborations &nbsp;·&nbsp; <span class="comment">with TVGH, NHRI, KMU &amp; industry partners</span></li>
+</ul>
+</section>
+
+<section class="v2-section">
+<div class="v2-section-head" data-i18n="v2.teach.head">teaching</div>
+
+<dl class="v2-kv">
+<dt>UG.required</dt><dd data-i18n="v2.teach.c1">computational thinking &amp; IT applications — python + AI entry point</dd>
+<dt>GRAD.required</dt><dd data-i18n="v2.teach.c2">vaccine research methods — bilingual</dd>
+<dt>GRAD.elective</dt><dd data-i18n="v2.teach.c3">bioinformatics · biostatistics · immunotechnology · gene regulation</dd>
+<dt>GRAD.elective</dt><dd data-i18n="v2.teach.c4">immunogen structure &amp; expression methods</dd>
+</dl>
+
+<p class="comment" data-i18n="v2.teach.note"># 大學部手把手；研究所開放式題目 + 文獻討論。適合願意穩定學習的人。</p>
+</section>
+
+<section class="v2-section">
+<div class="v2-section-head" data-i18n="v2.join.head">join the lab</div>
+
+<p data-i18n="v2.join.p1">
+碩士生招募中。適合背景：獸醫 / 生物 / 植醫 / 農業 / 資管 / 統計。
+寫程式的經驗不是必要，但好奇心是。
+</p>
+
+<p>&gt;&gt;&gt; <a href="/cdn-cgi/l/email-protection#0b676368636a656c4b666a626725657b7e787f256e6f7e257f7c" data-i18n="v2.join.cta"><span class="__cf_email__" data-cfemail="eb878388838a858cab868a8287c5859b9e989fc58e8f9ec59f9c">[email&#160;protected]</span></a></p>
+</section>
+
+<div class="v2-footer" data-i18n="v2.footer">
+# © 2025–2026 aiil · npust · hand-typed in pingtung
+</div>
+
+</section>
+
+
+<!-- ========================================================================
+     V3 — EDITORIAL SPREAD
+     ======================================================================== -->
+<section class="version v3" id="v3">
+
+  <div class="v3-masthead">
+    <div class="v3-masthead-left" data-i18n="v3.mast.left">
+      Vol. 01 &middot; No. 01<br/>
+      Spring 2026
+    </div>
+    <div class="v3-masthead-title">
+      AI-Assisted<br/>
+      Immuno<span class="red">·</span>informatics Lab
+    </div>
+    <div class="v3-masthead-right" data-i18n="v3.mast.right">
+      NPUST &middot; Pingtung<br/>
+      Est. 2025
+    </div>
+  </div>
+
+  <div class="v3-hero">
+    <div class="v3-hero-lead" data-i18n="v3.hero.lead">
+      一個剛起步的計算生物學實驗室，<em>試著把人的研究方法，用到動物身上。</em>廣度是我的底牌，深度還在長，這頁面是我對外的一份自述。
+    </div>
+    <div class="v3-hero-right">
+      <img src="profile.jpg" alt="Li-Hsin Chang" />
+      <div class="v3-hero-caption" data-i18n="v3.hero.cap">
+        LI-HSIN CHANG 張立鑫<br/>
+        ASST. PROF., NPUST<br/>
+        ORCID 0000-0002-1126-7697
+      </div>
+    </div>
+  </div>
+
+  <div class="v3-body">
+
+    <!-- Main column: essay ---------------------------------- -->
+    <div class="v3-col-main">
+      <article class="v3-essay">
+
+        <h2 data-i18n="v3.essay.h1">關於這間實驗室</h2>
+        <p class="drop" data-i18n="v3.essay.p1">
+          我訓練的軌跡是一條折返的路：大學同時讀生命科學和資訊，碩博班在小鼠分子機制與 NGS 罕病診斷之間來回，博後做癌症 RNA-seq biomarker 與國家級資料庫建置。每跨一步，我都試著把前一步的工具帶過來。
+        </p>
+        <p data-i18n="v3.essay.p2">
+          現在我在獸醫學院，嘗試做的是把<span class="lift">人類基因體學</span>裡已經成熟的方法，遷移到伴侶動物的疾病。這件事的可行性來自於一個很務實的觀察：人類的藥物擾動資料庫已經累積了數十年，但貓狗的還非常稀疏，如果能用同源基因與遷移學習把訊號搬過去，就可能在短時間內打開獸醫臨床的藥物再利用空間。
+        </p>
+
+        <div class="v3-pullquote" data-i18n="v3.essay.pull">
+          廣度是我的底牌。每跨一個領域，我都把前一個領域的工具帶過來。
+        </div>
+
+        <h2 data-i18n="v3.essay.h2">四條主軸</h2>
+        <p data-i18n="v3.essay.p3">
+          研究室的工作目前分成四條軸，但它們共用同一套底層方法，把在人身上成熟的計算流程，換上動物的資料與目標。
+        </p>
+
+        <div class="v3-map">
+          <!-- relation SVG, wider aspect -->
+          <svg viewBox="0 0 900 380" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <marker id="v3arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#1b1a17"/>
+              </marker>
+            </defs>
+            <!-- nodes -->
+            <g font-family="Inter Tight, sans-serif" font-size="12" fill="#1b1a17">
+              <!-- 01 -->
+              <g transform="translate(180,90)">
+                <circle r="46" fill="#f3efe5" stroke="#1b1a17" stroke-width="1"/>
+                <text y="-6" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8d6a94">01</text>
+                <text y="12" text-anchor="middle" font-weight="500" data-i18n="v3.map.n1">Transfer</text>
+              </g>
+              <!-- 02 -->
+              <g transform="translate(720,90)">
+                <circle r="46" fill="#f3efe5" stroke="#1b1a17" stroke-width="1"/>
+                <text y="-6" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8d6a94">02</text>
+                <text y="12" text-anchor="middle" font-weight="500" data-i18n="v3.map.n2">De novo</text>
+              </g>
+              <!-- 03 -->
+              <g transform="translate(180,300)">
+                <circle r="46" fill="#f3efe5" stroke="#1b1a17" stroke-width="1"/>
+                <text y="-6" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8d6a94">03</text>
+                <text y="12" text-anchor="middle" font-weight="500" data-i18n="v3.map.n3">Metagenomics</text>
+              </g>
+              <!-- 04 -->
+              <g transform="translate(720,300)">
+                <circle r="46" fill="#f3efe5" stroke="#1b1a17" stroke-width="1"/>
+                <text y="-6" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8d6a94">04</text>
+                <text y="12" text-anchor="middle" font-weight="500" data-i18n="v3.map.n4">Human Data</text>
+              </g>
+
+              <!-- central -->
+              <g transform="translate(450,195)">
+                <circle r="66" fill="#8d6a94"/>
+                <text y="-4" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#f3efe5">SHARED</text>
+                <text y="16" text-anchor="middle" fill="#f3efe5" font-weight="500" data-i18n="v3.map.hub">methods</text>
+              </g>
+            </g>
+
+            <!-- connecting lines -->
+            <g fill="none" stroke="#1b1a17" stroke-width="1">
+              <line x1="224" y1="110" x2="386" y2="175" marker-end="url(#v3arr)"/>
+              <line x1="676" y1="110" x2="514" y2="175" marker-end="url(#v3arr)"/>
+              <line x1="224" y1="280" x2="386" y2="215" marker-end="url(#v3arr)"/>
+              <line x1="676" y1="280" x2="514" y2="215" marker-end="url(#v3arr)"/>
+            </g>
+            <!-- peripheral relation (01-04 & 02-03) -->
+            <g fill="none" stroke="#8d6a94" stroke-width="1" stroke-dasharray="3 4">
+              <path d="M 226 90 Q 450 40 674 90"/>
+              <path d="M 226 300 Q 450 360 674 300"/>
+            </g>
+          </svg>
+          <div class="v3-map-caption" data-i18n="v3.map.cap">Fig. 01 — 四條研究軸共用的方法學核心</div>
+        </div>
+
+        <h2 data-i18n="v3.essay.h3">關於教學</h2>
+        <p data-i18n="v3.essay.p4">
+          教學是我現在每天最大的一塊時間。我相信計算思維是現代生醫研究者的基本能力，但教學不能只停在工具層面。我想讓學生練習的是：<span class="lift">提出對的問題、把問題拆開、再用資料跟程式去回答</span>。
+        </p>
+        <p data-i18n="v3.essay.p5">
+          大學部手把手，研究所放手做。沒有統一的起跑線：碩士生會從文獻閱讀與一個小資料集開始，題目依背景與進度展開。
+        </p>
+
+        <h2 data-i18n="v3.essay.h4">加入實驗室</h2>
+        <p data-i18n="v3.essay.p6">
+          目前招收對計算生物學有興趣的碩士生。獸醫、生物、植物醫學、農業、資管、統計，只要你對生醫問題有好奇，都適合。不要求入門前就會寫程式。
+        </p>
+
+      </article>
+    </div>
+
+    <!-- Side column: index of facts -------------------------- -->
+    <aside class="v3-col-side">
+
+      <div class="v3-sidebar-block">
+        <div class="v3-sidebar-label"><span data-i18n="v3.side.now">NOW</span><span class="num">04</span></div>
+        <ul>
+          <li class="v3-sidebar-item">
+            <span class="meta" data-i18n="v3.side.n1.m">2026.08–2027.07 · NSTC</span>
+            <strong data-i18n="v3.side.n1.t">人→貓跨物種藥物再利用</strong>
+            <span data-i18n="v3.side.n1.d">以 FPV 為第一個目標。</span>
+          </li>
+          <li class="v3-sidebar-item">
+            <span class="meta" data-i18n="v3.side.n2.m">Sprout · writing</span>
+            <strong data-i18n="v3.side.n2.t">H2M-ValiPred</strong>
+            <span data-i18n="v3.side.n2.d">881 抗體 · 13 項分析 · ESM-2 embedding。</span>
+          </li>
+          <li class="v3-sidebar-item">
+            <span class="meta" data-i18n="v3.side.n3.m">Accepted · Neurology</span>
+            <strong data-i18n="v3.side.n3.t">Early-onset ischemic stroke variants</strong>
+            <span data-i18n="v3.side.n3.d">多中心合作。</span>
+          </li>
+          <li class="v3-sidebar-item">
+            <span class="meta" data-i18n="v3.side.n4.m">Submitted · RPTH</span>
+            <strong data-i18n="v3.side.n4.t">F2 p.F382L</strong>
+            <span data-i18n="v3.side.n4.d">家族性腦靜脈竇血栓變異分析。</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="v3-sidebar-block">
+        <div class="v3-sidebar-label"><span data-i18n="v3.side.tchlbl">TEACHING</span><span class="num">04</span></div>
+        <ul>
+          <li class="v3-sidebar-item">
+            <span class="meta">UG · REQUIRED</span>
+            <strong data-i18n="v3.side.tch1">運算思維與資訊科技應用</strong>
+          </li>
+          <li class="v3-sidebar-item">
+            <span class="meta">GRAD · REQUIRED</span>
+            <strong data-i18n="v3.side.tch2">動物疫苗研究法</strong>
+          </li>
+          <li class="v3-sidebar-item">
+            <span class="meta">GRAD · ELECTIVE</span>
+            <strong data-i18n="v3.side.tch3">生物資訊、統計與免疫科技</strong>
+          </li>
+          <li class="v3-sidebar-item">
+            <span class="meta">GRAD · ELECTIVE</span>
+            <strong data-i18n="v3.side.tch4">免疫原結構與表達方法</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div class="v3-sidebar-block">
+        <div class="v3-sidebar-label"><span data-i18n="v3.side.trjlbl">TRAJECTORY</span><span class="num">05</span></div>
+        <ul>
+          <li class="v3-sidebar-item">
+            <span class="meta">UNDERGRAD</span>
+            <strong data-i18n="v3.side.trj1">生命科學 + 資訊雙主修</strong>
+          </li>
+          <li class="v3-sidebar-item">
+            <span class="meta">MS / PHD</span>
+            <strong data-i18n="v3.side.trj2">小鼠機制 → 罕病 NGS</strong>
+          </li>
+          <li class="v3-sidebar-item">
+            <span class="meta">POSTDOC</span>
+            <strong data-i18n="v3.side.trj3">癌症 RNA-seq · 國家級 NGS 平台</strong>
+          </li>
+          <li class="v3-sidebar-item">
+            <span class="meta">2025 — · NPUST</span>
+            <strong data-i18n="v3.side.trj4">獸醫學院・計算實驗室</strong>
+          </li>
+          <li class="v3-sidebar-item">
+            <span class="meta">NEXT</span>
+            <strong data-i18n="v3.side.trj5">→ 伴侶動物臨床應用</strong>
+          </li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- Contact -->
+  <div class="v3-contact">
+    <div class="v3-contact-row"><div class="key">EMAIL</div><div class="val"><a href="/cdn-cgi/l/email-protection#2e42464d464f40496e434f474200405e5b5d5a004b4a5b005a59"><span class="__cf_email__" data-cfemail="6c00040f040d020b2c010d050042021c191f184209081942181b">[email&#160;protected]</span></a></div></div>
+    <div class="v3-contact-row"><div class="key">PHONE</div><div class="val">+886-8-770-3202 ext.5406</div></div>
+    <div class="v3-contact-row"><div class="key" data-i18n="v3.con.addrk">ADDRESS</div><div class="val" data-i18n="v3.con.addrv">No.1 Shuefu Rd.,<br/>Neipu, Pingtung 912</div></div>
+    <div class="v3-contact-row"><div class="key">ORCID</div><div class="val"><a href="https://orcid.org/0000-0002-1126-7697" target="_blank" rel="noopener">0000-0002-1126-7697</a></div></div>
+  </div>
+
+</section>
+
+</main>
+
+<!-- ========================================================================
+     TWEAKS PANEL (in-design controls)
+     ======================================================================== -->
+<div id="tweaks">
+  <h4>Tweaks</h4>
+  <div class="row">
+    <label>layout</label>
+    <select id="tw-version">
+      <option value="v1">01 · notebook</option>
+      <option value="v2">02 · logbook</option>
+      <option value="v3">03 · editorial</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>density</label>
+    <select id="tw-density">
+      <option value="normal">normal</option>
+      <option value="compact">compact</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>accent</label>
+    <select id="tw-accent">
+      <option value="cinnabar">cinnabar</option>
+      <option value="none">ink only</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>ink color</label>
+    <select id="tw-ink">
+      <option value="sakura">A 夜櫻紫</option>
+      <option value="indigo">B 藍墨 × 赭</option>
+      <option value="forest">C 墨綠 × 橄欖</option>
+      <option value="cinnabar">D 墨黑 × 朱砂</option>
+      <option value="earth">E 大地棕墨</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>ink strength</label>
+    <select id="tw-ink-intensity">
+      <option value="1">1 極淡</option>
+      <option value="2">2 淡</option>
+      <option value="3">3 中</option>
+      <option value="4">4 濃</option>
+      <option value="5">5 濃重</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>lang</label>
+    <select id="tw-lang">
+      <option value="zh">中</option>
+      <option value="en">EN</option>
+    </select>
+  </div>
+</div>
+
+</div><!-- /shell -->
+
+<!-- ========================================================================
+     I18N STRINGS + LOGIC
+     ======================================================================== -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
+const I18N = {
+  zh: {
+    /* topbar + masthead */
+    'masthead.sub': '屏東科技大學・動物疫苗科技研究所',
+    'masthead.est': '成立 2025 — 屏東',
+
+    /* V1 hero */
+    'v1.hero.title': '一個剛起步的計算生物學實驗室，<em>試著把人的研究方法，用到動物身上</em>',
+    'v1.hero.lede': '我訓練出來就是個什麼都做一點的人，大學學生命科學與資訊，碩博在小鼠分子機制和 NGS 罕病診斷之間來回，博後做癌症 RNA-seq biomarker，現在在獸醫學院嘗試把人類基因體學的方法，轉到伴侶動物的疾病。廣度是我的底牌，深度還在長。',
+    'v1.portrait': '張立鑫 Li-Hsin Chang<br/>助理教授 · 屏東科技大學<br/>ORCID 0000-0002-1126-7697',
+
+    /* V1 now */
+    'v1.now.label': '目前 / 2026 春',
+    'v1.now.p1': '研究室成立第一年，時間分三塊：<mark>教學</mark>、<mark>第一個國科會計畫</mark>、還有把分析環境搭起來。學生還在招，所以現在大多數工作是我自己做的筆記與雛形。',
+    'v1.now.p2': '這個頁面會持續更新。如果你是碩士生、合作者、或只是看到「把人類資料轉到動物」這句話想聊聊，寄封信給我。',
+    'v1.now.g1': '<strong>NSTC 一年期（2026.08–2027.07）</strong>　以人類藥物擾動轉錄體為起點，用同源基因對應把藥物再利用延伸到伴侶動物；第一個目標是貓瘟病毒（FPV）。',
+    'v1.now.g2': '<strong>H2M-ValiPred 論文撰寫中</strong>　用 ESM-2 embedding ＋ 物化特徵預測抗體 developability；881 個抗體、13 項分析。',
+    'v1.now.g3': '<strong>四門課同時在開</strong>　從大學部運算思維到研究所疫苗研究法；大學部手把手，研究所放手做。',
+    'v1.now.g4': '<strong>GPU 工作站 + DVC + MLflow</strong>　先把可重現分析的底盤打好，之後進來的學生可以直接站上去。',
+
+    /* V1 trajectory */
+    'v1.traj.title': '我怎麼走到這裡',
+    'v1.traj.intro': '廣度可能是我這種訓練背景最誠實的形容。每跨一步，我都把前一步的工具帶過來，這張圖也是我現在能做「人類→動物」遷移學習的底氣。',
+    'v1.traj.stage1.year': '大學', 'v1.traj.stage1.title': '生科 + 資訊', 'v1.traj.stage1.sub': '雙主修',
+    'v1.traj.stage2.year': '碩 / 博', 'v1.traj.stage2.title': '小鼠機制 → 罕病 NGS', 'v1.traj.stage2.sub': '濕 + 乾',
+    'v1.traj.stage3.year': '博後', 'v1.traj.stage3.title': '癌症 RNA-seq biomarker', 'v1.traj.stage3.sub': '國家級 NGS 平台',
+    'v1.traj.stage4.year': '現在 · 屏科大', 'v1.traj.stage4.title': '獸醫學院・計算實驗室', 'v1.traj.stage4.sub': '遷移學習',
+    'v1.traj.stage5.year': '→ 臨床應用', 'v1.traj.stage5.title': '伴侶動物臨床', 'v1.traj.stage5.sub': 'applied',
+    'v1.traj.carry1': '＋ 寫程式', 'v1.traj.carry2': '＋ 變異分析',
+    'v1.traj.carry3': '＋ 轉錄體學', 'v1.traj.carry4': '＋ 跨物種遷移',
+
+    /* V1 research */
+    'v1.research.label': '四條主軸',
+    'v1.research.intro': '研究方向分成四條，但底層共用一套方法學：把在人類做成熟的計算流程，換上對應到動物的資料與目標。以下這張圖標出了四條軸之間真實的依賴關係，不是排列裝飾，是我每天在想的事。',
+    'v1.research.tlabel': '展開',
+    'v1.research.hub': '方法學底盤',
+    'v1.research.n1.title': '跨物種模型遷移', 'v1.research.n1.sub': '人 → 伴侶動物',
+    'v1.research.n2.title': '蛋白質設計', 'v1.research.n2.sub': '診斷 / 治療結合子',
+    'v1.research.n3.title': '總體基因體方法', 'v1.research.n3.sub': '田野樣本',
+    'v1.research.n4.title': '精準醫學合作', 'v1.research.n4.sub': 'TWB · NBCT · 健保',
+    'v1.research.edge1': '同源基因＋遷移',
+    'v1.research.edge2': '結構先驗',
+    'v1.research.edge3': '髒資料分析',
+    'v1.research.edge4': '真實世界驗證',
+    'v1.research.edge5': '跨域先驗',
+    'v1.research.t1.h': '跨物種模型遷移與藥物再利用',
+    'v1.research.t1.p': '用人類轉錄體與藥物基因體學資料把模型訓好，再透過同源基因對應與遷移學習，把藥物再利用策略套到伴侶動物的疾病模型。第一個目標是貓瘟病毒。',
+    'v1.research.t2.h': '獸醫應用的 De novo 蛋白質設計',
+    'v1.research.t2.p': '用 RFdiffusion、BindCraft 這類 AI 蛋白質設計工具，嘗試做獸醫診斷與治療用的新結合子。目前還在 proof-of-concept。',
+    'v1.research.t3.h': '總體基因體學分析方法',
+    'v1.research.t3.p': '田野樣本常見的檢體純度不足、宿主細胞干擾、訊號稀薄，這一條線就是想辦法讓這些「髒資料」還是有用。',
+    'v1.research.t4.h': '人類資料合作與精準醫學',
+    'v1.research.t4.p': '使用 TWB、NBCT、健保資料庫，與北榮、國衛院、高醫及業界合作，做癌症風險預測、罕病辨識、NGS 資料庫建置。這條線也是我訓練的延續。',
+
+    /* V1 teach */
+    'v1.teach.label': '給學生',
+    'v1.teach.p1': '<span class="drop">教</span>學是我現在每天最大一塊時間。我自己一路走下來學的是「換語言」的能力，從濕 lab 換到乾 lab、從 Perl 換到 Python、從小鼠換到人換到貓。我相信計算思維是現代生醫研究者的基本能力，所以課程不會停在工具層面：我想讓學生練習把問題拆開，再用資料跟程式去回答。',
+    'v1.teach.p2': '如果你是大學部的學生，別怕寫程式，我們會從頭開始。如果你是碩士生，我們會從文獻閱讀與一個小資料集開始，題目會依你的背景跟進度展開。沒有統一的起跑線。',
+    'v1.teach.courses': '開設課程',
+    'v1.teach.c1.name': '運算思維與資訊科技應用', 'v1.teach.c1.lvl': '大學部・必修',
+    'v1.teach.c2.name': '動物疫苗研究法',         'v1.teach.c2.lvl': '研究所・必修',
+    'v1.teach.c3.name': '生物資訊、統計與免疫科技', 'v1.teach.c3.lvl': '研究所・選修',
+    'v1.teach.c4.name': '免疫原結構與表達方法',   'v1.teach.c4.lvl': '研究所・選修',
+
+    /* V1 contact */
+    'v1.contact.label': '聯絡',
+    'v1.contact.body': '正在招收對計算生物學有興趣的碩士生。獸醫、生物、植物醫學、農業、資管、統計，只要你對生醫問題有好奇，都適合。不要求入門前就會寫程式。',
+    'v1.contact.addr': '地址',
+    'v1.contact.addrv': '屏東縣內埔鄉學府路1號 · 國立屏東科技大學 獸醫學院',
+    'v1.colo.set': '本頁排版：NOTO SERIF TC & INTER TIGHT · 於屏東手工排版',
+
+    /* V2 */
+    'v2.whoami': '· 張立鑫 Li-Hsin Chang',
+    'v2.subtitle': '# 助理教授 · 屏東科技大學 · 動物疫苗科技研究所',
+    'v2.about.head': 'about',
+    'v2.about.p1': '<span class="comment">/*</span> 我訓練出來就是個什麼都做一點的人。大學學生命科學與資訊，碩博在小鼠分子機制和 NGS 罕病診斷之間來回，博後做癌症 RNA-seq biomarker 跟國家級資料庫，現在在獸醫學院嘗試把人類基因體學的方法轉到伴侶動物的疾病。廣度是我的底牌，深度還在長。<span class="comment">*/</span>',
+    'v2.role': '助理教授 · 屏東科技大學',
+    'v2.inst': '動物疫苗科技研究所',
+    'v2.now.head': 'now',
+    'v2.now.l1': '<span class="kw">[grant]</span> NSTC 2026.08–2027.07 — 人類→貓跨物種藥物再利用（轉錄體遷移）',
+    'v2.now.l2': '<span class="kw">[writing]</span> H2M-ValiPred — 跨物種抗體 developability 預測（ESM-2）',
+    'v2.now.l3': '<span class="kw">[teaching]</span> 四門課同時在開 · 大學部運算思維 → 研究所疫苗研究法',
+    'v2.now.l4': '<span class="kw">[infra]</span> GPU 工作站 · DVC · MLflow · agent harness',
+    'v2.traj.head': 'trajectory · 怎麼走到這裡',
+    'v2.traj.ascii': ' 大學       ┐\n 生科 +     │   ─▶  小鼠 + NGS     ┐\n 資訊雙修   │       罕病診斷       │   ─▶  癌症 RNA-seq   ┐\n            │       濕 + 乾        │       biomarker      │   ─▶  ★ 屏科大 獸醫學院\n            │                      │       國家級 NGS     │        遷移學習\n            │                      │                      │        → 伴侶動物\n            └──────────────────────┴──────────────────────┘\n   帶下來的廣度: 寫程式 · 變異分析 · 轉錄體學 · 跨物種先驗\n',
+    'v2.traj.note': '# 每一階段我都把工具往下帶。現在的主力是：把人類成熟的流程，降落到動物的髒資料上。',
+    'v2.research.head': 'research ──────── 四條主軸',
+    'v2.research.ascii': '              ┌─────────────────────┐              ┌─────────────────────┐\n              │  01 跨物種遷移       │─────────────▶│  02 De novo 設計    │\n              │  人 → 動物           │  結構先驗    │  RFdiffusion        │\n              │  藥物再利用          │              │  BindCraft          │\n              └──────────┬──────────┘              └──────────┬──────────┘\n                         │                                    │\n                         │   共用方法 · 同源對應 · ESM         │\n                         │                                    │\n              ┌──────────┴──────────┐              ┌──────────┴──────────┐\n              │  03 總體基因體       │◀────────────▶│  04 人類資料合作    │\n              │  田野樣本            │  真實世界     │  TWB · NBCT · 健保  │\n              │  自建分析流程        │  驗證         │  精準醫學            │\n              └─────────────────────┘              └─────────────────────┘\n',
+    'v2.research.l1': '<span class="kw">01</span> 跨物種遷移學習 ＋ 藥物再利用 &nbsp;·&nbsp; <span class="comment">貓瘟病毒 FPV 是第一個目標</span>',
+    'v2.research.l2': '<span class="kw">02</span> De novo 蛋白質設計 &nbsp;·&nbsp; <span class="comment">診斷 / 治療結合子，概念驗證階段</span>',
+    'v2.research.l3': '<span class="kw">03</span> 田野樣本的總體基因體方法 &nbsp;·&nbsp; <span class="comment">宿主干擾、訊號稀薄、自建流程</span>',
+    'v2.research.l4': '<span class="kw">04</span> 人類資料合作 &nbsp;·&nbsp; <span class="comment">北榮、國衛院、高醫與業界</span>',
+    'v2.teach.head': 'teaching',
+    'v2.teach.c1': '運算思維與資訊科技應用 — Python ＋ AI 入門（大學部必修）',
+    'v2.teach.c2': '動物疫苗研究法 — 中英雙語（研究所必修）',
+    'v2.teach.c3': '生物資訊 · 生統 · 免疫科技 · 基因調控（研究所選修）',
+    'v2.teach.c4': '免疫原結構與表達方法（研究所選修）',
+    'v2.teach.note': '# 大學部手把手；研究所開放式題目 + 文獻討論。適合願意穩定學習的人。',
+    'v2.join.head': 'join the lab · 加入研究室',
+    'v2.join.p1': '碩士生招募中。適合背景：獸醫 / 生物 / 植醫 / 農業 / 資管 / 統計。寫程式的經驗不是必要，但好奇心是。',
+    'v2.join.cta': 'lhchang@mail.npust.edu.tw',
+    'v2.footer': '# © 2025–2026 aiil · npust · 於屏東手工敲出',
+
+    /* V3 */
+    'v3.mast.left': '第一卷 · 第一期<br/>2026 春',
+    'v3.mast.right': '屏東科技大學<br/>成立於 2025',
+    'v3.hero.lead': '一個剛起步的計算生物學實驗室，<em>試著把人的研究方法，用到動物身上。</em>廣度是我的底牌，深度還在長，這頁面是我對外的一份自述。',
+    'v3.hero.cap': '張立鑫 LI-HSIN CHANG<br/>助理教授 · 屏東科技大學<br/>ORCID 0000-0002-1126-7697',
+    'v3.essay.h1': '關於這間實驗室',
+    'v3.essay.p1': '我訓練的軌跡是一條折返的路：大學同時讀生命科學和資訊，碩博班在小鼠分子機制與 NGS 罕病診斷之間來回，博後做癌症 RNA-seq biomarker 與國家級資料庫建置。每跨一步，我都試著把前一步的工具帶過來。',
+    'v3.essay.p2': '現在我在獸醫學院，嘗試做的是把<span class="lift">人類基因體學</span>裡已經成熟的方法，遷移到伴侶動物的疾病。這件事的可行性來自一個很務實的觀察：人類的藥物擾動資料庫已經累積了數十年，但貓狗的還非常稀疏，如果能用同源基因與遷移學習把訊號搬過去，就可能在短時間內打開獸醫臨床的藥物再利用空間。',
+    'v3.essay.pull': '廣度是我的底牌。每跨一個領域，我都把前一個領域的工具帶過來。',
+    'v3.essay.h2': '四條主軸',
+    'v3.essay.p3': '研究室的工作目前分成四條軸，但它們共用同一套底層方法，把在人身上成熟的計算流程，換上動物的資料與目標。',
+    'v3.essay.h3': '關於教學',
+    'v3.essay.p4': '教學是我現在每天最大的一塊時間。我相信計算思維是現代生醫研究者的基本能力，但教學不能只停在工具層面。我想讓學生練習的是：<span class="lift">提出對的問題、把問題拆開、再用資料跟程式去回答</span>。',
+    'v3.essay.p5': '大學部手把手，研究所放手做。沒有統一的起跑線：碩士生會從文獻閱讀與一個小資料集開始，題目依背景與進度展開。',
+    'v3.essay.h4': '加入實驗室',
+    'v3.essay.p6': '目前招收對計算生物學有興趣的碩士生。獸醫、生物、植物醫學、農業、資管、統計，只要你對生醫問題有好奇，都適合。不要求入門前就會寫程式。',
+    'v3.map.n1': '遷移', 'v3.map.n2': '設計', 'v3.map.n3': '總體基因體', 'v3.map.n4': '人類資料', 'v3.map.hub': '方法學',
+    'v3.map.cap': '圖一 — 四條研究軸共用的方法學核心',
+    'v3.side.now': '近期 NOW',
+    'v3.side.n1.m': '2026.08–2027.07 · 國科會',
+    'v3.side.n1.t': '人→貓跨物種藥物再利用',
+    'v3.side.n1.d': '以 FPV 為第一個目標。',
+    'v3.side.n2.m': '高教深耕 · 撰稿中',
+    'v3.side.n2.t': 'H2M-ValiPred',
+    'v3.side.n2.d': '881 抗體 · 13 項分析 · ESM-2 embedding。',
+    'v3.side.n3.m': '已接受 · Neurology',
+    'v3.side.n3.t': '早發性缺血性腦中風風險變異',
+    'v3.side.n3.d': '多中心合作。',
+    'v3.side.n4.m': '投稿中 · RPTH',
+    'v3.side.n4.t': 'F2 p.F382L',
+    'v3.side.n4.d': '家族性腦靜脈竇血栓變異分析。',
+    'v3.side.tchlbl': '教學',
+    'v3.side.tch1': '運算思維與資訊科技應用',
+    'v3.side.tch2': '動物疫苗研究法',
+    'v3.side.tch3': '生物資訊、統計與免疫科技',
+    'v3.side.tch4': '免疫原結構與表達方法',
+    'v3.side.trjlbl': '學術軌跡',
+    'v3.side.trj1': '生命科學 + 資訊雙主修',
+    'v3.side.trj2': '小鼠機制 → 罕病 NGS',
+    'v3.side.trj3': '癌症 RNA-seq · 國家級 NGS 平台',
+    'v3.side.trj4': '獸醫學院・計算實驗室',
+    'v3.side.trj5': '→ 伴侶動物臨床應用',
+    'v3.con.addrk': '地址',
+    'v3.con.addrv': '屏東縣內埔鄉學府路1號'
+  },
+
+  en: {
+    'masthead.sub': 'NPUST · Graduate Institute of Animal Vaccine Technology',
+    'masthead.est': 'EST. 2025 — PINGTUNG, TW',
+
+    'v1.hero.title': 'A new computational biology lab, <em>carrying human research methods over to animals.</em>',
+    'v1.hero.lede': "My training is wide rather than deep: undergrad in both life sciences and computer science, MS/PhD bouncing between rodent molecular mechanisms and NGS-based rare-disease diagnosis, postdoc on cancer RNA-seq biomarkers and a national NGS platform. Now at a veterinary school, trying to carry human genomic methods into companion-animal disease. Breadth is my best card; depth is still growing.",
+    'v1.portrait': 'Li-Hsin Chang 張立鑫<br/>Asst. Prof., NPUST<br/>ORCID 0000-0002-1126-7697',
+
+    'v1.now.label': 'NOW / SPR 2026',
+    'v1.now.p1': 'Year one of the lab. Time splits into three: <mark>teaching</mark>, <mark>the first NSTC grant</mark>, and standing up the analysis stack. No students yet, so most of what you see here is notes and prototypes by me.',
+    'v1.now.p2': 'This page updates as the work does. If you are a prospective MS student, a collaborator, or just curious about "human data into vet medicine" — drop a line.',
+    'v1.now.g1': '<strong>NSTC (2026.08–2027.07)</strong>　Cross-species drug repurposing via transcriptomic transfer. First target: feline panleukopenia virus.',
+    'v1.now.g2': '<strong>H2M-ValiPred (in writing)</strong>　ESM-2 embeddings + physicochemical features for cross-species antibody developability. 881 antibodies · 13 assays.',
+    'v1.now.g3': '<strong>Four courses running</strong>　From UG computational thinking to graduate vaccine research methods.',
+    'v1.now.g4': '<strong>GPU + DVC + MLflow</strong>　A reproducible analysis base so incoming students can stand on it.',
+
+    'v1.traj.title': 'How I got here',
+    'v1.traj.intro': 'Breadth is the most honest way to describe my training. Every time I moved, I carried the previous toolkit over — which is why "human → animal" transfer learning is a credible thing for this lab to try.',
+    'v1.traj.stage1.year': 'UNDERGRAD', 'v1.traj.stage1.title': 'Life sci + CS', 'v1.traj.stage1.sub': 'dual major',
+    'v1.traj.stage2.year': 'MS / PhD', 'v1.traj.stage2.title': 'Mouse mech → rare-disease NGS', 'v1.traj.stage2.sub': 'wet + dry',
+    'v1.traj.stage3.year': 'POSTDOC', 'v1.traj.stage3.title': 'Cancer RNA-seq biomarkers', 'v1.traj.stage3.sub': 'national NGS platform',
+    'v1.traj.stage4.year': 'NOW · NPUST', 'v1.traj.stage4.title': 'Vet school · computational lab', 'v1.traj.stage4.sub': 'transfer learning',
+    'v1.traj.stage5.year': '→ CLINICAL', 'v1.traj.stage5.title': 'Companion-animal clinic', 'v1.traj.stage5.sub': 'applied',
+    'v1.traj.carry1': '+ programming', 'v1.traj.carry2': '+ variant analysis',
+    'v1.traj.carry3': '+ transcriptomics', 'v1.traj.carry4': '+ cross-species transfer',
+
+    'v1.research.label': 'FOUR THREADS',
+    'v1.research.intro': "The research splits into four threads, but under them is a single method stack: take a pipeline that's mature in humans, swap in the matching animal data and target. The diagram below shows the real dependencies between threads — not decorative, it's actually what I think about.",
+    'v1.research.tlabel': 'EXPANDED',
+    'v1.research.hub': 'shared methods',
+    'v1.research.n1.title': 'Cross-species transfer', 'v1.research.n1.sub': 'human → companion animals',
+    'v1.research.n2.title': 'Protein design', 'v1.research.n2.sub': 'binders for dx / rx',
+    'v1.research.n3.title': 'Metagenomics methods', 'v1.research.n3.sub': 'noisy field samples',
+    'v1.research.n4.title': 'Precision medicine', 'v1.research.n4.sub': 'TWB · NBCT · NHI',
+    'v1.research.edge1': 'ortholog + transfer',
+    'v1.research.edge2': 'structure priors',
+    'v1.research.edge3': 'noisy-sample pipelines',
+    'v1.research.edge4': 'real-world validation',
+    'v1.research.edge5': 'cross-domain priors',
+    'v1.research.t1.h': 'Cross-species model transfer & drug repurposing',
+    'v1.research.t1.p': 'Train on human transcriptomic and pharmacogenomic data, then extend drug repurposing to companion-animal disease models via ortholog mapping and transfer learning. FPV is the first target.',
+    'v1.research.t2.h': 'De novo protein design for veterinary use',
+    'v1.research.t2.p': 'Using tools like RFdiffusion and BindCraft to design new binders for veterinary diagnostics and therapeutics. Proof-of-concept stage.',
+    'v1.research.t3.h': 'Metagenomics methods for field samples',
+    'v1.research.t3.p': 'Low purity, host contamination, weak signal — this thread is about making "dirty" samples still useful.',
+    'v1.research.t4.h': 'Human-data collaborations & precision medicine',
+    'v1.research.t4.p': 'Using TWB, NBCT, and NHI data, with partners at TVGH, NHRI, KMU and industry — cancer risk prediction, rare-disease identification, NGS database building. A continuation of my training.',
+
+    'v1.teach.label': 'FOR STUDENTS',
+    'v1.teach.p1': '<span class="drop">T</span>eaching is the biggest chunk of my day right now. What I learned on the way here is the ability to "switch languages" — from wet to dry lab, from Perl to Python, from mice to people to cats. I think computational thinking is a base skill for modern biomedical researchers, so the classroom can\'t stop at tools: I want students practicing how to break a problem apart and then answer it with data and code.',
+    'v1.teach.p2': "If you're an undergrad, don't fear coding — we start from scratch. If you're a master's student, we'll start with literature and a small dataset; topics unfold from there, based on your background and pace. No one starting line.",
+    'v1.teach.courses': 'COURSES',
+    'v1.teach.c1.name': 'Computational Thinking & IT Applications', 'v1.teach.c1.lvl': 'UG · REQUIRED',
+    'v1.teach.c2.name': 'Vaccine Research Methods',                  'v1.teach.c2.lvl': 'GRAD · REQUIRED',
+    'v1.teach.c3.name': 'Bioinformatics, Biostatistics & Immunotech', 'v1.teach.c3.lvl': 'GRAD · ELECTIVE',
+    'v1.teach.c4.name': 'Immunogen Structure & Expression',           'v1.teach.c4.lvl': 'GRAD · ELECTIVE',
+
+    'v1.contact.label': 'CONTACT',
+    'v1.contact.body': "Currently recruiting MS students interested in computational biology. Vet med, biology, plant medicine, agriculture, information management, statistics — any background works if you are drawn to biomedical problems. Prior coding experience is not required.",
+    'v1.contact.addr': 'ADDRESS',
+    'v1.contact.addrv': 'No.1 Shuefu Rd., Neipu, Pingtung 912 · College of Veterinary Medicine, NPUST',
+    'v1.colo.set': 'SET IN NOTO SERIF TC & INTER TIGHT · HAND-SET IN PINGTUNG',
+
+    /* V2 */
+    'v2.whoami': '， li-hsin chang',
+    'v2.subtitle': '# assistant professor · npust · graduate institute of animal vaccine technology',
+    'v2.about.head': 'about',
+    'v2.about.p1': '<span class="comment">/*</span> training is wide rather than deep: undergrad in life sci + cs, ms/phd between rodent molecular mechanisms and ngs-based rare-disease diagnosis, postdoc in cancer rna-seq biomarkers and a national ngs platform. now at a vet school trying to carry human genomic methods into companion-animal disease. breadth is my best card; depth is still growing. <span class="comment">*/</span>',
+    'v2.role': 'assistant professor, NPUST',
+    'v2.inst': 'graduate institute of animal vaccine technology',
+    'v2.now.head': 'now',
+    'v2.now.l1': '<span class="kw">[grant]</span> NSTC 2026.08–2027.07 — human→feline drug repurposing via transcriptomic transfer',
+    'v2.now.l2': '<span class="kw">[writing]</span> H2M-ValiPred — cross-species antibody developability prediction (ESM-2)',
+    'v2.now.l3': '<span class="kw">[teaching]</span> 4 courses running · UG computational thinking → grad vaccine research methods',
+    'v2.now.l4': '<span class="kw">[infra]</span> GPU workstation · DVC · MLflow · agent harness wired up',
+    'v2.traj.head': 'trajectory',
+    'v2.traj.ascii': ' undergrad   ┐\n life sci +  │   ─▶  rodent + NGS   ┐\n cs dual     │       rare disease   │   ─▶  cancer RNA-seq  ┐\n             │       wet + dry      │       biomarkers      │   ─▶  ★ NPUST vet med\n             │                      │       nat\'l NGS       │        transfer learning\n             │                      │                       │        → companion animals\n             └──────────────────────┴───────────────────────┘\n   breadth carried forward: programming · variant calling · transcriptomics · cross-species priors\n',
+    'v2.traj.note': '# every stage I carried the tools down. the current thesis: land mature human pipelines on noisy animal data.',
+    'v2.research.head': 'research ──────── 4 threads',
+    'v2.research.ascii': '              ┌─────────────────────┐              ┌─────────────────────┐\n              │  01 TRANSFER        │─────────────▶│  02 DE NOVO DESIGN  │\n              │  human → animal     │  structure   │  RFdiffusion        │\n              │  drug repurposing   │  priors      │  BindCraft          │\n              └──────────┬──────────┘              └──────────┬──────────┘\n                         │                                    │\n                         │ shared methods · ortholog · ESM    │\n                         │                                    │\n              ┌──────────┴──────────┐              ┌──────────┴──────────┐\n              │  03 METAGENOMICS    │◀────────────▶│  04 HUMAN DATA      │\n              │  field samples      │  real-world  │  TWB · NBCT · NHI   │\n              │  custom pipelines   │  validation  │  precision medicine │\n              └─────────────────────┘              └─────────────────────┘\n',
+    'v2.research.l1': '<span class="kw">01</span> transfer learning + drug repurposing &nbsp;·&nbsp; <span class="comment">feline panleukopenia virus as first target</span>',
+    'v2.research.l2': '<span class="kw">02</span> de novo protein design &nbsp;·&nbsp; <span class="comment">diagnostic / therapeutic binders, proof-of-concept stage</span>',
+    'v2.research.l3': '<span class="kw">03</span> metagenomics for noisy field samples &nbsp;·&nbsp; <span class="comment">host contamination, weak signals, custom pipelines</span>',
+    'v2.research.l4': '<span class="kw">04</span> human-data collaborations &nbsp;·&nbsp; <span class="comment">with TVGH, NHRI, KMU &amp; industry partners</span>',
+    'v2.teach.head': 'teaching',
+    'v2.teach.c1': 'computational thinking &amp; IT applications — python + AI entry point',
+    'v2.teach.c2': 'vaccine research methods — bilingual',
+    'v2.teach.c3': 'bioinformatics · biostatistics · immunotechnology · gene regulation',
+    'v2.teach.c4': 'immunogen structure &amp; expression methods',
+    'v2.teach.note': '# UG hands-on; grad courses open-ended + literature discussion. good fit for steady learners.',
+    'v2.join.head': 'join the lab',
+    'v2.join.p1': "recruiting MS students. backgrounds that fit: vet med / biology / plant medicine / agriculture / info mgmt / statistics. coding experience isn't required; curiosity is.",
+    'v2.join.cta': 'lhchang@mail.npust.edu.tw',
+    'v2.footer': '# © 2025–2026 aiil · npust · hand-typed in pingtung',
+
+    /* V3 */
+    'v3.mast.left': 'Vol. 01 · No. 01<br/>Spring 2026',
+    'v3.mast.right': 'NPUST · Pingtung<br/>Est. 2025',
+    'v3.hero.lead': 'A new computational biology lab, <em>carrying human research methods over to animals.</em> Breadth is my best card; depth is still growing — this page is a self-portrait in progress.',
+    'v3.hero.cap': 'LI-HSIN CHANG 張立鑫<br/>ASST. PROF., NPUST<br/>ORCID 0000-0002-1126-7697',
+    'v3.essay.h1': 'On this lab',
+    'v3.essay.p1': 'My trajectory is a switchback: undergrad in both life sciences and computer science, MS/PhD between rodent molecular mechanisms and NGS-based rare-disease diagnosis, postdoc on cancer RNA-seq biomarkers and a national NGS platform. Every step, I carried the previous toolkit over.',
+    'v3.essay.p2': "I'm at a veterinary school now, trying to bring <span class=\"lift\">human genomics methods</span> — the mature ones — into companion-animal disease. The feasibility comes from a plain observation: human drug-perturbation resources have accumulated for decades, while feline and canine equivalents are sparse. If orthologs + transfer learning can ferry the signal over, the drug repurposing space in vet medicine opens up quickly.",
+    'v3.essay.pull': 'Breadth is my best card. Every time I crossed into a new field, I carried the previous toolkit over.',
+    'v3.essay.h2': 'Four threads',
+    'v3.essay.p3': 'The work is organized into four threads, but they share one method stack — take a pipeline mature on humans, swap in the matching animal data and target.',
+    'v3.essay.h3': 'On teaching',
+    'v3.essay.p4': "Teaching is the biggest chunk of my day. I believe computational thinking is a base skill for modern biomedical researchers — but classroom time can't stop at tools. What I want students practicing is: <span class=\"lift\">ask the right question, break it apart, answer with data and code</span>.",
+    'v3.essay.p5': "Undergraduates get hands-on guidance; graduate courses are open-ended. No single starting line — master's students begin with literature and a small dataset, topics unfold from there.",
+    'v3.essay.h4': 'Joining the lab',
+    'v3.essay.p6': 'Currently recruiting MS students interested in computational biology. Vet med, biology, plant medicine, agriculture, information management, statistics all work — if biomedical problems pull you, come in. Prior coding not required.',
+    'v3.map.n1': 'Transfer', 'v3.map.n2': 'De novo', 'v3.map.n3': 'Metagenomics', 'v3.map.n4': 'Human Data', 'v3.map.hub': 'methods',
+    'v3.map.cap': 'Fig. 01 — The shared method core underneath four threads',
+    'v3.side.now': 'NOW',
+    'v3.side.n1.m': '2026.08–2027.07 · NSTC',
+    'v3.side.n1.t': 'Human→feline drug repurposing',
+    'v3.side.n1.d': 'FPV as first target.',
+    'v3.side.n2.m': 'Sprout · writing',
+    'v3.side.n2.t': 'H2M-ValiPred',
+    'v3.side.n2.d': '881 antibodies · 13 assays · ESM-2.',
+    'v3.side.n3.m': 'Accepted · Neurology',
+    'v3.side.n3.t': 'Early-onset stroke variants',
+    'v3.side.n3.d': 'Multi-center collaboration.',
+    'v3.side.n4.m': 'Submitted · RPTH',
+    'v3.side.n4.t': 'F2 p.F382L',
+    'v3.side.n4.d': 'Familial cerebral venous thrombosis.',
+    'v3.side.tchlbl': 'TEACHING',
+    'v3.side.tch1': 'Computational Thinking & IT',
+    'v3.side.tch2': 'Vaccine Research Methods',
+    'v3.side.tch3': 'Bioinformatics, Biostats & Immunotech',
+    'v3.side.tch4': 'Immunogen Structure & Expression',
+    'v3.side.trjlbl': 'TRAJECTORY',
+    'v3.side.trj1': 'Life sci + CS dual major',
+    'v3.side.trj2': 'Rodent mech → rare-disease NGS',
+    'v3.side.trj3': 'Cancer RNA-seq · national NGS',
+    'v3.side.trj4': 'Vet school · computational lab',
+    'v3.side.trj5': '→ Companion-animal clinic',
+    'v3.con.addrk': 'ADDRESS',
+    'v3.con.addrv': 'No.1 Shuefu Rd.,<br/>Neipu, Pingtung 912, TW'
+  }
+};
+
+/* ========================================================================
+   i18n apply
+   ======================================================================== */
+let CUR_LANG = 'zh';
+function setLang(lang) {
+  if (!I18N[lang]) return;
+  CUR_LANG = lang;
+  document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    const val = I18N[lang][key];
+    if (val != null) el.innerHTML = val;
+  });
+  // sync switchers
+  document.querySelectorAll('.lang-switch button').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  const twLang = document.getElementById('tw-lang');
+  if (twLang) twLang.value = lang;
+  try { localStorage.setItem('aiil_lang', lang); } catch(e){}
+}
+
+/* version switching */
+let CUR_VER = 'v1';
+function setVersion(v) {
+  CUR_VER = v;
+  document.querySelectorAll('.version').forEach(s => {
+    s.classList.toggle('active', s.id === v);
+  });
+  document.querySelectorAll('.version-switch button').forEach(b => {
+    b.classList.toggle('active', b.dataset.version === v);
+  });
+  const twV = document.getElementById('tw-version');
+  if (twV) twV.value = v;
+  try { localStorage.setItem('aiil_ver', v); } catch(e){}
+  window.scrollTo({ top: 0, behavior: 'instant' });
+}
+
+/* wire up switchers */
+document.querySelectorAll('.version-switch button').forEach(b => {
+  b.addEventListener('click', () => setVersion(b.dataset.version));
+});
+document.querySelectorAll('.lang-switch button').forEach(b => {
+  b.addEventListener('click', () => setLang(b.dataset.lang));
+});
+
+/* ========================================================================
+   TWEAKS — host integration
+   ======================================================================== */
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "version": "v1",
+  "density": "normal",
+  "accent": "cinnabar",
+  "ink": "sakura",
+  "inkIntensity": "3",
+  "lang": "zh"
+}/*EDITMODE-END*/;
+
+function applyTweaks(t) {
+  if (t.version) setVersion(t.version);
+  if (t.lang) setLang(t.lang);
+  document.body.classList.toggle('compact', t.density === 'compact');
+  document.body.classList.toggle('no-cinnabar', t.accent === 'none');
+  if (t.ink) document.body.setAttribute('data-ink', t.ink);
+  if (t.inkIntensity) document.body.setAttribute('data-ink-intensity', t.inkIntensity);
+  // regenerate pen-stroke SVGs in current palette
+  refreshPenStrokes();
+  // sync selects
+  const map = { 'tw-version': t.version, 'tw-density': t.density, 'tw-accent': t.accent,
+                'tw-ink': t.ink, 'tw-ink-intensity': t.inkIntensity, 'tw-lang': t.lang };
+  Object.entries(map).forEach(([id, val]) => {
+    const el = document.getElementById(id);
+    if (el && val != null) el.value = val;
+  });
+}
+
+const tweakState = Object.assign({}, TWEAK_DEFAULTS);
+
+function updateTweak(key, val) {
+  tweakState[key] = val;
+  applyTweaks(tweakState);
+  try {
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [key]: val } }, '*');
+  } catch(e){}
+}
+
+/* listen BEFORE announcing */
+window.addEventListener('message', (e) => {
+  const d = e.data;
+  if (!d || typeof d !== 'object') return;
+  if (d.type === '__activate_edit_mode') {
+    document.getElementById('tweaks').classList.add('open');
+  } else if (d.type === '__deactivate_edit_mode') {
+    document.getElementById('tweaks').classList.remove('open');
+  }
+});
+try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e){}
+
+/* wire tweaks controls */
+['tw-version','tw-density','tw-accent','tw-ink','tw-ink-intensity','tw-lang'].forEach(id => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('change', e => {
+    let key = id.replace('tw-','');
+    if (key === 'ink-intensity') key = 'inkIntensity';
+    updateTweak(key, e.target.value);
+  });
+});
+
+/* ========================================================================
+   pen-stroke SVG generators — rebuilt on palette change so flourishes
+   stay in sync with current --cinnabar / --ink-secondary
+   ======================================================================== */
+function refreshPenStrokes() {
+  const cs = getComputedStyle(document.body);
+  const primary = cs.getPropertyValue('--cinnabar').trim() || '#8d6a94';
+  const secondary = cs.getPropertyValue('--ink-secondary').trim() || primary;
+  const width = parseFloat(cs.getPropertyValue('--ink-width')) || 1.4;
+
+  const wave = encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 14' preserveAspectRatio='none'>
+       <path d='M2 9 C 24 3, 50 11, 78 6 S 132 3, 160 9 S 210 4, 238 8'
+             fill='none' stroke='${primary}' stroke-width='${width*1.1}' stroke-linecap='round'/>
+       <path d='M2 11 C 30 7, 56 13, 82 10 S 136 8, 164 12 S 214 9, 238 11'
+             fill='none' stroke='${secondary}' stroke-width='${width*0.55}' stroke-linecap='round' opacity='0.55'/>
+     </svg>`
+  );
+  const underline = encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 6' preserveAspectRatio='none'>
+       <path d='M1 3 C 30 1, 60 5, 100 3 S 170 1, 199 3' fill='none'
+             stroke='${primary}' stroke-width='${width}' stroke-linecap='round'/>
+     </svg>`
+  );
+  const underlineH = encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'>
+       <path d='M2 6 C 40 2, 90 9, 150 5 S 250 2, 298 6' fill='none'
+             stroke='${primary}' stroke-width='${width*1.3}' stroke-linecap='round'/>
+       <path d='M6 8 C 60 5, 110 10, 170 7 S 260 5, 292 8' fill='none'
+             stroke='${secondary}' stroke-width='${width*0.6}' stroke-linecap='round' opacity='0.5'/>
+     </svg>`
+  );
+
+  document.body.style.setProperty('--pen-wave', `url("data:image/svg+xml;utf8,${wave}")`);
+  document.body.style.setProperty('--pen-underline', `url("data:image/svg+xml;utf8,${underline}")`);
+  document.body.style.setProperty('--pen-underline-h', `url("data:image/svg+xml;utf8,${underlineH}")`);
+}
+
+/* init */
+(() => {
+  // initial lang: prefer stored, else browser
+  let lang = 'zh';
+  try { const s = localStorage.getItem('aiil_lang'); if (s === 'zh' || s === 'en') lang = s; } catch(e){}
+  if (!localStorage.getItem('aiil_lang')) {
+    const bl = (navigator.language || '').toLowerCase();
+    lang = bl.startsWith('zh') ? 'zh' : 'en';
+  }
+  let ver = 'v1';
+  try { const s = localStorage.getItem('aiil_ver'); if (s) ver = s; } catch(e){}
+
+  tweakState.lang = lang;
+  tweakState.version = ver;
+  applyTweaks(tweakState);
+})();
+</script>
+
 </body>
 </html>
