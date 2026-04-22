@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700;900&family=Source+Sans+3:ital,wght@0,300..700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,500&display=swap" rel="stylesheet">
 
 <style>
 /* ========================================================================
@@ -28,8 +28,12 @@
   --ink-secondary:  #5e4466;      /* pairs with accent for two-ink flourishes */
 
   /* type */
-  --sans: 'Inter Tight', 'Noto Sans TC', system-ui, sans-serif;
-  --serif: 'Noto Serif TC', 'Iowan Old Style', 'Charter', Georgia, serif;
+  --sans-zh: 'Noto Sans TC', system-ui, sans-serif;
+  --serif-zh: 'Noto Serif TC', 'Iowan Old Style', 'Charter', Georgia, serif;
+  --sans-en: 'Source Sans 3', 'Noto Sans TC', system-ui, sans-serif;
+  --serif-en: 'Source Serif 4', 'Noto Serif TC', 'Iowan Old Style', 'Charter', Georgia, serif;
+  --sans: var(--sans-zh);
+  --serif: var(--serif-zh);
   --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   /* rhythm */
@@ -84,7 +88,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 ::selection { background: var(--cinnabar); color: var(--paper); }
 
-/* html[lang] gets appropriate primary family */
+/* html[lang] gets appropriate type roles */
+html[lang="zh-Hant"] { --sans: var(--sans-zh); --serif: var(--serif-zh); }
+html[lang="en"] { --sans: var(--sans-en); --serif: var(--serif-en); }
 html[lang="zh-Hant"] body { font-family: var(--serif); }
 html[lang="en"] body { font-family: var(--sans); }
 
@@ -286,8 +292,8 @@ html[lang="en"] body { font-family: var(--sans); }
 }
 
 html[lang="en"] .v1-hero-text h1 {
-  font-family: var(--sans);
-  font-weight: 400;
+  font-family: var(--serif);
+  font-weight: 500;
   letter-spacing: -0.025em;
   line-height: 1.1;
 }
@@ -474,7 +480,7 @@ html[lang="en"] .v1-now-item-body { font-family: var(--sans); }
   margin-bottom: 0.5rem;
   color: var(--ink);
 }
-html[lang="en"] .v1-trajectory h2 { font-family: var(--sans); font-weight: 500; }
+html[lang="en"] .v1-trajectory h2 { font-family: var(--serif); font-weight: 600; }
 
 .v1-trajectory-intro {
   font-family: var(--serif);
@@ -537,8 +543,8 @@ html[lang="en"] .v1-trajectory-intro { font-family: var(--sans); font-weight: 30
 }
 
 html[lang="en"] .v1-traj-step-title {
-  font-family: var(--sans);
-  font-weight: 500;
+  font-family: var(--serif);
+  font-weight: 600;
 }
 
 .v1-traj-step-carry {
@@ -617,8 +623,8 @@ html[lang="en"] .v1-research-intro { font-family: var(--sans); font-weight: 400;
 }
 
 html[lang="en"] .v1-research-mobile-hub {
-  font-family: var(--sans);
-  font-weight: 500;
+  font-family: var(--serif);
+  font-weight: 600;
 }
 
 .v1-research-mobile-list {
@@ -657,8 +663,8 @@ html[lang="en"] .v1-research-mobile-hub {
 }
 
 html[lang="en"] .v1-research-mobile-item h3 {
-  font-family: var(--sans);
-  font-weight: 500;
+  font-family: var(--serif);
+  font-weight: 600;
 }
 
 .v1-research-mobile-item p {
@@ -714,7 +720,7 @@ html[lang="en"] .v1-research-mobile-item h3 {
   margin-bottom: 0.4rem;
   line-height: 1.3;
 }
-html[lang="en"] .v1-thread h3 { font-family: var(--sans); font-weight: 500; }
+html[lang="en"] .v1-thread h3 { font-family: var(--serif); font-weight: 600; }
 .v1-thread p {
   font-family: var(--serif);
   font-size: 1rem;
@@ -1597,7 +1603,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
       <line x1="60" y1="120" x2="1140" y2="120" stroke="#1b1a17" stroke-width="1"/>
 
       <!-- ticks + labels under -->
-      <g font-family="JetBrains Mono, monospace" font-size="14" fill="#7a756c">
+      <g font-family="var(--mono)" font-size="14" fill="#7a756c">
         <g transform="translate(100,120)">
           <line x1="0" y1="0" x2="0" y2="6" stroke="#1b1a17"/>
           <text y="20" text-anchor="middle" data-i18n="v1.traj.stage1.year">UNDERGRAD</text>
@@ -1628,33 +1634,33 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
       <g>
         <g transform="translate(100,80)">
           <circle r="5" fill="#1b1a17"/>
-          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage1.title">生命科學與資訊工程系館</text>
-          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage1.sub">大學主要待在這兩邊</text>
+          <text x="0" y="-18" text-anchor="middle" font-family="var(--serif)" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage1.title">生命科學與資訊工程系館</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="var(--mono)" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage1.sub">大學主要待在這兩邊</text>
         </g>
         <g transform="translate(300,80)">
           <circle r="5" fill="#1b1a17"/>
-          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage2.title">小鼠機制 → 罕病 NGS</text>
-          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage2.sub">wet-lab + dry-lab</text>
+          <text x="0" y="-18" text-anchor="middle" font-family="var(--serif)" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage2.title">小鼠機制 → 罕病 NGS</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="var(--mono)" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage2.sub">wet-lab + dry-lab</text>
         </g>
         <g transform="translate(500,80)">
           <circle r="5" fill="#1b1a17"/>
-          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage3.title">癌症 RNA-seq biomarker</text>
-          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage3.sub">KMU</text>
+          <text x="0" y="-18" text-anchor="middle" font-family="var(--serif)" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage3.title">癌症 RNA-seq biomarker</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="var(--mono)" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage3.sub">KMU</text>
         </g>
         <g transform="translate(700,80)">
           <circle r="5" fill="#1b1a17"/>
-          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage4.title">健康大數據 TRE</text>
-          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage4.sub">NHRI</text>
+          <text x="0" y="-18" text-anchor="middle" font-family="var(--serif)" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage4.title">健康大數據 TRE</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="var(--mono)" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage4.sub">NHRI</text>
         </g>
         <g transform="translate(900,80)">
           <circle r="7" fill="#8d6a94"/>
-          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#8d6a94" font-weight="700" data-i18n="v1.traj.stage5.title">獸醫學院・計算實驗室</text>
-          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage5.sub">transfer learning</text>
+          <text x="0" y="-18" text-anchor="middle" font-family="var(--serif)" font-size="17" fill="#8d6a94" font-weight="700" data-i18n="v1.traj.stage5.title">獸醫學院・計算實驗室</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="var(--mono)" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage5.sub">transfer learning</text>
         </g>
         <g transform="translate(1100,80)">
           <circle r="5" fill="#1b1a17" fill-opacity="0" stroke="#1b1a17" stroke-dasharray="2 2"/>
-          <text x="0" y="-18" text-anchor="middle" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage6.title">伴侶動物臨床</text>
-          <text x="0" y="-38" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage6.sub">applied</text>
+          <text x="0" y="-18" text-anchor="middle" font-family="var(--serif)" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.traj.stage6.title">伴侶動物臨床</text>
+          <text x="0" y="-38" text-anchor="middle" font-family="var(--mono)" font-size="12" fill="#7a756c" data-i18n="v1.traj.stage6.sub">applied</text>
         </g>
       </g>
 
@@ -1667,7 +1673,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
         <path d="M 900 160 C 970 200, 1030 200, 1100 160" marker-end="url(#arr)"/>
       </g>
 
-      <g font-family="JetBrains Mono, monospace" font-size="13" fill="#7a756c" text-anchor="middle">
+      <g font-family="var(--mono)" font-size="13" fill="#7a756c" text-anchor="middle">
         <text x="200" y="215" data-i18n="v1.traj.carry1">+ programming</text>
         <text x="400" y="215" data-i18n="v1.traj.carry2">+ variant analysis</text>
         <text x="600" y="215" data-i18n="v1.traj.carry3">+ transcriptomics</text>
@@ -1759,41 +1765,41 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
           <!-- A: transfer learning / drug reposition -->
           <g transform="translate(200,80)">
             <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="JetBrains Mono, monospace" font-size="13" fill="#8d6a94" letter-spacing="1">01 · TRANSFER</text>
-            <text text-anchor="middle" y="8" font-family="Noto Serif TC, serif" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n1.title">跨物種模型遷移</text>
-            <text text-anchor="middle" y="32" font-family="Noto Serif TC, serif" font-size="15" fill="#47453f" data-i18n="v1.research.n1.sub">human → companion animals</text>
+            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">01 · TRANSFER</text>
+            <text text-anchor="middle" y="8" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n1.title">跨物種模型遷移</text>
+            <text text-anchor="middle" y="32" font-family="var(--serif)" font-size="15" fill="#47453f" data-i18n="v1.research.n1.sub">human → companion animals</text>
           </g>
 
           <!-- B: de novo protein -->
           <g transform="translate(800,80)">
             <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="JetBrains Mono, monospace" font-size="13" fill="#8d6a94" letter-spacing="1">02 · DE NOVO</text>
-            <text text-anchor="middle" y="8" font-family="Noto Serif TC, serif" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n2.title">蛋白質設計</text>
-            <text text-anchor="middle" y="32" font-family="Noto Serif TC, serif" font-size="15" fill="#47453f" data-i18n="v1.research.n2.sub">diagnostic / therapeutic binders</text>
+            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">02 · DE NOVO</text>
+            <text text-anchor="middle" y="8" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n2.title">蛋白質設計</text>
+            <text text-anchor="middle" y="32" font-family="var(--serif)" font-size="15" fill="#47453f" data-i18n="v1.research.n2.sub">diagnostic / therapeutic binders</text>
           </g>
 
           <!-- C: metagenomics -->
           <g transform="translate(200,380)">
             <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="JetBrains Mono, monospace" font-size="13" fill="#8d6a94" letter-spacing="1">03 · METAGENOMICS</text>
-            <text text-anchor="middle" y="8" font-family="Noto Serif TC, serif" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n3.title">總體基因體方法</text>
-            <text text-anchor="middle" y="32" font-family="Noto Serif TC, serif" font-size="15" fill="#47453f" data-i18n="v1.research.n3.sub">noisy field samples</text>
+            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">03 · METAGENOMICS</text>
+            <text text-anchor="middle" y="8" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n3.title">總體基因體方法</text>
+            <text text-anchor="middle" y="32" font-family="var(--serif)" font-size="15" fill="#47453f" data-i18n="v1.research.n3.sub">noisy field samples</text>
           </g>
 
           <!-- D: precision medicine -->
           <g transform="translate(800,380)">
             <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="JetBrains Mono, monospace" font-size="13" fill="#8d6a94" letter-spacing="1">04 · HUMAN DATA</text>
-            <text text-anchor="middle" y="8" font-family="Noto Serif TC, serif" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n4.title">精準醫學合作</text>
-            <text text-anchor="middle" y="32" font-family="Noto Serif TC, serif" font-size="15" fill="#47453f" data-i18n="v1.research.n4.sub">TWB · NBCT · NHI</text>
+            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">04 · HUMAN DATA</text>
+            <text text-anchor="middle" y="8" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n4.title">精準醫學合作</text>
+            <text text-anchor="middle" y="32" font-family="var(--serif)" font-size="15" fill="#47453f" data-i18n="v1.research.n4.sub">TWB · NBCT · NHI</text>
           </g>
 
           <!-- central hub: methods -->
           <g transform="translate(500,230)">
             <circle r="76" fill="#8d6a94" opacity="0.08"/>
             <circle r="58" fill="none" stroke="#8d6a94" stroke-width="1" stroke-dasharray="3 3"/>
-            <text text-anchor="middle" y="-6" font-family="JetBrains Mono, monospace" font-size="13" fill="#8d6a94" letter-spacing="2">SHARED</text>
-            <text text-anchor="middle" y="16" font-family="Noto Serif TC, serif" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.research.hub">方法學基礎</text>
+            <text text-anchor="middle" y="-6" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="2">SHARED</text>
+            <text text-anchor="middle" y="16" font-family="var(--serif)" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.research.hub">方法學基礎</text>
           </g>
         </g>
 
@@ -1816,7 +1822,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
         </g>
 
         <!-- edge labels -->
-        <g font-family="JetBrains Mono, monospace" font-size="12" fill="#7a756c">
+        <g font-family="var(--mono)" font-size="12" fill="#7a756c">
           <text x="360" y="175" data-i18n="v1.research.edge1">ortholog + transfer</text>
           <text x="580" y="175" data-i18n="v1.research.edge2">structure priors</text>
           <text x="360" y="295" data-i18n="v1.research.edge3">noisy-sample pipelines</text>
@@ -2011,7 +2017,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
   <!-- Colophon ----------------------------------------------------------- -->
   <footer class="v1-colophon">
     <div>© 2025–2026 AIIL · NPUST</div>
-    <div data-i18n="v1.colo.set">SET IN NOTO SERIF TC &amp; INTER TIGHT · HAND-SET IN PINGTUNG</div>
+    <div data-i18n="v1.colo.set">SET IN NOTO SERIF TC, SOURCE SERIF 4 &amp; SOURCE SANS 3 · HAND-SET IN PINGTUNG</div>
   </footer>
 
 </section>
@@ -2483,7 +2489,7 @@ const I18N = {
     'v1.contact.body': '正在招收對計算生物學有興趣的碩士生。獸醫、生物、植物醫學、農業、資管、統計，只要你對生醫問題有好奇，都適合。不要求入門前就會寫程式。',
     'v1.contact.addr': '地址',
     'v1.contact.addrv': '屏東縣內埔鄉學府路1號 · 國立屏東科技大學 獸醫學院',
-    'v1.colo.set': '本頁排版：NOTO SERIF TC & INTER TIGHT · 於屏東手工排版',
+    'v1.colo.set': '本頁排版：NOTO SERIF TC、SOURCE SERIF 4 & SOURCE SANS 3 · 於屏東手工排版',
 
     /* V2 — Collaborators */
     'v2col.title': '--list',
@@ -2685,7 +2691,7 @@ const I18N = {
     'v1.contact.body': "Currently recruiting MS students interested in computational biology. Vet med, biology, plant medicine, agriculture, information management, statistics — any background works if you are drawn to biomedical problems. Prior coding experience is not required.",
     'v1.contact.addr': 'ADDRESS',
     'v1.contact.addrv': 'No.1 Shuefu Rd., Neipu, Pingtung 912 · College of Veterinary Medicine, NPUST',
-    'v1.colo.set': 'SET IN NOTO SERIF TC & INTER TIGHT · HAND-SET IN PINGTUNG',
+    'v1.colo.set': 'SET IN NOTO SERIF TC, SOURCE SERIF 4 & SOURCE SANS 3 · HAND-SET IN PINGTUNG',
 
     /* V2 — Collaborators */
     'v2col.title': '--list',
