@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Li-Hsin Chang · 張立鑫 — AIIL</title>
-<meta name="description" content="Li-Hsin Chang (張立鑫) — Assistant Professor, NPUST. A computational biology lab translating human genomic methods into veterinary research." />
+<meta name="description" content="AIIL develops human-to-veterinary AI-omics translation methods for veterinary precision therapeutics, focusing on comparative oncology and antiviral drug repurposing." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -784,6 +784,14 @@ html[lang="en"] .v1-research-intro { font-family: var(--sans); font-weight: 400;
   color: var(--ink);
 }
 
+.v1-research-mobile-hub-detail {
+  margin-top: 0.7rem;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
 .v1-research-mobile-hub::before {
   content: "";
   width: 8px;
@@ -843,6 +851,15 @@ html[lang="en"] .v1-research-mobile-item h3 {
   font-size: 0.92rem;
   line-height: 1.5;
   color: var(--ink-soft);
+}
+
+.v1-research-mobile-method {
+  margin-top: 0.35rem;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  color: var(--cinnabar);
 }
 
 .v1-research-mobile-edge {
@@ -1391,6 +1408,16 @@ html[lang="en"] .v3-essay p {
   color: var(--brand-blue);
   font-weight: 500;
 }
+.v3-essay a,
+.v3-sidebar-item a {
+  color: var(--brand-blue);
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 72%, transparent);
+}
+.v3-essay a:hover,
+.v3-sidebar-item a:hover {
+  color: var(--cinnabar-deep);
+  border-bottom-color: color-mix(in srgb, var(--cinnabar-deep) 72%, transparent);
+}
 
 .v3-essay .drop::first-letter {
   float: left;
@@ -1821,10 +1848,10 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
     <div class="v1-hero">
       <div class="v1-hero-text">
         <h1 data-i18n="v1.hero.title">
-          <span data-i18n-nested>一個剛起步的計算生物學實驗室</span><em data-i18n-nested>試著把人的研究方法，用到動物身上</em>
+          <span data-i18n-nested>AIIL 建立跨物種精準醫療生物資訊方法</span><em data-i18n-nested>把人類 AI-omics 轉譯到獸醫治療</em>
         </h1>
         <p class="v1-hero-lede" data-i18n="v1.hero.lede">
-          我喜歡多方嘗試，大學主要待在生命科學與資訊工程系館，碩博在小鼠藥理分子機制和 NGS 罕病診斷之間來回，博後做癌症 RNA-seq biomarker與資料庫資料治理，現在來到獸醫學院嘗試把人類生物資訊學的方法，轉到伴侶動物與經濟動物的疾病。
+          AIIL 聚焦於 human-to-veterinary AI-omics translation：以人類大規模癌症、臨床與藥物擾動資料作為知識來源，結合 AI、NGS、ortholog mapping、pathway transfer learning 與標準化資料庫，產生可驗證的獸醫精準治療假說。
         </p>
       </div>
 
@@ -1855,7 +1882,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
       <div class="v1-now-list">
         <div class="v1-now-item">
           <div class="v1-now-item-tag">GRANT</div>
-          <div class="v1-now-item-body" data-i18n="v1.now.g1"><strong>NSTC 一年期（2026.08–2027.07）</strong>　以人類藥物擾動轉錄體為起點，用同源基因對應把藥物再利用延伸到伴侶動物；第一個目標是貓瘟病毒（FPV）。</div>
+          <div class="v1-now-item-body" data-i18n="v1.now.g1"><strong>NSTC 一年期（2026.08–2027.07）</strong>　以人類 perturbome 為 source domain，用同源基因對應與 pathway transfer learning 建立 CPV / FPV 抗病毒藥物再利用框架。</div>
         </div>
         <div class="v1-now-item">
           <div class="v1-now-item-tag">WRITING</div>
@@ -2032,7 +2059,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
     <div class="v1-research-head">
       <div class="v1-section-label" data-i18n="v1.research.label">四條主軸</div>
       <p class="v1-research-intro" data-i18n="v1.research.intro">
-        研究方向分成四條，但底層共用一套方法學：把在人類做成熟的計算流程，換上對應到動物的資料與目標。
+        AIIL 的研究聚焦於跨物種精準醫療生物資訊：以人類大規模癌症、臨床與藥物擾動資料作為知識來源，將成熟的人類生醫資料分析方法轉譯到獸醫癌症與病毒感染治療。核心問題是：當獸醫疾病缺乏大型 cohort、標準化 NGS、治療追蹤與藥物反應資料時，如何利用人類資料中累積的訊號，產生可驗證的獸醫精準治療假說？
       </p>
     </div>
 
@@ -2055,40 +2082,45 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
           <g transform="translate(200,80)">
             <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
             <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">01 · TRANSFER</text>
-            <text text-anchor="middle" y="8" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n1.title">跨物種模型遷移</text>
-            <text text-anchor="middle" y="32" font-family="var(--serif)" font-size="15" fill="#47453f" data-i18n="v1.research.n1.sub">human → companion animals</text>
+            <text text-anchor="middle" y="4" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n1.title">跨物種藥物再利用</text>
+            <text text-anchor="middle" y="28" font-family="var(--serif)" font-size="12" fill="#47453f" data-i18n="v1.research.n1.sub">human perturbome → veterinary antiviral therapy</text>
+            <text text-anchor="middle" y="46" font-family="var(--mono)" font-size="9" fill="#7a756c" data-i18n="v1.research.n1.method">ortholog mapping · pathway transfer · CPV / FPV</text>
           </g>
 
-          <!-- B: de novo protein -->
+          <!-- B: comparative oncology -->
           <g transform="translate(800,80)">
             <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">02 · DE NOVO</text>
-            <text text-anchor="middle" y="8" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n2.title">蛋白質設計</text>
-            <text text-anchor="middle" y="32" font-family="var(--serif)" font-size="15" fill="#47453f" data-i18n="v1.research.n2.sub">diagnostic / therapeutic binders</text>
+            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="12" fill="#8d6a94" letter-spacing="1">02 · COMPARATIVE ONCOLOGY</text>
+            <text text-anchor="middle" y="4" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n2.title">獸醫比較腫瘤學</text>
+            <text text-anchor="middle" y="28" font-family="var(--serif)" font-size="12" fill="#47453f" data-i18n="v1.research.n2.sub">human cancer → canine melanoma resource</text>
+            <text text-anchor="middle" y="46" font-family="var(--mono)" font-size="9" fill="#7a756c" data-i18n="v1.research.n2.method">clinico-genomic resource · NGS · therapeutics</text>
           </g>
 
-          <!-- C: metagenomics -->
+          <!-- C: human data engine -->
           <g transform="translate(200,380)">
             <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">03 · METAGENOMICS</text>
-            <text text-anchor="middle" y="8" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n3.title">總體基因體方法</text>
-            <text text-anchor="middle" y="32" font-family="var(--serif)" font-size="15" fill="#47453f" data-i18n="v1.research.n3.sub">noisy field samples</text>
+            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">03 · HUMAN DATA ENGINE</text>
+            <text text-anchor="middle" y="4" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n3.title">人類癌症資料引擎</text>
+            <text text-anchor="middle" y="28" font-family="var(--serif)" font-size="12" fill="#47453f" data-i18n="v1.research.n3.sub">clinical / omics / RWD source domain</text>
+            <text text-anchor="middle" y="46" font-family="var(--mono)" font-size="9" fill="#7a756c" data-i18n="v1.research.n3.method">mCRPC · TWB · NBCT · variant interpretation</text>
           </g>
 
-          <!-- D: precision medicine -->
+          <!-- D: AI-ready veterinary data resource -->
           <g transform="translate(800,380)">
             <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">04 · HUMAN DATA</text>
-            <text text-anchor="middle" y="8" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n4.title">精準醫學合作</text>
-            <text text-anchor="middle" y="32" font-family="var(--serif)" font-size="15" fill="#47453f" data-i18n="v1.research.n4.sub">TWB · NBCT · NHI</text>
+            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="12" fill="#8d6a94" letter-spacing="1">04 · AI-READY RESOURCE</text>
+            <text text-anchor="middle" y="4" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n4.title">獸醫精準醫療資料資源</text>
+            <text text-anchor="middle" y="28" font-family="var(--serif)" font-size="12" fill="#47453f" data-i18n="v1.research.n4.sub">messy records → reusable evidence</text>
+            <text text-anchor="middle" y="46" font-family="var(--mono)" font-size="9" fill="#7a756c" data-i18n="v1.research.n4.method">clinico-genomic data model · governance</text>
           </g>
 
           <!-- central hub: methods -->
           <g transform="translate(500,230)">
             <circle r="76" fill="#8d6a94" opacity="0.08"/>
             <circle r="58" fill="none" stroke="#8d6a94" stroke-width="1" stroke-dasharray="3 3"/>
-            <text text-anchor="middle" y="-6" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="2">SHARED</text>
-            <text text-anchor="middle" y="16" font-family="var(--serif)" font-size="17" fill="#1b1a17" font-weight="600" data-i18n="v1.research.hub">方法學基礎</text>
+            <text text-anchor="middle" y="-8" font-family="var(--mono)" font-size="12" fill="#8d6a94" letter-spacing="1.5">AI-OMICS</text>
+            <text text-anchor="middle" y="13" font-family="var(--serif)" font-size="15" fill="#1b1a17" font-weight="600" data-i18n="v1.research.hub">跨物種精準醫療</text>
+            <text text-anchor="middle" y="34" font-family="var(--mono)" font-size="9.5" fill="#7a756c" data-i18n="v1.research.slogan">human-to-veterinary</text>
           </g>
         </g>
 
@@ -2105,59 +2137,64 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
           <path d="M 452 248 C 400 280, 320 330, 260 340" marker-end="url(#arr2)"/>
         </g>
 
-        <!-- dotted: direct B<->C link for binder + metagenomics overlap -->
+        <!-- dotted: direct B<->C link for comparative oncology + human cancer source data -->
         <g fill="none" stroke="#8d6a94" stroke-width="1" stroke-dasharray="2 4" opacity="0.8">
           <path d="M 660 120 C 500 60, 340 60, 340 340"/>
         </g>
 
         <!-- edge labels -->
         <g font-family="var(--mono)" font-size="12" fill="#7a756c">
-          <text x="360" y="175" data-i18n="v1.research.edge1">ortholog + transfer</text>
-          <text x="580" y="175" data-i18n="v1.research.edge2">structure priors</text>
-          <text x="360" y="295" data-i18n="v1.research.edge3">noisy-sample pipelines</text>
-          <text x="580" y="295" data-i18n="v1.research.edge4">real-world validation</text>
-          <text x="420" y="52" fill="#8d6a94" data-i18n="v1.research.edge5">cross-domain priors</text>
+          <text x="330" y="175" data-i18n="v1.research.edge1">ortholog + pathway transfer</text>
+          <text x="590" y="175" data-i18n="v1.research.edge2">target-domain validation</text>
+          <text x="330" y="295" data-i18n="v1.research.edge3">source-domain expertise</text>
+          <text x="560" y="295" data-i18n="v1.research.edge4">standardized evidence infrastructure</text>
+          <text x="350" y="52" fill="#8d6a94" data-i18n="v1.research.edge5">human-to-veterinary AI-omics translation</text>
         </g>
       </svg>
 
       <div class="v1-research-map-mobile" aria-label="thread map summary">
-        <div class="v1-research-mobile-note" data-i18n="v1.research.edge5">cross-domain priors</div>
-        <div class="v1-research-mobile-hub" data-i18n="v1.research.hub">方法學基礎</div>
+        <div class="v1-research-mobile-note" data-i18n="v1.research.edge5">human-to-veterinary AI-omics translation</div>
+        <div class="v1-research-mobile-hub" data-i18n="v1.research.hub">跨物種精準醫療</div>
+        <div class="v1-research-mobile-hub-detail" data-i18n="v1.research.hub.desc">以人類資料作為知識來源，以 AI、NGS、ortholog mapping、pathway transfer learning 與標準化資料庫作為方法底盤，產生可驗證的獸醫治療假說。</div>
 
         <div class="v1-research-mobile-list">
           <article class="v1-research-mobile-item">
             <div class="v1-research-mobile-num">01</div>
             <div>
-              <h3 data-i18n="v1.research.n1.title">跨物種模型遷移</h3>
-              <p data-i18n="v1.research.n1.sub">human → companion animals</p>
-              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge1">ortholog + transfer</div>
+              <h3 data-i18n="v1.research.n1.title">跨物種藥物再利用</h3>
+              <p data-i18n="v1.research.n1.sub">human perturbome → veterinary antiviral therapy</p>
+              <div class="v1-research-mobile-method" data-i18n="v1.research.n1.method">ortholog mapping · pathway transfer · CPV / FPV</div>
+              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge1">ortholog + pathway transfer</div>
             </div>
           </article>
 
           <article class="v1-research-mobile-item">
             <div class="v1-research-mobile-num">02</div>
             <div>
-              <h3 data-i18n="v1.research.n2.title">蛋白質設計</h3>
-              <p data-i18n="v1.research.n2.sub">diagnostic / therapeutic binders</p>
-              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge2">structure priors</div>
+              <h3 data-i18n="v1.research.n2.title">獸醫比較腫瘤學</h3>
+              <p data-i18n="v1.research.n2.sub">human cancer → canine melanoma resource</p>
+              <div class="v1-research-mobile-method" data-i18n="v1.research.n2.method">clinico-genomic resource · NGS · therapeutics</div>
+              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge2">target-domain validation</div>
             </div>
           </article>
 
           <article class="v1-research-mobile-item">
             <div class="v1-research-mobile-num">03</div>
             <div>
-              <h3 data-i18n="v1.research.n3.title">總體基因體方法</h3>
-              <p data-i18n="v1.research.n3.sub">noisy field samples</p>
-              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge3">noisy-sample pipelines</div>
+              <h3 data-i18n="v1.research.n3.title">人類癌症資料引擎</h3>
+              <p data-i18n="v1.research.n3.sub">clinical / omics / RWD source domain</p>
+              <div class="v1-research-mobile-method" data-i18n="v1.research.n3.method">mCRPC · TWB · NBCT · variant interpretation</div>
+              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge3">source-domain expertise</div>
             </div>
           </article>
 
           <article class="v1-research-mobile-item">
             <div class="v1-research-mobile-num">04</div>
             <div>
-              <h3 data-i18n="v1.research.n4.title">精準醫學合作</h3>
-              <p data-i18n="v1.research.n4.sub">TWB · NBCT · NHI</p>
-              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge4">real-world validation</div>
+              <h3 data-i18n="v1.research.n4.title">獸醫精準醫療資料資源</h3>
+              <p data-i18n="v1.research.n4.sub">messy records → reusable evidence</p>
+              <div class="v1-research-mobile-method" data-i18n="v1.research.n4.method">clinico-genomic data model · governance</div>
+              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge4">standardized evidence infrastructure</div>
             </div>
           </article>
         </div>
@@ -2170,10 +2207,10 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
         <article class="v1-thread">
           <div class="v1-thread-num"></div>
           <div>
-            <h3 data-i18n="v1.research.t1.h">跨物種模型遷移與藥物再利用</h3>
-            <p data-i18n="v1.research.t1.p">用人類轉錄體與藥物基因體學資料把模型訓練好，再透過同源基因對應與遷移學習，把藥物再利用策略套到伴侶動物的疾病模型。第一個目標是貓瘟病毒。</p>
+            <h3 data-i18n="v1.research.t1.h">跨物種藥物再利用</h3>
+            <p data-i18n="v1.research.t1.p">這條主軸是目前國科會計畫的核心。人類醫學已有大量藥物擾動資料與轉錄體反應資料，但獸醫病毒感染缺乏等量的實驗資料。因此，我們嘗試把人類 perturbome 中的藥物反應訊號，透過 human-dog-cat ortholog mapping、pathway transfer learning 與 foundation model representation，轉譯到犬貓病毒感染模型。第一個應用場景是犬小病毒與貓瘟病毒；研究目標不是直接宣稱找到有效藥物，而是建立可審核、可比較、可實驗驗證的候選藥物排序框架。</p>
             <div class="v1-thread-keys">
-              <span>transfer learning</span><span>drug repurposing</span><span>ortholog mapping</span><span>transcriptomics</span>
+              <span>cross-species transfer</span><span>drug repurposing</span><span>LINCS/L1000</span><span>perturbome</span><span>ortholog mapping</span><span>pathway transfer learning</span><span>CPV</span><span>FPV</span>
             </div>
           </div>
         </article>
@@ -2181,10 +2218,10 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
         <article class="v1-thread">
           <div class="v1-thread-num"></div>
           <div>
-            <h3 data-i18n="v1.research.t2.h">獸醫應用的 De novo 蛋白質設計</h3>
-            <p data-i18n="v1.research.t2.p">用 RFdiffusion、BindCraft、NVIDIA Proteina-Complexa 這類 AI 蛋白質設計工具，嘗試做獸醫診斷與治療用的新結合子。目前還在 proof-of-concept。</p>
+            <h3 data-i18n="v1.research.t2.h">獸醫比較腫瘤學</h3>
+            <p data-i18n="v1.research.t2.p">犬口腔 melanoma 是實驗室在獸醫端最重要的落地場域。這條主軸不是單純建立一個 NGS 資料庫，而是建立可用於比較腫瘤學與治療假說產生的 AI-ready clinico-genomic resource。我們會標準化整理本地犬口腔 melanoma 的臨床資料、病理資訊、治療紀錄、追蹤結果與 NGS 資料，比較其 genomic alteration、immune-related features 與人類 mucosal melanoma / rare melanoma 的異同，並評估癌症疫苗、抗體標的與小分子藥物再利用的可能性。</p>
             <div class="v1-thread-keys">
-              <span>de novo design</span><span>binder design</span><span>veterinary diagnostics</span>
+              <span>comparative oncology</span><span>canine oral melanoma</span><span>clinico-genomic resource</span><span>NGS database</span><span>cancer vaccine</span><span>mAb target</span><span>precision therapeutics</span>
             </div>
           </div>
         </article>
@@ -2192,10 +2229,10 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
         <article class="v1-thread">
           <div class="v1-thread-num"></div>
           <div>
-            <h3 data-i18n="v1.research.t3.h">總體基因體學分析方法</h3>
-            <p data-i18n="v1.research.t3.p">田野樣本常見的檢體純度不足、宿主細胞干擾、訊號稀薄，這一條線就是想辦法從這些「髒資料」中萃取關鍵資訊。</p>
+            <h3 data-i18n="v1.research.t3.h">人類癌症與臨床基因體資料引擎</h3>
+            <p data-i18n="v1.research.t3.p">人類資料不是偏離獸醫主軸的副線，而是 AIIL 跨物種轉譯方法的 source-domain engine。實驗室過去與現在的人類癌症資料分析，包括癌症資料庫、mCRPC 治療反應轉錄體、PRS 與長期臨床追蹤、罕病 / 血栓相關變異詮釋等，提供了建立模型、驗證方法、處理真實世界資料與整合臨床證據的基礎。這些經驗會回流到獸醫疾病研究中，支援比較腫瘤學、獸醫抗病毒藥物再利用與犬貓 clinico-genomic database 建置。</p>
             <div class="v1-thread-keys">
-              <span>metagenomics</span><span>field samples</span><span>host contamination</span><span>custom pipelines</span>
+              <span>human oncology data</span><span>real-world data</span><span>mCRPC</span><span>PRS</span><span>TWB</span><span>NBCT</span><span>cancer transcriptomics</span><span>variant interpretation</span>
             </div>
           </div>
         </article>
@@ -2203,10 +2240,10 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
         <article class="v1-thread">
           <div class="v1-thread-num"></div>
           <div>
-            <h3 data-i18n="v1.research.t4.h">人類資料合作與精準醫學</h3>
-            <p data-i18n="v1.research.t4.p">使用 TWB、NBCT、健保資料庫，與北榮、國衛院、高醫及業界合作，做癌症風險預測、罕病辨識、NGS 資料庫建置。</p>
+            <h3 data-i18n="v1.research.t4.h">獸醫精準醫療資料資源</h3>
+            <p data-i18n="v1.research.t4.p">獸醫精準醫療的主要瓶頸不是缺少單一分析工具，而是缺少可累積、可比較、可驗證的資料基礎。臨床紀錄、檢驗數值、病理描述、治療反應、NGS 結果與追蹤資料往往分散在不同系統中，格式不一致，也缺乏可供 AI 與統計模型使用的標準化結構。因此，AIIL 將資料治理與標準化視為研究的一部分，從欄位定義、病例定義、診斷可信度、樣本連結、NGS pipeline、資料權限到 evaluation set，建立能支援模型開發與臨床合作的資料底盤。</p>
             <div class="v1-thread-keys">
-              <span>precision medicine</span><span>polygenic risk</span><span>cancer genomics</span><span>real-world data</span>
+              <span>AI-ready data</span><span>veterinary NGS database</span><span>clinico-genomic data model</span><span>data governance</span><span>reproducible pipelines</span><span>real-world evidence</span><span>evaluation set</span>
             </div>
           </div>
         </article>
@@ -2425,7 +2462,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
 <div class="v2-section-head" data-i18n="v2col.fund.head">funding &amp; acknowledgements</div>
 
 <dl class="v2-kv">
-<dt>NSTC</dt><dd data-i18n="v2col.fund.nstc">國科會 2026.08–2027.07 &nbsp;·&nbsp; <span class="comment">人→貓跨物種藥物再利用（主持人）</span></dd>
+<dt>NSTC</dt><dd data-i18n="v2col.fund.nstc">國科會 2026.08–2027.07 &nbsp;·&nbsp; <span class="comment">CPV / FPV 跨物種抗病毒藥物再利用（主持人）</span></dd>
 <dt>NPUST</dt><dd data-i18n="v2col.fund.npust">校內新進教師啟動經費 &nbsp;·&nbsp; <span class="comment">GPU 工作站與計算基礎建設</span></dd>
 <dt>KMU–NPUST</dt><dd data-i18n="v2col.fund.kmu">高醫屏科雙邊計畫 &nbsp;·&nbsp; <span class="comment">計算基礎建設與 wet-lab 合作</span></dd>
 <dt>higher-ed</dt><dd data-i18n="v2col.fund.he">高教深耕相關計畫 &nbsp;·&nbsp; <span class="comment">H2M-ValiPred 撰稿期間支援</span></dd>
@@ -2484,12 +2521,12 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
       <article class="v3-essay">
 
         <h2 data-i18n="v3pub.f2.h">Featured · 早發性缺血性腦中風</h2>
-        <p class="drop" data-i18n="v3pub.f2.meta"><em>Accepted · Neurology · 2026</em> &nbsp;·&nbsp; multi-center collaboration · co-author</p>
+        <p class="drop" data-i18n="v3pub.f2.meta"><em>Published · <a href="https://www.neurology.org/doi/full/10.1212/WNL.0000000000218126" target="_blank" rel="noopener">Neurology 106(12):e218126</a> · 2026</em> &nbsp;·&nbsp; multi-center collaboration · co-author</p>
         <p data-i18n="v3pub.f2.p1">
           北榮神內長期參與中研院「台灣精準醫療計畫（TPMI）」，整合院內收案與 TPMI 多中心資料，以 <span class="lift">GWAS</span> 找出台灣早發性缺血性腦中風的風險因子。
         </p>
         <p data-i18n="v3pub.f2.p2">
-          論文經過多輪審查與資料擴充，2026 年春季接受。對我來說，這篇標誌了<span class="lift">從博班就開始參與的收案計畫</span>終於有一個夠大的產出。
+          論文經過多輪審查與資料擴充，已於 2026-06-01 正式刊出；紙本期別為 2026-06-23。對我來說，這篇標誌了<span class="lift">從博班就開始參與的收案計畫</span>終於有一個夠大的產出。
         </p>
 
         <h2 data-i18n="v3pub.f3.h">Featured · F2 p.F382L &amp; 家族性腦靜脈竇血栓</h2>
@@ -2527,8 +2564,8 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
           </li>
           <li class="v3-sidebar-item">
             <span class="meta" data-i18n="v3pub.side.ip2.m">Scoping · 2026</span>
-            <strong data-i18n="v3pub.side.ip2.t">Human→feline drug repurposing</strong>
-            <span data-i18n="v3pub.side.ip2.d">NSTC 計畫主文，FPV 作為第一個 case study。</span>
+            <strong data-i18n="v3pub.side.ip2.t">CPV / FPV antiviral repurposing</strong>
+            <span data-i18n="v3pub.side.ip2.d">NSTC 計畫主文，建立跨物種候選藥物排序框架。</span>
           </li>
         </ul>
       </div>
@@ -2555,19 +2592,13 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
       </div>
 
       <div class="v3-sidebar-block">
-        <div class="v3-sidebar-label"><span data-i18n="v3pub.side.y26">ACCEPTED · 2026</span><span class="num">01</span></div>
+        <div class="v3-sidebar-label"><span data-i18n="v3pub.side.journ">JOURNAL ARTICLES</span><span class="num">08</span></div>
         <ul>
           <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.y26a.m">Neurology · 2026</span>
-            <strong data-i18n="v3pub.side.y26a.t">早發性缺血性腦中風致病變異</strong>
-            <span data-i18n="v3pub.side.y26a.d">multi-cohort · 共同作者。</span>
+            <span class="meta" data-i18n="v3pub.side.j26.m">2026 · Neurology 106(12)</span>
+            <strong><a href="https://www.neurology.org/doi/full/10.1212/WNL.0000000000218126" target="_blank" rel="noopener" data-i18n="v3pub.side.j26.t">早發性缺血性腦中風基因風險變異</a></strong>
+            <span data-i18n="v3pub.side.j26.d">e218126 · 共同作者 · DOI: 10.1212/WNL.0000000000218126。</span>
           </li>
-        </ul>
-      </div>
-
-      <div class="v3-sidebar-block">
-        <div class="v3-sidebar-label"><span data-i18n="v3pub.side.journ">JOURNAL ARTICLES</span><span class="num">07</span></div>
-        <ul>
           <li class="v3-sidebar-item">
             <span class="meta" data-i18n="v3pub.side.j25.m">2025 · Int J Epidemiol</span>
             <strong data-i18n="v3pub.side.j25.t">NBCT 台灣生物資料庫電子病歷</strong>
@@ -2711,15 +2742,15 @@ const I18N = {
     'masthead.est': '成立 2025 — 屏東',
 
     /* V1 hero */
-    'v1.hero.title': '一個剛起步的計算生物學實驗室，<em>試著把人的研究方法，用到動物身上</em>',
-    'v1.hero.lede': '我喜歡多方嘗試，大學主要待在生命科學與資訊工程系館，碩博在小鼠藥理分子機制和 NGS 罕病診斷之間來回，博後做癌症 RNA-seq biomarker與資料庫資料治理，現在來到獸醫學院嘗試把人類生物資訊學的方法，轉到伴侶動物與經濟動物的疾病。',
+    'v1.hero.title': 'AIIL 建立跨物種精準醫療生物資訊方法，<em>把人類 AI-omics 轉譯到獸醫治療</em>',
+    'v1.hero.lede': 'AIIL 聚焦於 human-to-veterinary AI-omics translation：以人類大規模癌症、臨床與藥物擾動資料作為知識來源，結合 AI、NGS、ortholog mapping、pathway transfer learning 與標準化資料庫，產生可驗證的獸醫精準治療假說。',
     'v1.portrait': '張立鑫 Li-Hsin Chang<br/>助理教授 · 屏東科技大學<br/>ORCID 0000-0002-1126-7697',
 
     /* V1 now */
     'v1.now.label': '目前 / 2026 春',
     'v1.now.p1': '研究室甫成立，還在教學、<mark>第一個國科會計畫</mark>、合作計畫多頭燒。學生還在招，所以現在大多數工作是我一肩扛起。',
     'v1.now.p2': '這個頁面會持續更新。如果你是碩士生、合作者、或只是看到「把人類資料轉到動物」這句話想聊聊，寄封信給我。',
-    'v1.now.g1': '<strong>NSTC 一年期（2026.08–2027.07）</strong>　以人類藥物擾動轉錄體為起點，用同源基因對應把藥物再利用延伸到伴侶動物；第一個目標是貓瘟病毒（FPV）。',
+    'v1.now.g1': '<strong>NSTC 一年期（2026.08–2027.07）</strong>　以人類 perturbome 為 source domain，用同源基因對應與 pathway transfer learning 建立 CPV / FPV 抗病毒藥物再利用框架。',
     'v1.now.g2': '<strong>H2M-ValiPred 論文撰寫中</strong>　用 ESM-2 embedding ＋ 物化特徵預測抗體 developability；881 個抗體、13 項分析。',
     'v1.now.g3': '<strong>四門課同時在開</strong>　從大學部運算思維到研究所疫苗研究法。',
     'v1.now.g4': '<strong>GPU 工作站 + DVC + MLflow</strong>　先把可重現分析的底盤打好，之後進來的學生可以直接站上去。',
@@ -2738,26 +2769,32 @@ const I18N = {
 
     /* V1 research */
     'v1.research.label': '四條主軸',
-    'v1.research.intro': '研究方向分成四條，但底層共用一套方法學：把在人類做成熟的計算流程，換上對應到動物的資料與目標。',
+    'v1.research.intro': 'AIIL 的研究聚焦於跨物種精準醫療生物資訊：以人類大規模癌症、臨床與藥物擾動資料作為知識來源，將成熟的人類生醫資料分析方法轉譯到獸醫癌症與病毒感染治療。核心問題是：當獸醫疾病缺乏大型 cohort、標準化 NGS、治療追蹤與藥物反應資料時，如何利用人類資料中累積的訊號，產生可驗證的獸醫精準治療假說？',
     'v1.research.tlabel': '展開',
-    'v1.research.hub': '方法學基礎',
-    'v1.research.n1.title': '跨物種模型遷移', 'v1.research.n1.sub': '人 → 伴侶動物',
-    'v1.research.n2.title': '蛋白質設計', 'v1.research.n2.sub': '診斷 / 治療結合子',
-    'v1.research.n3.title': '總體基因體方法', 'v1.research.n3.sub': '田野樣本',
-    'v1.research.n4.title': '精準醫學合作', 'v1.research.n4.sub': 'TWB · NBCT · 健保',
-    'v1.research.edge1': '同源基因＋遷移',
-    'v1.research.edge2': '結構先驗',
-    'v1.research.edge3': '髒資料分析',
-    'v1.research.edge4': '真實世界驗證',
-    'v1.research.edge5': '跨域先驗',
-    'v1.research.t1.h': '跨物種模型遷移與藥物再利用',
-    'v1.research.t1.p': '用人類轉錄體與藥物基因體學資料把模型訓練好，再透過同源基因對應與遷移學習，把藥物再利用策略套到伴侶動物的疾病模型。第一個目標是貓瘟病毒。',
-    'v1.research.t2.h': '獸醫應用的 De novo 蛋白質設計',
-    'v1.research.t2.p': '用 RFdiffusion、BindCraft、NVIDIA Proteina-Complexa 這類 AI 蛋白質設計工具，嘗試做獸醫診斷與治療用的新結合子。目前還在 proof-of-concept。',
-    'v1.research.t3.h': '總體基因體學分析方法',
-    'v1.research.t3.p': '田野樣本常見的檢體純度不足、宿主細胞干擾、訊號稀薄，這一條線就是想辦法從這些「髒資料」中萃取關鍵資訊。',
-    'v1.research.t4.h': '人類資料合作與精準醫學',
-    'v1.research.t4.p': '使用 TWB、NBCT、健保資料庫，與北榮、國衛院、高醫及業界合作，做癌症風險預測、罕病辨識、NGS 資料庫建置。',
+    'v1.research.hub': '跨物種精準醫療',
+    'v1.research.hub.desc': '以人類資料作為知識來源，以 AI、NGS、ortholog mapping、pathway transfer learning 與標準化資料庫作為方法底盤，產生可驗證的獸醫治療假說。',
+    'v1.research.slogan': 'human-to-veterinary',
+    'v1.research.n1.title': '跨物種藥物再利用', 'v1.research.n1.sub': 'human perturbome → veterinary antiviral therapy',
+    'v1.research.n1.method': 'ortholog mapping · pathway transfer · CPV / FPV',
+    'v1.research.n2.title': '獸醫比較腫瘤學', 'v1.research.n2.sub': 'human cancer → canine melanoma resource',
+    'v1.research.n2.method': 'clinico-genomic resource · NGS · therapeutics',
+    'v1.research.n3.title': '人類癌症資料引擎', 'v1.research.n3.sub': 'clinical / omics / RWD source domain',
+    'v1.research.n3.method': 'mCRPC · TWB · NBCT · variant interpretation',
+    'v1.research.n4.title': '獸醫精準醫療資料資源', 'v1.research.n4.sub': 'messy records → reusable evidence',
+    'v1.research.n4.method': 'clinico-genomic data model · governance',
+    'v1.research.edge1': 'ortholog + pathway transfer',
+    'v1.research.edge2': 'target-domain validation',
+    'v1.research.edge3': 'source-domain expertise',
+    'v1.research.edge4': 'standardized evidence infrastructure',
+    'v1.research.edge5': 'human-to-veterinary AI-omics translation',
+    'v1.research.t1.h': '跨物種藥物再利用',
+    'v1.research.t1.p': '這條主軸是目前國科會計畫的核心。人類醫學已有大量藥物擾動資料與轉錄體反應資料，但獸醫病毒感染缺乏等量的實驗資料。因此，我們嘗試把人類 perturbome 中的藥物反應訊號，透過 human-dog-cat ortholog mapping、pathway transfer learning 與 foundation model representation，轉譯到犬貓病毒感染模型。第一個應用場景是犬小病毒與貓瘟病毒；研究目標不是直接宣稱找到有效藥物，而是建立可審核、可比較、可實驗驗證的候選藥物排序框架。',
+    'v1.research.t2.h': '獸醫比較腫瘤學',
+    'v1.research.t2.p': '犬口腔 melanoma 是實驗室在獸醫端最重要的落地場域。這條主軸不是單純建立一個 NGS 資料庫，而是建立可用於比較腫瘤學與治療假說產生的 AI-ready clinico-genomic resource。我們會標準化整理本地犬口腔 melanoma 的臨床資料、病理資訊、治療紀錄、追蹤結果與 NGS 資料，比較其 genomic alteration、immune-related features 與人類 mucosal melanoma / rare melanoma 的異同，並評估癌症疫苗、抗體標的與小分子藥物再利用的可能性。',
+    'v1.research.t3.h': '人類癌症與臨床基因體資料引擎',
+    'v1.research.t3.p': '人類資料不是偏離獸醫主軸的副線，而是 AIIL 跨物種轉譯方法的 source-domain engine。實驗室過去與現在的人類癌症資料分析，包括癌症資料庫、mCRPC 治療反應轉錄體、PRS 與長期臨床追蹤、罕病 / 血栓相關變異詮釋等，提供了建立模型、驗證方法、處理真實世界資料與整合臨床證據的基礎。這些經驗會回流到獸醫疾病研究中，支援比較腫瘤學、獸醫抗病毒藥物再利用與犬貓 clinico-genomic database 建置。',
+    'v1.research.t4.h': '獸醫精準醫療資料資源',
+    'v1.research.t4.p': '獸醫精準醫療的主要瓶頸不是缺少單一分析工具，而是缺少可累積、可比較、可驗證的資料基礎。臨床紀錄、檢驗數值、病理描述、治療反應、NGS 結果與追蹤資料往往分散在不同系統中，格式不一致，也缺乏可供 AI 與統計模型使用的標準化結構。因此，AIIL 將資料治理與標準化視為研究的一部分，從欄位定義、病例定義、診斷可信度、樣本連結、NGS pipeline、資料權限到 evaluation set，建立能支援模型開發與臨床合作的資料底盤。',
 
     /* V1 teach */
     'v1.teach.label': '給學生',
@@ -2817,7 +2854,7 @@ const I18N = {
     'v2col.ind.l3': '<span class="kw">[compute]</span> 國家高速網路與計算中心 &nbsp;·&nbsp; <span class="comment">GPU 叢集與儲存，長跑 embedding 與 diffusion</span>',
     'v2col.ind.l4': '<span class="kw">[tools]</span> open-source community &nbsp;·&nbsp; <span class="comment">ESM · RFdiffusion · BindCraft · DVC · MLflow — 站在巨人的肩膀上</span>',
     'v2col.fund.head': 'funding &amp; acknowledgements',
-    'v2col.fund.nstc': '國科會 2026.08–2027.07 &nbsp;·&nbsp; <span class="comment">人→貓跨物種藥物再利用（主持人）</span>',
+    'v2col.fund.nstc': '國科會 2026.08–2027.07 &nbsp;·&nbsp; <span class="comment">CPV / FPV 跨物種抗病毒藥物再利用（主持人）</span>',
     'v2col.fund.npust': '校內新進教師啟動經費 &nbsp;·&nbsp; <span class="comment">GPU 工作站與計算基礎建設</span>',
     'v2col.fund.kmu': '高醫屏科雙邊計畫 &nbsp;·&nbsp; <span class="comment">計算基礎建設與 wet-lab 合作</span>',
     'v2col.fund.he': '高教深耕相關計畫 &nbsp;·&nbsp; <span class="comment">H2M-ValiPred 撰稿期間支援</span>',
@@ -2843,9 +2880,9 @@ const I18N = {
     'v3pub.f1.p2': '這是實驗室的第一個正式 output，也是四條主軸裡「跨物種遷移」的最小可行驗證。資料與程式碼釋出後會放在實驗室 GitHub。',
     'v3pub.f1.pull': '人源模型能不能跨到動物身上？要知道答案，得先把比較的尺度建起來。',
     'v3pub.f2.h': '精選 · 早發性缺血性腦中風',
-    'v3pub.f2.meta': '<em>Accepted · Neurology · 2026</em> &nbsp;·&nbsp; 多中心合作 · 共同作者',
+    'v3pub.f2.meta': '<em>已刊出 · <a href="https://www.neurology.org/doi/full/10.1212/WNL.0000000000218126" target="_blank" rel="noopener">Neurology 106(12):e218126</a> · 2026</em> &nbsp;·&nbsp; 多中心合作 · 共同作者',
     'v3pub.f2.p1': '北榮神內長期參與中研院「台灣精準醫療計畫（TPMI）」，整合院內收案與 TPMI 多中心資料，以 <span class="lift">GWAS</span> 找出台灣早發性缺血性腦中風的風險因子。',
-    'v3pub.f2.p2': '論文經過多輪審查與資料擴充，2026 年春季接受。對我來說，這篇標誌了<span class="lift">從博班就開始參與的收案計畫</span>終於有一個夠大的產出。',
+    'v3pub.f2.p2': '論文經過多輪審查與資料擴充，已於 2026-06-01 正式刊出；紙本期別為 2026-06-23。對我來說，這篇標誌了<span class="lift">從博班就開始參與的收案計畫</span>終於有一個夠大的產出。',
     'v3pub.f3.h': '精選 · F2 p.F382L &amp; 家族性腦靜脈竇血栓',
     'v3pub.f3.meta': '<em>Submitted · RPTH · 2026</em> &nbsp;·&nbsp; 第一作者',
     'v3pub.f3.p1': '從一個家族出發，鎖定 F2 基因上的一個罕見 missense variant，並在臨床與功能層面建立它與家族腦靜脈竇血栓的關聯。對我個人，這是「家族 NGS + 變異判讀」這條線的收尾作品之一。',
@@ -2854,8 +2891,8 @@ const I18N = {
     'v3pub.side.ip1.t': 'H2M-ValiPred',
     'v3pub.side.ip1.d': '跨物種抗體 developability · ESM-2 · 881 抗體。',
     'v3pub.side.ip2.m': '籌備中 · 2026',
-    'v3pub.side.ip2.t': '人→貓跨物種藥物再利用',
-    'v3pub.side.ip2.d': '國科會計畫主文，FPV 作為第一個 case study。',
+    'v3pub.side.ip2.t': 'CPV / FPV 抗病毒藥物再利用',
+    'v3pub.side.ip2.d': '國科會計畫主文，建立跨物種候選藥物排序框架。',
     'v3pub.side.sub': '審查中',
     'v3pub.side.s1.m': '投稿 · RPTH · 2026',
     'v3pub.side.s1.t': 'F2 p.F382L 變異',
@@ -2866,11 +2903,14 @@ const I18N = {
     'v3pub.side.s3.m': '投稿 · 2026',
     'v3pub.side.s3.t': '膀胱癌 PD-1 預後生物標記',
     'v3pub.side.s3.d': '轉錄體資料庫整合 · 共同作者。',
-    'v3pub.side.y26': '接受 · 2026',
+    'v3pub.side.y26': '已刊出 · 2026',
     'v3pub.side.y26a.m': 'Neurology · 2026',
     'v3pub.side.y26a.t': '早發性缺血性腦中風致病變異',
-    'v3pub.side.y26a.d': 'multi-cohort · 共同作者。',
+    'v3pub.side.y26a.d': 'Neurology 106(12):e218126 · 共同作者。',
     'v3pub.side.journ': '期刊論文',
+    'v3pub.side.j26.m': '2026 · Neurology 106(12)',
+    'v3pub.side.j26.t': '早發性缺血性腦中風基因風險變異',
+    'v3pub.side.j26.d': 'e218126 · 共同作者 · DOI: 10.1212/WNL.0000000000218126。',
     'v3pub.side.j25.m': '2025 · Int J Epidemiol',
     'v3pub.side.j25.t': 'NBCT 台灣生物資料庫電子病歷',
     'v3pub.side.j25.d': 'Data Resource Profile · 共同作者 · PMID 40743524。',
@@ -2918,14 +2958,14 @@ const I18N = {
     'nav.v2': '02 · Collaborators',
     'nav.v3': '03 · Publications',
 
-    'v1.hero.title': 'A new computational biology lab, <em>carrying human research methods over to animals.</em>',
-    'v1.hero.lede': "I like to explore widely: I spent most of undergrad between the life science and computer science buildings, MS/PhD bouncing between rodent pharmacology/molecular mechanisms and NGS-based rare-disease diagnosis, postdoc on cancer RNA-seq biomarkers and database data governance. Now at a veterinary school, trying to carry human bioinformatics methods over to diseases in companion and production animals.",
+    'v1.hero.title': 'AIIL builds cross-species precision bioinformatics, <em>translating human AI-omics into veterinary therapeutics.</em>',
+    'v1.hero.lede': 'AIIL develops human-to-veterinary AI-omics translation methods: using large-scale human cancer, clinical, and drug-perturbation data as knowledge sources, combined with AI, NGS, ortholog mapping, pathway transfer learning, and standardized databases to generate testable veterinary precision-therapeutic hypotheses.',
     'v1.portrait': 'Li-Hsin Chang 張立鑫<br/>Asst. Prof., NPUST<br/>ORCID 0000-0002-1126-7697',
 
     'v1.now.label': 'NOW / SPR 2026',
     'v1.now.p1': 'The lab just started — teaching, <mark>the first NSTC grant</mark>, and collaboration projects all burning at once. Still recruiting, so for now most of the work is on my shoulders.',
     'v1.now.p2': 'This page updates as the work does. If you are a prospective MS student, a collaborator, or just curious about "human data into vet medicine" — drop a line.',
-    'v1.now.g1': '<strong>NSTC (2026.08–2027.07)</strong>　Cross-species drug repurposing via transcriptomic transfer. First target: feline panleukopenia virus.',
+    'v1.now.g1': '<strong>NSTC (2026.08–2027.07)</strong>　Using the human perturbome as the source domain, with ortholog mapping and pathway transfer learning to build a CPV / FPV antiviral drug-repurposing framework.',
     'v1.now.g2': '<strong>H2M-ValiPred (in writing)</strong>　ESM-2 embeddings + physicochemical features for cross-species antibody developability. 881 antibodies · 13 assays.',
     'v1.now.g3': '<strong>Four courses running</strong>　From UG computational thinking to graduate vaccine research methods.',
     'v1.now.g4': '<strong>GPU + DVC + MLflow</strong>　A reproducible analysis base so incoming students can stand on it.',
@@ -2942,26 +2982,32 @@ const I18N = {
     'v1.traj.carry3': '+ RNA-seq', 'v1.traj.carry4': '+ data infra', 'v1.traj.carry5': '+ x-species',
 
     'v1.research.label': 'FOUR THREADS',
-    'v1.research.intro': "The research splits into four threads, but under them is a single method stack: take a pipeline that's mature in humans, swap in the matching animal data and target.",
+    'v1.research.intro': 'AIIL focuses on cross-species precision bioinformatics: using large-scale human cancer, clinical, and drug-perturbation data as knowledge sources, then translating mature human biomedical data-analysis methods into veterinary cancer and viral-infection therapeutics. The core question is how signals accumulated in human data can generate testable veterinary precision-treatment hypotheses when veterinary diseases lack large cohorts, standardized NGS, treatment tracking, and drug-response data.',
     'v1.research.tlabel': 'EXPANDED',
-    'v1.research.hub': 'shared methods',
-    'v1.research.n1.title': 'Cross-species transfer', 'v1.research.n1.sub': 'human → companion animals',
-    'v1.research.n2.title': 'Protein design', 'v1.research.n2.sub': 'binders for dx / rx',
-    'v1.research.n3.title': 'Metagenomics methods', 'v1.research.n3.sub': 'noisy field samples',
-    'v1.research.n4.title': 'Precision medicine', 'v1.research.n4.sub': 'TWB · NBCT · NHI',
-    'v1.research.edge1': 'ortholog + transfer',
-    'v1.research.edge2': 'structure priors',
-    'v1.research.edge3': 'noisy-sample pipelines',
-    'v1.research.edge4': 'real-world validation',
-    'v1.research.edge5': 'cross-domain priors',
-    'v1.research.t1.h': 'Cross-species model transfer & drug repurposing',
-    'v1.research.t1.p': 'Train on human transcriptomic and pharmacogenomic data, then extend drug repurposing to companion-animal disease models via ortholog mapping and transfer learning. FPV is the first target.',
-    'v1.research.t2.h': 'De novo protein design for veterinary use',
-    'v1.research.t2.p': 'Using tools like RFdiffusion and BindCraft to design new binders for veterinary diagnostics and therapeutics. Proof-of-concept stage.',
-    'v1.research.t3.h': 'Metagenomics methods for field samples',
-    'v1.research.t3.p': 'Low purity, host contamination, weak signal — this thread is about making "dirty" samples still useful.',
-    'v1.research.t4.h': 'Human-data collaborations & precision medicine',
-    'v1.research.t4.p': 'Using TWB, NBCT, and NHI data, with partners at TVGH, NHRI, KMU and industry — cancer risk prediction, rare-disease identification, NGS database building.',
+    'v1.research.hub': 'cross-species precision',
+    'v1.research.hub.desc': 'Human data are the knowledge source; AI, NGS, ortholog mapping, pathway transfer learning, and standardized databases are the method base for generating testable veterinary therapeutic hypotheses.',
+    'v1.research.slogan': 'human-to-veterinary',
+    'v1.research.n1.title': 'Cross-species drug repurposing', 'v1.research.n1.sub': 'human perturbome → veterinary antiviral therapy',
+    'v1.research.n1.method': 'ortholog mapping · pathway transfer · CPV / FPV',
+    'v1.research.n2.title': 'Veterinary comparative oncology', 'v1.research.n2.sub': 'human cancer → canine melanoma resource',
+    'v1.research.n2.method': 'clinico-genomic resource · NGS · therapeutics',
+    'v1.research.n3.title': 'Human cancer data engine', 'v1.research.n3.sub': 'clinical / omics / RWD source domain',
+    'v1.research.n3.method': 'mCRPC · TWB · NBCT · variant interpretation',
+    'v1.research.n4.title': 'Veterinary precision data resource', 'v1.research.n4.sub': 'messy records → reusable evidence',
+    'v1.research.n4.method': 'clinico-genomic data model · governance',
+    'v1.research.edge1': 'ortholog + pathway transfer',
+    'v1.research.edge2': 'target-domain validation',
+    'v1.research.edge3': 'source-domain expertise',
+    'v1.research.edge4': 'standardized evidence infrastructure',
+    'v1.research.edge5': 'human-to-veterinary AI-omics translation',
+    'v1.research.t1.h': 'Cross-species drug repurposing',
+    'v1.research.t1.p': 'This thread is the core of the current NSTC project. Human medicine has extensive drug-perturbation and transcriptomic-response data, while veterinary viral infections lack equivalent experimental depth. We translate drug-response signals from the human perturbome into canine and feline viral-infection models through human-dog-cat ortholog mapping, pathway transfer learning, and foundation-model representations. The first application is canine parvovirus and feline panleukopenia virus; the goal is not to claim direct drug efficacy, but to build an auditable, comparable, experimentally testable candidate-ranking framework.',
+    'v1.research.t2.h': 'Veterinary comparative oncology',
+    'v1.research.t2.p': 'Canine oral melanoma is the main veterinary landing site for the lab. This thread is not merely an NGS database; it is an AI-ready clinico-genomic resource for comparative oncology and treatment-hypothesis generation. We standardize local canine oral melanoma clinical data, pathology, treatment records, follow-up outcomes, and NGS data; compare genomic alterations and immune-related features with human mucosal melanoma and rare melanoma; and evaluate opportunities for cancer vaccines, antibody targets, and small-molecule repurposing.',
+    'v1.research.t3.h': 'Human cancer and clinical-genomics data engine',
+    'v1.research.t3.p': 'Human data are not a detour from the veterinary mission; they are the source-domain engine for AIIL cross-species translation. Human oncology and clinical genomics projects, including cancer databases, mCRPC treatment-response transcriptomics, PRS with longitudinal clinical follow-up, and rare-disease or thrombosis variant interpretation, provide the base for model development, method validation, real-world data handling, and clinical-evidence integration. These experiences flow back into veterinary disease research, supporting comparative oncology, antiviral drug repurposing, and future canine/feline clinico-genomic databases.',
+    'v1.research.t4.h': 'Veterinary precision-medicine data resource',
+    'v1.research.t4.p': 'The bottleneck for veterinary precision medicine is not a missing single analysis tool; it is the lack of cumulative, comparable, verifiable data infrastructure. Clinical records, lab values, pathology descriptions, treatment response, NGS results, and follow-up data are fragmented across systems and formats, rarely structured for AI or statistical modeling. AIIL treats data governance and standardization as research: field definitions, case definitions, diagnostic confidence, sample linkage, NGS pipelines, data permissioning, and evaluation sets become the foundation for model development and clinical collaboration.',
 
     'v1.teach.label': 'FOR STUDENTS',
     'v1.teach.p1': '<span class="drop">T</span>eaching is the biggest chunk of my day right now. What I learned along the way is the ability to "switch languages" — from molecular mechanisms to bioinformatics, from C to Python, from mice to humans to veterinary animals. I think computational thinking is a base skill for modern biomedical researchers, so the classroom can\'t stop at tools: I want students practicing how to break a problem apart and then answer it with data and code.',
@@ -3019,7 +3065,7 @@ const I18N = {
     'v2col.ind.l3': '<span class="kw">[compute]</span> National Center for High-performance Computing (NCHC) &nbsp;·&nbsp; <span class="comment">GPU cluster + storage — long-running embeddings &amp; diffusion</span>',
     'v2col.ind.l4': '<span class="kw">[tools]</span> open-source community &nbsp;·&nbsp; <span class="comment">ESM · RFdiffusion · BindCraft · DVC · MLflow — standing on giants</span>',
     'v2col.fund.head': 'funding &amp; acknowledgements',
-    'v2col.fund.nstc': 'NSTC 2026.08–2027.07 &nbsp;·&nbsp; <span class="comment">human→feline drug repurposing (PI)</span>',
+    'v2col.fund.nstc': 'NSTC 2026.08–2027.07 &nbsp;·&nbsp; <span class="comment">CPV / FPV cross-species antiviral drug repurposing (PI)</span>',
     'v2col.fund.npust': 'NPUST new-faculty start-up &nbsp;·&nbsp; <span class="comment">GPU workstation &amp; compute infrastructure</span>',
     'v2col.fund.kmu': 'KMU–NPUST bilateral program &nbsp;·&nbsp; <span class="comment">compute infrastructure and wet-lab collaboration</span>',
     'v2col.fund.he': 'Higher Education Sprout Project &nbsp;·&nbsp; <span class="comment">support during H2M-ValiPred write-up</span>',
@@ -3045,9 +3091,9 @@ const I18N = {
     'v3pub.f1.p2': "This is the lab's first formal output, and the minimum viable demonstration of the cross-species transfer thread. Data + code will land on the lab GitHub on release.",
     'v3pub.f1.pull': 'Can human models travel to animals? Before answering, you first have to build the yardstick.',
     'v3pub.f2.h': 'Featured · Early-onset ischemic stroke',
-    'v3pub.f2.meta': '<em>Accepted · Neurology · 2026</em> &nbsp;·&nbsp; multi-center · co-author',
+    'v3pub.f2.meta': '<em>Published · <a href="https://www.neurology.org/doi/full/10.1212/WNL.0000000000218126" target="_blank" rel="noopener">Neurology 106(12):e218126</a> · 2026</em> &nbsp;·&nbsp; multi-center · co-author',
     'v3pub.f2.p1': "TVGH Neurology has long participated in Academia Sinica's Taiwan Precision Medicine Initiative (TPMI). Combining in-house cohort data with the TPMI multi-center dataset, a <span class=\"lift\">GWAS</span> reads out the risk factors for early-onset ischemic stroke in the Taiwanese population.",
-    'v3pub.f2.p2': "After multiple rounds of review and data expansion, accepted in Spring 2026. For me, this paper marks <span class=\"lift\">a large output from a cohort I have been part of since my PhD years</span>.",
+    'v3pub.f2.p2': "After multiple rounds of review and data expansion, the paper was published on June 1, 2026; the print issue is June 23, 2026. For me, this paper marks <span class=\"lift\">a large output from a cohort I have been part of since my PhD years</span>.",
     'v3pub.f3.h': 'Featured · F2 p.F382L &amp; familial CVT',
     'v3pub.f3.meta': '<em>Submitted · RPTH · 2026</em> &nbsp;·&nbsp; first author',
     'v3pub.f3.p1': "Starting from one family, we zero in on a rare F2 missense variant and establish its link — clinically and functionally — to familial cerebral venous thrombosis. For me personally, this is one of the closing pieces on the family-NGS + variant-interpretation line.",
@@ -3056,8 +3102,8 @@ const I18N = {
     'v3pub.side.ip1.t': 'H2M-ValiPred',
     'v3pub.side.ip1.d': 'Cross-species antibody developability · ESM-2 · 881 antibodies.',
     'v3pub.side.ip2.m': 'Scoping · 2026',
-    'v3pub.side.ip2.t': 'Human→feline drug repurposing',
-    'v3pub.side.ip2.d': 'NSTC project lead paper, FPV as first case study.',
+    'v3pub.side.ip2.t': 'CPV / FPV antiviral repurposing',
+    'v3pub.side.ip2.d': 'NSTC project lead paper; cross-species candidate-ranking framework.',
     'v3pub.side.sub': 'UNDER REVIEW',
     'v3pub.side.s1.m': 'Submitted · RPTH · 2026',
     'v3pub.side.s1.t': 'F2 p.F382L variant',
@@ -3068,11 +3114,14 @@ const I18N = {
     'v3pub.side.s3.m': 'Submitted · 2026',
     'v3pub.side.s3.t': 'Bladder cancer PD-1 biomarkers',
     'v3pub.side.s3.d': 'Transcriptomic-database prognostic panel · co-author.',
-    'v3pub.side.y26': 'ACCEPTED · 2026',
+    'v3pub.side.y26': 'PUBLISHED · 2026',
     'v3pub.side.y26a.m': 'Neurology · 2026',
     'v3pub.side.y26a.t': 'Early-onset ischemic stroke variants',
-    'v3pub.side.y26a.d': 'Multi-cohort · co-author.',
+    'v3pub.side.y26a.d': 'Neurology 106(12):e218126 · co-author.',
     'v3pub.side.journ': 'JOURNAL ARTICLES',
+    'v3pub.side.j26.m': '2026 · Neurology 106(12)',
+    'v3pub.side.j26.t': 'Early-onset ischemic stroke genetic risk variants',
+    'v3pub.side.j26.d': 'e218126 · co-author · DOI: 10.1212/WNL.0000000000218126.',
     'v3pub.side.j25.m': '2025 · Int J Epidemiol',
     'v3pub.side.j25.t': 'NBCT Taiwan Biobank EHR resource',
     'v3pub.side.j25.d': 'Data Resource Profile · co-author · PMID 40743524.',
