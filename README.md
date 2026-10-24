@@ -18,14 +18,16 @@ Then open [http://127.0.0.1:4173](http://127.0.0.1:4173).
 
 ## Deployment
 
-This site is intended to deploy as a static site on **Cloudflare Pages**.
+Deployed as a static site on **Cloudflare Pages** (project `aiil`, Git-connected to `onlelonely/AIIL`). Every push to `main` deploys automatically.
 
-Recommended Cloudflare Pages settings:
-
+- Live: <https://aiil.science> (`www.aiil.science` 301-redirects to the apex via a zone Redirect Rule)
+- Pages preview: <https://aiil.pages.dev>
 - Framework preset: `None`
 - Build command: none
-- Build output directory: `/`
+- Build output directory: repo root (left blank)
 - Production branch: `main`
+
+Everything in the repo root is published, so keep tooling folders such as `.claude/` out of this repo.
 
 ## Validation
 
