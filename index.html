@@ -275,7 +275,9 @@ html[lang="en"] body { font-family: var(--sans); }
     max(var(--gutter), calc((100vw - 1200px) / 2 + var(--gutter)))
     clamp(2rem, 4vw, 3rem);
   color: var(--surface);
-  background: var(--night-sky);
+  background:
+    radial-gradient(circle at 72% 24%, rgba(0, 129, 192, 0.22), transparent 30%),
+    linear-gradient(180deg, #1f1f29 0%, #171720 100%);
   overflow: hidden;
 }
 
@@ -1586,6 +1588,7 @@ html[lang="en"] .v3-pullquote {
     font-size: calc((100vw - 2 * var(--gutter)) / 15.5);
   }
   .v1-hero-text h1 .v1-hero-br { display: none; }
+  .v1-hero-text h1 em { display: inline; }
   .v1-aln pre { font-size: 11px; }
   .v1-hero-lede,
   .v1-now-body,
@@ -1809,7 +1812,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
     <div class="v1-hero">
       <div class="v1-hero-text">
         <h1 data-i18n="v1.hero.title">
-          人類資料什麼時候能用在動物身上？<br class="v1-hero-br">我們先把它量清楚。
+          人類資料什麼時候能用在動物身上？<br class="v1-hero-br"><em>我們先把它量清楚。</em>
         </h1>
         <p class="v1-hero-lede" data-i18n="v1.hero.lede">
           AIIL 研究跨物種的資料轉移：把人類累積的藥物反應、抗體與臨床基因體資料，放到動物上檢驗哪些訊號站得住、哪些不行。先建立公平的比較基準，再談獸醫應用。
@@ -2713,7 +2716,7 @@ const I18N = {
     'masthead.est': '成立 2025 — 屏東',
 
     /* V1 hero */
-    'v1.hero.title': '人類資料什麼時候能用在動物身上？<br class="v1-hero-br">我們先把它量清楚。',
+    'v1.hero.title': '人類資料什麼時候能用在動物身上？<br class="v1-hero-br"><em>我們先把它量清楚。</em>',
     'v1.hero.lede': 'AIIL 研究跨物種的資料轉移：把人類累積的藥物反應、抗體與臨床基因體資料，放到動物上檢驗哪些訊號站得住、哪些不行。先建立公平的比較基準，再談獸醫應用。',
     'v1.hero.aln': '凝血酶原（F2）的序列比對：人、小鼠、大鼠、貓、狗。藍色的 * 是五個物種完全相同的位置。',
     'v1.portrait': '張立鑫 Li-Hsin Chang<br/>助理教授 · 屏東科技大學<br/>ORCID 0000-0002-1126-7697',
@@ -2930,7 +2933,7 @@ const I18N = {
     'nav.v2': '02 · Collaborators',
     'nav.v3': '03 · Publications',
 
-    'v1.hero.title': 'When can human data be used for animals? We measure it first.',
+    'v1.hero.title': 'When can human data be used for animals? <em>We measure it first.</em>',
     'v1.hero.lede': 'AIIL studies cross-species data transfer. We take the drug-response, antibody and clinical-genomic data that human medicine has accumulated, carry it over to animal data, and test which signals hold up and which do not. Fair benchmarks come first; veterinary applications come after.',
     'v1.hero.aln': 'Prothrombin (F2) aligned across human, mouse, rat, cat and dog. A blue * marks a position identical in all five species.',
     'v1.portrait': 'Li-Hsin Chang 張立鑫<br/>Asst. Prof., NPUST<br/>ORCID 0000-0002-1126-7697',
