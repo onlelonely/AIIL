@@ -729,132 +729,40 @@ html[lang="en"] .v1-traj-step-title {
 }
 html[lang="en"] .v1-research-intro { font-family: var(--sans); font-weight: 400; }
 
-.v1-research-map {
+.v1-research-flow {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3rem;
+  margin: 0.5rem 0 1rem;
+}
+.v1-research-flow li {
   position: relative;
-  padding: 1rem 0;
 }
-
-.v1-research-map svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.v1-research-map-mobile {
-  display: none;
-  margin-top: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--paper-edge);
-  background: color-mix(in srgb, var(--paper) 88%, var(--paper-deep));
-}
-
-.v1-research-mobile-note {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--cinnabar);
-  margin-bottom: 0.8rem;
-}
-
-.v1-research-mobile-hub {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 0.75rem;
-  border: 1px solid var(--paper-edge);
-  background: var(--paper);
+.v1-research-flow li:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: -2.1rem;
+  transform: translateY(-50%);
   font-family: var(--serif);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.v1-research-mobile-hub-detail {
-  margin-top: 0.7rem;
-  font-family: var(--serif);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--ink-soft);
-}
-
-.v1-research-mobile-hub::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--cinnabar);
-  flex: 0 0 auto;
-}
-
-html[lang="en"] .v1-research-mobile-hub {
-  font-family: var(--serif);
-  font-weight: 600;
-}
-
-.v1-research-mobile-list {
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 1rem;
-}
-
-.v1-research-mobile-item {
-  display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
-  gap: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid var(--paper-edge);
-}
-
-.v1-research-mobile-item:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.v1-research-mobile-num {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.08em;
+  font-size: 1.4rem;
   color: var(--cinnabar);
 }
-
-.v1-research-mobile-item h3 {
+.v1-research-flow h3 {
   font-family: var(--serif);
-  font-size: 1.02rem;
+  font-size: 1.45rem;
   font-weight: 600;
   line-height: 1.35;
   color: var(--ink);
-  margin-bottom: 0.2rem;
 }
-
-html[lang="en"] .v1-research-mobile-item h3 {
+.v1-research-flow p {
+  margin-top: 0.3rem;
   font-family: var(--serif);
-  font-weight: 600;
-}
-
-.v1-research-mobile-item p {
-  font-family: var(--sans);
-  font-size: 0.92rem;
-  line-height: 1.5;
+  font-size: 1rem;
   color: var(--ink-soft);
 }
-
-.v1-research-mobile-method {
-  margin-top: 0.35rem;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  line-height: 1.45;
-  color: var(--cinnabar);
-}
-
-.v1-research-mobile-edge {
-  margin-top: 0.35rem;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.06em;
-  color: var(--ink-faint);
-}
+html[lang="en"] .v1-research-flow p { font-family: var(--sans); }
 
 .v1-research-threads {
   display: grid;
@@ -903,18 +811,6 @@ html[lang="en"] .v1-thread h3 { font-family: var(--serif); font-weight: 600; }
   max-width: 56ch;
 }
 html[lang="en"] .v1-thread p { font-family: var(--sans); font-weight: 300; }
-.v1-thread-keys {
-  margin-top: 0.65rem;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.04em;
-  color: var(--ink-faint);
-}
-.v1-thread-keys span:not(:last-child)::after {
-  content: " · ";
-  color: var(--paper-edge);
-}
-
 /* --- Teaching (letter from the teacher) ---------------------------- */
 .v1-teach {
   padding: 4rem 0 3rem;
@@ -1555,15 +1451,23 @@ html[lang="en"] .v3-pullquote {
 
 @media (max-width: 700px) {
   .v1-traj-svg,
-  .v1-research-map svg,
   .v2-asciibox {
     display: none;
   }
 
   .v1-traj-mobile,
-  .v1-research-map-mobile,
   .v2-map-mobile {
     display: block;
+  }
+
+  .v1-research-flow { grid-template-columns: 1fr; gap: 2.25rem; }
+  .v1-research-flow li:not(:last-child)::after {
+    content: "↓";
+    top: auto;
+    right: auto;
+    left: 0;
+    bottom: -2.05rem;
+    transform: none;
   }
 }
 
@@ -1645,8 +1549,6 @@ html[lang="en"] .v3-pullquote {
   }
   .version-switch::-webkit-scrollbar { display: none; }
   .version-switch button { padding: 6px 8px; font-size: 10px; }
-  .v1-research-map-mobile { padding: 0.85rem; }
-  .v1-research-mobile-hub { width: 100%; justify-content: center; }
   .v2-map-mobile { padding: 0.85rem; }
 }
 
@@ -2032,194 +1934,48 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
   <!-- Research threads (with relation map) ------------------------------- -->
   <section class="v1-research">
     <div class="v1-research-head">
-      <div class="v1-section-label" data-i18n="v1.research.label">四條主軸</div>
+      <h2 class="v1-section-label" data-i18n="v1.research.label">研究主軸</h2>
       <p class="v1-research-intro" data-i18n="v1.research.intro">
-        AIIL 的研究聚焦於跨物種精準醫療生物資訊：以人類大規模癌症、臨床與藥物擾動資料作為知識來源，將成熟的人類生醫資料分析方法轉譯到獸醫癌症與病毒感染治療。核心問題是：當獸醫疾病缺乏大型 cohort、標準化 NGS、治療追蹤與藥物反應資料時，如何利用人類資料中累積的訊號，產生可驗證的獸醫精準治療假說？
+        人類醫學累積了大量藥物反應、抗體與臨床基因體資料，獸醫領域多半沒有同等規模的資料。AIIL 的核心問題是：這些人類資料轉到動物身上時，哪些訊號留得下來？我們先建立公平、避免資料洩漏的比較基準，量清楚轉移的可信度，再談獸醫應用。
       </p>
     </div>
-
-    <div class="v1-research-map">
-      <!-- SVG: 4-node relation diagram with hand-drawn feel -->
-      <svg viewBox="0 0 1000 460" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-            <path d="M 0 0 L 10 5 L 0 10 z" fill="#47453f"/>
-          </marker>
-          <filter id="rough">
-            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3"/>
-            <feDisplacementMap in="SourceGraphic" scale="1.2"/>
-          </filter>
-        </defs>
-
-        <!-- four threads arranged like a diamond -->
-        <g>
-          <!-- A: transfer learning / drug reposition -->
-          <g transform="translate(200,80)">
-            <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">01 · TRANSFER</text>
-            <text text-anchor="middle" y="4" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n1.title">跨物種藥物再利用</text>
-            <text text-anchor="middle" y="28" font-family="var(--serif)" font-size="12" fill="#47453f" data-i18n="v1.research.n1.sub">human perturbome → veterinary antiviral therapy</text>
-            <text text-anchor="middle" y="46" font-family="var(--mono)" font-size="9" fill="#7a756c" data-i18n="v1.research.n1.method">ortholog mapping · pathway transfer · CPV / FPV</text>
-          </g>
-
-          <!-- B: comparative oncology -->
-          <g transform="translate(800,80)">
-            <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="12" fill="#8d6a94" letter-spacing="1">02 · COMPARATIVE ONCOLOGY</text>
-            <text text-anchor="middle" y="4" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n2.title">獸醫比較腫瘤學</text>
-            <text text-anchor="middle" y="28" font-family="var(--serif)" font-size="12" fill="#47453f" data-i18n="v1.research.n2.sub">human cancer → canine melanoma resource</text>
-            <text text-anchor="middle" y="46" font-family="var(--mono)" font-size="9" fill="#7a756c" data-i18n="v1.research.n2.method">clinico-genomic resource · NGS · therapeutics</text>
-          </g>
-
-          <!-- C: human data engine -->
-          <g transform="translate(200,380)">
-            <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="13" fill="#8d6a94" letter-spacing="1">03 · HUMAN DATA ENGINE</text>
-            <text text-anchor="middle" y="4" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n3.title">人類癌症資料引擎</text>
-            <text text-anchor="middle" y="28" font-family="var(--serif)" font-size="12" fill="#47453f" data-i18n="v1.research.n3.sub">clinical / omics / RWD source domain</text>
-            <text text-anchor="middle" y="46" font-family="var(--mono)" font-size="9" fill="#7a756c" data-i18n="v1.research.n3.method">mCRPC · TWB · NBCT · variant interpretation</text>
-          </g>
-
-          <!-- D: AI-ready veterinary data resource -->
-          <g transform="translate(800,380)">
-            <rect x="-160" y="-50" width="320" height="100" fill="#f3efe5" stroke="#1b1a17" stroke-width="1" filter="url(#rough)"/>
-            <text text-anchor="middle" y="-18" font-family="var(--mono)" font-size="12" fill="#8d6a94" letter-spacing="1">04 · AI-READY RESOURCE</text>
-            <text text-anchor="middle" y="4" font-family="var(--serif)" font-size="19" fill="#1b1a17" font-weight="600" data-i18n="v1.research.n4.title">獸醫精準醫療資料資源</text>
-            <text text-anchor="middle" y="28" font-family="var(--serif)" font-size="12" fill="#47453f" data-i18n="v1.research.n4.sub">messy records → reusable evidence</text>
-            <text text-anchor="middle" y="46" font-family="var(--mono)" font-size="9" fill="#7a756c" data-i18n="v1.research.n4.method">clinico-genomic data model · governance</text>
-          </g>
-
-          <!-- central hub: methods -->
-          <g transform="translate(500,230)">
-            <circle r="76" fill="#8d6a94" opacity="0.08"/>
-            <circle r="58" fill="none" stroke="#8d6a94" stroke-width="1" stroke-dasharray="3 3"/>
-            <text text-anchor="middle" y="-8" font-family="var(--mono)" font-size="12" fill="#8d6a94" letter-spacing="1.5">AI-OMICS</text>
-            <text text-anchor="middle" y="13" font-family="var(--serif)" font-size="15" fill="#1b1a17" font-weight="600" data-i18n="v1.research.hub">跨物種精準醫療</text>
-            <text text-anchor="middle" y="34" font-family="var(--mono)" font-size="9.5" fill="#7a756c" data-i18n="v1.research.slogan">human-to-veterinary</text>
-          </g>
-        </g>
-
-        <!-- arrows: methods flow -->
-        <g fill="none" stroke="#47453f" stroke-width="1" filter="url(#rough)">
-          <!-- A -> hub -->
-          <path d="M 260 120 C 350 150, 430 180, 452 212" marker-end="url(#arr2)"/>
-          <!-- hub -> A (back flow, different style) -->
-          <!-- D -> hub -->
-          <path d="M 740 340 C 650 310, 570 270, 548 248" marker-end="url(#arr2)"/>
-          <!-- hub -> B -->
-          <path d="M 548 212 C 620 180, 700 150, 740 120" marker-end="url(#arr2)"/>
-          <!-- hub -> C -->
-          <path d="M 452 248 C 400 280, 320 330, 260 340" marker-end="url(#arr2)"/>
-        </g>
-
-        <!-- dotted: direct B<->C link for comparative oncology + human cancer source data -->
-        <g fill="none" stroke="#8d6a94" stroke-width="1" stroke-dasharray="2 4" opacity="0.8">
-          <path d="M 660 120 C 500 60, 340 60, 340 340"/>
-        </g>
-
-        <!-- edge labels -->
-        <g font-family="var(--mono)" font-size="12" fill="#7a756c">
-          <text x="330" y="175" data-i18n="v1.research.edge1">ortholog + pathway transfer</text>
-          <text x="590" y="175" data-i18n="v1.research.edge2">target-domain validation</text>
-          <text x="330" y="295" data-i18n="v1.research.edge3">source-domain expertise</text>
-          <text x="560" y="295" data-i18n="v1.research.edge4">standardized evidence infrastructure</text>
-          <text x="350" y="52" fill="#8d6a94" data-i18n="v1.research.edge5">human-to-veterinary AI-omics translation</text>
-        </g>
-      </svg>
-
-      <div class="v1-research-map-mobile" aria-label="thread map summary">
-        <div class="v1-research-mobile-note" data-i18n="v1.research.edge5">human-to-veterinary AI-omics translation</div>
-        <div class="v1-research-mobile-hub" data-i18n="v1.research.hub">跨物種精準醫療</div>
-        <div class="v1-research-mobile-hub-detail" data-i18n="v1.research.hub.desc">以人類資料作為知識來源，以 AI、NGS、ortholog mapping、pathway transfer learning 與標準化資料庫作為方法底盤，產生可驗證的獸醫治療假說。</div>
-
-        <div class="v1-research-mobile-list">
-          <article class="v1-research-mobile-item">
-            <div class="v1-research-mobile-num">01</div>
-            <div>
-              <h3 data-i18n="v1.research.n1.title">跨物種藥物再利用</h3>
-              <p data-i18n="v1.research.n1.sub">human perturbome → veterinary antiviral therapy</p>
-              <div class="v1-research-mobile-method" data-i18n="v1.research.n1.method">ortholog mapping · pathway transfer · CPV / FPV</div>
-              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge1">ortholog + pathway transfer</div>
-            </div>
-          </article>
-
-          <article class="v1-research-mobile-item">
-            <div class="v1-research-mobile-num">02</div>
-            <div>
-              <h3 data-i18n="v1.research.n2.title">獸醫比較腫瘤學</h3>
-              <p data-i18n="v1.research.n2.sub">human cancer → canine melanoma resource</p>
-              <div class="v1-research-mobile-method" data-i18n="v1.research.n2.method">clinico-genomic resource · NGS · therapeutics</div>
-              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge2">target-domain validation</div>
-            </div>
-          </article>
-
-          <article class="v1-research-mobile-item">
-            <div class="v1-research-mobile-num">03</div>
-            <div>
-              <h3 data-i18n="v1.research.n3.title">人類癌症資料引擎</h3>
-              <p data-i18n="v1.research.n3.sub">clinical / omics / RWD source domain</p>
-              <div class="v1-research-mobile-method" data-i18n="v1.research.n3.method">mCRPC · TWB · NBCT · variant interpretation</div>
-              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge3">source-domain expertise</div>
-            </div>
-          </article>
-
-          <article class="v1-research-mobile-item">
-            <div class="v1-research-mobile-num">04</div>
-            <div>
-              <h3 data-i18n="v1.research.n4.title">獸醫精準醫療資料資源</h3>
-              <p data-i18n="v1.research.n4.sub">messy records → reusable evidence</p>
-              <div class="v1-research-mobile-method" data-i18n="v1.research.n4.method">clinico-genomic data model · governance</div>
-              <div class="v1-research-mobile-edge" data-i18n="v1.research.edge4">standardized evidence infrastructure</div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-
+    <!-- source → transfer → target: the three themes as one flow -->
+    <ol class="v1-research-flow">
+      <li>
+        <h3 data-i18n="v1.research.f1.h">人類臨床基因體</h3>
+        <p data-i18n="v1.research.f1.p">來源端</p>
+      </li>
+      <li>
+        <h3 data-i18n="v1.research.f2.h">跨物種轉移的可信度</h3>
+        <p data-i18n="v1.research.f2.p">先量清楚能轉多少</p>
+      </li>
+      <li>
+        <h3 data-i18n="v1.research.f3.h">獸醫資料基礎建設</h3>
+        <p data-i18n="v1.research.f3.p">規劃中</p>
+      </li>
+    </ol>
     <div class="v1-research-threads">
       <div class="v1-section-label" data-i18n="v1.research.tlabel">展開</div>
       <div class="v1-threads-list">
         <article class="v1-thread">
           <div class="v1-thread-num"></div>
           <div>
-            <h3 data-i18n="v1.research.t1.h">跨物種藥物再利用</h3>
-            <p data-i18n="v1.research.t1.p">這條主軸是目前國科會計畫的核心。人類醫學已有大量藥物擾動資料與轉錄體反應資料，但獸醫病毒感染缺乏等量的實驗資料。因此，我們嘗試把人類 perturbome 中的藥物反應訊號，透過 human-dog-cat ortholog mapping、pathway transfer learning 與 foundation model representation，轉譯到犬貓病毒感染模型。第一個應用場景是犬小病毒與貓瘟病毒；研究目標不是直接宣稱找到有效藥物，而是建立可審核、可比較、可實驗驗證的候選藥物排序框架。</p>
-            <div class="v1-thread-keys">
-              <span>cross-species transfer</span><span>drug repurposing</span><span>LINCS/L1000</span><span>perturbome</span><span>ortholog mapping</span><span>pathway transfer learning</span><span>CPV</span><span>FPV</span>
-            </div>
+            <h3 data-i18n="v1.research.t1.h">跨物種轉移的可信度</h3>
+            <p data-i18n="v1.research.t1.p">國科會計畫用公開的人類與大鼠肝細胞藥物反應資料，在模型沒看過的藥物上比較同源基因對應、pathway 與表徵學習等方法，看人類的轉錄體反應能預測大鼠到什麼程度。結果會再用到貓瘟病毒感染細胞資料上，產生需要實驗檢驗的候選假說。H2M-ValiPred 處理抗體：先在公開的人類抗體資料上建立 developability 預測的可靠度基準，之後再檢驗人到小鼠的轉移。兩個計畫都先回答「能轉多少」，不預設答案。</p>
           </div>
         </article>
-
         <article class="v1-thread">
           <div class="v1-thread-num"></div>
           <div>
-            <h3 data-i18n="v1.research.t2.h">獸醫比較腫瘤學</h3>
-            <p data-i18n="v1.research.t2.p">犬口腔 melanoma 是實驗室在獸醫端最重要的落地場域。這條主軸不是單純建立一個 NGS 資料庫，而是建立可用於比較腫瘤學與治療假說產生的 AI-ready clinico-genomic resource。我們會標準化整理本地犬口腔 melanoma 的臨床資料、病理資訊、治療紀錄、追蹤結果與 NGS 資料，比較其 genomic alteration、immune-related features 與人類 mucosal melanoma / rare melanoma 的異同，並評估癌症疫苗、抗體標的與小分子藥物再利用的可能性。</p>
-            <div class="v1-thread-keys">
-              <span>comparative oncology</span><span>canine oral melanoma</span><span>clinico-genomic resource</span><span>NGS database</span><span>cancer vaccine</span><span>mAb target</span><span>precision therapeutics</span>
-            </div>
+            <h3 data-i18n="v1.research.t2.h">人類臨床基因體</h3>
+            <p data-i18n="v1.research.t2.p">與臺北榮總神經內科合作的早發性缺血性腦中風遺傳風險研究已刊出（Neurology 2026）。F2 p.F382L 從一個家族性腦靜脈竇血栓家系出發，研究這個罕見變異的結構機轉。另外以台灣生物資料庫評估多癌多基因風險分數（PRS）在不同族群間的轉移性，並與高雄醫學大學合作運行攝護腺癌二代荷爾蒙藥物選擇平台。這些人類資料是跨物種方法的來源端，也是處理真實世界資料的訓練場。</p>
           </div>
         </article>
-
         <article class="v1-thread">
           <div class="v1-thread-num"></div>
           <div>
-            <h3 data-i18n="v1.research.t3.h">人類癌症與臨床基因體資料引擎</h3>
-            <p data-i18n="v1.research.t3.p">人類資料不是偏離獸醫主軸的副線，而是 AIIL 跨物種轉譯方法的 source-domain engine。實驗室過去與現在的人類癌症資料分析，包括癌症資料庫、mCRPC 治療反應轉錄體、PRS 與長期臨床追蹤、罕病 / 血栓相關變異詮釋等，提供了建立模型、驗證方法、處理真實世界資料與整合臨床證據的基礎。這些經驗會回流到獸醫疾病研究中，支援比較腫瘤學、獸醫抗病毒藥物再利用與犬貓 clinico-genomic database 建置。</p>
-            <div class="v1-thread-keys">
-              <span>human oncology data</span><span>real-world data</span><span>mCRPC</span><span>PRS</span><span>TWB</span><span>NBCT</span><span>cancer transcriptomics</span><span>variant interpretation</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="v1-thread">
-          <div class="v1-thread-num"></div>
-          <div>
-            <h3 data-i18n="v1.research.t4.h">獸醫精準醫療資料資源</h3>
-            <p data-i18n="v1.research.t4.p">獸醫精準醫療的主要瓶頸不是缺少單一分析工具，而是缺少可累積、可比較、可驗證的資料基礎。臨床紀錄、檢驗數值、病理描述、治療反應、NGS 結果與追蹤資料往往分散在不同系統中，格式不一致，也缺乏可供 AI 與統計模型使用的標準化結構。因此，AIIL 將資料治理與標準化視為研究的一部分，從欄位定義、病例定義、診斷可信度、樣本連結、NGS pipeline、資料權限到 evaluation set，建立能支援模型開發與臨床合作的資料底盤。</p>
-            <div class="v1-thread-keys">
-              <span>AI-ready data</span><span>veterinary NGS database</span><span>clinico-genomic data model</span><span>data governance</span><span>reproducible pipelines</span><span>real-world evidence</span><span>evaluation set</span>
-            </div>
+            <h3 data-i18n="v1.research.t3.h">獸醫資料基礎建設（規劃中）</h3>
+            <p data-i18n="v1.research.t3.p">獸醫臨床紀錄、檢驗數值、病理描述、用藥安全開放資料與 NGS 結果，多半分散在不同系統、格式不一，也缺少能直接給統計與 AI 模型使用的結構。AIIL 把欄位定義、病例定義、來源追溯與可重現流程當成研究的一部分。第一個規劃中的資源是犬口腔黑色素瘤的臨床與基因體資料集。</p>
           </div>
         </article>
       </div>
@@ -2744,33 +2500,21 @@ const I18N = {
     'v1.traj.carry3': '＋ 轉錄體學', 'v1.traj.carry4': '＋ 資料平台', 'v1.traj.carry5': '＋ 跨物種遷移',
 
     /* V1 research */
-    'v1.research.label': '四條主軸',
-    'v1.research.intro': 'AIIL 的研究聚焦於跨物種精準醫療生物資訊：以人類大規模癌症、臨床與藥物擾動資料作為知識來源，將成熟的人類生醫資料分析方法轉譯到獸醫癌症與病毒感染治療。核心問題是：當獸醫疾病缺乏大型 cohort、標準化 NGS、治療追蹤與藥物反應資料時，如何利用人類資料中累積的訊號，產生可驗證的獸醫精準治療假說？',
+    'v1.research.label': '研究主軸',
+    'v1.research.intro': '人類醫學累積了大量藥物反應、抗體與臨床基因體資料，獸醫領域多半沒有同等規模的資料。AIIL 的核心問題是：這些人類資料轉到動物身上時，哪些訊號留得下來？我們先建立公平、避免資料洩漏的比較基準，量清楚轉移的可信度，再談獸醫應用。',
     'v1.research.tlabel': '展開',
-    'v1.research.hub': '跨物種精準醫療',
-    'v1.research.hub.desc': '以人類資料作為知識來源，以 AI、NGS、ortholog mapping、pathway transfer learning 與標準化資料庫作為方法底盤，產生可驗證的獸醫治療假說。',
-    'v1.research.slogan': 'human-to-veterinary',
-    'v1.research.n1.title': '跨物種藥物再利用', 'v1.research.n1.sub': 'human perturbome → veterinary antiviral therapy',
-    'v1.research.n1.method': 'ortholog mapping · pathway transfer · CPV / FPV',
-    'v1.research.n2.title': '獸醫比較腫瘤學', 'v1.research.n2.sub': 'human cancer → canine melanoma resource',
-    'v1.research.n2.method': 'clinico-genomic resource · NGS · therapeutics',
-    'v1.research.n3.title': '人類癌症資料引擎', 'v1.research.n3.sub': 'clinical / omics / RWD source domain',
-    'v1.research.n3.method': 'mCRPC · TWB · NBCT · variant interpretation',
-    'v1.research.n4.title': '獸醫精準醫療資料資源', 'v1.research.n4.sub': 'messy records → reusable evidence',
-    'v1.research.n4.method': 'clinico-genomic data model · governance',
-    'v1.research.edge1': 'ortholog + pathway transfer',
-    'v1.research.edge2': 'target-domain validation',
-    'v1.research.edge3': 'source-domain expertise',
-    'v1.research.edge4': 'standardized evidence infrastructure',
-    'v1.research.edge5': 'human-to-veterinary AI-omics translation',
-    'v1.research.t1.h': '跨物種藥物再利用',
-    'v1.research.t1.p': '這條主軸是目前國科會計畫的核心。人類醫學已有大量藥物擾動資料與轉錄體反應資料，但獸醫病毒感染缺乏等量的實驗資料。因此，我們嘗試把人類 perturbome 中的藥物反應訊號，透過 human-dog-cat ortholog mapping、pathway transfer learning 與 foundation model representation，轉譯到犬貓病毒感染模型。第一個應用場景是犬小病毒與貓瘟病毒；研究目標不是直接宣稱找到有效藥物，而是建立可審核、可比較、可實驗驗證的候選藥物排序框架。',
-    'v1.research.t2.h': '獸醫比較腫瘤學',
-    'v1.research.t2.p': '犬口腔 melanoma 是實驗室在獸醫端最重要的落地場域。這條主軸不是單純建立一個 NGS 資料庫，而是建立可用於比較腫瘤學與治療假說產生的 AI-ready clinico-genomic resource。我們會標準化整理本地犬口腔 melanoma 的臨床資料、病理資訊、治療紀錄、追蹤結果與 NGS 資料，比較其 genomic alteration、immune-related features 與人類 mucosal melanoma / rare melanoma 的異同，並評估癌症疫苗、抗體標的與小分子藥物再利用的可能性。',
-    'v1.research.t3.h': '人類癌症與臨床基因體資料引擎',
-    'v1.research.t3.p': '人類資料不是偏離獸醫主軸的副線，而是 AIIL 跨物種轉譯方法的 source-domain engine。實驗室過去與現在的人類癌症資料分析，包括癌症資料庫、mCRPC 治療反應轉錄體、PRS 與長期臨床追蹤、罕病 / 血栓相關變異詮釋等，提供了建立模型、驗證方法、處理真實世界資料與整合臨床證據的基礎。這些經驗會回流到獸醫疾病研究中，支援比較腫瘤學、獸醫抗病毒藥物再利用與犬貓 clinico-genomic database 建置。',
-    'v1.research.t4.h': '獸醫精準醫療資料資源',
-    'v1.research.t4.p': '獸醫精準醫療的主要瓶頸不是缺少單一分析工具，而是缺少可累積、可比較、可驗證的資料基礎。臨床紀錄、檢驗數值、病理描述、治療反應、NGS 結果與追蹤資料往往分散在不同系統中，格式不一致，也缺乏可供 AI 與統計模型使用的標準化結構。因此，AIIL 將資料治理與標準化視為研究的一部分，從欄位定義、病例定義、診斷可信度、樣本連結、NGS pipeline、資料權限到 evaluation set，建立能支援模型開發與臨床合作的資料底盤。',
+    'v1.research.f1.h': '人類臨床基因體',
+    'v1.research.f1.p': '來源端',
+    'v1.research.f2.h': '跨物種轉移的可信度',
+    'v1.research.f2.p': '先量清楚能轉多少',
+    'v1.research.f3.h': '獸醫資料基礎建設',
+    'v1.research.f3.p': '規劃中',
+    'v1.research.t1.h': '跨物種轉移的可信度',
+    'v1.research.t1.p': '國科會計畫用公開的人類與大鼠肝細胞藥物反應資料，在模型沒看過的藥物上比較同源基因對應、pathway 與表徵學習等方法，看人類的轉錄體反應能預測大鼠到什麼程度。結果會再用到貓瘟病毒感染細胞資料上，產生需要實驗檢驗的候選假說。H2M-ValiPred 處理抗體：先在公開的人類抗體資料上建立 developability 預測的可靠度基準，之後再檢驗人到小鼠的轉移。兩個計畫都先回答「能轉多少」，不預設答案。',
+    'v1.research.t2.h': '人類臨床基因體',
+    'v1.research.t2.p': '與臺北榮總神經內科合作的早發性缺血性腦中風遺傳風險研究已刊出（Neurology 2026）。F2 p.F382L 從一個家族性腦靜脈竇血栓家系出發，研究這個罕見變異的結構機轉。另外以台灣生物資料庫評估多癌多基因風險分數（PRS）在不同族群間的轉移性，並與高雄醫學大學合作運行攝護腺癌二代荷爾蒙藥物選擇平台。這些人類資料是跨物種方法的來源端，也是處理真實世界資料的訓練場。',
+    'v1.research.t3.h': '獸醫資料基礎建設（規劃中）',
+    'v1.research.t3.p': '獸醫臨床紀錄、檢驗數值、病理描述、用藥安全開放資料與 NGS 結果，多半分散在不同系統、格式不一，也缺少能直接給統計與 AI 模型使用的結構。AIIL 把欄位定義、病例定義、來源追溯與可重現流程當成研究的一部分。第一個規劃中的資源是犬口腔黑色素瘤的臨床與基因體資料集。',
 
     /* V1 teach */
     'v1.teach.label': '給學生',
@@ -2958,33 +2702,21 @@ const I18N = {
     'v1.traj.carry1': '+ code', 'v1.traj.carry2': '+ variants',
     'v1.traj.carry3': '+ RNA-seq', 'v1.traj.carry4': '+ data infra', 'v1.traj.carry5': '+ x-species',
 
-    'v1.research.label': 'FOUR THREADS',
-    'v1.research.intro': 'AIIL focuses on cross-species precision bioinformatics: using large-scale human cancer, clinical, and drug-perturbation data as knowledge sources, then translating mature human biomedical data-analysis methods into veterinary cancer and viral-infection therapeutics. The core question is how signals accumulated in human data can generate testable veterinary precision-treatment hypotheses when veterinary diseases lack large cohorts, standardized NGS, treatment tracking, and drug-response data.',
+    'v1.research.label': 'RESEARCH',
+    'v1.research.intro': 'Human medicine has accumulated large drug-response, antibody and clinical-genomic datasets; veterinary medicine mostly has nothing of comparable size. AIIL\'s core question: when human data is carried over to animals, which signals survive? We first build fair, leakage-controlled benchmarks that measure how far transfer can be trusted, and only then turn to veterinary applications.',
     'v1.research.tlabel': 'EXPANDED',
-    'v1.research.hub': 'cross-species precision',
-    'v1.research.hub.desc': 'Human data are the knowledge source; AI, NGS, ortholog mapping, pathway transfer learning, and standardized databases are the method base for generating testable veterinary therapeutic hypotheses.',
-    'v1.research.slogan': 'human-to-veterinary',
-    'v1.research.n1.title': 'Cross-species drug repurposing', 'v1.research.n1.sub': 'human perturbome → veterinary antiviral therapy',
-    'v1.research.n1.method': 'ortholog mapping · pathway transfer · CPV / FPV',
-    'v1.research.n2.title': 'Veterinary comparative oncology', 'v1.research.n2.sub': 'human cancer → canine melanoma resource',
-    'v1.research.n2.method': 'clinico-genomic resource · NGS · therapeutics',
-    'v1.research.n3.title': 'Human cancer data engine', 'v1.research.n3.sub': 'clinical / omics / RWD source domain',
-    'v1.research.n3.method': 'mCRPC · TWB · NBCT · variant interpretation',
-    'v1.research.n4.title': 'Veterinary precision data resource', 'v1.research.n4.sub': 'messy records → reusable evidence',
-    'v1.research.n4.method': 'clinico-genomic data model · governance',
-    'v1.research.edge1': 'ortholog + pathway transfer',
-    'v1.research.edge2': 'target-domain validation',
-    'v1.research.edge3': 'source-domain expertise',
-    'v1.research.edge4': 'standardized evidence infrastructure',
-    'v1.research.edge5': 'human-to-veterinary AI-omics translation',
-    'v1.research.t1.h': 'Cross-species drug repurposing',
-    'v1.research.t1.p': 'This thread is the core of the current NSTC project. Human medicine has extensive drug-perturbation and transcriptomic-response data, while veterinary viral infections lack equivalent experimental depth. We translate drug-response signals from the human perturbome into canine and feline viral-infection models through human-dog-cat ortholog mapping, pathway transfer learning, and foundation-model representations. The first application is canine parvovirus and feline panleukopenia virus; the goal is not to claim direct drug efficacy, but to build an auditable, comparable, experimentally testable candidate-ranking framework.',
-    'v1.research.t2.h': 'Veterinary comparative oncology',
-    'v1.research.t2.p': 'Canine oral melanoma is the main veterinary landing site for the lab. This thread is not merely an NGS database; it is an AI-ready clinico-genomic resource for comparative oncology and treatment-hypothesis generation. We standardize local canine oral melanoma clinical data, pathology, treatment records, follow-up outcomes, and NGS data; compare genomic alterations and immune-related features with human mucosal melanoma and rare melanoma; and evaluate opportunities for cancer vaccines, antibody targets, and small-molecule repurposing.',
-    'v1.research.t3.h': 'Human cancer and clinical-genomics data engine',
-    'v1.research.t3.p': 'Human data are not a detour from the veterinary mission; they are the source-domain engine for AIIL cross-species translation. Human oncology and clinical genomics projects, including cancer databases, mCRPC treatment-response transcriptomics, PRS with longitudinal clinical follow-up, and rare-disease or thrombosis variant interpretation, provide the base for model development, method validation, real-world data handling, and clinical-evidence integration. These experiences flow back into veterinary disease research, supporting comparative oncology, antiviral drug repurposing, and future canine/feline clinico-genomic databases.',
-    'v1.research.t4.h': 'Veterinary precision-medicine data resource',
-    'v1.research.t4.p': 'The bottleneck for veterinary precision medicine is not a missing single analysis tool; it is the lack of cumulative, comparable, verifiable data infrastructure. Clinical records, lab values, pathology descriptions, treatment response, NGS results, and follow-up data are fragmented across systems and formats, rarely structured for AI or statistical modeling. AIIL treats data governance and standardization as research: field definitions, case definitions, diagnostic confidence, sample linkage, NGS pipelines, data permissioning, and evaluation sets become the foundation for model development and clinical collaboration.',
+    'v1.research.f1.h': 'Human clinical genomics',
+    'v1.research.f1.p': 'the source side',
+    'v1.research.f2.h': 'Trust in cross-species transfer',
+    'v1.research.f2.p': 'measure how much transfers',
+    'v1.research.f3.h': 'Veterinary data infrastructure',
+    'v1.research.f3.p': 'planned',
+    'v1.research.t1.h': 'How far cross-species transfer can be trusted',
+    'v1.research.t1.p': 'The NSTC project uses public human and rat hepatocyte drug-response data. On drugs the models have never seen, it compares ortholog mapping, pathway and representation-learning approaches to ask how well human transcriptomic responses predict rat responses. The results are then applied to feline panleukopenia virus–infected cell data to generate candidate hypotheses that still need experimental testing. H2M-ValiPred does the same for antibodies: a reliability benchmark for developability prediction on public human antibody data comes first, and human-to-mouse transfer is tested after that. Both projects start by asking how much transfers, without assuming the answer.',
+    'v1.research.t2.h': 'Human clinical genomics',
+    'v1.research.t2.p': 'Our study of genetic risk variants in early-onset ischemic stroke, with the Department of Neurology at Taipei Veterans General Hospital, is published (Neurology 2026). The F2 p.F382L project starts from a family with cerebral venous thrombosis and studies the structural mechanism of this rare variant. We also use Taiwan Biobank data to evaluate how well multi-cancer polygenic risk scores (PRS) transfer across populations, and with Kaohsiung Medical University we run a platform for selecting second-generation hormonal therapy in prostate cancer. These human datasets are the source side of our cross-species methods and our training ground for real-world data.',
+    'v1.research.t3.h': 'Veterinary data infrastructure (planned)',
+    'v1.research.t3.p': 'Veterinary clinical records, lab values, pathology descriptions, open drug-safety data and NGS results are usually scattered across systems in inconsistent formats, and rarely structured for statistical or AI models. AIIL treats field definitions, case definitions, provenance and reproducible pipelines as part of the research. The first planned resource is a clinical and genomic dataset of canine oral melanoma.',
 
     'v1.teach.label': 'FOR STUDENTS',
     'v1.teach.p1': '<span class="drop">T</span>eaching is the biggest chunk of my day right now. What I learned along the way is the ability to "switch languages" — from molecular mechanisms to bioinformatics, from C to Python, from mice to humans to veterinary animals. I think computational thinking is a base skill for modern biomedical researchers, so the classroom can\'t stop at tools: I want students practicing how to break a problem apart and then answer it with data and code.',
