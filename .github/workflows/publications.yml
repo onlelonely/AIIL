@@ -1,0 +1,48 @@
+name: Sync publications from ORCID
+
+on:
+  schedule:
+    - cron: "17 1 * * 1" # Mondays 01:17 UTC (09:17 Taipei)
+  workflow_dispatch:
+    inputs:
+      allow_shrink:
+        description: "Publish even if the list got much shorter"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publications-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Unit tests
+        run: python -m unittest discover -s scripts -v
+
+      - name: Build data/publications.json
+        run: python scripts/build_publications.py ${{ inputs.allow_shrink && '--allow-shrink' || '' }}
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data/publications.json; then
+            echo "No publication changes." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/publications.json
+          git commit -m "Sync publications from ORCID"
+          git push
+          echo "Committed updated publications." >> "$GITHUB_STEP_SUMMARY"

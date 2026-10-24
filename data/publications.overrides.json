@@ -1,0 +1,57 @@
+{
+  "_readme": "Hand-maintained fields merged over ORCID + Crossref data, keyed by lowercase DOI. Any field here wins (e.g. role, year, journal_abbrev). Set \"hidden\": true to drop a work from the site. Run scripts/build_publications.py after editing.",
+  "10.1212/wnl.0000000000218126": {
+    "short_title_zh": "早發性缺血性腦中風基因風險變異",
+    "short_title_en": "Early-onset ischemic stroke genetic risk variants",
+    "note_zh": "多中心合作",
+    "note_en": "Multi-center collaboration"
+  },
+  "10.1093/ije/dyaf130": {
+    "short_title_zh": "NBCT 台灣生物資料庫電子病歷",
+    "short_title_en": "NBCT Taiwan Biobank EHR resource",
+    "note_zh": "Data Resource Profile",
+    "note_en": "Data Resource Profile",
+    "pmid": "40743524",
+    "journal_abbrev": "Int J Epidemiol"
+  },
+  "10.3390/biomedicines12081694": {
+    "short_title_zh": "VAV3 與腎細胞癌預後",
+    "short_title_en": "VAV3 in renal cell carcinoma",
+    "note_zh": "基因變異與表現分析",
+    "note_en": "Variant & expression prognostics"
+  },
+  "10.1007/s10571-022-01315-3": {
+    "short_title_zh": "家族性中風單基因病因",
+    "short_title_en": "Monogenic causes in familial stroke",
+    "note_zh": "全外顯子定序橫跨出血性與缺血性",
+    "note_en": "Whole-exome across hemorrhagic & ischemic"
+  },
+  "10.1097/jcma.0000000000000598": {
+    "short_title_zh": "青壯年中風病因與風險因子",
+    "short_title_en": "Young-adult stroke etiology",
+    "note_zh": "顱內出血與缺血性中風",
+    "note_en": "Intracranial hemorrhage & ischemic stroke",
+    "journal_abbrev": "J Chin Med Assoc"
+  },
+  "10.1186/s12974-019-1572-7": {
+    "short_title_zh": "AhR 調控中風後神經再生",
+    "short_title_en": "AhR modulates stroke neurogenesis",
+    "note_zh": "小鼠模型 · 星形膠質細胞",
+    "note_en": "Mouse model · astrogliosis"
+  },
+  "10.1038/s41598-017-18558-6": {
+    "short_title_zh": "sEH 抑制與 TrkB 神經保護",
+    "short_title_en": "sEH blockade & TrkB neuroprotection",
+    "note_zh": "缺血後神經過度興奮與抗損傷",
+    "note_en": "Post-ischemic hyperexcitation & resilience"
+  },
+  "10.1038/s41598-017-02137-w": {
+    "short_title_zh": "iPSC 神經前驅細胞移植",
+    "short_title_en": "iPSC neural progenitor transplant",
+    "note_zh": "硬膜外植入改善中風後功能回復",
+    "note_en": "Delayed epidural graft improves stroke recovery"
+  },
+  "10.3390/cimb48101056": {
+    "journal_abbrev": "Curr Issues Mol Biol"
+  }
+}
