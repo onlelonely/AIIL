@@ -873,6 +873,7 @@ html[lang="en"] .v1-teach-body { font-family: var(--sans); font-weight: 400; fon
   border-top: 1px solid var(--paper-edge);
 }
 .v1-teach-courses-label {
+  font-weight: 400;
   font-family: var(--mono);
   font-size: 10.5px;
   letter-spacing: 0.12em;
@@ -882,17 +883,19 @@ html[lang="en"] .v1-teach-body { font-family: var(--sans); font-weight: 400; fon
 }
 .v1-course {
   display: grid;
-  grid-template-columns: 28px 1fr auto;
+  grid-template-columns: 4.5em 1fr auto;
   gap: 1rem;
   padding: 0.7rem 0;
   border-top: 1px solid var(--paper-edge);
   align-items: baseline;
 }
-.v1-course-num {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  color: var(--ink-faint);
+.v1-course-term {
+  font-family: var(--serif);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
 }
+html[lang="en"] .v1-course-term { font-family: var(--sans); }
+.v1-course-term.is-repeat { visibility: hidden; }
 .v1-course-name {
   font-family: var(--serif);
   font-size: 1rem;
@@ -1781,7 +1784,7 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
   <section class="v1-trajectory">
     <h2 data-i18n="v1.traj.title">我怎麼走到這裡</h2>
     <p class="v1-trajectory-intro" data-i18n="v1.traj.intro">
-      我因為興趣而橫跨多個領域。每跨一步，我都把前一步的工具與理解帶過來，這張圖也是我現在能做「人類→動物」潛移學習的底氣。
+      我因為興趣而橫跨多個領域。每跨一步，我都把前一步的工具與理解帶過來，這張圖也是我現在能做「人類→動物」遷移學習的底氣。
     </p>
 
     <!-- SVG: horizontal career path -->
@@ -1984,58 +1987,56 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
 
   <!-- Teaching ----------------------------------------------------------- -->
   <section class="v1-teach">
-    <div class="v1-section-label" data-i18n="v1.teach.label">給學生</div>
-
+    <h2 class="v1-section-label" data-i18n="v1.teach.label">給學生</h2>
     <div>
       <div class="v1-teach-body">
         <p data-i18n="v1.teach.p1">
-          <span class="drop">教</span>學是我現在每天最大一塊時間。我自己一路走下來學的是「換語言」的能力，從分生機制換做生物資訊分析、從C 換到 Python、從小鼠換到人換到獸醫動物。我相信計算思維是現代生醫研究者的基本能力，所以課程不會停在工具層面：我想讓學生練習把問題拆開，再用資料跟程式去回答。
+          <span class="drop">教</span>學是我現在每天最大一塊時間。我自己一路走下來學的是「換語言」的能力，從分生機制換做生物資訊分析、從 C 換到 Python、從小鼠換到人換到獸醫動物。我相信計算思維是現代生醫研究者的基本能力，所以課程不會停在工具層面：我想讓學生練習把問題拆開，再用資料跟程式去回答。
         </p>
         <p data-i18n="v1.teach.p2">
           如果你是大學部的學生，別怕寫程式，我們會從頭開始。如果你是碩士生，我們會從文獻閱讀與一個小資料集開始，題目會依你的背景跟進度展開。沒有統一的起跑線。
         </p>
       </div>
-
       <div class="v1-teach-courses">
-        <div class="v1-teach-courses-label" data-i18n="v1.teach.courses">開設課程</div>
+        <h3 class="v1-teach-courses-label" data-i18n="v1.teach.courses">開設課程</h3>
         <div class="v1-course">
-          <div class="v1-course-num">01</div>
-          <div class="v1-course-name" data-i18n="v1.teach.c1.name">運算思維與資訊科技應用</div>
-          <div class="v1-course-level" data-i18n="v1.teach.c1.lvl">大學部・必修</div>
+          <div class="v1-course-term" data-i18n="v1.teach.fall">上學期</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c1.name">免疫資訊學入門</div>
+          <div class="v1-course-level" data-i18n="v1.teach.c1.lvl">研究所・選修・全英語</div>
         </div>
         <div class="v1-course">
-          <div class="v1-course-num">02</div>
-          <div class="v1-course-name" data-i18n="v1.teach.c2.name">動物疫苗研究法</div>
-          <div class="v1-course-level" data-i18n="v1.teach.c2.lvl">研究所・必修・中文</div>
+          <div class="v1-course-term is-repeat" data-i18n="v1.teach.fall">上學期</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c2.name">生物統計</div>
+          <div class="v1-course-level" data-i18n="v1.teach.c2.lvl">研究所・選修</div>
         </div>
         <div class="v1-course">
-          <div class="v1-course-num">03</div>
+          <div class="v1-course-term is-repeat" data-i18n="v1.teach.fall">上學期</div>
           <div class="v1-course-name" data-i18n="v1.teach.c3.name">動物疫苗研究法</div>
-          <div class="v1-course-level" data-i18n="v1.teach.c3.lvl">研究所・必修・英文</div>
+          <div class="v1-course-level" data-i18n="v1.teach.c3.lvl">研究所・必修・中英雙語</div>
         </div>
         <div class="v1-course">
-          <div class="v1-course-num">04</div>
-          <div class="v1-course-name" data-i18n="v1.teach.c4.name">免疫原結構與表達方法</div>
+          <div class="v1-course-term is-repeat" data-i18n="v1.teach.fall">上學期</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c4.name">免疫科技與產業應用</div>
           <div class="v1-course-level" data-i18n="v1.teach.c4.lvl">研究所・選修</div>
         </div>
         <div class="v1-course">
-          <div class="v1-course-num">05</div>
-          <div class="v1-course-name" data-i18n="v1.teach.c5.name">生物資訊入門</div>
-          <div class="v1-course-level" data-i18n="v1.teach.c5.lvl">研究所・選修</div>
+          <div class="v1-course-term" data-i18n="v1.teach.spring">下學期</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c5.name">運算思維與資訊科技應用</div>
+          <div class="v1-course-level" data-i18n="v1.teach.c5.lvl">大學部・必修</div>
         </div>
         <div class="v1-course">
-          <div class="v1-course-num">06</div>
-          <div class="v1-course-name" data-i18n="v1.teach.c6.name">進階生物資訊</div>
+          <div class="v1-course-term is-repeat" data-i18n="v1.teach.spring">下學期</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c6.name">免疫原結構與表達方法</div>
           <div class="v1-course-level" data-i18n="v1.teach.c6.lvl">研究所・選修</div>
         </div>
         <div class="v1-course">
-          <div class="v1-course-num">07</div>
-          <div class="v1-course-name" data-i18n="v1.teach.c7.name">免疫科技與產業運用</div>
+          <div class="v1-course-term is-repeat" data-i18n="v1.teach.spring">下學期</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c7.name">人工智慧輔助疫苗設計與病原監測（新開）</div>
           <div class="v1-course-level" data-i18n="v1.teach.c7.lvl">研究所・選修</div>
         </div>
         <div class="v1-course">
-          <div class="v1-course-num">08</div>
-          <div class="v1-course-name" data-i18n="v1.teach.c8.name">生物統計</div>
+          <div class="v1-course-term is-repeat" data-i18n="v1.teach.spring">下學期</div>
+          <div class="v1-course-name" data-i18n="v1.teach.c8.name">人工智慧與免疫基因體分析（新開）</div>
           <div class="v1-course-level" data-i18n="v1.teach.c8.lvl">研究所・選修</div>
         </div>
       </div>
@@ -2489,7 +2490,7 @@ const I18N = {
 
     /* V1 trajectory */
     'v1.traj.title': '我怎麼走到這裡',
-    'v1.traj.intro': '我因為興趣而橫跨多個領域。每跨一步，我都把前一步的工具與理解帶過來，這張圖也是我現在能做「人類→動物」潛移學習的底氣。',
+    'v1.traj.intro': '我因為興趣而橫跨多個領域。每跨一步，我都把前一步的工具與理解帶過來，這張圖也是我現在能做「人類→動物」遷移學習的底氣。',
     'v1.traj.stage1.year': '大學', 'v1.traj.stage1.title': '生命科學與資訊工程系館', 'v1.traj.stage1.sub': '大學主要待在這兩邊',
     'v1.traj.stage2.year': '碩 / 博', 'v1.traj.stage2.title': '小鼠機制 → 罕病 NGS', 'v1.traj.stage2.sub': '實驗 + 生資',
     'v1.traj.stage3.year': '博後一', 'v1.traj.stage3.title': '癌症 RNA-seq biomarker', 'v1.traj.stage3.sub': '高雄醫學大學 KMU',
@@ -2517,18 +2518,28 @@ const I18N = {
     'v1.research.t3.p': '獸醫臨床紀錄、檢驗數值、病理描述、用藥安全開放資料與 NGS 結果，多半分散在不同系統、格式不一，也缺少能直接給統計與 AI 模型使用的結構。AIIL 把欄位定義、病例定義、來源追溯與可重現流程當成研究的一部分。第一個規劃中的資源是犬口腔黑色素瘤的臨床與基因體資料集。',
 
     /* V1 teach */
-    'v1.teach.label': '給學生',
-    'v1.teach.p1': '<span class="drop">教</span>學是我現在每天最大一塊時間。我自己一路走下來學的是「換語言」的能力，從分生機制換做生物資訊分析、從C 換到 Python、從小鼠換到人換到獸醫動物。我相信計算思維是現代生醫研究者的基本能力，所以課程不會停在工具層面：我想讓學生練習把問題拆開，再用資料跟程式去回答。',
-    'v1.teach.p2': '如果你是大學部的學生，別怕寫程式，我們會從頭開始。如果你是碩士生，我們會從文獻閱讀與一個小資料集開始，題目會依你的背景跟進度展開。沒有統一的起跑線。',
-    'v1.teach.courses': '開設課程',
-    'v1.teach.c1.name': '運算思維與資訊科技應用', 'v1.teach.c1.lvl': '大學部・必修',
-    'v1.teach.c2.name': '動物疫苗研究法',         'v1.teach.c2.lvl': '研究所・必修・中文',
-    'v1.teach.c3.name': '動物疫苗研究法',         'v1.teach.c3.lvl': '研究所・必修・英文',
-    'v1.teach.c4.name': '免疫原結構與表達方法',   'v1.teach.c4.lvl': '研究所・選修',
-    'v1.teach.c5.name': '生物資訊入門',           'v1.teach.c5.lvl': '研究所・選修',
-    'v1.teach.c6.name': '進階生物資訊',           'v1.teach.c6.lvl': '研究所・選修',
-    'v1.teach.c7.name': '免疫科技與產業運用',     'v1.teach.c7.lvl': '研究所・選修',
-    'v1.teach.c8.name': '生物統計',               'v1.teach.c8.lvl': '研究所・選修',
+    'v1.teach.label': "給學生",
+    'v1.teach.p1': "<span class=\"drop\">教</span>學是我現在每天最大一塊時間。我自己一路走下來學的是「換語言」的能力，從分生機制換做生物資訊分析、從 C 換到 Python、從小鼠換到人換到獸醫動物。我相信計算思維是現代生醫研究者的基本能力，所以課程不會停在工具層面：我想讓學生練習把問題拆開，再用資料跟程式去回答。",
+    'v1.teach.p2': "如果你是大學部的學生，別怕寫程式，我們會從頭開始。如果你是碩士生，我們會從文獻閱讀與一個小資料集開始，題目會依你的背景跟進度展開。沒有統一的起跑線。",
+    'v1.teach.courses': "開設課程",
+    'v1.teach.fall': "上學期",
+    'v1.teach.spring': "下學期",
+    'v1.teach.c1.name': "免疫資訊學入門",
+    'v1.teach.c1.lvl': "研究所・選修・全英語",
+    'v1.teach.c2.name': "生物統計",
+    'v1.teach.c2.lvl': "研究所・選修",
+    'v1.teach.c3.name': "動物疫苗研究法",
+    'v1.teach.c3.lvl': "研究所・必修・中英雙語",
+    'v1.teach.c4.name': "免疫科技與產業應用",
+    'v1.teach.c4.lvl': "研究所・選修",
+    'v1.teach.c5.name': "運算思維與資訊科技應用",
+    'v1.teach.c5.lvl': "大學部・必修",
+    'v1.teach.c6.name': "免疫原結構與表達方法",
+    'v1.teach.c6.lvl': "研究所・選修",
+    'v1.teach.c7.name': "人工智慧輔助疫苗設計與病原監測（新開）",
+    'v1.teach.c7.lvl': "研究所・選修",
+    'v1.teach.c8.name': "人工智慧與免疫基因體分析（新開）",
+    'v1.teach.c8.lvl': "研究所・選修",
 
     /* V1 contact */
     'v1.contact.label': '聯絡',
@@ -2718,18 +2729,28 @@ const I18N = {
     'v1.research.t3.h': 'Veterinary data infrastructure (planned)',
     'v1.research.t3.p': 'Veterinary clinical records, lab values, pathology descriptions, open drug-safety data and NGS results are usually scattered across systems in inconsistent formats, and rarely structured for statistical or AI models. AIIL treats field definitions, case definitions, provenance and reproducible pipelines as part of the research. The first planned resource is a clinical and genomic dataset of canine oral melanoma.',
 
-    'v1.teach.label': 'FOR STUDENTS',
-    'v1.teach.p1': '<span class="drop">T</span>eaching is the biggest chunk of my day right now. What I learned along the way is the ability to "switch languages" — from molecular mechanisms to bioinformatics, from C to Python, from mice to humans to veterinary animals. I think computational thinking is a base skill for modern biomedical researchers, so the classroom can\'t stop at tools: I want students practicing how to break a problem apart and then answer it with data and code.',
+    'v1.teach.label': "FOR STUDENTS",
+    'v1.teach.p1': "<span class=\"drop\">T</span>eaching is the biggest chunk of my day right now. What I learned along the way is the ability to \"switch languages\" — from molecular mechanisms to bioinformatics, from C to Python, from mice to humans to veterinary animals. I think computational thinking is a base skill for modern biomedical researchers, so the classroom can't stop at tools: I want students practicing how to break a problem apart and then answer it with data and code.",
     'v1.teach.p2': "If you're an undergrad, don't fear coding — we start from scratch. If you're a master's student, we'll start with literature and a small dataset; topics unfold from there, based on your background and pace. No one starting line.",
-    'v1.teach.courses': 'COURSES',
-    'v1.teach.c1.name': 'Computational Thinking & IT Applications', 'v1.teach.c1.lvl': 'UG · REQUIRED',
-    'v1.teach.c2.name': 'Animal Vaccine Research Methods',           'v1.teach.c2.lvl': 'GRAD · REQUIRED · CHINESE',
-    'v1.teach.c3.name': 'Animal Vaccine Research Methods',           'v1.teach.c3.lvl': 'GRAD · REQUIRED · ENGLISH',
-    'v1.teach.c4.name': 'Immunogen Structure & Expression',          'v1.teach.c4.lvl': 'GRAD · ELECTIVE',
-    'v1.teach.c5.name': 'Introduction to Bioinformatics',            'v1.teach.c5.lvl': 'GRAD · ELECTIVE',
-    'v1.teach.c6.name': 'Advanced Bioinformatics',                   'v1.teach.c6.lvl': 'GRAD · ELECTIVE',
-    'v1.teach.c7.name': 'Immunotechnology & Industry Applications',  'v1.teach.c7.lvl': 'GRAD · ELECTIVE',
-    'v1.teach.c8.name': 'Biostatistics',                             'v1.teach.c8.lvl': 'GRAD · ELECTIVE',
+    'v1.teach.courses': "Courses",
+    'v1.teach.fall': "Fall",
+    'v1.teach.spring': "Spring",
+    'v1.teach.c1.name': "Introduction to Immunoinformatics",
+    'v1.teach.c1.lvl': "GRAD · ELECTIVE · ENGLISH",
+    'v1.teach.c2.name': "Biostatistics",
+    'v1.teach.c2.lvl': "GRAD · ELECTIVE",
+    'v1.teach.c3.name': "Animal Vaccine Research Methods",
+    'v1.teach.c3.lvl': "GRAD · REQUIRED · BILINGUAL",
+    'v1.teach.c4.name': "Immunotechnology & Industry Applications",
+    'v1.teach.c4.lvl': "GRAD · ELECTIVE",
+    'v1.teach.c5.name': "Computational Thinking & IT Applications",
+    'v1.teach.c5.lvl': "UG · REQUIRED",
+    'v1.teach.c6.name': "Immunogen Structure & Expression",
+    'v1.teach.c6.lvl': "GRAD · ELECTIVE",
+    'v1.teach.c7.name': "AI-Assisted Vaccine Design & Pathogen Surveillance (new)",
+    'v1.teach.c7.lvl': "GRAD · ELECTIVE",
+    'v1.teach.c8.name': "AI for Immunogenomic Analysis (new)",
+    'v1.teach.c8.lvl': "GRAD · ELECTIVE",
 
     'v1.contact.label': 'CONTACT',
     'v1.contact.body': "Currently recruiting MS students interested in computational biology. Vet med, biology, plant medicine, agriculture, information management, statistics — any background works if you are drawn to biomedical problems. Prior coding experience is not required.",
