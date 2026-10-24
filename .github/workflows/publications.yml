@@ -22,9 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -36,13 +36,13 @@ jobs:
 
       - name: Commit if changed
         run: |
-          if git diff --quiet -- data/publications.json; then
+          git add data/publications.json  # stage first so a brand-new file counts as a change
+          if git diff --cached --quiet -- data/publications.json; then
             echo "No publication changes." >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/publications.json
           git commit -m "Sync publications from ORCID"
           git push
           echo "Committed updated publications." >> "$GITHUB_STEP_SUMMARY"
