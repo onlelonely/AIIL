@@ -528,6 +528,7 @@ html[lang="en"] .v1-hero-lede {
   color: var(--ink-faint);
   padding-top: 0.4rem;
 }
+h2.v1-section-label { font-weight: 400; line-height: inherit; }
 .v1-section-label::before {
   content: "§ ";
   color: var(--cinnabar);
@@ -1842,33 +1843,33 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
 
   <!-- Now --------------------------------------------------------------- -->
   <section class="v1-now">
-    <div class="v1-section-label" data-i18n="v1.now.label">NOW / 2026 春</div>
+    <h2 class="v1-section-label" data-i18n="v1.now.label">目前 / 2026 秋</h2>
     <div>
       <div class="v1-now-body">
         <p data-i18n="v1.now.p1">
-          研究室甫成立，還在教學、<mark>第一個國科會計畫</mark>、合作計畫多頭燒。學生還在招，所以現在大多數工作是我一肩扛起。
+          實驗室成立第二年。學生還在招，研究和教學目前都由我自己推進，所以每個計畫都先求<mark>做小、做穩、可重現</mark>。
         </p>
         <p data-i18n="v1.now.p2">
-          這個頁面會持續更新。如果你是碩士生、合作者、或只是看到「把人類資料轉到動物」這句話想聊聊，寄封信給我。
+          如果你是碩士生、合作者，或對「人類資料能不能用在動物身上」這個問題有興趣，歡迎來信。
         </p>
       </div>
 
       <div class="v1-now-list">
         <div class="v1-now-item">
           <div class="v1-now-item-tag">GRANT</div>
-          <div class="v1-now-item-body" data-i18n="v1.now.g1"><strong>NSTC 一年期（2026.08–2027.07）</strong>　以人類 perturbome 為 source domain，用同源基因對應與 pathway transfer learning 建立 CPV / FPV 抗病毒藥物再利用框架。</div>
+          <div class="v1-now-item-body" data-i18n="v1.now.g1"><strong>國科會一年期計畫（2026.08–2027.07）</strong>　建立人到大鼠的藥物轉錄體反應轉移基準，在沒看過的藥物上比較同源基因、pathway 與表徵學習方法，再把結果用在貓瘟病毒感染細胞資料上產生候選假說。</div>
         </div>
         <div class="v1-now-item">
           <div class="v1-now-item-tag">WRITING</div>
-          <div class="v1-now-item-body" data-i18n="v1.now.g2"><strong>H2M-ValiPred 論文撰寫中</strong>　用 ESM-2 embedding ＋ 物化特徵預測抗體 developability；881 個抗體、13 項分析。</div>
+          <div class="v1-now-item-body" data-i18n="v1.now.g2"><strong>H2M-ValiPred 撰稿中</strong>　用 ESM-2 embedding 與物化特徵預測抗體 developability，先在公開的人類抗體資料（GDPa1，246 個抗體、13 項分析）上建立可靠度基準，之後才檢驗人到小鼠的轉移。</div>
         </div>
         <div class="v1-now-item">
           <div class="v1-now-item-tag">TEACHING</div>
-          <div class="v1-now-item-body" data-i18n="v1.now.g3"><strong>四門課同時在開</strong>　從大學部運算思維到研究所疫苗研究法。</div>
+          <div class="v1-now-item-body" data-i18n="v1.now.g3"><strong>115-1 四門課</strong>　免疫資訊學入門（全英語）、生物統計、動物疫苗研究法、免疫科技與產業應用。</div>
         </div>
         <div class="v1-now-item">
           <div class="v1-now-item-tag">SETUP</div>
-          <div class="v1-now-item-body" data-i18n="v1.now.g4"><strong>GPU 工作站 + DVC + MLflow</strong>　先把可重現分析的底盤打好，之後進來的學生可以直接站上去。</div>
+          <div class="v1-now-item-body" data-i18n="v1.now.g4"><strong>DVC + MLflow 可重現流程</strong>　分析從資料版本到模型紀錄都留得下來，學生進來可以直接接手。</div>
         </div>
       </div>
     </div>
@@ -2722,13 +2723,13 @@ const I18N = {
     'v1.portrait': '張立鑫 Li-Hsin Chang<br/>助理教授 · 屏東科技大學<br/>ORCID 0000-0002-1126-7697',
 
     /* V1 now */
-    'v1.now.label': '目前 / 2026 春',
-    'v1.now.p1': '研究室甫成立，還在教學、<mark>第一個國科會計畫</mark>、合作計畫多頭燒。學生還在招，所以現在大多數工作是我一肩扛起。',
-    'v1.now.p2': '這個頁面會持續更新。如果你是碩士生、合作者、或只是看到「把人類資料轉到動物」這句話想聊聊，寄封信給我。',
-    'v1.now.g1': '<strong>NSTC 一年期（2026.08–2027.07）</strong>　以人類 perturbome 為 source domain，用同源基因對應與 pathway transfer learning 建立 CPV / FPV 抗病毒藥物再利用框架。',
-    'v1.now.g2': '<strong>H2M-ValiPred 論文撰寫中</strong>　用 ESM-2 embedding ＋ 物化特徵預測抗體 developability；881 個抗體、13 項分析。',
-    'v1.now.g3': '<strong>四門課同時在開</strong>　從大學部運算思維到研究所疫苗研究法。',
-    'v1.now.g4': '<strong>GPU 工作站 + DVC + MLflow</strong>　先把可重現分析的底盤打好，之後進來的學生可以直接站上去。',
+    'v1.now.label': '目前 / 2026 秋',
+    'v1.now.p1': '實驗室成立第二年。學生還在招，研究和教學目前都由我自己推進，所以每個計畫都先求<mark>做小、做穩、可重現</mark>。',
+    'v1.now.p2': '如果你是碩士生、合作者，或對「人類資料能不能用在動物身上」這個問題有興趣，歡迎來信。',
+    'v1.now.g1': '<strong>國科會一年期計畫（2026.08–2027.07）</strong>　建立人到大鼠的藥物轉錄體反應轉移基準，在沒看過的藥物上比較同源基因、pathway 與表徵學習方法，再把結果用在貓瘟病毒感染細胞資料上產生候選假說。',
+    'v1.now.g2': '<strong>H2M-ValiPred 撰稿中</strong>　用 ESM-2 embedding 與物化特徵預測抗體 developability，先在公開的人類抗體資料（GDPa1，246 個抗體、13 項分析）上建立可靠度基準，之後才檢驗人到小鼠的轉移。',
+    'v1.now.g3': '<strong>115-1 四門課</strong>　免疫資訊學入門（全英語）、生物統計、動物疫苗研究法、免疫科技與產業應用。',
+    'v1.now.g4': '<strong>DVC + MLflow 可重現流程</strong>　分析從資料版本到模型紀錄都留得下來，學生進來可以直接接手。',
 
     /* V1 trajectory */
     'v1.traj.title': '我怎麼走到這裡',
@@ -2938,13 +2939,13 @@ const I18N = {
     'v1.hero.aln': 'Prothrombin (F2) aligned across human, mouse, rat, cat and dog. A blue * marks a position identical in all five species.',
     'v1.portrait': 'Li-Hsin Chang 張立鑫<br/>Asst. Prof., NPUST<br/>ORCID 0000-0002-1126-7697',
 
-    'v1.now.label': 'NOW / SPR 2026',
-    'v1.now.p1': 'The lab just started — teaching, <mark>the first NSTC grant</mark>, and collaboration projects all burning at once. Still recruiting, so for now most of the work is on my shoulders.',
-    'v1.now.p2': 'This page updates as the work does. If you are a prospective MS student, a collaborator, or just curious about "human data into vet medicine" — drop a line.',
-    'v1.now.g1': '<strong>NSTC (2026.08–2027.07)</strong>　Using the human perturbome as the source domain, with ortholog mapping and pathway transfer learning to build a CPV / FPV antiviral drug-repurposing framework.',
-    'v1.now.g2': '<strong>H2M-ValiPred (in writing)</strong>　ESM-2 embeddings + physicochemical features for cross-species antibody developability. 881 antibodies · 13 assays.',
-    'v1.now.g3': '<strong>Four courses running</strong>　From UG computational thinking to graduate vaccine research methods.',
-    'v1.now.g4': '<strong>GPU + DVC + MLflow</strong>　A reproducible analysis base so incoming students can stand on it.',
+    'v1.now.label': 'NOW / FALL 2026',
+    'v1.now.p1': 'The lab is in its second year. Students are still being recruited, so for now I carry the research and teaching myself, and every project starts <mark>small, stable and reproducible</mark>.',
+    'v1.now.p2': 'If you are a master\'s student, a potential collaborator, or simply curious whether human data can be used for animals, please write to me.',
+    'v1.now.g1': '<strong>NSTC one-year project (2026.08–2027.07)</strong>　A benchmark for transferring drug transcriptomic responses from human to rat. On drugs the models have never seen, we compare ortholog, pathway and representation-learning approaches, then apply the results to feline panleukopenia virus–infected cell data to generate candidate hypotheses.',
+    'v1.now.g2': '<strong>H2M-ValiPred, manuscript in preparation</strong>　Predicting antibody developability from ESM-2 embeddings and physicochemical features. We first build a reliability benchmark on public human antibody data (GDPa1: 246 antibodies, 13 assays); human-to-mouse transfer is tested only after that.',
+    'v1.now.g3': '<strong>Four courses in fall 2026</strong>　Introduction to Immunoinformatics (English-taught), Biostatistics, Animal Vaccine Research Methods, Immunotechnology &amp; Industry Applications.',
+    'v1.now.g4': '<strong>Reproducible pipelines with DVC + MLflow</strong>　Every analysis keeps its data versions and model records, so incoming students can pick up where it left off.',
 
     'v1.traj.title': 'How I got here',
     'v1.traj.intro': 'I crossed multiple fields out of curiosity. At every step I carried the previous toolkit and understanding forward — this chart is also why "human → animal" transfer learning is a credible thing for this lab to try.',
