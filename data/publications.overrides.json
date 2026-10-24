@@ -52,6 +52,10 @@
     "note_en": "Delayed epidural graft improves stroke recovery"
   },
   "10.3390/cimb48101056": {
-    "journal_abbrev": "Curr Issues Mol Biol"
+    "journal_abbrev": "Curr Issues Mol Biol",
+    "short_title_zh": "PD-1 路徑膀胱癌預後轉錄體標記",
+    "short_title_en": "PD-1 pathway prognostic signature in bladder cancer",
+    "note_zh": "TCGA-BLCA 建模與獨立世代驗證",
+    "note_en": "TCGA-BLCA development, independent-cohort evaluation"
   }
 }
