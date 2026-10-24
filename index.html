@@ -273,38 +273,10 @@ html[lang="en"] body { font-family: var(--sans); }
   padding:
     clamp(2.8rem, 6vw, 5rem)
     max(var(--gutter), calc((100vw - 1200px) / 2 + var(--gutter)))
-    clamp(2.8rem, 6vw, 4.5rem);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    clamp(2rem, 4vw, 3rem);
   color: var(--surface);
-  background:
-    radial-gradient(circle at 72% 24%, rgba(0, 129, 192, 0.22), transparent 30%),
-    linear-gradient(180deg, #1f1f29 0%, #171720 100%);
+  background: var(--night-sky);
   overflow: hidden;
-}
-
-.v1-masthead::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.34;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: radial-gradient(circle at 78% 34%, black 0, transparent 58%);
-}
-
-.v1-block-stack {
-  position: absolute;
-  right: clamp(-5rem, 4vw, 2rem);
-  top: clamp(2.8rem, 8vw, 6rem);
-  z-index: 0;
-  width: min(42vw, 440px);
-  height: min(36vw, 360px);
-  opacity: 0.46;
-  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.22));
-  pointer-events: none;
 }
 
 .v1-masthead-top,
@@ -313,54 +285,66 @@ html[lang="en"] body { font-family: var(--sans); }
   z-index: 1;
 }
 
-.v1-block {
-  position: absolute;
-  width: 34px;
-  height: 34px;
-  background: var(--block-color, rgba(255, 255, 255, 0.58));
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-  image-rendering: pixelated;
-  opacity: 0;
-  transform: translateY(22px);
-  animation: block-build 720ms cubic-bezier(.2, .72, .2, 1) forwards;
-  animation-delay: calc(var(--i, 0) * 70ms + 180ms);
+/* hero band: real prothrombin (F2) alignment, human / mouse / rat / cat / dog
+   (UniProt + MAFFT). Bright columns are identical in all five species. */
+.v1-aln {
+  min-width: 0;
+  margin-top: clamp(0.5rem, 2vw, 1.5rem);
 }
 
-.v1-block:nth-child(1)  { left: 32px;  top: 64px;  --block-color: #0081c0; }
-.v1-block:nth-child(2)  { left: 70px;  top: 64px;  --block-color: #41a1cf; }
-.v1-block:nth-child(3)  { left: 108px; top: 64px;  --block-color: rgba(255,255,255,0.76); }
-.v1-block:nth-child(4)  { left: 70px;  top: 102px; --block-color: rgba(222,226,222,0.62); }
-.v1-block:nth-child(5)  { left: 146px; top: 102px; --block-color: rgba(0,129,192,0.72); }
-.v1-block:nth-child(6)  { left: 184px; top: 102px; --block-color: rgba(255,255,255,0.64); }
-.v1-block:nth-child(7)  { left: 108px; top: 140px; --block-color: rgba(65,161,207,0.72); }
-.v1-block:nth-child(8)  { left: 146px; top: 140px; --block-color: rgba(255,255,255,0.52); }
-.v1-block:nth-child(9)  { left: 222px; top: 140px; --block-color: rgba(0,129,192,0.66); }
-.v1-block:nth-child(10) { left: 184px; top: 178px; --block-color: rgba(222,226,222,0.46); }
-.v1-block:nth-child(11) { left: 260px; top: 178px; --block-color: rgba(65,161,207,0.58); }
-.v1-block:nth-child(12) { left: 222px; top: 216px; --block-color: rgba(255,255,255,0.42); }
+.v1-aln pre {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre;
+  color: rgba(255, 255, 255, 0.24);
+}
 
-@keyframes block-build {
-  0% {
-    opacity: 0;
-    transform: translateY(24px) scale(0.92);
-  }
-  70% {
-    opacity: 1;
-    transform: translateY(-2px) scale(1);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.v1-aln pre b {
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.v1-aln pre i {
+  font-style: normal;
+  color: var(--action-azure);
+}
+
+/* one-column cursor sweeping the alignment */
+.v1-aln-scan {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1ch;
+  background: rgba(65, 161, 207, 0.3);
+  transform: translateX(7ch);
+  animation: aln-scan 34s steps(284) infinite;
+}
+
+@keyframes aln-scan {
+  from { transform: translateX(7ch); }
+  to   { transform: translateX(291ch); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .v1-block {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
+  .v1-aln-scan { display: none; }
 }
+
+.v1-aln-caption {
+  margin-top: 0.75rem;
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.v1-hero-text h1 .v1-hero-br { display: inline; }
+html[lang="en"] .v1-hero-text h1 .v1-hero-br { display: none; }
 
 .v1-masthead-top {
   display: flex;
@@ -432,7 +416,7 @@ html[lang="en"] body { font-family: var(--sans); }
 
 .v1-masthead .v1-hero-text h1 {
   color: var(--surface);
-  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.24);
+  font-size: clamp(2rem, 3.4vw, 3.1rem);
 }
 
 html[lang="en"] .v1-hero-text h1 {
@@ -503,7 +487,6 @@ html[lang="en"] .v1-hero-lede {
 
 .v1-masthead .v1-portrait img {
   border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: rgba(0, 0, 0, 0.28) 0 12px 28px 0;
 }
 .v1-portrait-caption {
   margin-top: 10px;
@@ -1558,13 +1541,6 @@ html[lang="en"] .v3-pullquote {
 @media (max-width: 900px) {
   .v1-hero { grid-template-columns: 1fr; }
   .v1-portrait { max-width: 220px; }
-  .v1-block-stack {
-    right: -7rem;
-    top: 5rem;
-    width: 340px;
-    height: 280px;
-    opacity: 0.24;
-  }
   .v1-now, .v1-research-head, .v1-research-threads, .v1-teach, .v1-contact {
     grid-template-columns: 1fr; gap: 1.5rem;
   }
@@ -1600,11 +1576,14 @@ html[lang="en"] .v3-pullquote {
   .v1-masthead .v1-dateline {
     margin-top: 0.9rem;
   }
-  .v1-hero-text h1 {
-    font-size: clamp(1.85rem, 8vw, 2.25rem);
+  .v1-hero-text h1,
+  .v1-masthead .v1-hero-text h1 {
+    font-size: clamp(1.5rem, calc((100vw - 2 * var(--gutter)) / 13.4), 2.25rem);
     line-height: 1.18;
     overflow-wrap: anywhere;
   }
+  .v1-hero-text h1 .v1-hero-br { display: none; }
+  .v1-aln pre { font-size: 11px; }
   .v1-hero-lede,
   .v1-now-body,
   .v1-now-item-body,
@@ -1622,13 +1601,6 @@ html[lang="en"] .v3-pullquote {
   }
   .v1-now-item-tag {
     padding-top: 0;
-  }
-  .v1-block-stack {
-    right: -9rem;
-    top: 3.2rem;
-    width: 300px;
-    height: 240px;
-    opacity: 0.18;
   }
   .v2 { font-size: 13px; }
   .v3-contact { grid-template-columns: 1fr; }
@@ -1823,20 +1795,6 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
 
   <!-- masthead ---------------------------------------------------------- -->
   <div class="v1-masthead">
-    <div class="v1-block-stack" aria-hidden="true">
-      <span class="v1-block" style="--i: 0"></span>
-      <span class="v1-block" style="--i: 1"></span>
-      <span class="v1-block" style="--i: 2"></span>
-      <span class="v1-block" style="--i: 3"></span>
-      <span class="v1-block" style="--i: 4"></span>
-      <span class="v1-block" style="--i: 5"></span>
-      <span class="v1-block" style="--i: 6"></span>
-      <span class="v1-block" style="--i: 7"></span>
-      <span class="v1-block" style="--i: 8"></span>
-      <span class="v1-block" style="--i: 9"></span>
-      <span class="v1-block" style="--i: 10"></span>
-      <span class="v1-block" style="--i: 11"></span>
-    </div>
     <div class="v1-masthead-top">
       <div class="v1-sitename">
         <strong>AI-Assisted Immunoinformatics Lab</strong>
@@ -1848,10 +1806,10 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
     <div class="v1-hero">
       <div class="v1-hero-text">
         <h1 data-i18n="v1.hero.title">
-          <span data-i18n-nested>AIIL 建立跨物種精準醫療生物資訊方法</span><em data-i18n-nested>把人類 AI-omics 轉譯到獸醫治療</em>
+          人類資料什麼時候能用在動物身上？<br class="v1-hero-br">我們先把它量清楚。
         </h1>
         <p class="v1-hero-lede" data-i18n="v1.hero.lede">
-          AIIL 聚焦於 human-to-veterinary AI-omics translation：以人類大規模癌症、臨床與藥物擾動資料作為知識來源，結合 AI、NGS、ortholog mapping、pathway transfer learning 與標準化資料庫，產生可驗證的獸醫精準治療假說。
+          AIIL 研究跨物種的資料轉移：把人類累積的藥物反應、抗體與臨床基因體資料，放到動物上檢驗哪些訊號站得住、哪些不行。先建立公平的比較基準，再談獸醫應用。
         </p>
       </div>
 
@@ -1864,6 +1822,16 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
         </figcaption>
       </figure>
     </div>
+
+    <figure class="v1-aln">
+<pre aria-hidden="true"><span class="v1-aln-scan"></span>human  <b>RPLFEK</b>K<b>S</b>LE<b>D</b>KT<b>E</b>R<b>ELL</b>E<b>SYIDGRIV</b>E<b>G</b>S<b>DAE</b>I<b>G</b>MS<b>PWQVMLFRKSPQELLCGASLISDRWVLTAAHC</b>L<b>LYPPWDKNFTENDLLVRIGKHSRTRYER</b>NI<b>EKISMLEKIY</b>I<b>HPRYNWRENLDRDIAL</b>M<b>KLKKP</b>VA<b>FS</b>D<b>YIHPVCLPD</b>RE<b>T</b>AAS<b>L</b>LQA<b>GYKGRVTGWGNL</b>K<b>ETWT</b>ANVGKG<b>QP</b>S<b>VLQVVNLP</b>I<b>V</b>ERP<b>VC</b>KD<b>STRIRITDNMFCAG</b>Y<b>K</b>PDEG<b>KRGDACEGDSGGPFVMKSP</b>F<b>N</b>N<b>RWYQMGIVSWGEGCDR</b>D<b>GKYGFYTHVFRLK</b>K<b>W</b>IQ<b>KVI</b>DQFGE
+mouse  <b>RPLFEK</b>K<b>S</b>LK<b>D</b>TT<b>E</b>K<b>ELL</b>D<b>SYIDGRIV</b>E<b>G</b>W<b>DAE</b>K<b>G</b>IA<b>PWQVMLFRKSPQELLCGASLISDRWVLTAAHC</b>I<b>LYPPWDKNFTENDLLVRIGKHSRTRYER</b>NV<b>EKISMLEKIY</b>V<b>HPRYNWRENLDRDIAL</b>L<b>KLKKP</b>VP<b>FS</b>D<b>YIHPVCLPD</b>KQ<b>T</b>VTS<b>L</b>LRA<b>GYKGRVTGWGNL</b>R<b>ETWT</b>TNINEI<b>QP</b>S<b>VLQVVNLP</b>I<b>V</b>ERP<b>VC</b>KA<b>STRIRITDNMFCAG</b>F<b>K</b>VNDT<b>KRGDACEGDSGGPFVMKSP</b>F<b>N</b>N<b>RWYQMGIVSWGEGCDR</b>K<b>GKYGFYTHVFRLK</b>R<b>W</b>IQ<b>KVI</b>DQFG-
+rat    <b>RPLFEK</b>K<b>S</b>LT<b>D</b>KT<b>E</b>K<b>ELL</b>D<b>SYIDGRIV</b>E<b>G</b>W<b>DAE</b>K<b>G</b>IA<b>PWQVMLFRKSPQELLCGASLISDRWVLTAAHC</b>I<b>LYPPWDKNFTENDLLVRIGKHSRTRYER</b>NV<b>EKISMLEKIY</b>I<b>HPRYNWRENLDRDIAL</b>L<b>KLKKP</b>VP<b>FS</b>D<b>YIHPVCLPD</b>KQ<b>T</b>VTS<b>L</b>LQA<b>GYKGRVTGWGNL</b>R<b>ETWT</b>TNINEI<b>QP</b>S<b>VLQVVNLP</b>I<b>V</b>ERP<b>VC</b>KA<b>STRIRITDNMFCAG</b>F<b>K</b>VNDT<b>KRGDACEGDSGGPFVMKSP</b>Y<b>N</b>H<b>RWYQMGIVSWGEGCDR</b>N<b>GKYGFYTHVFRLK</b>R<b>W</b>MQ<b>KVI</b>DQHR-
+cat    <b>RPLFEK</b>K<b>S</b>LK<b>D</b>KA<b>E</b>E<b>ELL</b>D<b>SYIDGRIV</b>K<b>G</b>W<b>DAE</b>I<b>G</b>IA<b>PWQVMLFRKSPQELLCGASLISDRWVLTAAHC</b>L<b>LYPPWDKNFTENDLLVRIGKHSRTRYER</b>SI<b>EKISMLEKIY</b>I<b>HPRYNWRENLDRDIAL</b>L<b>KLKKP</b>IA<b>FS</b>S<b>YIHPVCLPD</b>KA<b>T</b>VAR<b>L</b>IQT<b>GYKGRVTGWGNL</b>K<b>ETWT</b>TSVGEV<b>QP</b>S<b>VLQVVNLP</b>L<b>V</b>EQP<b>VC</b>RA<b>STRIRITDNMFCAG</b>Y<b>K</b>PNEG<b>KRGDACEGDSGGPFVMKSP</b>F<b>N</b>N<b>RWYQMGIVSWGEGCDR</b>D<b>GKYGFYTHVFRLK</b>K<b>W</b>IR<b>KVI</b>DQSGS
+dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>G</b>W<b>DAE</b>I<b>G</b>LA<b>PWQVMLFRKSPQELLCGASLISDRWVLTAAHC</b>L<b>LYPPWDKNFTENDLLVRIGKHSRTRYER</b>SI<b>EKISMLEKIY</b>I<b>HPRYNWRENLDRDIAL</b>L<b>KLKKP</b>VN<b>FS</b>N<b>YIHPVCLPD</b>RD<b>T</b>ATR<b>L</b>LQA<b>GYKGRVTGWGNL</b>R<b>ETWT</b>SSIGEV<b>QP</b>R<b>VLQVVNLP</b>I<b>V</b>DRQ<b>VC</b>KA<b>STRIRITDNMFCAG</b>Y<b>K</b>PNEG<b>KRGDACEGDSGGPFVMKSP</b>F<b>N</b>N<b>RWYQMGIVSWGEGCDR</b>D<b>GKYGFYTHVFRLK</b>K<b>W</b>IQ<b>KVI</b>EKSGG
+       <i>******:*: *.:* ***:********:* *** *::********************************:****************************.:**********:****************:*****: **.*********: *.: *:::************:****:.:.: ** ********:*:: **: **************:* :: *******************:*:****************.*************:*::***::   </i></pre>
+      <figcaption class="v1-aln-caption" data-i18n="v1.hero.aln">凝血酶原（F2）的序列比對：人、小鼠、大鼠、貓、狗。藍色的 * 是五個物種完全相同的位置。</figcaption>
+    </figure>
   </div>
 
   <!-- Now --------------------------------------------------------------- -->
@@ -2742,8 +2710,9 @@ const I18N = {
     'masthead.est': '成立 2025 — 屏東',
 
     /* V1 hero */
-    'v1.hero.title': 'AIIL 建立跨物種精準醫療生物資訊方法，<em>把人類 AI-omics 轉譯到獸醫治療</em>',
-    'v1.hero.lede': 'AIIL 聚焦於 human-to-veterinary AI-omics translation：以人類大規模癌症、臨床與藥物擾動資料作為知識來源，結合 AI、NGS、ortholog mapping、pathway transfer learning 與標準化資料庫，產生可驗證的獸醫精準治療假說。',
+    'v1.hero.title': '人類資料什麼時候能用在動物身上？<br class="v1-hero-br">我們先把它量清楚。',
+    'v1.hero.lede': 'AIIL 研究跨物種的資料轉移：把人類累積的藥物反應、抗體與臨床基因體資料，放到動物上檢驗哪些訊號站得住、哪些不行。先建立公平的比較基準，再談獸醫應用。',
+    'v1.hero.aln': '凝血酶原（F2）的序列比對：人、小鼠、大鼠、貓、狗。藍色的 * 是五個物種完全相同的位置。',
     'v1.portrait': '張立鑫 Li-Hsin Chang<br/>助理教授 · 屏東科技大學<br/>ORCID 0000-0002-1126-7697',
 
     /* V1 now */
@@ -2958,8 +2927,9 @@ const I18N = {
     'nav.v2': '02 · Collaborators',
     'nav.v3': '03 · Publications',
 
-    'v1.hero.title': 'AIIL builds cross-species precision bioinformatics, <em>translating human AI-omics into veterinary therapeutics.</em>',
-    'v1.hero.lede': 'AIIL develops human-to-veterinary AI-omics translation methods: using large-scale human cancer, clinical, and drug-perturbation data as knowledge sources, combined with AI, NGS, ortholog mapping, pathway transfer learning, and standardized databases to generate testable veterinary precision-therapeutic hypotheses.',
+    'v1.hero.title': 'When can human data be used for animals? We measure it first.',
+    'v1.hero.lede': 'AIIL studies cross-species data transfer. We take the drug-response, antibody and clinical-genomic data that human medicine has accumulated, carry it over to animal data, and test which signals hold up and which do not. Fair benchmarks come first; veterinary applications come after.',
+    'v1.hero.aln': 'Prothrombin (F2) aligned across human, mouse, rat, cat and dog. A blue * marks a position identical in all five species.',
     'v1.portrait': 'Li-Hsin Chang 張立鑫<br/>Asst. Prof., NPUST<br/>ORCID 0000-0002-1126-7697',
 
     'v1.now.label': 'NOW / SPR 2026',
