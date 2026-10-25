@@ -13,28 +13,6 @@
 <link rel="stylesheet" href="site.css">
 <style>
 /* Collaborators page */
-.cp-head {
-  padding: 4rem 0 2rem;
-  border-bottom: 1px solid var(--paper-edge);
-}
-.cp-head h1 {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--ink);
-}
-html[lang="en"] .cp-head h1 { font-family: var(--sans); }
-.cp-head .v1-collab-lead { margin-top: 0.9rem; }
-
-.cp-group {
-  padding: 3rem 0;
-  border-bottom: 1px solid var(--paper-edge);
-  display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  gap: 3rem;
-}
-.cp-group > div > :first-child { border-top: 0; }
 .cp-group .v1-collab-list > :first-child { border-top: 0; padding-top: 0.2rem; }
 
 .v1-collab-list,
@@ -77,20 +55,6 @@ html[lang="en"] .v1-collab-item dd { font-family: var(--sans); }
 }
 html[lang="en"] .v1-member-val { font-family: var(--sans); }
 
-.cp-cta {
-  padding-top: 2.5rem;
-  font-size: 1rem;
-  color: var(--ink-soft);
-}
-.cp-cta a {
-  font-family: var(--mono);
-  color: var(--brand-blue);
-  border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 72%, transparent);
-}
-
-@media (max-width: 900px) {
-  .cp-group { grid-template-columns: 1fr; gap: 1.25rem; }
-}
 @media (max-width: 560px) {
   .v1-member-list .v1-contact-row { grid-template-columns: 1fr; gap: 0.25rem; }
 }
@@ -245,7 +209,7 @@ html[lang="en"] .v1-member-val { font-family: var(--sans); }
 
 </div>
 <script>
-const I18N = {
+window.I18N = {
   zh: {
     "nav.v1": "01 · 首頁",
     "nav.v2": "02 · 合作者",
@@ -352,64 +316,7 @@ const I18N = {
   }
 };
 
-function setLang(lang) {
-  if (!I18N[lang]) return;
-  document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const val = I18N[lang][el.getAttribute('data-i18n')];
-    if (val != null) el.innerHTML = val;
-  });
-  document.querySelectorAll('.lang-switch button').forEach(b => {
-    b.classList.toggle('active', b.dataset.lang === lang);
-  });
-  try { localStorage.setItem('aiil_lang', lang); } catch(e){}
-}
-
-function refreshPenStrokes() {
-  const cs = getComputedStyle(document.body);
-  const primary = cs.getPropertyValue('--cinnabar').trim() || '#8d6a94';
-  const secondary = cs.getPropertyValue('--ink-secondary').trim() || primary;
-  const width = parseFloat(cs.getPropertyValue('--ink-width')) || 1.4;
-
-  const wave = encodeURIComponent(
-    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 14' preserveAspectRatio='none'>
-       <path d='M2 9 C 24 3, 50 11, 78 6 S 132 3, 160 9 S 210 4, 238 8'
-             fill='none' stroke='${primary}' stroke-width='${width*1.1}' stroke-linecap='round'/>
-       <path d='M2 11 C 30 7, 56 13, 82 10 S 136 8, 164 12 S 214 9, 238 11'
-             fill='none' stroke='${secondary}' stroke-width='${width*0.55}' stroke-linecap='round' opacity='0.55'/>
-     </svg>`
-  );
-  const underline = encodeURIComponent(
-    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 6' preserveAspectRatio='none'>
-       <path d='M1 3 C 30 1, 60 5, 100 3 S 170 1, 199 3' fill='none'
-             stroke='${primary}' stroke-width='${width}' stroke-linecap='round'/>
-     </svg>`
-  );
-  const underlineH = encodeURIComponent(
-    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'>
-       <path d='M2 6 C 40 2, 90 9, 150 5 S 250 2, 298 6' fill='none'
-             stroke='${primary}' stroke-width='${width*1.3}' stroke-linecap='round'/>
-       <path d='M6 8 C 60 5, 110 10, 170 7 S 260 5, 292 8' fill='none'
-             stroke='${secondary}' stroke-width='${width*0.6}' stroke-linecap='round' opacity='0.5'/>
-     </svg>`
-  );
-
-  document.body.style.setProperty('--pen-wave', `url("data:image/svg+xml;utf8,${wave}")`);
-  document.body.style.setProperty('--pen-underline', `url("data:image/svg+xml;utf8,${underline}")`);
-  document.body.style.setProperty('--pen-underline-h', `url("data:image/svg+xml;utf8,${underlineH}")`);
-}
-
-document.querySelectorAll('.lang-switch button').forEach(b => {
-  b.addEventListener('click', () => setLang(b.dataset.lang));
-});
-
-(() => {
-  let lang = null;
-  try { const s = localStorage.getItem('aiil_lang'); if (s === 'zh' || s === 'en') lang = s; } catch(e){}
-  if (!lang) lang = (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
-  refreshPenStrokes();
-  setLang(lang);
-})();
 </script>
+<script src="site.js"></script>
 </body>
 </html>

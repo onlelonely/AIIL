@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>著作 · Publications — AIIL</title>
+<meta name="description" content="Publications, manuscripts under review, and talks by Li-Hsin Chang (AIIL, NPUST). The journal-article list updates weekly from ORCID." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700;900&family=Source+Sans+3:ital,wght@0,300..700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="site.css">
+<style>
+/* Publications page */
+.pub-dateline {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.9rem;
+}
+.pub-dateline a { color: var(--brand-blue); white-space: nowrap; }
+
+.pub-feature { padding: 0 0 1.75rem; }
+.pub-feature + .pub-feature { padding-top: 1.75rem; border-top: 1px solid var(--paper-edge); }
+.pub-feature h3 {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.pub-meta {
+  margin: 0.4rem 0 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.02em;
+  color: var(--cinnabar);
+}
+.pub-feature p:not(.pub-meta) {
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+.pub-feature p + p:not(.pub-meta) { margin-top: 0.6rem; }
+.pub-doi,
+.pub-item a.pub-link {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--brand-blue);
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 60%, transparent);
+  overflow-wrap: anywhere;
+}
+.pub-doi { display: inline-block; margin-top: 0.7rem; }
+html[lang="en"] .pub-feature h3,
+html[lang="en"] .pub-feature p:not(.pub-meta) { font-family: var(--sans); }
+
+.pub-list { list-style: none; margin: 0; padding: 0; }
+.pub-item {
+  display: grid;
+  grid-template-columns: 4.5em minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--paper-edge);
+}
+.pub-item:first-child { border-top: 0; padding-top: 0.2rem; }
+.pub-year {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  padding-top: 0.15rem;
+}
+.pub-year.is-repeat { visibility: hidden; }
+.pub-short {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.pub-full {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--sans-en);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.pub-cite {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+}
+.pub-cite .pub-role-first { color: var(--cinnabar); }
+html[lang="en"] .pub-short { font-family: var(--sans); }
+.pub-status { font-size: 0.9rem; color: var(--ink-faint); }
+
+.pub-row-list { margin: 0; }
+.pub-row-list dd { margin: 0; }
+.pub-row-list .v1-contact-row { grid-template-columns: 9em 1fr; }
+.pub-row-val {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+.pub-row-val a { color: var(--brand-blue); border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 60%, transparent); }
+html[lang="en"] .pub-row-val { font-family: var(--sans); }
+.cp-group .pub-row-list > :first-child { border-top: 0; padding-top: 0.2rem; }
+
+@media (max-width: 560px) {
+  .pub-item { grid-template-columns: 1fr; gap: 0.2rem; }
+  .pub-year.is-repeat { display: none; }
+  .pub-row-list .v1-contact-row { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="seal" aria-label="AIIL home">
+      <span class="seal-mark" aria-hidden="true">
+        <svg viewBox="0 0 80 36">
+          <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <!-- stylised handwritten "lh" monogram -->
+            <path d="M6 6 C 6 18, 6 24, 10 30"/>
+            <path d="M4 16 C 10 14, 14 14, 18 16"/>
+            <path d="M22 6 C 22 18, 22 24, 26 30"/>
+            <path d="M22 18 C 26 14, 32 14, 36 18 C 36 22, 36 26, 40 30"/>
+            <!-- small dot / pen lift -->
+            <circle cx="48" cy="28" r="1.3" fill="currentColor" stroke="none"/>
+          </g>
+        </svg>
+      </span>
+      <span><strong style="color:var(--ink);font-weight:500">L-H. Chang</strong> · AIIL · NPUST</span>
+    </a>
+    <nav class="version-switch" aria-label="Site sections">
+      <a href="index.html#home" data-i18n="nav.v1">01 · 首頁</a>
+      <a href="collaborators.html" data-i18n="nav.v2">02 · 合作者</a>
+      <a href="publications.html" class="active" aria-current="page" data-i18n="nav.v3">03 · 著作列表</a>
+    </nav>
+
+    <div class="topbar-right">
+      <div class="lang-switch">
+        <button data-lang="zh" class="active">中</button>
+        <span class="sep">/</span>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="v1">
+  <header class="cp-head">
+    <p class="pub-dateline"><span data-i18n="pub.dateline">2026 秋／張立鑫</span> · <a href="https://orcid.org/0000-0002-1126-7697" target="_blank" rel="noopener">ORCID 0000-0002-1126-7697</a></p>
+    <h1 data-i18n="pub.title">著作</h1>
+    <p class="v1-collab-lead" data-i18n="pub.lead">期刊論文清單每週從 ORCID 自動更新。實驗室 2025 年成立，較早的論文掛的是博班、博後時期的單位。</p>
+  </header>
+
+  <section class="cp-group" id="featured">
+    <h2 class="v1-section-label" data-i18n="pub.featured">精選三篇</h2>
+    <div>
+      <article class="pub-feature" data-doi="10.1212/wnl.0000000000218126" data-tag="pub.f1.tag">
+        <h3 data-i18n="pub.f1.title">早發性缺血性腦中風基因風險變異</h3>
+        <p class="pub-meta"></p>
+        <p data-i18n="pub.f1.p1">北榮神內長期參與中研院「台灣精準醫療計畫（TPMI）」，整合院內收案與 TPMI 多中心資料，以 GWAS 找出台灣早發性缺血性腦中風的風險變異。</p>
+        <p data-i18n="pub.f1.p2">論文經過多輪審查與資料擴充，2026 年正式刊出。對我來說，這篇標誌了從博班就開始參與的收案計畫終於有一個夠大的產出。</p>
+        <a class="pub-doi" href="https://doi.org/10.1212/wnl.0000000000218126" target="_blank" rel="noopener">doi:10.1212/wnl.0000000000218126</a>
+      </article>
+      <article class="pub-feature" data-doi="10.1007/s10571-022-01315-3" data-tag="pub.f2.tag">
+        <h3 data-i18n="pub.f2.title">家族性中風單基因病因</h3>
+        <p class="pub-meta"></p>
+        <p data-i18n="pub.f2.p1">以全外顯子定序分析家族性中風，涵蓋腦出血與缺血性中風亞型，找出單基因病因。家族 NGS 與變異判讀這條線，後來延伸到 F2 p.F382L 家族性血栓的研究。</p>
+        <a class="pub-doi" href="https://doi.org/10.1007/s10571-022-01315-3" target="_blank" rel="noopener">doi:10.1007/s10571-022-01315-3</a>
+      </article>
+      <article class="pub-feature" data-doi="10.1093/ije/dyaf130" data-tag="pub.f3.tag">
+        <h3 data-i18n="pub.f3.title">NBCT 台灣生物資料庫電子病歷</h3>
+        <p class="pub-meta"></p>
+        <p data-i18n="pub.f3.p1">整合台灣國家級生物資料庫聯盟（NBCT）各院的電子病歷，做成格式一致、可供研究申請的資料資源。處理真實世界資料、資料協調與存取治理的經驗，延續到實驗室的獸醫資料基礎建設。</p>
+        <a class="pub-doi" href="https://doi.org/10.1093/ije/dyaf130" target="_blank" rel="noopener">doi:10.1093/ije/dyaf130</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="cp-group" id="all">
+    <h2 class="v1-section-label" data-i18n="pub.all">完整清單</h2>
+    <div>
+      <ol class="pub-list" id="pub-list"></ol>
+      <p class="pub-status" id="pub-status" data-i18n="pub.loading">清單載入中…</p>
+      <noscript><p class="pub-status">完整清單需要 JavaScript；也可以直接看 <a href="https://orcid.org/0000-0002-1126-7697" target="_blank" rel="noopener">ORCID 0000-0002-1126-7697</a>。</p></noscript>
+    </div>
+  </section>
+
+  <section class="cp-group" id="in-progress">
+    <h2 class="v1-section-label" data-i18n="pub.wip">進行中</h2>
+    <div>
+      <dl class="pub-row-list">
+        <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="pub.wip.k">審查中</dt><dd class="pub-row-val" data-i18n="pub.wip.v">pRCC 八基因預後模型：乳突型腎細胞癌存活與惡化預測・第一作者・2026</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="cp-group" id="talks">
+    <h2 class="v1-section-label" data-i18n="pub.talks">演講與海報</h2>
+    <div>
+      <dl class="pub-row-list">
+        <div class="v1-contact-row"><dt class="v1-contact-key">2026.11</dt><dd class="pub-row-val" data-i18n="pub.talk1">2026 第六屆免疫科技與動物製劑發展國際研討會・人到大鼠藥物反應轉移基準（國科會計畫）・海報</dd></div>
+        <div class="v1-contact-row"><dt class="v1-contact-key">AACR 2024</dt><dd class="pub-row-val" data-i18n="pub.talk2">San Diego・晚期攝護腺癌個人化轉錄體：第二代荷爾蒙藥物選擇指引・海報</dd></div>
+        <div class="v1-contact-row"><dt class="v1-contact-key">AAN 2018</dt><dd class="pub-row-val" data-i18n="pub.talk3">Los Angeles・sEH 抑制與中風神經回復：TrkB 訊息強化後缺血抗損傷機制</dd></div>
+        <div class="v1-contact-row"><dt class="v1-contact-key">Keystone 2014</dt><dd class="pub-row-val" data-i18n="pub.talk4">Stockholm・sEH 與中風後神經可塑性：Adult Neurogenesis E1 Symposium</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="cp-group" id="contact">
+    <h2 class="v1-section-label" data-i18n="pub.contact">聯絡</h2>
+    <div>
+      <dl class="pub-row-list">
+        <div class="v1-contact-row"><dt class="v1-contact-key">CV</dt><dd class="pub-row-val" data-i18n="pub.cv">完整版履歷與發表列表歡迎<a href="mailto:lhchang@mail.npust.edu.tw">來信</a>索取</dd></div>
+        <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="pub.addr.k">地址</dt><dd class="pub-row-val" data-i18n="pub.addr.v">屏東縣內埔鄉學府路1號</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <footer class="v1-colophon">
+    <div>© 2025–2026 AIIL · NPUST</div>
+  </footer>
+</main>
+
+</div>
+<script>
+window.I18N = {
+  zh: {
+    "nav.v1": "01 · 首頁",
+    "nav.v2": "02 · 合作者",
+    "nav.v3": "03 · 著作列表",
+    "pub.f1.tag": "多中心合作",
+    "pub.f1.p1": "北榮神內長期參與中研院「台灣精準醫療計畫（TPMI）」，整合院內收案與 TPMI 多中心資料，以 GWAS 找出台灣早發性缺血性腦中風的風險變異。",
+    "pub.f1.p2": "論文經過多輪審查與資料擴充，2026 年正式刊出。對我來說，這篇標誌了從博班就開始參與的收案計畫終於有一個夠大的產出。",
+    "pub.f1.title": "早發性缺血性腦中風基因風險變異",
+    "pub.f2.tag": "",
+    "pub.f2.p1": "以全外顯子定序分析家族性中風，涵蓋腦出血與缺血性中風亞型，找出單基因病因。家族 NGS 與變異判讀這條線，後來延伸到 F2 p.F382L 家族性血栓的研究。",
+    "pub.f2.title": "家族性中風單基因病因",
+    "pub.f3.tag": "Data Resource Profile",
+    "pub.f3.p1": "整合台灣國家級生物資料庫聯盟（NBCT）各院的電子病歷，做成格式一致、可供研究申請的資料資源。處理真實世界資料、資料協調與存取治理的經驗，延續到實驗室的獸醫資料基礎建設。",
+    "pub.f3.title": "NBCT 台灣生物資料庫電子病歷",
+    "pub.talk1": "2026 第六屆免疫科技與動物製劑發展國際研討會・人到大鼠藥物反應轉移基準（國科會計畫）・海報",
+    "pub.talk2": "San Diego・晚期攝護腺癌個人化轉錄體：第二代荷爾蒙藥物選擇指引・海報",
+    "pub.talk3": "Los Angeles・sEH 抑制與中風神經回復：TrkB 訊息強化後缺血抗損傷機制",
+    "pub.talk4": "Stockholm・sEH 與中風後神經可塑性：Adult Neurogenesis E1 Symposium",
+    "pub.dateline": "2026 秋／張立鑫",
+    "pub.title": "著作",
+    "pub.lead": "期刊論文清單每週從 ORCID 自動更新。實驗室 2025 年成立，較早的論文掛的是博班、博後時期的單位。",
+    "pub.featured": "精選三篇",
+    "pub.all": "完整清單",
+    "pub.loading": "清單載入中…",
+    "pub.wip": "進行中",
+    "pub.wip.k": "審查中",
+    "pub.wip.v": "pRCC 八基因預後模型：乳突型腎細胞癌存活與惡化預測・第一作者・2026",
+    "pub.talks": "演講與海報",
+    "pub.contact": "聯絡",
+    "pub.cv": "完整版履歷與發表列表歡迎<a href=\"mailto:lhchang@mail.npust.edu.tw\">來信</a>索取",
+    "pub.addr.k": "地址",
+    "pub.addr.v": "屏東縣內埔鄉學府路1號",
+    "pub.status.published": "已刊出",
+    "pub.role.first-author": "第一作者",
+    "pub.role.co-author": "共同作者",
+    "pub.error": "清單暫時載入失敗，可以先看 <a href=\"https://orcid.org/0000-0002-1126-7697\" target=\"_blank\" rel=\"noopener\">ORCID 0000-0002-1126-7697</a>。",
+  },
+  en: {
+    "nav.v1": "01 · Home",
+    "nav.v2": "02 · Collaborators",
+    "nav.v3": "03 · Publications",
+    "pub.f1.tag": "multi-center",
+    "pub.f1.p1": "TVGH Neurology has long participated in Academia Sinica's Taiwan Precision Medicine Initiative (TPMI). Combining in-house cohort data with the TPMI multi-center dataset, a GWAS identifies risk variants for early-onset ischemic stroke in the Taiwanese population.",
+    "pub.f1.p2": "After multiple rounds of review and data expansion, the paper was published in 2026. For me, it marks a large output from a cohort I have been part of since my PhD years.",
+    "pub.f1.title": "Genetic risk variants in early-onset ischemic stroke",
+    "pub.f2.tag": "",
+    "pub.f2.p1": "Whole-exome sequencing of familial stroke across intracerebral hemorrhage and ischemic stroke subtypes identifies monogenic causes. This line of family NGS and variant interpretation later led to the F2 p.F382L familial thrombosis study.",
+    "pub.f2.title": "Monogenic causes in familial stroke",
+    "pub.f3.tag": "Data Resource Profile",
+    "pub.f3.p1": "Electronic health records from hospitals in the National Biobank Consortium of Taiwan (NBCT), harmonized into a consistent resource open to research applications. The experience with real-world data, harmonization and access governance carries into the lab's veterinary data infrastructure.",
+    "pub.f3.title": "NBCT harmonized electronic health records",
+    "pub.talk1": "6th International Symposium on Immunotechnology and Animal Biologics Development 2026 · human-to-rat drug-response transfer benchmark (NSTC project) · poster",
+    "pub.talk2": "San Diego · Personalized prostate-cancer transcriptomics: guiding second-generation hormonal-drug selection · poster",
+    "pub.talk3": "Los Angeles · sEH blockade & stroke recovery: post-ischemic resilience via TrkB activation",
+    "pub.talk4": "Stockholm · sEH in post-stroke plasticity: Adult Neurogenesis E1 Symposium",
+    "pub.dateline": "Fall 2026 / Li-Hsin Chang",
+    "pub.title": "Publications",
+    "pub.lead": "The journal-article list updates weekly from ORCID. The lab was founded in 2025, so earlier papers carry PhD and postdoc affiliations.",
+    "pub.featured": "FEATURED",
+    "pub.all": "FULL LIST",
+    "pub.loading": "Loading the list…",
+    "pub.wip": "IN PROGRESS",
+    "pub.wip.k": "UNDER REVIEW",
+    "pub.wip.v": "Eight-gene pRCC signature: survival and progression of papillary renal cell carcinoma · first author · 2026",
+    "pub.talks": "TALKS & POSTERS",
+    "pub.contact": "CONTACT",
+    "pub.cv": "Full CV and publication list <a href=\"mailto:lhchang@mail.npust.edu.tw\">on request</a>",
+    "pub.addr.k": "ADDRESS",
+    "pub.addr.v": "No.1 Shuefu Rd., Neipu, Pingtung 912, TW",
+    "pub.status.published": "Published",
+    "pub.role.first-author": "first author",
+    "pub.role.co-author": "co-author",
+    "pub.error": "The list could not be loaded right now; see <a href=\"https://orcid.org/0000-0002-1126-7697\" target=\"_blank\" rel=\"noopener\">ORCID 0000-0002-1126-7697</a>.",
+  }
+};
+
+/* Featured citations and the full list come from data/publications.json
+   (ORCID + Crossref, rebuilt weekly); nothing bibliographic is typed here. */
+let WORKS = null;
+let LANG = 'zh';
+
+const t = key => (I18N[LANG] && I18N[LANG][key]) || '';
+const el = (tag, cls, text) => {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  return e;
+};
+function citation(w) {
+  let c = w.journal_abbrev || w.journal || '';
+  if (w.volume) c += ' ' + w.volume + (w.issue ? '(' + w.issue + ')' : '');
+  if (w.pages) c += ':' + String(w.pages).replace('-', '–');
+  return c;
+}
+const roleLabel = r => t('pub.role.' + r) || r || '';
+
+function renderFeatured() {
+  document.querySelectorAll('.pub-feature').forEach(card => {
+    const w = WORKS.find(x => x.doi === card.dataset.doi);
+    const meta = card.querySelector('.pub-meta');
+    if (!w) { meta.textContent = ''; return; }
+    const sep = LANG === 'zh' ? '・' : ' · ';
+    meta.textContent = [t('pub.status.published'), citation(w), w.year, t(card.dataset.tag), roleLabel(w.role)]
+      .filter(Boolean).join(sep);
+  });
+}
+
+function renderList() {
+  const list = document.getElementById('pub-list');
+  list.replaceChildren();
+  let prevYear = null;
+  for (const w of WORKS) {
+    const li = el('li', 'pub-item');
+    li.append(el('span', 'pub-year' + (w.year === prevYear ? ' is-repeat' : ''), w.year));
+    prevYear = w.year;
+    const body = el('div');
+    const short = LANG === 'zh' ? w.short_title_zh : w.short_title_en;
+    body.append(el('span', 'pub-short', short || w.title));
+    if (short) body.append(el('span', 'pub-full', w.title));
+    const cite = el('span', 'pub-cite');
+    const role = el('span', w.role === 'first-author' ? 'pub-role-first' : '', roleLabel(w.role));
+    const note = LANG === 'zh' ? w.note_zh : w.note_en;
+    cite.append(citation(w) + ' · ', role);
+    if (note) cite.append(' · ' + note);
+    body.append(cite);
+    const link = el('a', 'pub-link', 'doi:' + w.doi);
+    link.href = w.url || 'https://doi.org/' + w.doi;
+    link.target = '_blank'; link.rel = 'noopener';
+    body.append(link);
+    li.append(body);
+    list.append(li);
+  }
+}
+
+function render() {
+  if (!WORKS) return;
+  renderFeatured();
+  renderList();
+}
+
+window.onLangChange = lang => { LANG = lang; render(); };
+
+fetch('data/publications.json', { cache: 'no-cache' })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d => {
+    WORKS = d.works || [];
+    document.getElementById('pub-status').remove();
+    render();
+  })
+  .catch(() => {
+    const s = document.getElementById('pub-status');
+    s.setAttribute('data-i18n', 'pub.error');
+    s.innerHTML = t('pub.error');
+  });
+</script>
+<script src="site.js"></script>
+</body>
+</html>
