@@ -536,6 +536,7 @@ h2.v1-section-label { font-weight: 400; line-height: inherit; }
 /* hand-drawn underline beneath section labels */
 .v1-section-label {
   position: relative;
+  align-self: start;
   padding-bottom: 0.55rem;
 }
 .v1-section-label::after {
@@ -931,8 +932,58 @@ html[lang="en"] .v1-course-name { font-family: var(--sans); }
   line-height: 1.75;
   color: var(--ink);
   max-width: 52ch;
+  margin: 0;
 }
 html[lang="en"] .v1-contact-body { font-family: var(--sans); font-weight: 400; }
+
+.v1-topics { margin-top: 1.75rem; }
+.v1-topics-label {
+  font-weight: 400;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.75rem;
+}
+.v1-topic-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: topic;
+}
+.v1-topic {
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  gap: 0.75rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--paper-edge);
+  counter-increment: topic;
+}
+.v1-topic::before {
+  content: counter(topic, decimal-leading-zero);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--cinnabar);
+  padding-top: 0.35em;
+}
+.v1-topic-name {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.v1-topic-desc {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+html[lang="en"] .v1-topic-name,
+html[lang="en"] .v1-topic-desc { font-family: var(--sans); }
 
 .v1-contact-list {
   margin-top: 1.5rem;
@@ -1476,6 +1527,10 @@ html[lang="en"] .v3-pullquote {
 
 @media (max-width: 560px) {
   body { font-size: 16px; }
+  .v1-contact-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
   .v1 { padding: 0 var(--gutter) 4rem; }
   .v1-masthead {
     padding: 2rem var(--gutter) 2.4rem;
@@ -2043,12 +2098,30 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
     </div>
   </section>
 
-  <!-- Contact ------------------------------------------------------------ -->
-  <section class="v1-contact">
-    <div class="v1-section-label" data-i18n="v1.contact.label">聯絡</div>
+  <!-- Join & contact ----------------------------------------------------- -->
+  <section class="v1-contact" id="join">
+    <h2 class="v1-section-label" data-i18n="v1.contact.label">招生與聯絡</h2>
     <div>
-      <div class="v1-contact-body" data-i18n="v1.contact.body">
+      <p class="v1-contact-body" data-i18n="v1.contact.body">
         正在招收對計算生物學有興趣的碩士生。獸醫、生物、植物醫學、農業、資管、統計，只要你對生醫問題有好奇，都適合。不要求入門前就會寫程式。
+      </p>
+
+      <div class="v1-topics">
+        <h3 class="v1-topics-label" data-i18n="v1.contact.topics">可以從這三個題目開始</h3>
+        <ol class="v1-topic-list">
+          <li class="v1-topic"><div>
+            <strong class="v1-topic-name" data-i18n="v1.contact.t1.name">人到大鼠的藥物反應轉移基準</strong>
+            <span class="v1-topic-desc" data-i18n="v1.contact.t1.desc">同一個藥物在人和大鼠肝細胞的反應，哪些能互相預測。</span>
+          </div></li>
+          <li class="v1-topic"><div>
+            <strong class="v1-topic-name" data-i18n="v1.contact.t2.name">抗體 developability 預測</strong>
+            <span class="v1-topic-desc" data-i18n="v1.contact.t2.desc">用蛋白語言模型與物化特徵，預測抗體好不好開發。</span>
+          </div></li>
+          <li class="v1-topic"><div>
+            <strong class="v1-topic-name" data-i18n="v1.contact.t3.name">獸醫用藥安全開放資料</strong>
+            <span class="v1-topic-desc" data-i18n="v1.contact.t3.desc">把公開的動物用藥不良事件整理成可分析的資料。</span>
+          </div></li>
+        </ol>
       </div>
 
       <div class="v1-contact-list">
@@ -2057,16 +2130,8 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
           <div class="v1-contact-val"><a href="mailto:lhchang@mail.npust.edu.tw">lhchang@mail.npust.edu.tw</a></div>
         </div>
         <div class="v1-contact-row">
-          <div class="v1-contact-key">PHONE</div>
-          <div class="v1-contact-val">+886-8-770-3202 ext. 5406</div>
-        </div>
-        <div class="v1-contact-row">
-          <div class="v1-contact-key" data-i18n="v1.contact.addr">ADDRESS</div>
-          <div class="v1-contact-val" data-i18n="v1.contact.addrv">No.1 Shuefu Rd., Neipu, Pingtung 912 · College of Veterinary Medicine, NPUST</div>
-        </div>
-        <div class="v1-contact-row">
-          <div class="v1-contact-key">ORCID</div>
-          <div class="v1-contact-val"><a href="https://orcid.org/0000-0002-1126-7697" target="_blank" rel="noopener">0000-0002-1126-7697</a></div>
+          <div class="v1-contact-key" data-i18n="v1.contact.addr">地址</div>
+          <div class="v1-contact-val" data-i18n="v1.contact.addrv">屏東縣內埔鄉學府路1號・國立屏東科技大學 獸醫學院</div>
         </div>
       </div>
     </div>
@@ -2542,10 +2607,17 @@ const I18N = {
     'v1.teach.c8.lvl': "研究所・選修",
 
     /* V1 contact */
-    'v1.contact.label': '聯絡',
+    'v1.contact.label': '招生與聯絡',
     'v1.contact.body': '正在招收對計算生物學有興趣的碩士生。獸醫、生物、植物醫學、農業、資管、統計，只要你對生醫問題有好奇，都適合。不要求入門前就會寫程式。',
+    'v1.contact.topics': '可以從這三個題目開始',
+    'v1.contact.t1.name': '人到大鼠的藥物反應轉移基準',
+    'v1.contact.t1.desc': '同一個藥物在人和大鼠肝細胞的反應，哪些能互相預測。',
+    'v1.contact.t2.name': '抗體 developability 預測',
+    'v1.contact.t2.desc': '用蛋白語言模型與物化特徵，預測抗體好不好開發。',
+    'v1.contact.t3.name': '獸醫用藥安全開放資料',
+    'v1.contact.t3.desc': '把公開的動物用藥不良事件整理成可分析的資料。',
     'v1.contact.addr': '地址',
-    'v1.contact.addrv': '屏東縣內埔鄉學府路1號 · 國立屏東科技大學 獸醫學院',
+    'v1.contact.addrv': '屏東縣內埔鄉學府路1號・國立屏東科技大學 獸醫學院',
     'v1.colo.set': '本頁排版：NOTO SERIF TC、SOURCE SERIF 4 & SOURCE SANS 3 · 於屏東手工排版',
 
     /* V2 — Collaborators */
@@ -2752,8 +2824,15 @@ const I18N = {
     'v1.teach.c8.name': "AI for Immunogenomic Analysis (new)",
     'v1.teach.c8.lvl': "GRAD · ELECTIVE",
 
-    'v1.contact.label': 'CONTACT',
+    'v1.contact.label': 'JOIN & CONTACT',
     'v1.contact.body': "Currently recruiting MS students interested in computational biology. Vet med, biology, plant medicine, agriculture, information management, statistics — any background works if you are drawn to biomedical problems. Prior coding experience is not required.",
+    'v1.contact.topics': 'Three places to start',
+    'v1.contact.t1.name': 'Human-to-rat drug-response transfer benchmark',
+    'v1.contact.t1.desc': 'Which responses to the same drug in human and rat hepatocytes predict each other.',
+    'v1.contact.t2.name': 'Antibody developability prediction',
+    'v1.contact.t2.desc': 'Using protein language models and physicochemical features to predict whether an antibody is easy to develop.',
+    'v1.contact.t3.name': 'Open veterinary drug-safety data',
+    'v1.contact.t3.desc': 'Turning public animal adverse-drug-event reports into analysis-ready data.',
     'v1.contact.addr': 'ADDRESS',
     'v1.contact.addrv': 'No.1 Shuefu Rd., Neipu, Pingtung 912 · College of Veterinary Medicine, NPUST',
     'v1.colo.set': 'SET IN NOTO SERIF TC, SOURCE SERIF 4 & SOURCE SANS 3 · HAND-SET IN PINGTUNG',
