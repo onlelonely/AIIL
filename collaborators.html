@@ -194,13 +194,35 @@ html[lang="en"] body { font-family: var(--sans); }
   margin: 0 auto;
   padding: 0 var(--gutter) 6rem;
 }
-.home-link {
+.version-switch {
+  display: inline-flex;
+  border: 1px solid color-mix(in srgb, var(--paper-edge) 72%, transparent);
+  background: color-mix(in srgb, var(--paper-deep) 82%, transparent);
+  padding: 4px;
+  border-radius: 50px;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.06em;
-  color: var(--ink-faint);
+  box-shadow: rgba(0, 0, 0, 0.05) 0 1px 8px 0;
+  backdrop-filter: blur(9px);
 }
-.home-link:hover { color: var(--ink); }
+.version-switch button,
+.version-switch a {
+  padding: 7px 12px;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  white-space: nowrap;
+  border-radius: 50px;
+  transition: color .15s, background .15s, box-shadow .15s;
+}
+.version-switch .active {
+  background: var(--night-sky);
+  color: var(--surface);
+  box-shadow: rgba(0, 0, 0, 0.16) 0 2px 6px 0;
+}
+.version-switch button:hover:not(.active),
+.version-switch a:hover { color: var(--ink); }
+
 
 .cp-head {
   padding: 4rem 0 2rem;
@@ -382,6 +404,11 @@ html[lang="en"] .v1-collab-item dd { font-family: var(--sans); }
   .topbar-inner { padding: 10px var(--gutter); }
   .seal { padding: 5px 10px 5px 7px; gap: 8px; font-size: 10.5px; }
   .seal-mark { width: 32px; height: 24px; }
+  .topbar-inner { justify-content: center; gap: 0.55rem; }
+  .version-switch { order: 2; max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .version-switch::-webkit-scrollbar { display: none; }
+  .version-switch a { padding: 6px 8px; font-size: 10px; }
+  .topbar-right { order: 3; width: 100%; justify-content: center; }
   .v1-contact-row,
   .v1-member-list .v1-contact-row { grid-template-columns: 1fr; gap: 0.25rem; }
 }
@@ -408,8 +435,13 @@ html[lang="en"] .v1-collab-item dd { font-family: var(--sans); }
       </span>
       <span><strong style="color:var(--ink);font-weight:500">L-H. Chang</strong> · AIIL · NPUST</span>
     </a>
+    <nav class="version-switch" aria-label="Site sections">
+      <a href="index.html#home" data-i18n="nav.v1">01 · 首頁</a>
+      <a href="collaborators.html" class="active" aria-current="page" data-i18n="nav.v2">02 · 合作者</a>
+      <a href="index.html#publications" data-i18n="nav.v3">03 · 著作列表</a>
+    </nav>
+
     <div class="topbar-right">
-      <a href="index.html" class="home-link" data-i18n="cp.home">← 回首頁</a>
       <div class="lang-switch">
         <button data-lang="zh" class="active">中</button>
         <span class="sep">/</span>
@@ -533,7 +565,9 @@ html[lang="en"] .v1-collab-item dd { font-family: var(--sans); }
 <script>
 const I18N = {
   zh: {
-    "cp.home": "← 回首頁",
+    "nav.v1": "01 · 首頁",
+    "nav.v2": "02 · 合作者",
+    "nav.v3": "03 · 著作列表",
     "cp.title": "合作與經費",
     "cp.cta": "想合作，或發現遺漏？來信：",
     /* V1 collaborators & funding */
@@ -583,7 +617,9 @@ const I18N = {
     "v1.collab.mem.alumni.v": "尚無，實驗室於 2025 成立",
   },
   en: {
-    "cp.home": "← Home",
+    "nav.v1": "01 · Home",
+    "nav.v2": "02 · Collaborators",
+    "nav.v3": "03 · Publications",
     "cp.title": "Collaborators & funding",
     "cp.cta": "Want to collaborate, or spotted an omission? Write to",
     /* V1 collaborators & funding */

@@ -166,7 +166,8 @@ html[lang="en"] body { font-family: var(--sans); }
   box-shadow: rgba(0, 0, 0, 0.05) 0 1px 8px 0;
   backdrop-filter: blur(9px);
 }
-.version-switch button {
+.version-switch button,
+.version-switch a {
   padding: 7px 12px;
   color: var(--ink-faint);
   text-transform: uppercase;
@@ -179,7 +180,8 @@ html[lang="en"] body { font-family: var(--sans); }
   color: var(--surface);
   box-shadow: rgba(0, 0, 0, 0.16) 0 2px 6px 0;
 }
-.version-switch button:hover:not(.active) { color: var(--ink); }
+.version-switch button:hover:not(.active),
+.version-switch a:hover { color: var(--ink); }
 
 .topbar-right {
   display: inline-flex;
@@ -1073,160 +1075,6 @@ html[lang="en"] .v1-topic-desc { font-family: var(--sans); }
 
 
 /* =========================================================================
-   V2 — LAB NOTEBOOK (monospace / ASCII terminal)
-   ========================================================================= */
-.v2 {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 3rem var(--gutter) 5rem;
-  font-family: var(--mono);
-  font-size: 14px;
-  line-height: 1.75;
-  color: var(--ink);
-}
-.v2 .prose {
-  font-family: var(--mono);
-  font-size: 14px;
-  line-height: 1.75;
-}
-.v2 pre, .v2 .ascii {
-  font-family: var(--mono);
-  font-size: 13px;
-  line-height: 1.5;
-  white-space: pre;
-  overflow-x: auto;
-  color: var(--ink);
-}
-
-.v2-header {
-  padding-bottom: 1.5rem;
-  border-bottom: 1px dashed var(--ink-faint);
-  margin-bottom: 2rem;
-}
-.v2-header .line1 { color: var(--ink-faint); }
-.v2-header h1 {
-  font-family: var(--mono);
-  font-size: 15px;
-  font-weight: 500;
-  margin: 0.5rem 0;
-  color: var(--ink);
-}
-.v2-header h1 .red { color: var(--cinnabar); }
-
-.v2-section {
-  margin: 3rem 0;
-}
-.v2-section-head {
-  color: var(--cinnabar);
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-}
-.v2-section-head::before {
-  content: "## ";
-  color: var(--ink-faint);
-  font-weight: 400;
-}
-
-.v2 p { max-width: 80ch; margin-bottom: 1rem; }
-.v2 .comment { color: var(--ink-faint); }
-.v2 .kw { color: var(--cinnabar); }
-.v2 a { border-bottom: 1px solid var(--cinnabar); padding-bottom: 1px; }
-
-.v2-kv {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 8px 20px;
-  margin: 1rem 0;
-}
-.v2-kv dt { color: var(--ink-faint); }
-.v2-kv dd { color: var(--ink); }
-
-.v2-list {
-  list-style: none;
-  margin: 0.5rem 0 1rem 0;
-}
-.v2-list li {
-  padding-left: 20px;
-  position: relative;
-  margin-bottom: 0.4rem;
-  max-width: 78ch;
-}
-.v2-list li::before {
-  content: "▸";
-  position: absolute;
-  left: 0;
-  color: var(--cinnabar);
-}
-
-.v2-asciibox {
-  padding: 1.25rem;
-  background: var(--paper-deep);
-  border: 1px solid var(--paper-edge);
-  margin: 1.5rem 0;
-  overflow-x: auto;
-}
-
-.v2-map-mobile {
-  display: none;
-  margin: 1.5rem 0;
-  padding: 1rem;
-  background: var(--paper-deep);
-  border: 1px solid var(--paper-edge);
-}
-
-.v2-map-mobile-center {
-  padding: 0.8rem 0.9rem;
-  border: 1px solid var(--ink);
-  margin-bottom: 0.9rem;
-  text-align: center;
-}
-
-.v2-map-mobile-center .title {
-  display: block;
-  color: var(--ink);
-}
-
-.v2-map-mobile-center .sub {
-  display: block;
-  color: var(--ink-faint);
-  margin-top: 0.2rem;
-}
-
-.v2-map-mobile-list {
-  display: grid;
-  gap: 0.7rem;
-}
-
-.v2-map-mobile-item {
-  padding-left: 0.85rem;
-  border-left: 2px solid var(--paper-edge);
-}
-
-.v2-map-mobile-item .title {
-  color: var(--cinnabar);
-  font-weight: 600;
-}
-
-.v2-map-mobile-item .line {
-  display: block;
-  color: var(--ink);
-}
-
-.v2-map-mobile-item .meta {
-  display: block;
-  color: var(--ink-faint);
-}
-
-.v2-footer {
-  margin-top: 4rem;
-  padding-top: 1.5rem;
-  border-top: 1px dashed var(--ink-faint);
-  color: var(--ink-faint);
-  font-size: 12px;
-}
-
-
-/* =========================================================================
    V3 — EDITORIAL SPREAD (magazine-like two-column)
    ========================================================================= */
 .v3 {
@@ -1539,13 +1387,11 @@ html[lang="en"] .v3-pullquote {
 }
 
 @media (max-width: 700px) {
-  .v1-traj-svg,
-  .v2-asciibox {
+  .v1-traj-svg {
     display: none;
   }
 
-  .v1-traj-mobile,
-  .v2-map-mobile {
+  .v1-traj-mobile {
     display: block;
   }
 
@@ -1607,7 +1453,6 @@ html[lang="en"] .v3-pullquote {
   .v1-now-item-tag {
     padding-top: 0;
   }
-  .v2 { font-size: 13px; }
   .v3-contact { grid-template-columns: 1fr; }
   .topbar-inner {
     padding: 10px var(--gutter);
@@ -1642,8 +1487,8 @@ html[lang="en"] .v3-pullquote {
     justify-content: center;
   }
   .version-switch::-webkit-scrollbar { display: none; }
-  .version-switch button { padding: 6px 8px; font-size: 10px; }
-  .v2-map-mobile { padding: 0.85rem; }
+  .version-switch button,
+  .version-switch a { padding: 6px 8px; font-size: 10px; }
 }
 
 /* ========================================================================
@@ -1775,7 +1620,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
 
     <div class="version-switch" role="tablist" aria-label="Layout version">
       <button data-version="v1" class="active" data-i18n="nav.v1">01 · Home</button>
-      <button data-version="v2" data-i18n="nav.v2">02 · Collaborators</button>
+      <a href="collaborators.html" data-i18n="nav.v2">02 · Collaborators</a>
       <button data-version="v3" data-i18n="nav.v3">03 · Publications</button>
     </div>
 
@@ -2199,151 +2044,6 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
 
 
 <!-- ========================================================================
-     V2 — LAB NOTEBOOK (ASCII)
-     ======================================================================== -->
-<section class="version v2" id="v2">
-
-<div class="v2-header">
-<div class="line1 comment"># ~/lab/aiil/collaborators ── last updated: 2026-04-20</div>
-<h1>$ collaborators <span class="red" data-i18n="v2col.title">--list</span></h1>
-<div class="comment" data-i18n="v2col.subtitle"># 合作者與致謝 · 一間剛起步的實驗室，站在很多人的肩膀上</div>
-</div>
-
-<section class="v2-section">
-<div class="v2-section-head" data-i18n="v2col.intro.head">about this page</div>
-<p data-i18n="v2col.intro.p1">
-<span class="comment">/*</span> 這一頁是實驗室的合作網路snapshot。排序沒有特別意義，依類別分組。<span class="comment">*/</span>
-</p>
-</section>
-
-<section class="v2-section">
-<div class="v2-section-head" data-i18n="v2col.map.head">network ──────── 5 clusters</div>
-
-<div class="v2-asciibox"><pre data-i18n="v2col.map.ascii">
-                         ┌─────────────────────┐
-                         │  HUMAN GENOMICS     │
-                         │  TVGH · NHRI · KMU  │
-                         └──────────┬──────────┘
-                                    │
-                                    │  stroke variants · F2 · cohort NGS
-                                    │
-   ┌─────────────────────┐   ┌──────┴──────────┐   ┌─────────────────────┐
-   │  VET & ANIMAL       │───┤                 ├───│  INDUSTRY / TOOLS   │
-   │  NPUST vet med      │   │   aiil @ NPUST  │   │  antibody · CRO     │
-   │  clinics · shelters │   │   (lhchang)     │   │  agent frameworks   │
-   └─────────────────────┘   └──────┬──────────┘   └─────────────────────┘
-                                    │
-                                    │  compute · data · shared IRB
-                                    │
-                         ┌──────────┴──────────┐
-                         │  METHODS & DATA     │
-                         │  TWB · NBCT · NHI   │
-                         │  intl. labs · code  │
-                         └─────────────────────┘
-</pre></div>
-
-<div class="v2-map-mobile" aria-label="collaboration network summary">
-  <div class="v2-map-mobile-center">
-    <span class="title" data-i18n="v2col.map.mobile.center.title">aiil @ NPUST</span>
-    <span class="sub" data-i18n="v2col.map.mobile.center.sub">(lhchang)</span>
-  </div>
-
-  <div class="v2-map-mobile-list">
-    <div class="v2-map-mobile-item">
-      <span class="title" data-i18n="v2col.map.mobile.human.title">HUMAN GENOMICS</span>
-      <span class="line" data-i18n="v2col.map.mobile.human.line1">TVGH · NHRI · KMU</span>
-      <span class="meta" data-i18n="v2col.map.mobile.human.line2">stroke variants · F2 · cohort NGS</span>
-    </div>
-    <div class="v2-map-mobile-item">
-      <span class="title" data-i18n="v2col.map.mobile.vet.title">VET &amp; ANIMAL</span>
-      <span class="line" data-i18n="v2col.map.mobile.vet.line1">NPUST vet med</span>
-      <span class="meta" data-i18n="v2col.map.mobile.vet.line2">clinics · shelters</span>
-    </div>
-    <div class="v2-map-mobile-item">
-      <span class="title" data-i18n="v2col.map.mobile.ind.title">INDUSTRY / TOOLS</span>
-      <span class="line" data-i18n="v2col.map.mobile.ind.line1">antibody · CRO</span>
-      <span class="meta" data-i18n="v2col.map.mobile.ind.line2">agent frameworks</span>
-    </div>
-    <div class="v2-map-mobile-item">
-      <span class="title" data-i18n="v2col.map.mobile.methods.title">METHODS &amp; DATA</span>
-      <span class="line" data-i18n="v2col.map.mobile.methods.line1">TWB · NBCT · NHI</span>
-      <span class="meta" data-i18n="v2col.map.mobile.methods.line2">compute · data · shared IRB</span>
-      <span class="meta" data-i18n="v2col.map.mobile.methods.line3">intl. labs · code</span>
-    </div>
-  </div>
-</div>
-
-<p class="comment" data-i18n="v2col.map.note"># 中心是實驗室本身，四個方向是持續往來的合作面。每條邊上寫的是目前實際的交集。</p>
-</section>
-
-<section class="v2-section">
-<div class="v2-section-head" data-i18n="v2col.hg.head">human genomics ── clinical collaborators</div>
-
-<dl class="v2-kv">
-<dt>TVGH</dt><dd data-i18n="v2col.hg.tvgh">臺北榮民總醫院 · 神經內科 &nbsp;·&nbsp; <span class="comment">早發性腦中風 cohort、家族性腦靜脈竇血栓 F2 p.F382L、臨床表型與遺傳判讀、罕見疾病 variant interpretation、family-based NGS 分析</span></dd>
-<dt>NHRI</dt><dd data-i18n="v2col.hg.nhri">國家衛生研究院 &nbsp;·&nbsp; <span class="comment">國家級 NGS 資料平台、精準醫學工作流程</span></dd>
-<dt>KMU</dt><dd data-i18n="v2col.hg.kmu">高雄醫學大學 &nbsp;·&nbsp; <span class="comment">癌症 RNA-seq 生物標記、攝護腺癌二代荷爾蒙藥物選擇平台</span></dd>
-<dt>others</dt><dd data-i18n="v2col.hg.others"><span class="comment">// 陸續補上，歡迎有意合作者來信</span></dd>
-</dl>
-</section>
-
-<section class="v2-section">
-<div class="v2-section-head" data-i18n="v2col.vet.head">vet &amp; animal ── on-campus + clinics</div>
-
-<dl class="v2-kv">
-<dt>NPUST.vet</dt><dd data-i18n="v2col.vet.c1">獸醫學院 &nbsp;·&nbsp; <span class="comment">院內合作；病理、微生物與免疫相關資源</span></dd>
-<dt>AVT</dt><dd data-i18n="v2col.vet.c2">動物疫苗科技研究所（PI 所屬單位） &nbsp;·&nbsp; <span class="comment">疫苗研究主場域；動物樣本處理、病毒分離與傳代、抗原製備</span></dd>
-</dl>
-</section>
-
-<section class="v2-section">
-<div class="v2-section-head" data-i18n="v2col.ind.head">methods · industry · tools</div>
-
-<ul class="v2-list">
-<li data-i18n="v2col.ind.l1"><span class="kw">[antibody]</span> 抗體開發合作對象 &nbsp;·&nbsp; <span class="comment">H2M-ValiPred 驗證資料集來源，developability assay 交換</span></li>
-<li data-i18n="v2col.ind.l2"><span class="kw">[data]</span> TWB · NBCT · 健保資料庫 &nbsp;·&nbsp; <span class="comment">人類面的 cohort-scale 資料，用於 transfer learning 的 human reference</span></li>
-<li data-i18n="v2col.ind.l3"><span class="kw">[compute]</span> 國家高速網路與計算中心 &nbsp;·&nbsp; <span class="comment">GPU 叢集與儲存，長跑 embedding 與 diffusion</span></li>
-<li data-i18n="v2col.ind.l4"><span class="kw">[tools]</span> open-source community &nbsp;·&nbsp; <span class="comment">ESM · RFdiffusion · BindCraft · DVC · MLflow — 站在巨人的肩膀上</span></li>
-</ul>
-</section>
-
-<section class="v2-section">
-<div class="v2-section-head" data-i18n="v2col.fund.head">funding &amp; acknowledgements</div>
-
-<dl class="v2-kv">
-<dt>NSTC</dt><dd data-i18n="v2col.fund.nstc">國科會 2026.08–2027.07 &nbsp;·&nbsp; <span class="comment">CPV / FPV 跨物種抗病毒藥物再利用（主持人）</span></dd>
-<dt>NPUST</dt><dd data-i18n="v2col.fund.npust">校內新進教師啟動經費 &nbsp;·&nbsp; <span class="comment">GPU 工作站與計算基礎建設</span></dd>
-<dt>KMU–NPUST</dt><dd data-i18n="v2col.fund.kmu">高醫屏科雙邊計畫 &nbsp;·&nbsp; <span class="comment">計算基礎建設與 wet-lab 合作</span></dd>
-<dt>higher-ed</dt><dd data-i18n="v2col.fund.he">高教深耕相關計畫 &nbsp;·&nbsp; <span class="comment">H2M-ValiPred 撰稿期間支援</span></dd>
-<dt>mentors</dt><dd data-i18n="v2col.fund.mentors"><span class="comment">// 感謝一路上的指導者：博班、博後與每個願意花時間的前輩</span></dd>
-</dl>
-
-<p class="comment" data-i18n="v2col.fund.note"># 本頁呈現的研究成果，無一不是多方合作與公開資源累積的結果。若有遺漏或錯誤，請來信告知，會盡速修正。</p>
-</section>
-
-<section class="v2-section">
-<div class="v2-section-head" data-i18n="v2col.lab.head">lab members · 2026</div>
-
-<ul class="v2-list">
-<li data-i18n="v2col.lab.l1"><span class="kw">[PI]</span> Li-Hsin Chang 張立鑫 &nbsp;·&nbsp; <span class="comment">assistant professor · 主持人</span></li>
-<li data-i18n="v2col.lab.l2"><span class="kw">[MS]</span> 招募中 &nbsp;·&nbsp; <span class="comment">// recruiting — 碩士生名額開放中</span></li>
-<li data-i18n="v2col.lab.l3"><span class="kw">[UG]</span> 招募中 &nbsp;·&nbsp; <span class="comment">// 專題生歡迎詢問</span></li>
-<li data-i18n="v2col.lab.l4"><span class="kw">[alumni]</span> <span class="comment">// 尚無 · 實驗室於 2025 成立</span></li>
-</ul>
-
-<p data-i18n="v2col.lab.p1">
-<span class="comment">//</span> 想加入、合作、或只是想聊聊？
-&gt;&gt;&gt; <a href="mailto:lhchang@mail.npust.edu.tw" data-i18n="v2col.lab.cta">lhchang@mail.npust.edu.tw</a>
-</p>
-</section>
-
-<div class="v2-footer" data-i18n="v2.footer">
-# © 2025–2026 aiil · npust · hand-typed in pingtung
-</div>
-
-</section>
-
-<!-- ========================================================================
      V3 — EDITORIAL SPREAD
      ======================================================================== -->
 <section class="version v3" id="v3">
@@ -2531,7 +2231,6 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
     <label>layout</label>
     <select id="tw-version">
       <option value="v1">01 · home</option>
-      <option value="v2">02 · collaborators</option>
       <option value="v3">03 · publications</option>
     </select>
   </div>
@@ -2686,57 +2385,6 @@ const I18N = {
     'v1.contact.addrv': '屏東縣內埔鄉學府路1號・國立屏東科技大學 獸醫學院',
     'v1.colo.set': '本頁排版：NOTO SERIF TC、SOURCE SERIF 4 & SOURCE SANS 3 · 於屏東手工排版',
 
-    /* V2 — Collaborators */
-    'v2col.title': '--list',
-    'v2col.subtitle': '# 合作者與致謝 · 一間剛起步的實驗室，站在很多人的肩膀上',
-    'v2col.intro.head': 'about this page',
-    'v2col.intro.p1': '<span class="comment">/*</span> 這一頁是實驗室的合作網路snapshot。排序沒有特別意義，依類別分組。<span class="comment">*/</span>',
-    'v2col.map.head': 'network ──────── 5 clusters',
-    'v2col.map.ascii': '                         ┌─────────────────────┐\n                         │  HUMAN GENOMICS     │\n                         │  TVGH · NHRI · KMU  │\n                         └──────────┬──────────┘\n                                    │\n                                    │  stroke variants · F2 · cohort NGS\n                                    │\n   ┌─────────────────────┐   ┌──────┴──────────┐   ┌─────────────────────┐\n   │  VET & ANIMAL       │───┤                 ├───│  INDUSTRY / TOOLS   │\n   │  NPUST vet med      │   │   aiil @ NPUST  │   │  antibody · CRO     │\n   │  clinics · shelters │   │   (lhchang)     │   │  agent frameworks   │\n   └─────────────────────┘   └──────┬──────────┘   └─────────────────────┘\n                                    │\n                                    │  compute · data · shared IRB\n                                    │\n                         ┌──────────┴──────────┐\n                         │  METHODS & DATA     │\n                         │  TWB · NBCT · NHI   │\n                         │  intl. labs · code  │\n                         └─────────────────────┘\n',
-    'v2col.map.note': '# 中心是實驗室本身，四個方向是持續往來的合作面。每條邊上寫的是目前實際的交集。',
-    'v2col.map.mobile.center.title': 'aiil @ NPUST',
-    'v2col.map.mobile.center.sub': '(lhchang)',
-    'v2col.map.mobile.human.title': 'HUMAN GENOMICS',
-    'v2col.map.mobile.human.line1': 'TVGH · NHRI · KMU',
-    'v2col.map.mobile.human.line2': 'stroke variants · F2 · cohort NGS',
-    'v2col.map.mobile.vet.title': 'VET & ANIMAL',
-    'v2col.map.mobile.vet.line1': 'NPUST vet med',
-    'v2col.map.mobile.vet.line2': 'clinics · shelters',
-    'v2col.map.mobile.ind.title': 'INDUSTRY / TOOLS',
-    'v2col.map.mobile.ind.line1': 'antibody · CRO',
-    'v2col.map.mobile.ind.line2': 'agent frameworks',
-    'v2col.map.mobile.methods.title': 'METHODS & DATA',
-    'v2col.map.mobile.methods.line1': 'TWB · NBCT · NHI',
-    'v2col.map.mobile.methods.line2': 'compute · data · shared IRB',
-    'v2col.map.mobile.methods.line3': 'intl. labs · code',
-    'v2col.hg.head': 'human genomics ── clinical collaborators',
-    'v2col.hg.tvgh': '臺北榮民總醫院 · 神經內科 &nbsp;·&nbsp; <span class="comment">早發性腦中風 cohort、家族性腦靜脈竇血栓 F2 p.F382L、臨床表型與遺傳判讀、罕見疾病 variant interpretation、family-based NGS 分析</span>',
-    'v2col.hg.nhri': '國家衛生研究院 &nbsp;·&nbsp; <span class="comment">國家級 NGS 資料平台、精準醫學工作流程</span>',
-    'v2col.hg.kmu': '高雄醫學大學 &nbsp;·&nbsp; <span class="comment">癌症 RNA-seq 生物標記、攝護腺癌二代荷爾蒙藥物選擇平台</span>',
-    'v2col.hg.others': '<span class="comment">// 陸續補上，歡迎有意合作者來信</span>',
-    'v2col.vet.head': 'vet &amp; animal ── on-campus + clinics',
-    'v2col.vet.c1': '獸醫學院 &nbsp;·&nbsp; <span class="comment">院內合作；病理、微生物與免疫相關資源</span>',
-    'v2col.vet.c2': '動物疫苗科技研究所（PI 所屬單位） &nbsp;·&nbsp; <span class="comment">疫苗研究主場域；動物樣本處理、病毒分離與傳代、抗原製備</span>',
-    'v2col.ind.head': 'methods · industry · tools',
-    'v2col.ind.l1': '<span class="kw">[antibody]</span> 抗體開發合作對象 &nbsp;·&nbsp; <span class="comment">H2M-ValiPred 驗證資料集來源，developability assay 交換</span>',
-    'v2col.ind.l2': '<span class="kw">[data]</span> TWB · NBCT · 健保資料庫 &nbsp;·&nbsp; <span class="comment">人類面的 cohort-scale 資料，用於 transfer learning 的 human reference</span>',
-    'v2col.ind.l3': '<span class="kw">[compute]</span> 國家高速網路與計算中心 &nbsp;·&nbsp; <span class="comment">GPU 叢集與儲存，長跑 embedding 與 diffusion</span>',
-    'v2col.ind.l4': '<span class="kw">[tools]</span> open-source community &nbsp;·&nbsp; <span class="comment">ESM · RFdiffusion · BindCraft · DVC · MLflow — 站在巨人的肩膀上</span>',
-    'v2col.fund.head': 'funding &amp; acknowledgements',
-    'v2col.fund.nstc': '國科會 2026.08–2027.07 &nbsp;·&nbsp; <span class="comment">CPV / FPV 跨物種抗病毒藥物再利用（主持人）</span>',
-    'v2col.fund.npust': '校內新進教師啟動經費 &nbsp;·&nbsp; <span class="comment">GPU 工作站與計算基礎建設</span>',
-    'v2col.fund.kmu': '高醫屏科雙邊計畫 &nbsp;·&nbsp; <span class="comment">計算基礎建設與 wet-lab 合作</span>',
-    'v2col.fund.he': '高教深耕相關計畫 &nbsp;·&nbsp; <span class="comment">H2M-ValiPred 撰稿期間支援</span>',
-    'v2col.fund.mentors': '<span class="comment">// 感謝一路上的指導者：博班、博後與每個願意花時間的前輩</span>',
-    'v2col.fund.note': '# 本頁呈現的研究成果，無一不是多方合作與公開資源累積的結果。若有遺漏或錯誤，請來信告知，會盡速修正。',
-    'v2col.lab.head': 'lab members · 2026',
-    'v2col.lab.l1': '<span class="kw">[PI]</span> Li-Hsin Chang 張立鑫 &nbsp;·&nbsp; <span class="comment">assistant professor · 主持人</span>',
-    'v2col.lab.l2': '<span class="kw">[MS]</span> 招募中 &nbsp;·&nbsp; <span class="comment">// recruiting — 碩士生名額開放中</span>',
-    'v2col.lab.l3': '<span class="kw">[UG]</span> 招募中 &nbsp;·&nbsp; <span class="comment">// 專題生歡迎詢問</span>',
-    'v2col.lab.l4': '<span class="kw">[alumni]</span> <span class="comment">// 尚無 · 實驗室於 2025 成立</span>',
-    'v2col.lab.p1': '<span class="comment">//</span> 想加入、合作、或只是想聊聊？\n>>> <a href="mailto:lhchang@mail.npust.edu.tw" data-i18n="v2col.lab.cta">lhchang@mail.npust.edu.tw</a>',
-    'v2col.lab.cta': 'lhchang@mail.npust.edu.tw',
-    'v2.footer': '# © 2025–2026 aiil · npust · 於屏東手工敲出',
 
     /* V3 — Publications */
     'v3pub.mast.left': '第一卷 · 第二期<br/>2026 春',
@@ -2917,57 +2565,6 @@ const I18N = {
     'v1.contact.addrv': 'No.1 Shuefu Rd., Neipu, Pingtung 912 · College of Veterinary Medicine, NPUST',
     'v1.colo.set': 'SET IN NOTO SERIF TC, SOURCE SERIF 4 & SOURCE SANS 3 · HAND-SET IN PINGTUNG',
 
-    /* V2 — Collaborators */
-    'v2col.title': '--list',
-    'v2col.subtitle': '# collaborators &amp; acknowledgements · a new lab stands on many shoulders',
-    'v2col.intro.head': 'about this page',
-    'v2col.intro.p1': '<span class="comment">/*</span> A snapshot of the lab\'s collaboration network. Ordering carries no meaning — grouped by cluster. <span class="comment">*/</span>',
-    'v2col.map.head': 'network ──────── 5 clusters',
-    'v2col.map.ascii': '                         ┌─────────────────────┐\n                         │  HUMAN GENOMICS     │\n                         │  TVGH · NHRI · KMU  │\n                         └──────────┬──────────┘\n                                    │\n                                    │  stroke variants · F2 · cohort NGS\n                                    │\n   ┌─────────────────────┐   ┌──────┴──────────┐   ┌─────────────────────┐\n   │  VET & ANIMAL       │───┤                 ├───│  INDUSTRY / TOOLS   │\n   │  NPUST vet med      │   │   aiil @ NPUST  │   │  antibody · CRO     │\n   │  clinics · shelters │   │   (lhchang)     │   │  agent frameworks   │\n   └─────────────────────┘   └──────┬──────────┘   └─────────────────────┘\n                                    │\n                                    │  compute · data · shared IRB\n                                    │\n                         ┌──────────┴──────────┐\n                         │  METHODS & DATA     │\n                         │  TWB · NBCT · NHI   │\n                         │  intl. labs · code  │\n                         └─────────────────────┘\n',
-    'v2col.map.note': '# the lab sits at the center, with four directions of ongoing collaboration. each edge label is the actual intersection today.',
-    'v2col.map.mobile.center.title': 'aiil @ NPUST',
-    'v2col.map.mobile.center.sub': '(lhchang)',
-    'v2col.map.mobile.human.title': 'HUMAN GENOMICS',
-    'v2col.map.mobile.human.line1': 'TVGH · NHRI · KMU',
-    'v2col.map.mobile.human.line2': 'stroke variants · F2 · cohort NGS',
-    'v2col.map.mobile.vet.title': 'VET & ANIMAL',
-    'v2col.map.mobile.vet.line1': 'NPUST vet med',
-    'v2col.map.mobile.vet.line2': 'clinics · shelters',
-    'v2col.map.mobile.ind.title': 'INDUSTRY / TOOLS',
-    'v2col.map.mobile.ind.line1': 'antibody · CRO',
-    'v2col.map.mobile.ind.line2': 'agent frameworks',
-    'v2col.map.mobile.methods.title': 'METHODS & DATA',
-    'v2col.map.mobile.methods.line1': 'TWB · NBCT · NHI',
-    'v2col.map.mobile.methods.line2': 'compute · data · shared IRB',
-    'v2col.map.mobile.methods.line3': 'intl. labs · code',
-    'v2col.hg.head': 'human genomics ── clinical collaborators',
-    'v2col.hg.tvgh': 'Taipei Veterans General Hospital (TVGH) · Neurology &nbsp;·&nbsp; <span class="comment">early-onset stroke cohort, familial cerebral venous thrombosis (F2 p.F382L), clinical phenotyping &amp; variant interpretation, rare-disease variant interpretation, family-based NGS analyses</span>',
-    'v2col.hg.nhri': 'National Health Research Institutes (NHRI) &nbsp;·&nbsp; <span class="comment">national NGS data platform, precision-medicine workflows</span>',
-    'v2col.hg.kmu': 'Kaohsiung Medical University (KMU) &nbsp;·&nbsp; <span class="comment">cancer RNA-seq biomarkers, second-generation hormonal-drug selection platform for prostate cancer</span>',
-    'v2col.hg.others': '<span class="comment">// more to be added — open to new collaborators, please reach out</span>',
-    'v2col.vet.head': 'vet &amp; animal ── on-campus + clinics',
-    'v2col.vet.c1': 'College of Veterinary Medicine &nbsp;·&nbsp; <span class="comment">on-campus collaboration; pathology, microbiology, and immunology-related resources</span>',
-    'v2col.vet.c2': 'Graduate Institute of Animal Vaccine Technology (PI\'s home institute) &nbsp;·&nbsp; <span class="comment">primary vaccine research site; animal sample handling, viral isolation and passaging, antigen preparation</span>',
-    'v2col.ind.head': 'methods · industry · tools',
-    'v2col.ind.l1': '<span class="kw">[antibody]</span> antibody-development partners &nbsp;·&nbsp; <span class="comment">H2M-ValiPred validation data source, developability assay exchange</span>',
-    'v2col.ind.l2': '<span class="kw">[data]</span> TWB · NBCT · NHI claims &nbsp;·&nbsp; <span class="comment">cohort-scale human data — the human-side reference for transfer learning</span>',
-    'v2col.ind.l3': '<span class="kw">[compute]</span> National Center for High-performance Computing (NCHC) &nbsp;·&nbsp; <span class="comment">GPU cluster + storage — long-running embeddings &amp; diffusion</span>',
-    'v2col.ind.l4': '<span class="kw">[tools]</span> open-source community &nbsp;·&nbsp; <span class="comment">ESM · RFdiffusion · BindCraft · DVC · MLflow — standing on giants</span>',
-    'v2col.fund.head': 'funding &amp; acknowledgements',
-    'v2col.fund.nstc': 'NSTC 2026.08–2027.07 &nbsp;·&nbsp; <span class="comment">CPV / FPV cross-species antiviral drug repurposing (PI)</span>',
-    'v2col.fund.npust': 'NPUST new-faculty start-up &nbsp;·&nbsp; <span class="comment">GPU workstation &amp; compute infrastructure</span>',
-    'v2col.fund.kmu': 'KMU–NPUST bilateral program &nbsp;·&nbsp; <span class="comment">compute infrastructure and wet-lab collaboration</span>',
-    'v2col.fund.he': 'Higher Education Sprout Project &nbsp;·&nbsp; <span class="comment">support during H2M-ValiPred write-up</span>',
-    'v2col.fund.mentors': '<span class="comment">// with gratitude to mentors along the way — PhD, postdoc, and everyone who gave me their time</span>',
-    'v2col.fund.note': '# nothing on this page is the result of one person. corrections and omissions: please email me — will fix quickly.',
-    'v2col.lab.head': 'lab members · 2026',
-    'v2col.lab.l1': '<span class="kw">[PI]</span> Li-Hsin Chang 張立鑫 &nbsp;·&nbsp; <span class="comment">assistant professor · principal investigator</span>',
-    'v2col.lab.l2': '<span class="kw">[MS]</span> recruiting &nbsp;·&nbsp; <span class="comment">// MS positions open</span>',
-    'v2col.lab.l3': '<span class="kw">[UG]</span> recruiting &nbsp;·&nbsp; <span class="comment">// undergrad research welcome</span>',
-    'v2col.lab.l4': '<span class="kw">[alumni]</span> <span class="comment">// none yet · lab founded 2025</span>',
-    'v2col.lab.p1': '<span class="comment">//</span> want to join, collaborate, or just talk?\n>>> <a href="mailto:lhchang@mail.npust.edu.tw" data-i18n="v2col.lab.cta">lhchang@mail.npust.edu.tw</a>',
-    'v2col.lab.cta': 'lhchang@mail.npust.edu.tw',
-    'v2.footer': '# © 2025–2026 aiil · npust · hand-typed in pingtung',
 
     /* V3 — Publications */
     'v3pub.mast.left': 'Vol. 01 · No. 02<br/>Spring 2026',
@@ -3206,7 +2803,10 @@ function refreshPenStrokes() {
     lang = bl.startsWith('zh') ? 'zh' : 'en';
   }
   let ver = 'v1';
-  try { const s = localStorage.getItem('aiil_ver'); if (s) ver = s; } catch(e){}
+  try { const s = localStorage.getItem('aiil_ver'); if (s && document.getElementById(s)) ver = s; } catch(e){}
+  // links from other pages pick the tab explicitly
+  if (location.hash === '#home') ver = 'v1';
+  if (location.hash === '#publications') ver = 'v3';
 
   tweakState.lang = lang;
   tweakState.version = ver;
