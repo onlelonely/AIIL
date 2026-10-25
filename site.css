@@ -156,7 +156,6 @@ html[lang="en"] body { font-family: var(--sans); }
   box-shadow: rgba(0, 0, 0, 0.05) 0 1px 8px 0;
   backdrop-filter: blur(9px);
 }
-.version-switch button,
 .version-switch a {
   padding: 7px 12px;
   color: var(--ink-faint);
@@ -170,8 +169,7 @@ html[lang="en"] body { font-family: var(--sans); }
   color: var(--surface);
   box-shadow: rgba(0, 0, 0, 0.16) 0 2px 6px 0;
 }
-.version-switch button:hover:not(.active),
-.version-switch a:hover { color: var(--ink); }
+.version-switch a:hover:not(.active) { color: var(--ink); }
 
 .topbar-right {
   display: inline-flex;
@@ -367,7 +365,6 @@ html[lang="en"] .cp-head h1 { font-family: var(--sans); }
     justify-content: center;
   }
   .version-switch::-webkit-scrollbar { display: none; }
-  .version-switch button,
   .version-switch a { padding: 6px 8px; font-size: 10px; }
   .v1-contact-row {
     grid-template-columns: 1fr;

@@ -13,12 +13,6 @@
 <link rel="stylesheet" href="site.css">
 <style>
 /* ========================================================================
-   VERSION FRAMES — only one visible
-   ======================================================================== */
-.version { display: none; }
-.version.active { display: block; }
-
-/* ========================================================================
    SHARED TYPE STYLES
    ======================================================================== */
 .serif { font-family: var(--serif); }
@@ -789,303 +783,6 @@ html[lang="en"] .v1-topic-desc { font-family: var(--sans); }
   border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 72%, transparent);
 }
 
-/* =========================================================================
-   V3 — EDITORIAL SPREAD (magazine-like two-column)
-   ========================================================================= */
-.v3 {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 3rem var(--gutter) 5rem;
-}
-
-.v3-masthead {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 2rem;
-  align-items: end;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid var(--ink);
-  margin-bottom: 3rem;
-}
-.v3-masthead-left,
-.v3-masthead-right {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  line-height: 1.8;
-}
-.v3-masthead-right { text-align: right; }
-
-.v3-masthead-title {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  line-height: 1;
-  text-align: center;
-  color: var(--ink);
-}
-html[lang="en"] .v3-masthead-title {
-  font-family: var(--sans);
-  font-weight: 700;
-}
-.v3-masthead-title .red { color: var(--cinnabar); }
-
-.v3-hero {
-  display: grid;
-  grid-template-columns: 5fr 3fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
-  padding-bottom: 3rem;
-  border-bottom: 1px solid var(--paper-edge);
-}
-
-.v3-hero-lead {
-  font-family: var(--serif);
-  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-  line-height: 1.45;
-  color: var(--ink);
-  font-weight: 400;
-  letter-spacing: -0.005em;
-  text-wrap: balance;
-}
-html[lang="en"] .v3-hero-lead {
-  font-family: var(--sans);
-  font-weight: 300;
-  line-height: 1.3;
-  letter-spacing: -0.015em;
-}
-.v3-hero-lead em {
-  color: var(--cinnabar);
-  font-style: italic;
-  font-weight: 500;
-}
-
-.v3-hero-right {
-  display: grid;
-  grid-template-rows: auto auto;
-  gap: 1.25rem;
-}
-.v3-hero-right img {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  filter: grayscale(0.5) contrast(1.08);
-}
-.v3-hero-caption {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.08em;
-  color: var(--ink-faint);
-  line-height: 1.7;
-  padding-left: 12px;
-  border-left: 1px solid var(--cinnabar);
-}
-
-.v3-body {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.v3-col-main { min-width: 0; }
-.v3-col-side { min-width: 0; }
-
-/* essay-style narrative */
-.v3-essay {
-  padding: clamp(1.25rem, 3vw, 2.2rem);
-  border: 1px solid var(--paper-edge);
-  border-radius: 16px;
-  background: color-mix(in srgb, var(--surface) 94%, var(--paper-deep));
-  box-shadow: var(--shadow-soft);
-}
-
-.v3-essay h2 {
-  font-family: var(--serif);
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin: 2.5rem 0 0.75rem;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-html[lang="en"] .v3-essay h2 {
-  font-family: var(--sans);
-  font-weight: 600;
-}
-.v3-essay h2:first-child { margin-top: 0; }
-
-.v3-essay h2::before {
-  content: "§ ";
-  color: var(--cinnabar);
-  font-weight: 400;
-}
-
-.v3-essay p {
-  font-family: var(--serif);
-  font-size: 1.08rem;
-  line-height: 1.85;
-  color: var(--ink);
-  margin-bottom: 1.1rem;
-  max-width: 54ch;
-}
-html[lang="en"] .v3-essay p {
-  font-family: var(--sans);
-  font-weight: 400;
-  font-size: 1.02rem;
-  line-height: 1.7;
-}
-
-.v3-essay p .lift {
-  color: var(--brand-blue);
-  font-weight: 500;
-}
-.v3-essay a,
-.v3-sidebar-item a {
-  color: var(--brand-blue);
-  border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 72%, transparent);
-}
-.v3-essay a:hover,
-.v3-sidebar-item a:hover {
-  color: var(--cinnabar-deep);
-  border-bottom-color: color-mix(in srgb, var(--cinnabar-deep) 72%, transparent);
-}
-
-.v3-essay .drop::first-letter {
-  float: left;
-  font-family: var(--serif);
-  font-size: 2.1rem;
-  line-height: 0.85;
-  padding: 0.3rem 0.55rem 0 0;
-  color: var(--cinnabar);
-  font-weight: 700;
-}
-
-.v3-pullquote {
-  font-family: var(--serif);
-  font-size: 1.5rem;
-  line-height: 1.4;
-  color: var(--ink);
-  font-style: italic;
-  padding: 1.5rem 0 1.5rem 2rem;
-  border-left: 2px solid var(--cinnabar);
-  margin: 2rem 0;
-  max-width: 44ch;
-}
-html[lang="en"] .v3-pullquote {
-  font-family: var(--sans);
-  font-weight: 300;
-  font-style: normal;
-}
-
-/* sidebar: index of facts */
-.v3-sidebar-block {
-  padding: 1.15rem 1.2rem;
-  border: 1px solid var(--paper-edge);
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--surface) 88%, var(--paper-deep));
-  box-shadow: rgba(0, 0, 0, 0.05) 0 1px 8px 0;
-  margin-bottom: 1rem;
-}
-.v3-sidebar-block:first-child { border-top: 1px solid var(--brand-blue); }
-.v3-sidebar-block:last-child  { border-bottom: 1px solid var(--paper-edge); }
-
-.v3-sidebar-label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 1rem;
-  display: flex;
-  justify-content: space-between;
-}
-.v3-sidebar-label .num {
-  color: var(--brand-blue);
-}
-
-.v3-sidebar-block ul {
-  list-style: none;
-}
-
-.v3-sidebar-item {
-  padding: 0.75rem 0;
-  border-top: 1px dotted var(--paper-edge);
-  font-family: var(--sans);
-  font-size: 0.92rem;
-  line-height: 1.55;
-  color: var(--ink-soft);
-}
-.v3-sidebar-item:first-child { border-top: 0; padding-top: 0;}
-.v3-sidebar-item strong {
-  display: block;
-  color: var(--ink);
-  font-weight: 500;
-  margin-bottom: 2px;
-}
-.v3-sidebar-item .meta {
-  display: block;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  color: var(--brand-blue);
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.v3-map {
-  margin: 3rem 0;
-  padding: 2rem 0;
-  border-top: 1px solid var(--paper-edge);
-  border-bottom: 1px solid var(--paper-edge);
-}
-.v3-map svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.v3-map-caption {
-  margin-top: 1rem;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  color: var(--ink-faint);
-  text-align: center;
-}
-
-.v3-contact {
-  margin-top: 4rem;
-  padding: 1.3rem;
-  border: 1px solid var(--paper-edge);
-  border-radius: 16px;
-  background: color-mix(in srgb, var(--surface) 92%, var(--paper-deep));
-  box-shadow: var(--shadow-soft);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  font-size: 0.92rem;
-}
-.v3-contact-row .key {
-  font-family: var(--mono);
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink-faint);
-  margin-bottom: 4px;
-}
-.v3-contact-row .val {
-  font-family: var(--mono);
-  color: var(--ink);
-  word-break: break-word;
-}
-.v3-contact-row .val a {
-  color: var(--brand-blue);
-  border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 72%, transparent);
-}
-
-
 /* ========================================================================
    RESPONSIVE
    ======================================================================== */
@@ -1095,10 +792,6 @@ html[lang="en"] .v3-pullquote {
   .v1-now, .v1-research-head, .v1-research-threads, .v1-teach, .v1-collab, .v1-contact {
     grid-template-columns: 1fr; gap: 1.5rem;
   }
-  .v3-body, .v3-hero { grid-template-columns: 1fr; }
-  .v3-contact { grid-template-columns: repeat(2, 1fr); }
-  .v3-masthead { grid-template-columns: 1fr; text-align: center; }
-  .v3-masthead-right { text-align: center; }
 }
 
 @media (max-width: 700px) {
@@ -1166,7 +859,6 @@ html[lang="en"] .v3-pullquote {
   .v1-now-item-tag {
     padding-top: 0;
   }
-  .v3-contact { grid-template-columns: 1fr; }
 }
 
 /* ========================================================================
@@ -1278,7 +970,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
      ======================================================================== -->
 <header class="topbar">
   <div class="topbar-inner">
-    <a href="#" class="seal" aria-label="AIIL home">
+    <a href="./" class="seal" aria-label="AIIL home">
       <span class="seal-mark" aria-hidden="true">
         <svg viewBox="0 0 80 36">
           <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
@@ -1296,11 +988,11 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
     </a>
     </a>
 
-    <div class="version-switch" role="tablist" aria-label="Layout version">
-      <button data-version="v1" class="active" data-i18n="nav.v1">01 · Home</button>
+    <nav class="version-switch" aria-label="Site sections">
+      <a href="./" class="active" aria-current="page" data-i18n="nav.v1">01 · Home</a>
       <a href="collaborators.html" data-i18n="nav.v2">02 · Collaborators</a>
-      <button data-version="v3" data-i18n="nav.v3">03 · Publications</button>
-    </div>
+      <a href="publications.html" data-i18n="nav.v3">03 · Publications</a>
+    </nav>
 
     <div class="topbar-right">
       <div class="lang-switch">
@@ -1317,7 +1009,7 @@ body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.co
 <!-- ========================================================================
      V1 — RESEARCHER'S NOTEBOOK
      ======================================================================== -->
-<section class="version v1 active" id="v1">
+<section class="v1" id="v1">
 
   <!-- masthead ---------------------------------------------------------- -->
   <div class="v1-masthead">
@@ -1715,188 +1407,10 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
   <!-- Colophon ----------------------------------------------------------- -->
   <footer class="v1-colophon">
     <div>© 2025–2026 AIIL · NPUST</div>
-    <div data-i18n="v1.colo.set">SET IN NOTO SERIF TC, SOURCE SERIF 4 &amp; SOURCE SANS 3 · HAND-SET IN PINGTUNG</div>
   </footer>
 
 </section>
 
-
-<!-- ========================================================================
-     V3 — EDITORIAL SPREAD
-     ======================================================================== -->
-<section class="version v3" id="v3">
-
-  <div class="v3-masthead">
-    <div class="v3-masthead-left" data-i18n="v3pub.mast.left">
-      Vol. 01 &middot; No. 02<br/>
-      Spring 2026
-    </div>
-    <div class="v3-masthead-title">
-      Publications<br/>
-      &amp; <span class="red">Writing</span>
-    </div>
-    <div class="v3-masthead-right" data-i18n="v3pub.mast.right">
-      Li-Hsin Chang<br/>
-      ORCID 0000-0002-1126-7697
-    </div>
-  </div>
-
-  <div class="v3-body">
-
-    <!-- Main column: featured papers ---------------------------------- -->
-    <div class="v3-col-main">
-      <article class="v3-essay">
-
-        <h2 data-i18n="v3pub.f2.h">Featured · 早發性缺血性腦中風</h2>
-        <p class="drop" data-i18n="v3pub.f2.meta"><em>Published · <a href="https://www.neurology.org/doi/full/10.1212/WNL.0000000000218126" target="_blank" rel="noopener">Neurology 106(12):e218126</a> · 2026</em> &nbsp;·&nbsp; multi-center collaboration · co-author</p>
-        <p data-i18n="v3pub.f2.p1">
-          北榮神內長期參與中研院「台灣精準醫療計畫（TPMI）」，整合院內收案與 TPMI 多中心資料，以 <span class="lift">GWAS</span> 找出台灣早發性缺血性腦中風的風險因子。
-        </p>
-        <p data-i18n="v3pub.f2.p2">
-          論文經過多輪審查與資料擴充，已於 2026-06-01 正式刊出；紙本期別為 2026-06-23。對我來說，這篇標誌了<span class="lift">從博班就開始參與的收案計畫</span>終於有一個夠大的產出。
-        </p>
-
-        <h2 data-i18n="v3pub.f3.h">Featured · F2 p.F382L &amp; 家族性腦靜脈竇血栓</h2>
-        <p class="drop" data-i18n="v3pub.f3.meta"><em>Submitted · RPTH · 2026</em> &nbsp;·&nbsp; first author</p>
-        <p data-i18n="v3pub.f3.p1">
-          從一個家族出發，鎖定 F2 基因上的一個罕見 missense variant，並在臨床與功能層面建立它與家族腦靜脈竇血栓的關聯。對我個人，這是「家族 NGS + 變異判讀」這條線的收尾作品之一。
-        </p>
-
-        <h2 data-i18n="v3pub.f1.h">Featured · H2M-ValiPred</h2>
-        <p class="drop" data-i18n="v3pub.f1.meta"><em>撰稿中 · 目標投稿 Bioinformatics Advances</em> &nbsp;·&nbsp; 第一作者</p>
-        <p data-i18n="v3pub.f1.p1">
-          抗體開發階段的 developability 預測，大多數模型只在人源資料上訓練。我們想問的是：當目標物種換成貓、狗，這些預測還準嗎？研究做的是把 <span class="lift">ESM-2 language model embedding</span> 當作跨物種的共同座標系，用 881 條抗體、13 項實驗分析建立跨物種對齊的基準。
-        </p>
-        <p data-i18n="v3pub.f1.p2">
-          這是實驗室的第一個正式 output，也是四條主軸裡「跨物種遷移」的最小可行驗證。資料與程式碼釋出後會放在實驗室 GitHub。
-        </p>
-
-        <div class="v3-pullquote" data-i18n="v3pub.f1.pull">
-          人源模型能不能跨到動物身上？要知道答案，得先把比較的尺度建起來。
-        </div>
-
-      </article>
-    </div>
-
-    <!-- Side column: paper index -------------------------- -->
-    <aside class="v3-col-side">
-
-      <div class="v3-sidebar-block">
-        <div class="v3-sidebar-label"><span data-i18n="v3pub.side.inprog">IN PROGRESS</span><span class="num">02</span></div>
-        <ul>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.ip1.m">Writing · 2026</span>
-            <strong data-i18n="v3pub.side.ip1.t">H2M-ValiPred</strong>
-            <span data-i18n="v3pub.side.ip1.d">Cross-species antibody developability · ESM-2 · 881 抗體。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.ip2.m">Scoping · 2026</span>
-            <strong data-i18n="v3pub.side.ip2.t">CPV / FPV antiviral repurposing</strong>
-            <span data-i18n="v3pub.side.ip2.d">NSTC 計畫主文，建立跨物種候選藥物排序框架。</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="v3-sidebar-block">
-        <div class="v3-sidebar-label"><span data-i18n="v3pub.side.sub">UNDER REVIEW</span><span class="num">03</span></div>
-        <ul>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.s1.m">Submitted · RPTH · 2026</span>
-            <strong data-i18n="v3pub.side.s1.t">F2 p.F382L variant</strong>
-            <span data-i18n="v3pub.side.s1.d">家族性腦靜脈竇血栓 · 第一作者。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.s2.m">Submitted · 2026</span>
-            <strong data-i18n="v3pub.side.s2.t">pRCC 八基因預後模型</strong>
-            <span data-i18n="v3pub.side.s2.d">乳突型腎細胞癌存活與惡化預測 · 第一作者。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.s3.m">Submitted · 2026</span>
-            <strong data-i18n="v3pub.side.s3.t">膀胱癌 PD-1 預後生物標記</strong>
-            <span data-i18n="v3pub.side.s3.d">轉錄體資料庫整合 · 共同作者。</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="v3-sidebar-block">
-        <div class="v3-sidebar-label"><span data-i18n="v3pub.side.journ">JOURNAL ARTICLES</span><span class="num">08</span></div>
-        <ul>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.j26.m">2026 · Neurology 106(12)</span>
-            <strong><a href="https://www.neurology.org/doi/full/10.1212/WNL.0000000000218126" target="_blank" rel="noopener" data-i18n="v3pub.side.j26.t">早發性缺血性腦中風基因風險變異</a></strong>
-            <span data-i18n="v3pub.side.j26.d">e218126 · 共同作者 · DOI: 10.1212/WNL.0000000000218126。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.j25.m">2025 · Int J Epidemiol</span>
-            <strong data-i18n="v3pub.side.j25.t">NBCT 台灣生物資料庫電子病歷</strong>
-            <span data-i18n="v3pub.side.j25.d">Data Resource Profile · 共同作者 · PMID 40743524。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.j24.m">2024 · Biomedicines 12(8)</span>
-            <strong data-i18n="v3pub.side.j24.t">VAV3 與腎細胞癌預後</strong>
-            <span data-i18n="v3pub.side.j24.d">基因變異與表現分析 · 共同作者。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.j23.m">2023 · Cell Mol Neurobiol</span>
-            <strong data-i18n="v3pub.side.j23.t">家族性中風單基因病因</strong>
-            <span data-i18n="v3pub.side.j23.d">全外顯子定序橫跨出血性與缺血性 · 第一作者。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.j21.m">2021 · J Chin Med Assoc</span>
-            <strong data-i18n="v3pub.side.j21.t">青壯年中風病因與風險因子</strong>
-            <span data-i18n="v3pub.side.j21.d">顱內出血與缺血性中風 · 共同作者。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.j19.m">2019 · J Neuroinflammation</span>
-            <strong data-i18n="v3pub.side.j19.t">AhR 調控中風後神經再生</strong>
-            <span data-i18n="v3pub.side.j19.d">小鼠模型 · 星形膠質細胞 · 共同作者。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.j18.m">2018 · Scientific Reports</span>
-            <strong data-i18n="v3pub.side.j18.t">sEH 抑制與 TrkB 神經保護</strong>
-            <span data-i18n="v3pub.side.j18.d">缺血後神經過度興奮與抗損傷 · 第一作者。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.j17.m">2017 · Scientific Reports</span>
-            <strong data-i18n="v3pub.side.j17.t">iPSC 神經前驅細胞移植</strong>
-            <span data-i18n="v3pub.side.j17.d">硬膜外植入改善中風後功能回復 · 共同作者。</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="v3-sidebar-block">
-        <div class="v3-sidebar-label"><span data-i18n="v3pub.side.talks">TALKS &amp; POSTERS</span><span class="num">03</span></div>
-        <ul>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.tk1.m">AACR 2024 · San Diego</span>
-            <strong data-i18n="v3pub.side.tk1.t">晚期攝護腺癌個人化轉錄體</strong>
-            <span data-i18n="v3pub.side.tk1.d">第二代荷爾蒙藥物選擇指引 · 海報。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.tk2.m">AAN 2018 · Los Angeles</span>
-            <strong data-i18n="v3pub.side.tk2.t">sEH 抑制與中風神經回復</strong>
-            <span data-i18n="v3pub.side.tk2.d">TrkB 訊息強化後缺血抗損傷機制。</span>
-          </li>
-          <li class="v3-sidebar-item">
-            <span class="meta" data-i18n="v3pub.side.tk3.m">Keystone 2014 · Stockholm</span>
-            <strong data-i18n="v3pub.side.tk3.t">sEH 與中風後神經可塑性</strong>
-            <span data-i18n="v3pub.side.tk3.d">Adult Neurogenesis E1 Symposium。</span>
-          </li>
-        </ul>
-      </div>
-
-    </aside>
-  </div>
-
-  <!-- Footer contact line -->
-  <div class="v3-contact">
-    <div class="v3-contact-row"><div class="key">EMAIL</div><div class="val"><a href="mailto:lhchang@mail.npust.edu.tw">lhchang@mail.npust.edu.tw</a></div></div>
-    <div class="v3-contact-row"><div class="key">ORCID</div><div class="val"><a href="https://orcid.org/0000-0002-1126-7697" target="_blank" rel="noopener">0000-0002-1126-7697</a></div></div>
-    <div class="v3-contact-row"><div class="key" data-i18n="v3pub.con.cvk">CV</div><div class="val" data-i18n="v3pub.con.cvv">完整版履歷與發表列表歡迎來信索取</div></div>
-    <div class="v3-contact-row"><div class="key" data-i18n="v3pub.con.addrk">ADDRESS</div><div class="val" data-i18n="v3pub.con.addrv">No.1 Shuefu Rd.,<br/>Neipu, Pingtung 912, TW</div></div>
-  </div>
-
-</section>
 
 </main>
 
@@ -1905,13 +1419,6 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
      ======================================================================== -->
 <div id="tweaks">
   <h4>Tweaks</h4>
-  <div class="row">
-    <label>layout</label>
-    <select id="tw-version">
-      <option value="v1">01 · home</option>
-      <option value="v3">03 · publications</option>
-    </select>
-  </div>
   <div class="row">
     <label>density</label>
     <select id="tw-density">
@@ -1960,6 +1467,7 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
 <!-- ========================================================================
      I18N STRINGS + LOGIC
      ======================================================================== -->
+<script>if (location.hash === '#publications') location.replace('publications.html');</script>
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
 const I18N = {
   zh: {
@@ -2061,86 +1569,8 @@ const I18N = {
     'v1.contact.t3.desc': '把公開的動物用藥不良事件整理成可分析的資料。',
     'v1.contact.addr': '地址',
     'v1.contact.addrv': '屏東縣內埔鄉學府路1號・國立屏東科技大學 獸醫學院',
-    'v1.colo.set': '本頁排版：NOTO SERIF TC、SOURCE SERIF 4 & SOURCE SANS 3 · 於屏東手工排版',
 
 
-    /* V3 — Publications */
-    'v3pub.mast.left': '第一卷 · 第二期<br/>2026 春',
-    'v3pub.mast.right': '張立鑫<br/>ORCID 0000-0002-1126-7697',
-    'v3pub.hero.lead': '這一頁整理<em>我參與的論文與撰稿中的工作</em>。為了讓讀者更快抓到要點，前半是精選三篇，後半是完整列表。實驗室 2025 成立，所以早期的工作掛的是博後／博班時的通訊作者與單位。',
-    'v3pub.hero.cap': '張立鑫 LI-HSIN CHANG<br/>助理教授 · 屏東科技大學<br/>ORCID 0000-0002-1126-7697',
-    'v3pub.f1.h': '精選 · H2M-ValiPred',
-    'v3pub.f1.meta': '<em>撰稿中 · 目標投稿 Bioinformatics Advances</em> &nbsp;·&nbsp; 第一作者',
-    'v3pub.f1.p1': '抗體開發階段的 developability 預測，大多數模型只在人源資料上訓練。我們想問的是：當目標物種換成貓、狗，這些預測還準嗎？研究做的是把 <span class="lift">ESM-2 language model embedding</span> 當作跨物種的共同座標系，用 881 條抗體、13 項實驗分析建立跨物種對齊的基準。',
-    'v3pub.f1.p2': '這是實驗室的第一個正式 output，也是四條主軸裡「跨物種遷移」的最小可行驗證。資料與程式碼釋出後會放在實驗室 GitHub。',
-    'v3pub.f1.pull': '人源模型能不能跨到動物身上？要知道答案，得先把比較的尺度建起來。',
-    'v3pub.f2.h': '精選 · 早發性缺血性腦中風',
-    'v3pub.f2.meta': '<em>已刊出 · <a href="https://www.neurology.org/doi/full/10.1212/WNL.0000000000218126" target="_blank" rel="noopener">Neurology 106(12):e218126</a> · 2026</em> &nbsp;·&nbsp; 多中心合作 · 共同作者',
-    'v3pub.f2.p1': '北榮神內長期參與中研院「台灣精準醫療計畫（TPMI）」，整合院內收案與 TPMI 多中心資料，以 <span class="lift">GWAS</span> 找出台灣早發性缺血性腦中風的風險因子。',
-    'v3pub.f2.p2': '論文經過多輪審查與資料擴充，已於 2026-06-01 正式刊出；紙本期別為 2026-06-23。對我來說，這篇標誌了<span class="lift">從博班就開始參與的收案計畫</span>終於有一個夠大的產出。',
-    'v3pub.f3.h': '精選 · F2 p.F382L &amp; 家族性腦靜脈竇血栓',
-    'v3pub.f3.meta': '<em>Submitted · RPTH · 2026</em> &nbsp;·&nbsp; 第一作者',
-    'v3pub.f3.p1': '從一個家族出發，鎖定 F2 基因上的一個罕見 missense variant，並在臨床與功能層面建立它與家族腦靜脈竇血栓的關聯。對我個人，這是「家族 NGS + 變異判讀」這條線的收尾作品之一。',
-    'v3pub.side.inprog': '撰稿中',
-    'v3pub.side.ip1.m': 'Writing · 2026',
-    'v3pub.side.ip1.t': 'H2M-ValiPred',
-    'v3pub.side.ip1.d': '跨物種抗體 developability · ESM-2 · 881 抗體。',
-    'v3pub.side.ip2.m': '籌備中 · 2026',
-    'v3pub.side.ip2.t': 'CPV / FPV 抗病毒藥物再利用',
-    'v3pub.side.ip2.d': '國科會計畫主文，建立跨物種候選藥物排序框架。',
-    'v3pub.side.sub': '審查中',
-    'v3pub.side.s1.m': '投稿 · RPTH · 2026',
-    'v3pub.side.s1.t': 'F2 p.F382L 變異',
-    'v3pub.side.s1.d': '家族性腦靜脈竇血栓 · 第一作者。',
-    'v3pub.side.s2.m': '投稿 · 2026',
-    'v3pub.side.s2.t': 'pRCC 八基因預後模型',
-    'v3pub.side.s2.d': '乳突型腎細胞癌存活與惡化預測 · 第一作者。',
-    'v3pub.side.s3.m': '投稿 · 2026',
-    'v3pub.side.s3.t': '膀胱癌 PD-1 預後生物標記',
-    'v3pub.side.s3.d': '轉錄體資料庫整合 · 共同作者。',
-    'v3pub.side.y26': '已刊出 · 2026',
-    'v3pub.side.y26a.m': 'Neurology · 2026',
-    'v3pub.side.y26a.t': '早發性缺血性腦中風致病變異',
-    'v3pub.side.y26a.d': 'Neurology 106(12):e218126 · 共同作者。',
-    'v3pub.side.journ': '期刊論文',
-    'v3pub.side.j26.m': '2026 · Neurology 106(12)',
-    'v3pub.side.j26.t': '早發性缺血性腦中風基因風險變異',
-    'v3pub.side.j26.d': 'e218126 · 共同作者 · DOI: 10.1212/WNL.0000000000218126。',
-    'v3pub.side.j25.m': '2025 · Int J Epidemiol',
-    'v3pub.side.j25.t': 'NBCT 台灣生物資料庫電子病歷',
-    'v3pub.side.j25.d': 'Data Resource Profile · 共同作者 · PMID 40743524。',
-    'v3pub.side.j24.m': '2024 · Biomedicines 12(8)',
-    'v3pub.side.j24.t': 'VAV3 與腎細胞癌預後',
-    'v3pub.side.j24.d': '基因變異與表現分析 · 共同作者。',
-    'v3pub.side.j23.m': '2023 · Cell Mol Neurobiol',
-    'v3pub.side.j23.t': '家族性中風單基因病因',
-    'v3pub.side.j23.d': '全外顯子定序橫跨出血性與缺血性 · 第一作者。',
-    'v3pub.side.j21.m': '2021 · J Chin Med Assoc',
-    'v3pub.side.j21.t': '青壯年中風病因與風險因子',
-    'v3pub.side.j21.d': '顱內出血與缺血性中風 · 共同作者。',
-    'v3pub.side.j19.m': '2019 · J Neuroinflammation',
-    'v3pub.side.j19.t': 'AhR 調控中風後神經再生',
-    'v3pub.side.j19.d': '小鼠模型 · 星形膠質細胞 · 共同作者。',
-    'v3pub.side.j18.m': '2018 · Scientific Reports',
-    'v3pub.side.j18.t': 'sEH 抑制與 TrkB 神經保護',
-    'v3pub.side.j18.d': '缺血後神經過度興奮與抗損傷 · 第一作者。',
-    'v3pub.side.j17.m': '2017 · Scientific Reports',
-    'v3pub.side.j17.t': 'iPSC 神經前驅細胞移植',
-    'v3pub.side.j17.d': '硬膜外植入改善中風後功能回復 · 共同作者。',
-    'v3pub.side.talks': '演講與海報',
-    'v3pub.side.tk1.m': 'AACR 2024 · San Diego',
-    'v3pub.side.tk1.t': '晚期攝護腺癌個人化轉錄體',
-    'v3pub.side.tk1.d': '第二代荷爾蒙藥物選擇指引 · 海報。',
-    'v3pub.side.tk2.m': 'AAN 2018 · Los Angeles',
-    'v3pub.side.tk2.t': 'sEH 抑制與中風神經回復',
-    'v3pub.side.tk2.d': 'TrkB 訊息強化後缺血抗損傷機制。',
-    'v3pub.side.tk3.m': 'Keystone 2014 · Stockholm',
-    'v3pub.side.tk3.t': 'sEH 與中風後神經可塑性',
-    'v3pub.side.tk3.d': 'Adult Neurogenesis E1 Symposium。',
-    'v3pub.con.cvk': 'CV',
-    'v3pub.con.cvv': '完整版履歷與發表列表歡迎來信索取',
-    'v3pub.con.addrk': '地址',
-    'v3pub.con.addrv': '屏東縣內埔鄉學府路1號',
     'nav.v1': '01 · 首頁',
     'nav.v2': '02 · 合作者',
     'nav.v3': '03 · 著作列表'
@@ -2241,86 +1671,8 @@ const I18N = {
     'v1.contact.t3.desc': 'Turning public animal adverse-drug-event reports into analysis-ready data.',
     'v1.contact.addr': 'ADDRESS',
     'v1.contact.addrv': 'No.1 Shuefu Rd., Neipu, Pingtung 912 · College of Veterinary Medicine, NPUST',
-    'v1.colo.set': 'SET IN NOTO SERIF TC, SOURCE SERIF 4 & SOURCE SANS 3 · HAND-SET IN PINGTUNG',
 
 
-    /* V3 — Publications */
-    'v3pub.mast.left': 'Vol. 01 · No. 02<br/>Spring 2026',
-    'v3pub.mast.right': 'Li-Hsin Chang<br/>ORCID 0000-0002-1126-7697',
-    'v3pub.hero.lead': 'This page lists <em>the papers I\'m part of and what I\'m currently writing.</em> The first half is three featured pieces; the second is the full index. The lab was founded in 2025, so earlier work carries prior-institution affiliations.',
-    'v3pub.hero.cap': 'LI-HSIN CHANG 張立鑫<br/>ASST. PROF., NPUST<br/>ORCID 0000-0002-1126-7697',
-    'v3pub.f1.h': 'Featured · H2M-ValiPred',
-    'v3pub.f1.meta': '<em>Writing · target: Bioinformatics Advances</em> &nbsp;·&nbsp; first author',
-    'v3pub.f1.p1': 'Most antibody developability predictors are trained on human data. The question: do they still hold when the target species becomes cat or dog? The paper uses <span class="lift">ESM-2 language-model embeddings</span> as a cross-species shared coordinate, with 881 antibodies and 13 assays building a cross-species benchmark.',
-    'v3pub.f1.p2': "This is the lab's first formal output, and the minimum viable demonstration of the cross-species transfer thread. Data + code will land on the lab GitHub on release.",
-    'v3pub.f1.pull': 'Can human models travel to animals? Before answering, you first have to build the yardstick.',
-    'v3pub.f2.h': 'Featured · Early-onset ischemic stroke',
-    'v3pub.f2.meta': '<em>Published · <a href="https://www.neurology.org/doi/full/10.1212/WNL.0000000000218126" target="_blank" rel="noopener">Neurology 106(12):e218126</a> · 2026</em> &nbsp;·&nbsp; multi-center · co-author',
-    'v3pub.f2.p1': "TVGH Neurology has long participated in Academia Sinica's Taiwan Precision Medicine Initiative (TPMI). Combining in-house cohort data with the TPMI multi-center dataset, a <span class=\"lift\">GWAS</span> reads out the risk factors for early-onset ischemic stroke in the Taiwanese population.",
-    'v3pub.f2.p2': "After multiple rounds of review and data expansion, the paper was published on June 1, 2026; the print issue is June 23, 2026. For me, this paper marks <span class=\"lift\">a large output from a cohort I have been part of since my PhD years</span>.",
-    'v3pub.f3.h': 'Featured · F2 p.F382L &amp; familial CVT',
-    'v3pub.f3.meta': '<em>Submitted · RPTH · 2026</em> &nbsp;·&nbsp; first author',
-    'v3pub.f3.p1': "Starting from one family, we zero in on a rare F2 missense variant and establish its link — clinically and functionally — to familial cerebral venous thrombosis. For me personally, this is one of the closing pieces on the family-NGS + variant-interpretation line.",
-    'v3pub.side.inprog': 'IN PROGRESS',
-    'v3pub.side.ip1.m': 'Writing · 2026',
-    'v3pub.side.ip1.t': 'H2M-ValiPred',
-    'v3pub.side.ip1.d': 'Cross-species antibody developability · ESM-2 · 881 antibodies.',
-    'v3pub.side.ip2.m': 'Scoping · 2026',
-    'v3pub.side.ip2.t': 'CPV / FPV antiviral repurposing',
-    'v3pub.side.ip2.d': 'NSTC project lead paper; cross-species candidate-ranking framework.',
-    'v3pub.side.sub': 'UNDER REVIEW',
-    'v3pub.side.s1.m': 'Submitted · RPTH · 2026',
-    'v3pub.side.s1.t': 'F2 p.F382L variant',
-    'v3pub.side.s1.d': 'Familial cerebral venous thrombosis · first author.',
-    'v3pub.side.s2.m': 'Submitted · 2026',
-    'v3pub.side.s2.t': 'Eight-gene pRCC signature',
-    'v3pub.side.s2.d': 'Survival &amp; progression of papillary RCC · first author.',
-    'v3pub.side.s3.m': 'Submitted · 2026',
-    'v3pub.side.s3.t': 'Bladder cancer PD-1 biomarkers',
-    'v3pub.side.s3.d': 'Transcriptomic-database prognostic panel · co-author.',
-    'v3pub.side.y26': 'PUBLISHED · 2026',
-    'v3pub.side.y26a.m': 'Neurology · 2026',
-    'v3pub.side.y26a.t': 'Early-onset ischemic stroke variants',
-    'v3pub.side.y26a.d': 'Neurology 106(12):e218126 · co-author.',
-    'v3pub.side.journ': 'JOURNAL ARTICLES',
-    'v3pub.side.j26.m': '2026 · Neurology 106(12)',
-    'v3pub.side.j26.t': 'Early-onset ischemic stroke genetic risk variants',
-    'v3pub.side.j26.d': 'e218126 · co-author · DOI: 10.1212/WNL.0000000000218126.',
-    'v3pub.side.j25.m': '2025 · Int J Epidemiol',
-    'v3pub.side.j25.t': 'NBCT Taiwan Biobank EHR resource',
-    'v3pub.side.j25.d': 'Data Resource Profile · co-author · PMID 40743524.',
-    'v3pub.side.j24.m': '2024 · Biomedicines 12(8)',
-    'v3pub.side.j24.t': 'VAV3 in renal cell carcinoma',
-    'v3pub.side.j24.d': 'Variant &amp; expression prognostics · co-author.',
-    'v3pub.side.j23.m': '2023 · Cell Mol Neurobiol',
-    'v3pub.side.j23.t': 'Monogenic causes in familial stroke',
-    'v3pub.side.j23.d': 'Whole-exome across hemorrhagic &amp; ischemic · first author.',
-    'v3pub.side.j21.m': '2021 · J Chin Med Assoc',
-    'v3pub.side.j21.t': 'Young-adult stroke etiology',
-    'v3pub.side.j21.d': 'Intracranial hemorrhage &amp; ischemic stroke · co-author.',
-    'v3pub.side.j19.m': '2019 · J Neuroinflammation',
-    'v3pub.side.j19.t': 'AhR modulates stroke neurogenesis',
-    'v3pub.side.j19.d': 'Mouse model · astrogliosis · co-author.',
-    'v3pub.side.j18.m': '2018 · Scientific Reports',
-    'v3pub.side.j18.t': 'sEH blockade &amp; TrkB neuroprotection',
-    'v3pub.side.j18.d': 'Post-ischemic hyperexcitation &amp; resilience · first author.',
-    'v3pub.side.j17.m': '2017 · Scientific Reports',
-    'v3pub.side.j17.t': 'iPSC neural progenitor transplant',
-    'v3pub.side.j17.d': 'Delayed epidural graft improves stroke recovery · co-author.',
-    'v3pub.side.talks': 'TALKS &amp; POSTERS',
-    'v3pub.side.tk1.m': 'AACR 2024 · San Diego',
-    'v3pub.side.tk1.t': 'Personalized prostate-cancer transcriptomics',
-    'v3pub.side.tk1.d': 'Guiding second-generation hormonal-drug selection · poster.',
-    'v3pub.side.tk2.m': 'AAN 2018 · Los Angeles',
-    'v3pub.side.tk2.t': 'sEH blockade &amp; stroke recovery',
-    'v3pub.side.tk2.d': 'Post-ischemic resilience via TrkB activation.',
-    'v3pub.side.tk3.m': 'Keystone 2014 · Stockholm',
-    'v3pub.side.tk3.t': 'sEH in post-stroke plasticity',
-    'v3pub.side.tk3.d': 'Adult Neurogenesis E1 Symposium.',
-    'v3pub.con.cvk': 'CV',
-    'v3pub.con.cvv': 'Full CV and publication list on request.',
-    'v3pub.con.addrk': 'ADDRESS',
-    'v3pub.con.addrv': 'No.1 Shuefu Rd.,<br/>Neipu, Pingtung 912, TW'
   }
 };
 
@@ -2346,26 +1698,7 @@ function setLang(lang) {
   try { localStorage.setItem('aiil_lang', lang); } catch(e){}
 }
 
-/* version switching */
-let CUR_VER = 'v1';
-function setVersion(v) {
-  CUR_VER = v;
-  document.querySelectorAll('.version').forEach(s => {
-    s.classList.toggle('active', s.id === v);
-  });
-  document.querySelectorAll('.version-switch button').forEach(b => {
-    b.classList.toggle('active', b.dataset.version === v);
-  });
-  const twV = document.getElementById('tw-version');
-  if (twV) twV.value = v;
-  try { localStorage.setItem('aiil_ver', v); } catch(e){}
-  window.scrollTo({ top: 0, behavior: 'instant' });
-}
-
 /* wire up switchers */
-document.querySelectorAll('.version-switch button').forEach(b => {
-  b.addEventListener('click', () => setVersion(b.dataset.version));
-});
 document.querySelectorAll('.lang-switch button').forEach(b => {
   b.addEventListener('click', () => setLang(b.dataset.lang));
 });
@@ -2374,7 +1707,6 @@ document.querySelectorAll('.lang-switch button').forEach(b => {
    TWEAKS — host integration
    ======================================================================== */
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "version": "v1",
   "density": "normal",
   "accent": "cinnabar",
   "ink": "sakura",
@@ -2383,7 +1715,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 }/*EDITMODE-END*/;
 
 function applyTweaks(t) {
-  if (t.version) setVersion(t.version);
   if (t.lang) setLang(t.lang);
   document.body.classList.toggle('compact', t.density === 'compact');
   document.body.classList.toggle('no-cinnabar', t.accent === 'none');
@@ -2392,7 +1723,7 @@ function applyTweaks(t) {
   // regenerate pen-stroke SVGs in current palette
   refreshPenStrokes();
   // sync selects
-  const map = { 'tw-version': t.version, 'tw-density': t.density, 'tw-accent': t.accent,
+  const map = { 'tw-density': t.density, 'tw-accent': t.accent,
                 'tw-ink': t.ink, 'tw-ink-intensity': t.inkIntensity, 'tw-lang': t.lang };
   Object.entries(map).forEach(([id, val]) => {
     const el = document.getElementById(id);
@@ -2423,7 +1754,7 @@ window.addEventListener('message', (e) => {
 try { window.parent.postMessage({ type: '__edit_mode_available' }, '*'); } catch(e){}
 
 /* wire tweaks controls */
-['tw-version','tw-density','tw-accent','tw-ink','tw-ink-intensity','tw-lang'].forEach(id => {
+['tw-density','tw-accent','tw-ink','tw-ink-intensity','tw-lang'].forEach(id => {
   const el = document.getElementById(id);
   if (!el) return;
   el.addEventListener('change', e => {
@@ -2480,14 +1811,9 @@ function refreshPenStrokes() {
     const bl = (navigator.language || '').toLowerCase();
     lang = bl.startsWith('zh') ? 'zh' : 'en';
   }
-  let ver = 'v1';
-  try { const s = localStorage.getItem('aiil_ver'); if (s && document.getElementById(s)) ver = s; } catch(e){}
-  // links from other pages pick the tab explicitly
-  if (location.hash === '#home') ver = 'v1';
-  if (location.hash === '#publications') ver = 'v3';
+  try { localStorage.removeItem('aiil_ver'); } catch(e){}  // left over from the old tab switcher
 
   tweakState.lang = lang;
-  tweakState.version = ver;
   applyTweaks(tweakState);
 })();
 </script>
