@@ -4,7 +4,9 @@ Static bilingual homepage for the AI-Assisted Immunoinformatics Lab at NPUST.
 
 ## Structure
 
-- `index.html`: single-page site
+- `index.html`: homepage
+- `collaborators.html`: collaborators, funding and lab members
+- `site.css`: styles shared by all pages (tokens, top bar, section labels, colophon); page-specific rules stay inline in each page
 - `profile.jpg`: PI portrait
 - `claude_content_collection_prompt.md`: content collection prompt for Claude-based research or writing workflows
 
