@@ -910,7 +910,7 @@ html[lang="en"] .v1-course-name { font-family: var(--sans); }
   letter-spacing: 0.06em;
 }
 
-/* --- Collaborators & funding --------------------------------------- */
+/* --- Collaborators & funding (summary) ---------------------------- */
 .v1-collab {
   padding: 4rem 0 3rem;
   border-bottom: 1px solid var(--paper-edge);
@@ -926,30 +926,24 @@ html[lang="en"] .v1-course-name { font-family: var(--sans); }
   color: var(--ink);
 }
 html[lang="en"] .v1-collab-lead { font-family: var(--sans); }
-.v1-collab-group { margin-top: 2rem; }
-.v1-collab-list,
-.v1-member-list { margin: 0; }
-.v1-collab-item {
-  padding: 0.8rem 0;
-  border-top: 1px solid var(--paper-edge);
-}
-.v1-collab-item dd { margin: 0; }
-.v1-collab-note {
-  margin: 0;
-  padding-top: 0.8rem;
-  border-top: 1px solid var(--paper-edge);
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: var(--ink-faint);
-}
-.v1-member-list dd { margin: 0; }
-.v1-member-list .v1-contact-row { grid-template-columns: 11.5em 1fr; }
-.v1-member-val {
+.v1-kv-list { margin-top: 1.5rem; }
+.v1-kv-list .v1-contact-row { grid-template-columns: 11.5em 1fr; }
+.v1-kv-list dd { margin: 0; }
+.v1-kv-val {
   font-family: var(--serif);
   font-size: 0.95rem;
+  line-height: 1.65;
   color: var(--ink);
 }
-html[lang="en"] .v1-member-val { font-family: var(--sans); }
+html[lang="en"] .v1-kv-val { font-family: var(--sans); }
+.v1-collab-more {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--brand-blue);
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 72%, transparent);
+}
 
 /* --- Contact ------------------------------------------------------- */
 .v1-contact {
@@ -1008,16 +1002,14 @@ html[lang="en"] .v1-contact-body { font-family: var(--sans); font-weight: 400; }
   color: var(--cinnabar);
   padding-top: 0.35em;
 }
-.v1-topic-name,
-.v1-collab-item dt {
+.v1-topic-name {
   display: block;
   font-family: var(--serif);
   font-size: 1rem;
   font-weight: 600;
   color: var(--ink);
 }
-.v1-topic-desc,
-.v1-collab-item dd {
+.v1-topic-desc {
   display: block;
   margin-top: 0.2rem;
   font-family: var(--serif);
@@ -1026,9 +1018,7 @@ html[lang="en"] .v1-contact-body { font-family: var(--sans); font-weight: 400; }
   color: var(--ink-soft);
 }
 html[lang="en"] .v1-topic-name,
-html[lang="en"] .v1-topic-desc,
-html[lang="en"] .v1-collab-item dt,
-html[lang="en"] .v1-collab-item dd { font-family: var(--sans); }
+html[lang="en"] .v1-topic-desc { font-family: var(--sans); }
 
 .v1-contact-list {
   margin-top: 1.5rem;
@@ -1573,7 +1563,7 @@ html[lang="en"] .v3-pullquote {
 @media (max-width: 560px) {
   body { font-size: 16px; }
   .v1-contact-row,
-  .v1-member-list .v1-contact-row {
+  .v1-kv-list .v1-contact-row {
     grid-template-columns: 1fr;
     gap: 0.25rem;
   }
@@ -2144,97 +2134,19 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
     </div>
   </section>
 
-  <!-- Collaborators & funding ---------------------------------------------- -->
+  <!-- Collaborators & funding (summary; full list on collaborators.html) --- -->
   <section class="v1-collab" id="collab">
     <h2 class="v1-section-label" data-i18n="v1.collab.label">合作與經費</h2>
     <div>
       <p class="v1-collab-lead" data-i18n="v1.collab.lead">一間剛起步的實驗室，站在很多人的肩膀上。</p>
-      <div class="v1-collab-group">
-        <h3 class="v1-topics-label" data-i18n="v1.collab.hg.head">人類基因體與臨床</h3>
-        <dl class="v1-collab-list">
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.hg.tvgh.name">臺北榮民總醫院・神經內科</dt>
-            <dd data-i18n="v1.collab.hg.tvgh.desc">早發性腦中風 cohort、家族性腦靜脈竇血栓 F2 p.F382L、臨床表型與遺傳判讀、罕見疾病 variant interpretation、family-based NGS 分析</dd>
-          </div>
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.hg.nhri.name">國家衛生研究院</dt>
-            <dd data-i18n="v1.collab.hg.nhri.desc">NGS 資料平台測試、可信研究環境（TRE）</dd>
-          </div>
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.hg.kmu.name">高雄醫學大學</dt>
-            <dd data-i18n="v1.collab.hg.kmu.desc">癌症 RNA-seq 生物標記、攝護腺癌二代荷爾蒙藥物選擇平台</dd>
-          </div>
-        </dl>
-        <p class="v1-collab-note" data-i18n="v1.collab.hg.more">陸續補上，歡迎有意合作者來信。</p>
-      </div>
-      <div class="v1-collab-group">
-        <h3 class="v1-topics-label" data-i18n="v1.collab.vet.head">獸醫與動物</h3>
-        <dl class="v1-collab-list">
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.vet.vetmed.name">獸醫學院</dt>
-            <dd data-i18n="v1.collab.vet.vetmed.desc">院內合作；病理、微生物與免疫相關資源</dd>
-          </div>
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.vet.avt.name">動物疫苗科技研究所（PI 所屬單位）</dt>
-            <dd data-i18n="v1.collab.vet.avt.desc">疫苗研究主場域；動物樣本處理、病毒分離與傳代、抗原製備</dd>
-          </div>
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.vet.chuang.name">莊國賓老師・動物疫苗科技研究所</dt>
-            <dd data-i18n="v1.collab.vet.chuang.desc">國科會計畫合作</dd>
-          </div>
-        </dl>
-      </div>
-      <div class="v1-collab-group">
-        <h3 class="v1-topics-label" data-i18n="v1.collab.data.head">資料與工具</h3>
-        <dl class="v1-collab-list">
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.data.twb.name">台灣生物資料庫（TWB）・NBCT</dt>
-            <dd data-i18n="v1.collab.data.twb.desc">人類面的 cohort-scale 資料，作為轉移學習的人類參考</dd>
-          </div>
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.data.oss.name">開源社群</dt>
-            <dd data-i18n="v1.collab.data.oss.desc">ESM・DVC・MLflow，站在巨人的肩膀上</dd>
-          </div>
-        </dl>
-      </div>
-      <div class="v1-collab-group">
-        <h3 class="v1-topics-label" data-i18n="v1.collab.fund.head">經費與致謝</h3>
-        <dl class="v1-collab-list">
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.fund.f1.name">國科會 2026.08–2027.07</dt>
-            <dd data-i18n="v1.collab.fund.f1.desc">NSTC 115-2313-B-020-001-・人到大鼠藥物反應轉移基準（主持人）</dd>
-          </div>
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.fund.f2.name">國科會產業前瞻—應用型研究育苗專案</dt>
-            <dd data-i18n="v1.collab.fund.f2.desc">攝護腺癌二代賀爾蒙藥物治療之個人化用藥推薦系統及精準檢測生物晶片（1/2）・2026（共同主持人）</dd>
-          </div>
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.fund.f3.name">高醫屏科雙邊計畫</dt>
-            <dd data-i18n="v1.collab.fund.f3.desc">跨校計算與濕實驗合作</dd>
-          </div>
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.fund.f4.name">校內新進教師經費</dt>
-          </div>
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.fund.f5.name">高教深耕</dt>
-            <dd data-i18n="v1.collab.fund.f5.desc">H2M-ValiPred</dd>
-          </div>
-          <div class="v1-collab-item">
-            <dt data-i18n="v1.collab.fund.thanks.name">感謝一路上的指導者</dt>
-            <dd data-i18n="v1.collab.fund.thanks.desc">博班、博後與每個願意花時間的前輩</dd>
-          </div>
-        </dl>
-        <p class="v1-collab-note" data-i18n="v1.collab.fund.note">本站呈現的研究成果，都是多方合作與公開資源累積的結果。若有遺漏或錯誤，請來信告知，會盡速修正。</p>
-      </div>
-      <div class="v1-collab-group">
-        <h3 class="v1-topics-label" data-i18n="v1.collab.mem.head">實驗室成員・2026–2027</h3>
-        <dl class="v1-member-list">
-          <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.mem.pi.k">PI</dt><dd class="v1-member-val" data-i18n="v1.collab.mem.pi.v">張立鑫 Li-Hsin Chang・助理教授・主持人</dd></div>
-          <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.mem.ms.k">碩士生</dt><dd class="v1-member-val" data-i18n="v1.collab.mem.ms.v">招募中</dd></div>
-          <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.mem.ug.k">專題生</dt><dd class="v1-member-val" data-i18n="v1.collab.mem.ug.v">歡迎詢問</dd></div>
-          <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.mem.alumni.k">畢業生</dt><dd class="v1-member-val" data-i18n="v1.collab.mem.alumni.v">尚無，實驗室於 2025 成立</dd></div>
-        </dl>
-      </div>
+      <dl class="v1-kv-list">
+        <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.hg.k">人類基因體與臨床</dt><dd class="v1-kv-val" data-i18n="v1.collab.hg.v">臺北榮總神經內科・國衛院・高醫</dd></div>
+        <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.vet.k">獸醫與動物</dt><dd class="v1-kv-val" data-i18n="v1.collab.vet.v">獸醫學院・動物疫苗科技研究所・莊國賓老師</dd></div>
+        <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.data.k">資料與工具</dt><dd class="v1-kv-val" data-i18n="v1.collab.data.v">台灣生物資料庫・NBCT・開源社群</dd></div>
+        <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.fund.k">經費</dt><dd class="v1-kv-val" data-i18n="v1.collab.fund.v">國科會（主持人）・國科會產業前瞻（共同主持人）・高醫屏科雙邊・校內新進教師・高教深耕</dd></div>
+        <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.mem.k">成員</dt><dd class="v1-kv-val" data-i18n="v1.collab.mem.v">PI 張立鑫・碩士生招募中・專題生歡迎詢問</dd></div>
+      </dl>
+      <a class="v1-collab-more" href="collaborators.html" data-i18n="v1.collab.more">完整合作與致謝 →</a>
     </div>
   </section>
 
@@ -2750,48 +2662,17 @@ const I18N = {
     /* V1 collaborators & funding */
     "v1.collab.label": "合作與經費",
     "v1.collab.lead": "一間剛起步的實驗室，站在很多人的肩膀上。",
-    "v1.collab.hg.head": "人類基因體與臨床",
-    "v1.collab.hg.tvgh.name": "臺北榮民總醫院・神經內科",
-    "v1.collab.hg.tvgh.desc": "早發性腦中風 cohort、家族性腦靜脈竇血栓 F2 p.F382L、臨床表型與遺傳判讀、罕見疾病 variant interpretation、family-based NGS 分析",
-    "v1.collab.hg.nhri.name": "國家衛生研究院",
-    "v1.collab.hg.nhri.desc": "NGS 資料平台測試、可信研究環境（TRE）",
-    "v1.collab.hg.kmu.name": "高雄醫學大學",
-    "v1.collab.hg.kmu.desc": "癌症 RNA-seq 生物標記、攝護腺癌二代荷爾蒙藥物選擇平台",
-    "v1.collab.hg.more": "陸續補上，歡迎有意合作者來信。",
-    "v1.collab.vet.head": "獸醫與動物",
-    "v1.collab.vet.vetmed.name": "獸醫學院",
-    "v1.collab.vet.vetmed.desc": "院內合作；病理、微生物與免疫相關資源",
-    "v1.collab.vet.avt.name": "動物疫苗科技研究所（PI 所屬單位）",
-    "v1.collab.vet.avt.desc": "疫苗研究主場域；動物樣本處理、病毒分離與傳代、抗原製備",
-    "v1.collab.vet.chuang.name": "莊國賓老師・動物疫苗科技研究所",
-    "v1.collab.vet.chuang.desc": "國科會計畫合作",
-    "v1.collab.data.head": "資料與工具",
-    "v1.collab.data.twb.name": "台灣生物資料庫（TWB）・NBCT",
-    "v1.collab.data.twb.desc": "人類面的 cohort-scale 資料，作為轉移學習的人類參考",
-    "v1.collab.data.oss.name": "開源社群",
-    "v1.collab.data.oss.desc": "ESM・DVC・MLflow，站在巨人的肩膀上",
-    "v1.collab.fund.head": "經費與致謝",
-    "v1.collab.fund.f1.name": "國科會 2026.08–2027.07",
-    "v1.collab.fund.f1.desc": "NSTC 115-2313-B-020-001-・人到大鼠藥物反應轉移基準（主持人）",
-    "v1.collab.fund.f2.name": "國科會產業前瞻—應用型研究育苗專案",
-    "v1.collab.fund.f2.desc": "攝護腺癌二代賀爾蒙藥物治療之個人化用藥推薦系統及精準檢測生物晶片（1/2）・2026（共同主持人）",
-    "v1.collab.fund.f3.name": "高醫屏科雙邊計畫",
-    "v1.collab.fund.f3.desc": "跨校計算與濕實驗合作",
-    "v1.collab.fund.f4.name": "校內新進教師經費",
-    "v1.collab.fund.f5.name": "高教深耕",
-    "v1.collab.fund.f5.desc": "H2M-ValiPred",
-    "v1.collab.fund.thanks.name": "感謝一路上的指導者",
-    "v1.collab.fund.thanks.desc": "博班、博後與每個願意花時間的前輩",
-    "v1.collab.fund.note": "本站呈現的研究成果，都是多方合作與公開資源累積的結果。若有遺漏或錯誤，請來信告知，會盡速修正。",
-    "v1.collab.mem.head": "實驗室成員・2026–2027",
-    "v1.collab.mem.pi.k": "PI",
-    "v1.collab.mem.pi.v": "張立鑫 Li-Hsin Chang・助理教授・主持人",
-    "v1.collab.mem.ms.k": "碩士生",
-    "v1.collab.mem.ms.v": "招募中",
-    "v1.collab.mem.ug.k": "專題生",
-    "v1.collab.mem.ug.v": "歡迎詢問",
-    "v1.collab.mem.alumni.k": "畢業生",
-    "v1.collab.mem.alumni.v": "尚無，實驗室於 2025 成立",
+    "v1.collab.hg.k": "人類基因體與臨床",
+    "v1.collab.hg.v": "臺北榮總神經內科・國衛院・高醫",
+    "v1.collab.vet.k": "獸醫與動物",
+    "v1.collab.vet.v": "獸醫學院・動物疫苗科技研究所・莊國賓老師",
+    "v1.collab.data.k": "資料與工具",
+    "v1.collab.data.v": "台灣生物資料庫・NBCT・開源社群",
+    "v1.collab.fund.k": "經費",
+    "v1.collab.fund.v": "國科會（主持人）・國科會產業前瞻（共同主持人）・高醫屏科雙邊・校內新進教師・高教深耕",
+    "v1.collab.mem.k": "成員",
+    "v1.collab.mem.v": "PI 張立鑫・碩士生招募中・專題生歡迎詢問",
+    "v1.collab.more": "完整合作與致謝 →",
     'v1.contact.label': '招生與聯絡',
     'v1.contact.body': '正在招收對計算生物學有興趣的碩士生。獸醫、生物、植物醫學、農業、資管、統計，只要你對生醫問題有好奇，都適合。不要求入門前就會寫程式。',
     'v1.contact.topics': '可以從這三個題目開始',
@@ -3012,48 +2893,17 @@ const I18N = {
     /* V1 collaborators & funding */
     "v1.collab.label": "COLLABORATORS & FUNDING",
     "v1.collab.lead": "A new lab stands on many shoulders.",
-    "v1.collab.hg.head": "Human genomics & clinical",
-    "v1.collab.hg.tvgh.name": "Taipei Veterans General Hospital (TVGH) · Neurology",
-    "v1.collab.hg.tvgh.desc": "Early-onset stroke cohort, familial cerebral venous thrombosis (F2 p.F382L), clinical phenotyping & variant interpretation, rare-disease variant interpretation, family-based NGS analyses",
-    "v1.collab.hg.nhri.name": "National Health Research Institutes (NHRI)",
-    "v1.collab.hg.nhri.desc": "NGS data platform testing, trusted research environment (TRE)",
-    "v1.collab.hg.kmu.name": "Kaohsiung Medical University (KMU)",
-    "v1.collab.hg.kmu.desc": "Cancer RNA-seq biomarkers, second-generation hormonal-drug selection platform for prostate cancer",
-    "v1.collab.hg.more": "More to be added — open to new collaborators, please reach out.",
-    "v1.collab.vet.head": "Veterinary & animal",
-    "v1.collab.vet.vetmed.name": "College of Veterinary Medicine",
-    "v1.collab.vet.vetmed.desc": "On-campus collaboration; pathology, microbiology and immunology-related resources",
-    "v1.collab.vet.avt.name": "Graduate Institute of Animal Vaccine Technology (PI's home institute)",
-    "v1.collab.vet.avt.desc": "Primary vaccine research site; animal sample handling, viral isolation and passaging, antigen preparation",
-    "v1.collab.vet.chuang.name": "Prof. Kuo-Pin Chuang 莊國賓, Graduate Institute of Animal Vaccine Technology",
-    "v1.collab.vet.chuang.desc": "NSTC project collaboration",
-    "v1.collab.data.head": "Data & tools",
-    "v1.collab.data.twb.name": "Taiwan Biobank (TWB) · NBCT",
-    "v1.collab.data.twb.desc": "Cohort-scale human data, the human reference for transfer learning",
-    "v1.collab.data.oss.name": "Open-source community",
-    "v1.collab.data.oss.desc": "ESM · DVC · MLflow — standing on giants",
-    "v1.collab.fund.head": "Funding & acknowledgements",
-    "v1.collab.fund.f1.name": "NSTC 2026.08–2027.07",
-    "v1.collab.fund.f1.desc": "NSTC 115-2313-B-020-001- · Human-to-rat drug-response transfer benchmark (PI)",
-    "v1.collab.fund.f2.name": "NSTC Industry-Forward Applied Research Incubation Program",
-    "v1.collab.fund.f2.desc": "Personalized drug recommendation system and precision-detection biochip for second-generation hormonal therapy in prostate cancer (1/2) · 2026 (co-PI)",
-    "v1.collab.fund.f3.name": "KMU–NPUST bilateral program",
-    "v1.collab.fund.f3.desc": "Cross-institutional computational and wet-lab collaboration",
-    "v1.collab.fund.f4.name": "NPUST new-faculty funding",
-    "v1.collab.fund.f5.name": "Higher Education Sprout Project",
-    "v1.collab.fund.f5.desc": "H2M-ValiPred",
-    "v1.collab.fund.thanks.name": "With gratitude to mentors along the way",
-    "v1.collab.fund.thanks.desc": "PhD, postdoc, and everyone who gave me their time",
-    "v1.collab.fund.note": "Nothing on this site is the result of one person. For corrections or omissions, please email me — I will fix them quickly.",
-    "v1.collab.mem.head": "Lab members · 2026–2027",
-    "v1.collab.mem.pi.k": "PI",
-    "v1.collab.mem.pi.v": "Li-Hsin Chang 張立鑫 · assistant professor · principal investigator",
-    "v1.collab.mem.ms.k": "MS students",
-    "v1.collab.mem.ms.v": "Recruiting",
-    "v1.collab.mem.ug.k": "Undergraduate researchers",
-    "v1.collab.mem.ug.v": "Welcome to ask",
-    "v1.collab.mem.alumni.k": "Alumni",
-    "v1.collab.mem.alumni.v": "None yet · lab founded 2025",
+    "v1.collab.hg.k": "Human genomics & clinical",
+    "v1.collab.hg.v": "TVGH Neurology · NHRI · KMU",
+    "v1.collab.vet.k": "Veterinary & animal",
+    "v1.collab.vet.v": "College of Veterinary Medicine · Graduate Institute of Animal Vaccine Technology · Prof. Kuo-Pin Chuang",
+    "v1.collab.data.k": "Data & tools",
+    "v1.collab.data.v": "Taiwan Biobank · NBCT · open-source community",
+    "v1.collab.fund.k": "Funding",
+    "v1.collab.fund.v": "NSTC (PI) · NSTC Industry-Forward (co-PI) · KMU–NPUST bilateral · NPUST new-faculty · Higher Education Sprout",
+    "v1.collab.mem.k": "Members",
+    "v1.collab.mem.v": "PI Li-Hsin Chang · MS students recruiting · undergraduates welcome to ask",
+    "v1.collab.more": "Full collaborators & acknowledgements →",
     'v1.contact.label': 'JOIN & CONTACT',
     'v1.contact.body': "Currently recruiting MS students interested in computational biology. Vet med, biology, plant medicine, agriculture, information management, statistics — any background works if you are drawn to biomedical problems. Prior coding experience is not required.",
     'v1.contact.topics': 'Three places to start',

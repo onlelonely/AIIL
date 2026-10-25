@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>合作與經費 · Collaborators — AIIL</title>
+<meta name="description" content="Collaborators, funding and lab members of AIIL, the lab of Li-Hsin Chang at NPUST." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700;900&family=Source+Sans+3:ital,wght@0,300..700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,500&display=swap" rel="stylesheet">
+
+<style>
+/* Shared tokens, base and top bar: copied from index.html */
+:root {
+  /* palette: paper + ink, tuned slightly cooler for the night-sky masthead */
+  --night-sky:  #1f1f29;
+  --brand-blue: #0081c0;
+  --action-azure: #41a1cf;
+  --paper:      #fefffc;          /* off-white canvas with a small paper warmth */
+  --paper-deep: #f9faf7;          /* recessed paper panels */
+  --paper-edge: #dee2de;          /* cool hairline rules */
+  --ink:        #171717;          /* near-black */
+  --ink-soft:   #444141;          /* body text second tier */
+  --ink-faint:  #646464;          /* captions, meta */
+  --surface:    #ffffff;
+  --cinnabar:       #8d6a94;      /* primary ink (accent) */
+  --cinnabar-soft:  #a58caa;      /* lighter wash */
+  --cinnabar-deep:  #5e4466;      /* saturated stroke core */
+  --ink-secondary:  #5e4466;      /* pairs with accent for two-ink flourishes */
+  --shadow-soft: rgba(0, 0, 0, 0.08) 0 1px 1px 0, rgba(0, 0, 0, 0.08) 0 4px 5px 0;
+  --shadow-nav: rgba(0, 0, 0, 0.12) 0 2px 10px 0;
+  --shadow-hairline: rgb(222, 226, 222) 0 0 0 1px;
+
+  /* type */
+  --sans-zh: 'Noto Sans TC', system-ui, sans-serif;
+  --serif-zh: 'Noto Serif TC', 'Iowan Old Style', 'Charter', Georgia, serif;
+  --sans-en: 'Source Sans 3', 'Noto Sans TC', system-ui, sans-serif;
+  --serif-en: 'Source Serif 4', 'Noto Serif TC', 'Iowan Old Style', 'Charter', Georgia, serif;
+  --sans: var(--sans-zh);
+  --serif: var(--serif-zh);
+  --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* rhythm */
+  --measure: 62ch;
+  --gutter: clamp(1rem, 4vw, 3rem);
+}
+
+/* ========================================================================
+   RESET + BASE
+   ======================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11", "calt";
+  overflow-x: hidden;
+}
+
+/* paper texture — extremely subtle, two overlaid noise layers */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(120,100,60,0.05) 0, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(80,60,40,0.05) 0, transparent 45%);
+}
+/* paper fibres - very faint crosshatch */
+body::after {
+  content: "";
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.06;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(27,26,23,0.5) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(-45deg, rgba(27,26,23,0.3) 0 1px, transparent 1px 4px);
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+::selection { background: var(--cinnabar); color: var(--paper); }
+
+/* html[lang] gets appropriate type roles */
+html[lang="zh-Hant"] { --sans: var(--sans-zh); --serif: var(--serif-zh); }
+html[lang="en"] { --sans: var(--sans-en); --serif: var(--serif-en); }
+html[lang="zh-Hant"] body { font-family: var(--serif); }
+html[lang="en"] body { font-family: var(--sans); }
+
+/* ========================================================================
+   VERSION SWITCHER (top bar)
+   ======================================================================== */
+.shell {
+  position: relative;
+  z-index: 1;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--paper) 78%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid color-mix(in srgb, var(--paper-edge) 70%, transparent);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.035);
+}
+
+.topbar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 14px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.seal {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px 6px 8px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--paper) 76%, transparent);
+  border: 1px solid color-mix(in srgb, var(--paper-edge) 70%, transparent);
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 1px 8px 0;
+  backdrop-filter: blur(9px);
+}
+.seal-mark {
+  width: 44px; height: 30px;
+  display: inline-block;
+  color: var(--cinnabar);
+}
+.seal-mark svg { width: 100%; height: 100%; display: block; overflow: visible; }
+
+
+.topbar-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.lang-switch {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 9px;
+  border: 1px solid color-mix(in srgb, var(--paper-edge) 65%, transparent);
+  border-radius: 50px;
+  background: color-mix(in srgb, var(--paper) 76%, transparent);
+  box-shadow: rgba(0, 0, 0, 0.045) 0 1px 8px 0;
+  backdrop-filter: blur(9px);
+}
+.lang-switch button {
+  color: var(--ink-faint);
+  padding: 2px 4px;
+  border-bottom: 1px solid transparent;
+}
+.lang-switch button.active {
+  color: var(--night-sky);
+  border-bottom-color: var(--brand-blue);
+}
+.lang-switch .sep { opacity: 0.4; }
+
+
+/* ========================================================================
+   COLLABORATORS PAGE
+   ======================================================================== */
+.v1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) 6rem;
+}
+.home-link {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+.home-link:hover { color: var(--ink); }
+
+.cp-head {
+  padding: 4rem 0 2rem;
+  border-bottom: 1px solid var(--paper-edge);
+}
+.cp-head h1 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+}
+html[lang="en"] .cp-head h1 { font-family: var(--sans); }
+.cp-head .v1-collab-lead { margin-top: 0.9rem; }
+
+.cp-group {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--paper-edge);
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 3rem;
+}
+.cp-group > div > :first-child { border-top: 0; }
+.cp-group .v1-collab-list > :first-child { border-top: 0; padding-top: 0.2rem; }
+
+.cp-cta {
+  padding-top: 2.5rem;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+.cp-cta a {
+  font-family: var(--mono);
+  color: var(--brand-blue);
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 72%, transparent);
+}
+
+.v1-section-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  padding-top: 0.4rem;
+}
+h2.v1-section-label { font-weight: 400; line-height: inherit; }
+.v1-section-label::before {
+  content: "§ ";
+  color: var(--cinnabar);
+}
+/* hand-drawn underline beneath section labels */
+.v1-section-label {
+  position: relative;
+  align-self: start;
+  padding-bottom: 0.55rem;
+}
+.v1-section-label::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 20%;
+  bottom: 0;
+  height: 6px;
+  background-image: var(--pen-underline, none);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: calc(var(--ink-alpha, 0.75) * 0.85);
+  pointer-events: none;
+}
+
+.v1-topics-label {
+  font-weight: 400;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.75rem;
+}
+/* --- Collaborators & funding --------------------------------------- */
+.v1-collab {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--paper-edge);
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 3rem;
+}
+.v1-collab-lead {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+html[lang="en"] .v1-collab-lead { font-family: var(--sans); }
+.v1-collab-group { margin-top: 2rem; }
+.v1-collab-list,
+.v1-member-list { margin: 0; }
+.v1-collab-item {
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--paper-edge);
+}
+.v1-collab-item dd { margin: 0; }
+.v1-collab-note {
+  margin: 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--paper-edge);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--ink-faint);
+}
+.v1-member-list dd { margin: 0; }
+.v1-member-list .v1-contact-row { grid-template-columns: 11.5em 1fr; }
+.v1-member-val {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+html[lang="en"] .v1-member-val { font-family: var(--sans); }
+
+.v1-collab-item dt {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.v1-collab-item dd {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+}
+html[lang="en"] .v1-collab-item dt,
+html[lang="en"] .v1-collab-item dd { font-family: var(--sans); }
+.v1-contact-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--paper-edge);
+  gap: 1rem;
+  align-items: baseline;
+}
+.v1-contact-row:last-child { border-bottom: 1px solid var(--paper-edge); }
+.v1-contact-key {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* --- Colophon footer ----------------------------------------------- */
+.v1-colophon {
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+}
+.v1-colophon .seal-mark {
+  width: 22px; height: 22px; font-size: 11px;
+}
+
+
+
+@media (max-width: 900px) {
+  .cp-group { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .topbar-inner { padding: 10px var(--gutter); }
+  .seal { padding: 5px 10px 5px 7px; gap: 8px; font-size: 10.5px; }
+  .seal-mark { width: 32px; height: 24px; }
+  .v1-contact-row,
+  .v1-member-list .v1-contact-row { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="seal" aria-label="AIIL home">
+      <span class="seal-mark" aria-hidden="true">
+        <svg viewBox="0 0 80 36">
+          <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <!-- stylised handwritten "lh" monogram -->
+            <path d="M6 6 C 6 18, 6 24, 10 30"/>
+            <path d="M4 16 C 10 14, 14 14, 18 16"/>
+            <path d="M22 6 C 22 18, 22 24, 26 30"/>
+            <path d="M22 18 C 26 14, 32 14, 36 18 C 36 22, 36 26, 40 30"/>
+            <!-- small dot / pen lift -->
+            <circle cx="48" cy="28" r="1.3" fill="currentColor" stroke="none"/>
+          </g>
+        </svg>
+      </span>
+      <span><strong style="color:var(--ink);font-weight:500">L-H. Chang</strong> · AIIL · NPUST</span>
+    </a>
+    <div class="topbar-right">
+      <a href="index.html" class="home-link" data-i18n="cp.home">← 回首頁</a>
+      <div class="lang-switch">
+        <button data-lang="zh" class="active">中</button>
+        <span class="sep">/</span>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="v1">
+  <header class="cp-head">
+    <h1 data-i18n="cp.title">合作與經費</h1>
+    <p class="v1-collab-lead" data-i18n="v1.collab.lead">一間剛起步的實驗室，站在很多人的肩膀上。</p>
+  </header>
+
+  <section class="cp-group">
+    <h2 class="v1-section-label" data-i18n="v1.collab.hg.head">人類基因體與臨床</h2>
+    <div>
+        <dl class="v1-collab-list">
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.hg.tvgh.name">臺北榮民總醫院・神經內科</dt>
+            <dd data-i18n="v1.collab.hg.tvgh.desc">早發性腦中風 cohort、家族性腦靜脈竇血栓 F2 p.F382L、臨床表型與遺傳判讀、罕見疾病 variant interpretation、family-based NGS 分析</dd>
+          </div>
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.hg.nhri.name">國家衛生研究院</dt>
+            <dd data-i18n="v1.collab.hg.nhri.desc">NGS 資料平台測試、可信研究環境（TRE）</dd>
+          </div>
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.hg.kmu.name">高雄醫學大學</dt>
+            <dd data-i18n="v1.collab.hg.kmu.desc">癌症 RNA-seq 生物標記、攝護腺癌二代荷爾蒙藥物選擇平台</dd>
+          </div>
+        </dl>
+        <p class="v1-collab-note" data-i18n="v1.collab.hg.more">陸續補上，歡迎有意合作者來信。</p>
+    </div>
+  </section>
+  <section class="cp-group">
+    <h2 class="v1-section-label" data-i18n="v1.collab.vet.head">獸醫與動物</h2>
+    <div>
+        <dl class="v1-collab-list">
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.vet.vetmed.name">獸醫學院</dt>
+            <dd data-i18n="v1.collab.vet.vetmed.desc">院內合作；病理、微生物與免疫相關資源</dd>
+          </div>
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.vet.avt.name">動物疫苗科技研究所（PI 所屬單位）</dt>
+            <dd data-i18n="v1.collab.vet.avt.desc">疫苗研究主場域；動物樣本處理、病毒分離與傳代、抗原製備</dd>
+          </div>
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.vet.chuang.name">莊國賓老師・動物疫苗科技研究所</dt>
+            <dd data-i18n="v1.collab.vet.chuang.desc">國科會計畫合作</dd>
+          </div>
+        </dl>
+    </div>
+  </section>
+  <section class="cp-group">
+    <h2 class="v1-section-label" data-i18n="v1.collab.data.head">資料與工具</h2>
+    <div>
+        <dl class="v1-collab-list">
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.data.twb.name">台灣生物資料庫（TWB）・NBCT</dt>
+            <dd data-i18n="v1.collab.data.twb.desc">人類面的 cohort-scale 資料，作為轉移學習的人類參考</dd>
+          </div>
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.data.oss.name">開源社群</dt>
+            <dd data-i18n="v1.collab.data.oss.desc">ESM・DVC・MLflow，站在巨人的肩膀上</dd>
+          </div>
+        </dl>
+    </div>
+  </section>
+  <section class="cp-group">
+    <h2 class="v1-section-label" data-i18n="v1.collab.fund.head">經費與致謝</h2>
+    <div>
+        <dl class="v1-collab-list">
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.fund.f1.name">國科會 2026.08–2027.07</dt>
+            <dd data-i18n="v1.collab.fund.f1.desc">NSTC 115-2313-B-020-001-・人到大鼠藥物反應轉移基準（主持人）</dd>
+          </div>
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.fund.f2.name">國科會產業前瞻—應用型研究育苗專案</dt>
+            <dd data-i18n="v1.collab.fund.f2.desc">攝護腺癌二代賀爾蒙藥物治療之個人化用藥推薦系統及精準檢測生物晶片（1/2）・2026（共同主持人）</dd>
+          </div>
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.fund.f3.name">高醫屏科雙邊計畫</dt>
+            <dd data-i18n="v1.collab.fund.f3.desc">跨校計算與濕實驗合作</dd>
+          </div>
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.fund.f4.name">校內新進教師經費</dt>
+          </div>
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.fund.f5.name">高教深耕</dt>
+            <dd data-i18n="v1.collab.fund.f5.desc">H2M-ValiPred</dd>
+          </div>
+          <div class="v1-collab-item">
+            <dt data-i18n="v1.collab.fund.thanks.name">感謝一路上的指導者</dt>
+            <dd data-i18n="v1.collab.fund.thanks.desc">博班、博後與每個願意花時間的前輩</dd>
+          </div>
+        </dl>
+        <p class="v1-collab-note" data-i18n="v1.collab.fund.note">本站呈現的研究成果，都是多方合作與公開資源累積的結果。若有遺漏或錯誤，請來信告知，會盡速修正。</p>
+    </div>
+  </section>
+  <section class="cp-group">
+    <h2 class="v1-section-label" data-i18n="v1.collab.mem.head">實驗室成員・2026–2027</h2>
+    <div>
+        <dl class="v1-member-list">
+          <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.mem.pi.k">PI</dt><dd class="v1-member-val" data-i18n="v1.collab.mem.pi.v">張立鑫 Li-Hsin Chang・助理教授・主持人</dd></div>
+          <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.mem.ms.k">碩士生</dt><dd class="v1-member-val" data-i18n="v1.collab.mem.ms.v">招募中</dd></div>
+          <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.mem.ug.k">專題生</dt><dd class="v1-member-val" data-i18n="v1.collab.mem.ug.v">歡迎詢問</dd></div>
+          <div class="v1-contact-row"><dt class="v1-contact-key" data-i18n="v1.collab.mem.alumni.k">畢業生</dt><dd class="v1-member-val" data-i18n="v1.collab.mem.alumni.v">尚無，實驗室於 2025 成立</dd></div>
+        </dl>
+    </div>
+  </section>
+
+  <p class="cp-cta"><span data-i18n="cp.cta">想合作，或發現遺漏？來信：</span> <a href="mailto:lhchang@mail.npust.edu.tw">lhchang@mail.npust.edu.tw</a></p>
+
+  <footer class="v1-colophon">
+    <div>© 2025–2026 AIIL · NPUST</div>
+  </footer>
+</main>
+
+</div>
+<script>
+const I18N = {
+  zh: {
+    "cp.home": "← 回首頁",
+    "cp.title": "合作與經費",
+    "cp.cta": "想合作，或發現遺漏？來信：",
+    /* V1 collaborators & funding */
+    "v1.collab.label": "合作與經費",
+    "v1.collab.lead": "一間剛起步的實驗室，站在很多人的肩膀上。",
+    "v1.collab.hg.head": "人類基因體與臨床",
+    "v1.collab.hg.tvgh.name": "臺北榮民總醫院・神經內科",
+    "v1.collab.hg.tvgh.desc": "早發性腦中風 cohort、家族性腦靜脈竇血栓 F2 p.F382L、臨床表型與遺傳判讀、罕見疾病 variant interpretation、family-based NGS 分析",
+    "v1.collab.hg.nhri.name": "國家衛生研究院",
+    "v1.collab.hg.nhri.desc": "NGS 資料平台測試、可信研究環境（TRE）",
+    "v1.collab.hg.kmu.name": "高雄醫學大學",
+    "v1.collab.hg.kmu.desc": "癌症 RNA-seq 生物標記、攝護腺癌二代荷爾蒙藥物選擇平台",
+    "v1.collab.hg.more": "陸續補上，歡迎有意合作者來信。",
+    "v1.collab.vet.head": "獸醫與動物",
+    "v1.collab.vet.vetmed.name": "獸醫學院",
+    "v1.collab.vet.vetmed.desc": "院內合作；病理、微生物與免疫相關資源",
+    "v1.collab.vet.avt.name": "動物疫苗科技研究所（PI 所屬單位）",
+    "v1.collab.vet.avt.desc": "疫苗研究主場域；動物樣本處理、病毒分離與傳代、抗原製備",
+    "v1.collab.vet.chuang.name": "莊國賓老師・動物疫苗科技研究所",
+    "v1.collab.vet.chuang.desc": "國科會計畫合作",
+    "v1.collab.data.head": "資料與工具",
+    "v1.collab.data.twb.name": "台灣生物資料庫（TWB）・NBCT",
+    "v1.collab.data.twb.desc": "人類面的 cohort-scale 資料，作為轉移學習的人類參考",
+    "v1.collab.data.oss.name": "開源社群",
+    "v1.collab.data.oss.desc": "ESM・DVC・MLflow，站在巨人的肩膀上",
+    "v1.collab.fund.head": "經費與致謝",
+    "v1.collab.fund.f1.name": "國科會 2026.08–2027.07",
+    "v1.collab.fund.f1.desc": "NSTC 115-2313-B-020-001-・人到大鼠藥物反應轉移基準（主持人）",
+    "v1.collab.fund.f2.name": "國科會產業前瞻—應用型研究育苗專案",
+    "v1.collab.fund.f2.desc": "攝護腺癌二代賀爾蒙藥物治療之個人化用藥推薦系統及精準檢測生物晶片（1/2）・2026（共同主持人）",
+    "v1.collab.fund.f3.name": "高醫屏科雙邊計畫",
+    "v1.collab.fund.f3.desc": "跨校計算與濕實驗合作",
+    "v1.collab.fund.f4.name": "校內新進教師經費",
+    "v1.collab.fund.f5.name": "高教深耕",
+    "v1.collab.fund.f5.desc": "H2M-ValiPred",
+    "v1.collab.fund.thanks.name": "感謝一路上的指導者",
+    "v1.collab.fund.thanks.desc": "博班、博後與每個願意花時間的前輩",
+    "v1.collab.fund.note": "本站呈現的研究成果，都是多方合作與公開資源累積的結果。若有遺漏或錯誤，請來信告知，會盡速修正。",
+    "v1.collab.mem.head": "實驗室成員・2026–2027",
+    "v1.collab.mem.pi.k": "PI",
+    "v1.collab.mem.pi.v": "張立鑫 Li-Hsin Chang・助理教授・主持人",
+    "v1.collab.mem.ms.k": "碩士生",
+    "v1.collab.mem.ms.v": "招募中",
+    "v1.collab.mem.ug.k": "專題生",
+    "v1.collab.mem.ug.v": "歡迎詢問",
+    "v1.collab.mem.alumni.k": "畢業生",
+    "v1.collab.mem.alumni.v": "尚無，實驗室於 2025 成立",
+  },
+  en: {
+    "cp.home": "← Home",
+    "cp.title": "Collaborators & funding",
+    "cp.cta": "Want to collaborate, or spotted an omission? Write to",
+    /* V1 collaborators & funding */
+    "v1.collab.label": "COLLABORATORS & FUNDING",
+    "v1.collab.lead": "A new lab stands on many shoulders.",
+    "v1.collab.hg.head": "Human genomics & clinical",
+    "v1.collab.hg.tvgh.name": "Taipei Veterans General Hospital (TVGH) · Neurology",
+    "v1.collab.hg.tvgh.desc": "Early-onset stroke cohort, familial cerebral venous thrombosis (F2 p.F382L), clinical phenotyping & variant interpretation, rare-disease variant interpretation, family-based NGS analyses",
+    "v1.collab.hg.nhri.name": "National Health Research Institutes (NHRI)",
+    "v1.collab.hg.nhri.desc": "NGS data platform testing, trusted research environment (TRE)",
+    "v1.collab.hg.kmu.name": "Kaohsiung Medical University (KMU)",
+    "v1.collab.hg.kmu.desc": "Cancer RNA-seq biomarkers, second-generation hormonal-drug selection platform for prostate cancer",
+    "v1.collab.hg.more": "More to be added — open to new collaborators, please reach out.",
+    "v1.collab.vet.head": "Veterinary & animal",
+    "v1.collab.vet.vetmed.name": "College of Veterinary Medicine",
+    "v1.collab.vet.vetmed.desc": "On-campus collaboration; pathology, microbiology and immunology-related resources",
+    "v1.collab.vet.avt.name": "Graduate Institute of Animal Vaccine Technology (PI's home institute)",
+    "v1.collab.vet.avt.desc": "Primary vaccine research site; animal sample handling, viral isolation and passaging, antigen preparation",
+    "v1.collab.vet.chuang.name": "Prof. Kuo-Pin Chuang 莊國賓, Graduate Institute of Animal Vaccine Technology",
+    "v1.collab.vet.chuang.desc": "NSTC project collaboration",
+    "v1.collab.data.head": "Data & tools",
+    "v1.collab.data.twb.name": "Taiwan Biobank (TWB) · NBCT",
+    "v1.collab.data.twb.desc": "Cohort-scale human data, the human reference for transfer learning",
+    "v1.collab.data.oss.name": "Open-source community",
+    "v1.collab.data.oss.desc": "ESM · DVC · MLflow — standing on giants",
+    "v1.collab.fund.head": "Funding & acknowledgements",
+    "v1.collab.fund.f1.name": "NSTC 2026.08–2027.07",
+    "v1.collab.fund.f1.desc": "NSTC 115-2313-B-020-001- · Human-to-rat drug-response transfer benchmark (PI)",
+    "v1.collab.fund.f2.name": "NSTC Industry-Forward Applied Research Incubation Program",
+    "v1.collab.fund.f2.desc": "Personalized drug recommendation system and precision-detection biochip for second-generation hormonal therapy in prostate cancer (1/2) · 2026 (co-PI)",
+    "v1.collab.fund.f3.name": "KMU–NPUST bilateral program",
+    "v1.collab.fund.f3.desc": "Cross-institutional computational and wet-lab collaboration",
+    "v1.collab.fund.f4.name": "NPUST new-faculty funding",
+    "v1.collab.fund.f5.name": "Higher Education Sprout Project",
+    "v1.collab.fund.f5.desc": "H2M-ValiPred",
+    "v1.collab.fund.thanks.name": "With gratitude to mentors along the way",
+    "v1.collab.fund.thanks.desc": "PhD, postdoc, and everyone who gave me their time",
+    "v1.collab.fund.note": "Nothing on this site is the result of one person. For corrections or omissions, please email me — I will fix them quickly.",
+    "v1.collab.mem.head": "Lab members · 2026–2027",
+    "v1.collab.mem.pi.k": "PI",
+    "v1.collab.mem.pi.v": "Li-Hsin Chang 張立鑫 · assistant professor · principal investigator",
+    "v1.collab.mem.ms.k": "MS students",
+    "v1.collab.mem.ms.v": "Recruiting",
+    "v1.collab.mem.ug.k": "Undergraduate researchers",
+    "v1.collab.mem.ug.v": "Welcome to ask",
+    "v1.collab.mem.alumni.k": "Alumni",
+    "v1.collab.mem.alumni.v": "None yet · lab founded 2025",
+  }
+};
+
+function setLang(lang) {
+  if (!I18N[lang]) return;
+  document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const val = I18N[lang][el.getAttribute('data-i18n')];
+    if (val != null) el.innerHTML = val;
+  });
+  document.querySelectorAll('.lang-switch button').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  try { localStorage.setItem('aiil_lang', lang); } catch(e){}
+}
+
+function refreshPenStrokes() {
+  const cs = getComputedStyle(document.body);
+  const primary = cs.getPropertyValue('--cinnabar').trim() || '#8d6a94';
+  const secondary = cs.getPropertyValue('--ink-secondary').trim() || primary;
+  const width = parseFloat(cs.getPropertyValue('--ink-width')) || 1.4;
+
+  const wave = encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 14' preserveAspectRatio='none'>
+       <path d='M2 9 C 24 3, 50 11, 78 6 S 132 3, 160 9 S 210 4, 238 8'
+             fill='none' stroke='${primary}' stroke-width='${width*1.1}' stroke-linecap='round'/>
+       <path d='M2 11 C 30 7, 56 13, 82 10 S 136 8, 164 12 S 214 9, 238 11'
+             fill='none' stroke='${secondary}' stroke-width='${width*0.55}' stroke-linecap='round' opacity='0.55'/>
+     </svg>`
+  );
+  const underline = encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 6' preserveAspectRatio='none'>
+       <path d='M1 3 C 30 1, 60 5, 100 3 S 170 1, 199 3' fill='none'
+             stroke='${primary}' stroke-width='${width}' stroke-linecap='round'/>
+     </svg>`
+  );
+  const underlineH = encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 10' preserveAspectRatio='none'>
+       <path d='M2 6 C 40 2, 90 9, 150 5 S 250 2, 298 6' fill='none'
+             stroke='${primary}' stroke-width='${width*1.3}' stroke-linecap='round'/>
+       <path d='M6 8 C 60 5, 110 10, 170 7 S 260 5, 292 8' fill='none'
+             stroke='${secondary}' stroke-width='${width*0.6}' stroke-linecap='round' opacity='0.5'/>
+     </svg>`
+  );
+
+  document.body.style.setProperty('--pen-wave', `url("data:image/svg+xml;utf8,${wave}")`);
+  document.body.style.setProperty('--pen-underline', `url("data:image/svg+xml;utf8,${underline}")`);
+  document.body.style.setProperty('--pen-underline-h', `url("data:image/svg+xml;utf8,${underlineH}")`);
+}
+
+document.querySelectorAll('.lang-switch button').forEach(b => {
+  b.addEventListener('click', () => setLang(b.dataset.lang));
+});
+
+(() => {
+  let lang = null;
+  try { const s = localStorage.getItem('aiil_lang'); if (s === 'zh' || s === 'en') lang = s; } catch(e){}
+  if (!lang) lang = (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+  refreshPenStrokes();
+  setLang(lang);
+})();
+</script>
+</body>
+</html>
