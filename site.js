@@ -14,6 +14,16 @@
     });
     try { localStorage.setItem('aiil_lang', lang); } catch(e){}
     if (typeof window.onLangChange === 'function') window.onLangChange(lang);
+    keepActiveTabInView();
+  }
+
+  // On narrow screens the nav scrolls sideways; keep the current page's tab in view.
+  function keepActiveTabInView() {
+    const nav = document.querySelector('.version-switch');
+    const active = nav && nav.querySelector('.active');
+    if (!active || nav.scrollWidth <= nav.clientWidth) return;
+    const n = nav.getBoundingClientRect(), a = active.getBoundingClientRect();
+    nav.scrollLeft += a.left - n.left - (n.width - a.width) / 2;
   }
 
   function refreshPenStrokes() {

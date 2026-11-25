@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>作品與教材 · Works — AIIL</title>
+<meta name="description" content="Teaching works by Li-Hsin Chang (AIIL, NPUST): science games, course videos and materials." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;500;600;700;900&family=Source+Sans+3:ital,wght@0,300..700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="site.css">
+<style>
+/* Works page: one .v1-work card per item, one .cp-group per kind (games; course videos and materials later) */
+.v1-work + .v1-work {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--paper-edge);
+}
+.v1-work img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: var(--night-sky);
+  border-radius: 6px;
+}
+.v1-work-hero { display: block; box-shadow: var(--shadow-soft); border-radius: 6px; }
+.v1-work-head { margin-top: 1.25rem; }
+.v1-work-title {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+html[lang="en"] .v1-work-title { font-family: var(--sans); }
+.v1-work-alt {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  margin-left: 0.4rem;
+}
+html[lang="en"] .v1-work-alt { display: none; }
+.v1-work-meta {
+  margin-top: 0.3rem;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  color: var(--cinnabar);
+}
+.v1-work-body {
+  margin-top: 1rem;
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--ink);
+  max-width: 60ch;
+}
+html[lang="en"] .v1-work-body { font-family: var(--sans); }
+.v1-work-body p + p { margin-top: 0.8rem; }
+.v1-work-play {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+.v1-work-play a {
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  color: var(--brand-blue);
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 72%, transparent);
+  margin-right: 0.5rem;
+}
+.v1-work-shots {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.25rem;
+}
+.v1-work-shots a { display: block; border-radius: 6px; transition: opacity 0.15s; }
+.v1-work-shots a:hover { opacity: 0.88; }
+.v1-work-shots span {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: var(--serif);
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+html[lang="en"] .v1-work-shots span { font-family: var(--sans); }
+.v1-work-credit {
+  margin-top: 1.25rem;
+  font-family: var(--serif);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--ink-faint);
+}
+html[lang="en"] .v1-work-credit { font-family: var(--sans); }
+@media (max-width: 560px) {
+  .v1-work-shots { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+<div class="shell">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="./" class="seal" aria-label="AIIL home">
+      <span class="seal-mark" aria-hidden="true">
+        <svg viewBox="0 0 80 36">
+          <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <!-- stylised handwritten "lh" monogram -->
+            <path d="M6 6 C 6 18, 6 24, 10 30"/>
+            <path d="M4 16 C 10 14, 14 14, 18 16"/>
+            <path d="M22 6 C 22 18, 22 24, 26 30"/>
+            <path d="M22 18 C 26 14, 32 14, 36 18 C 36 22, 36 26, 40 30"/>
+            <!-- small dot / pen lift -->
+            <circle cx="48" cy="28" r="1.3" fill="currentColor" stroke="none"/>
+          </g>
+        </svg>
+      </span>
+      <span><strong style="color:var(--ink);font-weight:500">L-H. Chang</strong> · AIIL · NPUST</span>
+    </a>
+    <nav class="version-switch" aria-label="Site sections">
+      <a href="./" data-i18n="nav.v1">01 · 首頁</a>
+      <a href="collaborators.html" data-i18n="nav.v2">02 · 合作者</a>
+      <a href="publications.html" data-i18n="nav.v3">03 · 著作列表</a>
+      <a href="works.html" class="active" aria-current="page" data-i18n="nav.v4">04 · 作品與教材</a>
+    </nav>
+
+    <div class="topbar-right">
+      <div class="lang-switch">
+        <button data-lang="zh" class="active">中</button>
+        <span class="sep">/</span>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="v1">
+  <header class="cp-head">
+    <h1 data-i18n="works.title">作品與教材</h1>
+  </header>
+
+  <section class="cp-group" id="games">
+    <h2 class="v1-section-label" data-i18n="works.games">遊戲與互動</h2>
+    <div>
+      <article class="v1-work">
+        <a class="v1-work-hero" href="assets/works/immune-survivors/title.webp" target="_blank" rel="noopener">
+          <img src="assets/works/immune-survivors/title.webp" width="1600" height="900" loading="lazy" decoding="async"
+               alt="免疫倖存者 Immune Survivors 標題畫面：像素風的巨噬細胞、抗體、細菌與病毒">
+        </a>
+        <div class="v1-work-head">
+          <h3 class="v1-work-title"><span data-i18n="works.is.title">免疫倖存者</span> <span class="v1-work-alt">Immune Survivors</span></h3>
+          <div class="v1-work-meta" data-i18n="works.is.meta">2026・校慶園遊會攤位・科普遊戲</div>
+        </div>
+        <div class="v1-work-body">
+          <p data-i18n="works.is.p1">給國高中生玩的免疫科普小遊戲。你是一顆巨噬細胞：前兩分鐘在傷口附近巡邏，把打倒病原掉出的抗原碎片帶到淋巴結，招募 B 細胞和殺手 T 細胞；接下來三分鐘回到破口，帶著小隊守住六個組織細胞，撐過三波細菌和病毒。</p>
+          <p data-i18n="works.is.p2">升級卡都對應真實的免疫機制，像補體、發燒、樹突細胞、干擾素，玩家選卡時就得想先天免疫和後天免疫怎麼分工。三條感染路線（手腳破皮、小腸、肺）各有真實的病原組合，遊戲中遇到的細胞、病原和機制會收進「免疫百科」，共 45 條。</p>
+        </div>
+        <p class="v1-work-play"><a href="https://immune-survivors.aiil.science" target="_blank" rel="noopener" data-i18n="works.is.play">線上試玩 →</a> <span data-i18n="works.is.playnote">需要電腦鍵盤，手機無法操作</span></p>
+        <ul class="v1-work-shots">
+          <li><a href="assets/works/immune-survivors/patrol.webp" target="_blank" rel="noopener"><img src="assets/works/immune-survivors/patrol.webp" width="1280" height="720" loading="lazy" decoding="async" alt="巡邏階段：巨噬細胞帶著抗體在淋巴結裡，上方警告淋巴結即將遭入侵"></a><span data-i18n="works.is.s1">巡邏招募：把抗原送到淋巴結</span></li>
+          <li><a href="assets/works/immune-survivors/cards.webp" target="_blank" rel="noopener"><img src="assets/works/immune-survivors/cards.webp" width="1280" height="720" loading="lazy" decoding="async" alt="升級選卡畫面：中性球網、樹突細胞、標記三張卡，各附免疫機制說明"></a><span data-i18n="works.is.s2">升級選卡：每張卡是一個免疫機制</span></li>
+          <li><a href="assets/works/immune-survivors/final-stand.webp" target="_blank" rel="noopener"><img src="assets/works/immune-survivors/final-stand.webp" width="1280" height="720" loading="lazy" decoding="async" alt="最終防線：肺路線，流感病毒感染組織細胞，殺手 T 細胞清除被感染的細胞"></a><span data-i18n="works.is.s3">最終防線：肺路線的流感病毒波</span></li>
+          <li><a href="assets/works/immune-survivors/codex.webp" target="_blank" rel="noopener"><img src="assets/works/immune-survivors/codex.webp" width="1280" height="720" loading="lazy" decoding="async" alt="免疫百科：免疫細胞分類，右側是樹突細胞的真實身分、遊戲中的作用與小知識"></a><span data-i18n="works.is.s4">免疫百科：樹突細胞</span></li>
+        </ul>
+        <p class="v1-work-credit" data-i18n="works.is.credit">張立鑫獨立製作。Phaser 4、TypeScript；像素美術以 Qwen-Image 2.1 生成後再像素化；字型為俐方體 11 號。</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="v1-colophon">
+    <div>© 2025–2026 AIIL · NPUST</div>
+  </footer>
+</main>
+
+</div>
+<script>
+window.I18N = {
+  zh: {
+    "nav.v1": "01 · 首頁",
+    "nav.v2": "02 · 合作者",
+    "nav.v3": "03 · 著作列表",
+    "nav.v4": "04 · 作品與教材",
+    "works.title": "作品與教材",
+    "works.games": "遊戲與互動",
+    "works.is.title": "免疫倖存者",
+    "works.is.meta": "2026・校慶園遊會攤位・科普遊戲",
+    "works.is.p1": "給國高中生玩的免疫科普小遊戲。你是一顆巨噬細胞：前兩分鐘在傷口附近巡邏，把打倒病原掉出的抗原碎片帶到淋巴結，招募 B 細胞和殺手 T 細胞；接下來三分鐘回到破口，帶著小隊守住六個組織細胞，撐過三波細菌和病毒。",
+    "works.is.p2": "升級卡都對應真實的免疫機制，像補體、發燒、樹突細胞、干擾素，玩家選卡時就得想先天免疫和後天免疫怎麼分工。三條感染路線（手腳破皮、小腸、肺）各有真實的病原組合，遊戲中遇到的細胞、病原和機制會收進「免疫百科」，共 45 條。",
+    "works.is.s1": "巡邏招募：把抗原送到淋巴結",
+    "works.is.s2": "升級選卡：每張卡是一個免疫機制",
+    "works.is.s3": "最終防線：肺路線的流感病毒波",
+    "works.is.s4": "免疫百科：樹突細胞",
+    "works.is.play": "線上試玩 →",
+    "works.is.playnote": "需要電腦鍵盤，手機無法操作",
+    "works.is.credit": "張立鑫獨立製作。Phaser 4、TypeScript；像素美術以 Qwen-Image 2.1 生成後再像素化；字型為俐方體 11 號。",
+  },
+  en: {
+    "nav.v1": "01 · Home",
+    "nav.v2": "02 · Collaborators",
+    "nav.v3": "03 · Publications",
+    "nav.v4": "04 · Works",
+    "works.title": "Works &amp; Materials",
+    "works.games": "GAMES",
+    "works.is.title": "Immune Survivors",
+    "works.is.meta": "2026 · NPUST ANNIVERSARY FAIR BOOTH · SCIENCE GAME",
+    "works.is.p1": "A short immunology game for middle and high school students. You play a macrophage. For the first two minutes you patrol around a wound, carry antigen fragments from defeated pathogens to the lymph node, and recruit B cells and killer T cells there. For the next three you return to the breach with your squad and hold six tissue cells through three waves of bacteria and viruses.",
+    "works.is.p2": "Each level-up card is a real immune mechanism, such as complement, fever, dendritic cells or interferon, so choosing a card means thinking about how innate and adaptive immunity split the work. Three infection routes (a scraped knee, the small intestine, the lungs) each bring a realistic mix of pathogens, and the cells, pathogens and mechanisms you meet are added to an in-game encyclopedia of 45 entries. The game is in Chinese.",
+    "works.is.s1": "Patrol: bring antigen to the lymph node",
+    "works.is.s2": "Level-up: each card is an immune mechanism",
+    "works.is.s3": "Final stand: an influenza wave on the lung route",
+    "works.is.s4": "Encyclopedia: dendritic cells",
+    "works.is.play": "Play online →",
+    "works.is.playnote": "Needs a computer keyboard; does not work on phones",
+    "works.is.credit": "Made solo by L-H. Chang. Phaser 4 and TypeScript; pixel art generated with Qwen-Image 2.1 and then pixelized; Cubic 11 font.",
+  }
+};
+</script>
+<script src="site.js"></script>
+</body>
+</html>
