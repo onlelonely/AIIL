@@ -664,102 +664,6 @@ html[lang="en"] .v1-course-name { font-family: var(--sans); }
   color: var(--cinnabar);
   letter-spacing: 0.06em;
 }
-.v1-course-name a {
-  color: var(--brand-blue);
-  border-bottom: 1px solid color-mix(in srgb, var(--brand-blue) 72%, transparent);
-}
-.v1-course-note {
-  grid-column: 2 / -1;
-  margin-top: -0.3rem;
-  font-size: 0.9rem;
-  color: var(--ink-soft);
-}
-
-/* --- Works & teaching materials ------------------------------------ */
-.v1-works {
-  padding: 4rem 0 3rem;
-  border-bottom: 1px solid var(--paper-edge);
-  display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  gap: 3rem;
-}
-.v1-work + .v1-work {
-  margin-top: 3rem;
-  padding-top: 3rem;
-  border-top: 1px solid var(--paper-edge);
-}
-.v1-work img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  background: var(--night-sky);
-  border-radius: 6px;
-}
-.v1-work-hero { display: block; box-shadow: var(--shadow-soft); border-radius: 6px; }
-.v1-work-head { margin-top: 1.25rem; }
-.v1-work-title {
-  font-family: var(--serif);
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--ink);
-}
-html[lang="en"] .v1-work-title { font-family: var(--sans); }
-.v1-work-alt {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: var(--ink-faint);
-  margin-left: 0.4rem;
-}
-html[lang="en"] .v1-work-alt { display: none; }
-.v1-work-meta {
-  margin-top: 0.3rem;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  color: var(--cinnabar);
-}
-.v1-work-body {
-  margin-top: 1rem;
-  font-family: var(--serif);
-  font-size: 1.02rem;
-  line-height: 1.8;
-  color: var(--ink);
-  max-width: 60ch;
-}
-html[lang="en"] .v1-work-body { font-family: var(--sans); }
-.v1-work-body p + p { margin-top: 0.8rem; }
-.v1-work-shots {
-  list-style: none;
-  margin: 1.5rem 0 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 1.25rem;
-}
-.v1-work-shots a { display: block; border-radius: 6px; transition: opacity 0.15s; }
-.v1-work-shots a:hover { opacity: 0.88; }
-.v1-work-shots span {
-  display: block;
-  margin-top: 0.45rem;
-  font-family: var(--serif);
-  font-size: 0.88rem;
-  color: var(--ink-soft);
-}
-html[lang="en"] .v1-work-shots span { font-family: var(--sans); }
-.v1-work-credit {
-  margin-top: 1.25rem;
-  font-family: var(--serif);
-  font-size: 0.82rem;
-  line-height: 1.6;
-  color: var(--ink-faint);
-}
-html[lang="en"] .v1-work-credit { font-family: var(--sans); }
-@media (max-width: 560px) {
-  .v1-work-shots { grid-template-columns: 1fr; }
-}
 
 /* --- Collaborators & funding (summary) ---------------------------- */
 .v1-collab {
@@ -885,7 +789,7 @@ html[lang="en"] .v1-topic-desc { font-family: var(--sans); }
 @media (max-width: 900px) {
   .v1-hero { grid-template-columns: 1fr; }
   .v1-portrait { max-width: 220px; }
-  .v1-now, .v1-research-head, .v1-research-threads, .v1-teach, .v1-works, .v1-collab, .v1-contact {
+  .v1-now, .v1-research-head, .v1-research-threads, .v1-teach, .v1-collab, .v1-contact {
     grid-template-columns: 1fr; gap: 1.5rem;
   }
 }
@@ -1053,7 +957,7 @@ body { --ink-alpha: 0.75; --ink-width: 1.4; }
 
 /* density-compact */
 body.compact .v1 { padding-top: 0; padding-bottom: 4rem; }
-body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.compact .v1-works, body.compact .v1-trajectory { padding: 2.5rem 0 2rem; }
+body.compact .v1-now, body.compact .v1-research, body.compact .v1-teach, body.compact .v1-trajectory { padding: 2.5rem 0 2rem; }
 
 </style>
 </head>
@@ -1442,43 +1346,6 @@ dog    <b>RPLFEK</b>R<b>S</b>VK<b>D</b>KT<b>E</b>G<b>ELL</b>E<b>SYIDGRIV</b>E<b>
           <div class="v1-course-level" data-i18n="v1.teach.c8.lvl">研究所・選修</div>
         </div>
       </div>
-      <div class="v1-teach-courses">
-        <h3 class="v1-teach-courses-label" data-i18n="v1.teach.works">教學作品</h3>
-        <div class="v1-course">
-          <div class="v1-course-term">2026</div>
-          <div class="v1-course-name" data-i18n="v1.teach.w1.name"><a href="https://immune-survivors.aiil.science" target="_blank" rel="noopener">免疫倖存者</a></div>
-          <div class="v1-course-level" data-i18n="v1.teach.w1.lvl">網頁遊戲・需電腦鍵盤</div>
-          <div class="v1-course-note" data-i18n="v1.teach.w1.note">校慶攤位用的像素風動作遊戲：扮演巨噬細胞，撿抗原碎片、送到淋巴結招募幫手，再回頭守住組織細胞。</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Works & teaching materials (one .v1-work card per item) ------------ -->
-  <section class="v1-works" id="works">
-    <h2 class="v1-section-label" data-i18n="v1.works.label">作品與教材</h2>
-    <div>
-      <article class="v1-work">
-        <a class="v1-work-hero" href="assets/works/immune-survivors/title.webp" target="_blank" rel="noopener">
-          <img src="assets/works/immune-survivors/title.webp" width="1600" height="900" loading="lazy" decoding="async"
-               alt="免疫倖存者 Immune Survivors 標題畫面：像素風的巨噬細胞、抗體、細菌與病毒">
-        </a>
-        <div class="v1-work-head">
-          <h3 class="v1-work-title"><span data-i18n="v1.works.is.title">免疫倖存者</span> <span class="v1-work-alt">Immune Survivors</span></h3>
-          <div class="v1-work-meta" data-i18n="v1.works.is.meta">2026・校慶園遊會攤位・科普遊戲</div>
-        </div>
-        <div class="v1-work-body">
-          <p data-i18n="v1.works.is.p1">給國高中生玩的免疫科普小遊戲。你是一顆巨噬細胞：前兩分鐘在傷口附近巡邏，把打倒病原掉出的抗原碎片帶到淋巴結，招募 B 細胞和殺手 T 細胞；接下來三分鐘回到破口，帶著小隊守住六個組織細胞，撐過三波細菌和病毒。</p>
-          <p data-i18n="v1.works.is.p2">升級卡都對應真實的免疫機制，像補體、發燒、樹突細胞、干擾素，玩家選卡時就得想先天免疫和後天免疫怎麼分工。三條感染路線（手腳破皮、小腸、肺）各有真實的病原組合，遊戲中遇到的細胞、病原和機制會收進「免疫百科」，共 45 條。</p>
-        </div>
-        <ul class="v1-work-shots">
-          <li><a href="assets/works/immune-survivors/patrol.webp" target="_blank" rel="noopener"><img src="assets/works/immune-survivors/patrol.webp" width="1280" height="720" loading="lazy" decoding="async" alt="巡邏階段：巨噬細胞帶著抗體在淋巴結裡，上方警告淋巴結即將遭入侵"></a><span data-i18n="v1.works.is.s1">巡邏招募：把抗原送到淋巴結</span></li>
-          <li><a href="assets/works/immune-survivors/cards.webp" target="_blank" rel="noopener"><img src="assets/works/immune-survivors/cards.webp" width="1280" height="720" loading="lazy" decoding="async" alt="升級選卡畫面：中性球網、樹突細胞、標記三張卡，各附免疫機制說明"></a><span data-i18n="v1.works.is.s2">升級選卡：每張卡是一個免疫機制</span></li>
-          <li><a href="assets/works/immune-survivors/final-stand.webp" target="_blank" rel="noopener"><img src="assets/works/immune-survivors/final-stand.webp" width="1280" height="720" loading="lazy" decoding="async" alt="最終防線：肺路線，流感病毒感染組織細胞，殺手 T 細胞清除被感染的細胞"></a><span data-i18n="v1.works.is.s3">最終防線：肺路線的流感病毒波</span></li>
-          <li><a href="assets/works/immune-survivors/codex.webp" target="_blank" rel="noopener"><img src="assets/works/immune-survivors/codex.webp" width="1280" height="720" loading="lazy" decoding="async" alt="免疫百科：免疫細胞分類，右側是樹突細胞的真實身分、遊戲中的作用與小知識"></a><span data-i18n="v1.works.is.s4">免疫百科：樹突細胞</span></li>
-        </ul>
-        <p class="v1-work-credit" data-i18n="v1.works.is.credit">張立鑫獨立製作。Phaser 4、TypeScript；像素美術以 Qwen-Image 2.1 生成後再像素化；字型為俐方體 11 號。</p>
-      </article>
     </div>
   </section>
 
@@ -1675,20 +1542,6 @@ const I18N = {
     'v1.teach.c7.lvl': "研究所・選修",
     'v1.teach.c8.name': "人工智慧與免疫基因體分析（新開）",
     'v1.teach.c8.lvl': "研究所・選修",
-    'v1.works.label': "作品與教材",
-    'v1.works.is.title': "免疫倖存者",
-    'v1.works.is.meta': "2026・校慶園遊會攤位・科普遊戲",
-    'v1.works.is.p1': "給國高中生玩的免疫科普小遊戲。你是一顆巨噬細胞：前兩分鐘在傷口附近巡邏，把打倒病原掉出的抗原碎片帶到淋巴結，招募 B 細胞和殺手 T 細胞；接下來三分鐘回到破口，帶著小隊守住六個組織細胞，撐過三波細菌和病毒。",
-    'v1.works.is.p2': "升級卡都對應真實的免疫機制，像補體、發燒、樹突細胞、干擾素，玩家選卡時就得想先天免疫和後天免疫怎麼分工。三條感染路線（手腳破皮、小腸、肺）各有真實的病原組合，遊戲中遇到的細胞、病原和機制會收進「免疫百科」，共 45 條。",
-    'v1.works.is.s1': "巡邏招募：把抗原送到淋巴結",
-    'v1.works.is.s2': "升級選卡：每張卡是一個免疫機制",
-    'v1.works.is.s3': "最終防線：肺路線的流感病毒波",
-    'v1.works.is.s4': "免疫百科：樹突細胞",
-    'v1.works.is.credit': "張立鑫獨立製作。Phaser 4、TypeScript；像素美術以 Qwen-Image 2.1 生成後再像素化；字型為俐方體 11 號。",
-    'v1.teach.works': "教學作品",
-    'v1.teach.w1.name': "<a href=\"https://immune-survivors.aiil.science\" target=\"_blank\" rel=\"noopener\">免疫倖存者</a>",
-    'v1.teach.w1.lvl': "網頁遊戲・需電腦鍵盤",
-    'v1.teach.w1.note': "校慶攤位用的像素風動作遊戲：扮演巨噬細胞，撿抗原碎片、送到淋巴結招募幫手，再回頭守住組織細胞。",
 
     /* V1 contact */
     /* V1 collaborators & funding */
@@ -1792,20 +1645,6 @@ const I18N = {
     'v1.teach.c7.lvl': "GRAD · ELECTIVE",
     'v1.teach.c8.name': "AI for Immunogenomic Analysis (new)",
     'v1.teach.c8.lvl': "GRAD · ELECTIVE",
-    'v1.works.label': "WORKS & MATERIALS",
-    'v1.works.is.title': "Immune Survivors",
-    'v1.works.is.meta': "2026 · NPUST ANNIVERSARY FAIR BOOTH · SCIENCE GAME",
-    'v1.works.is.p1': "A short immunology game for middle and high school students. You play a macrophage. For the first two minutes you patrol around a wound, carry antigen fragments from defeated pathogens to the lymph node, and recruit B cells and killer T cells there. For the next three you return to the breach with your squad and hold six tissue cells through three waves of bacteria and viruses.",
-    'v1.works.is.p2': "Each level-up card is a real immune mechanism, such as complement, fever, dendritic cells or interferon, so choosing a card means thinking about how innate and adaptive immunity split the work. Three infection routes (a scraped knee, the small intestine, the lungs) each bring a realistic mix of pathogens, and the cells, pathogens and mechanisms you meet are added to an in-game encyclopedia of 45 entries. The game is in Chinese.",
-    'v1.works.is.s1': "Patrol: bring antigen to the lymph node",
-    'v1.works.is.s2': "Level-up: each card is an immune mechanism",
-    'v1.works.is.s3': "Final stand: an influenza wave on the lung route",
-    'v1.works.is.s4': "Encyclopedia: dendritic cells",
-    'v1.works.is.credit': "Made solo by L-H. Chang. Phaser 4 and TypeScript; pixel art generated with Qwen-Image 2.1 and then pixelized; Cubic 11 font.",
-    'v1.teach.works': "Teaching works",
-    'v1.teach.w1.name': "<a href=\"https://immune-survivors.aiil.science\" target=\"_blank\" rel=\"noopener\">Immune Survivors</a>",
-    'v1.teach.w1.lvl': "WEB GAME · KEYBOARD",
-    'v1.teach.w1.note': "A pixel-art action game made for the university's anniversary fair: play a macrophage, pick up antigen fragments, bring them to the lymph node to recruit help, then defend the tissue. Chinese only.",
 
     /* V1 collaborators & funding */
     "v1.collab.label": "COLLABORATORS & FUNDING",
